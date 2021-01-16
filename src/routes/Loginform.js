@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { authService, firebaseInstance } from "../firebase";
 import "./Loginform.css";
+import App from '../components/App'
 
 const Loginform = () => {
     const [email, setEmail] =useState("");
@@ -71,6 +72,8 @@ const Loginform = () => {
         </div>
    </div>
    </div>
+
+  
     )
   }
 
