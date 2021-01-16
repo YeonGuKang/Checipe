@@ -100,7 +100,7 @@ const Mainpage = () => {
                          
                               <div className="login">
                                 {/* 로그인이 되어있는 상태라면 로그아웃 , 아니라면 로그인 버튼을 보여줌 */}
-                                {isLoggedIn ?  <Link to="/">
+                                {isLoggedIn ?  <Link to="/Checipe">
                                   {/* 위에 선언한 로그아웃함수를 클릭했을 때 실행 */}
                                      <li onClick={onLogOutClick}>로그아웃</li>
                                 </Link> : <Link to="/Loginform">
