@@ -208,5 +208,5 @@ const Mainpage = () => {
 //ㅗ
 //ㅇ
 //ㅇ
-
+//ㅡ
  export default Mainpage;
