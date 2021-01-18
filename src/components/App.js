@@ -37,6 +37,7 @@ function App() {
     <BrowserRouter>
     {/* 만약 로그인이 되면 Mainpage로 Redirect 아닌경우 Loginform을 보여줌 */}
     {/* {isLoggedIn ? (<Redirect from="/Loginform" to = "/Checipe" /> ) : null } */}
+    {/* gegegegeg */}
 
     {/* url path가 아래로 바뀔때 마다 component에 맞는 화면을 보여줌 */}
      <Route path="/Checipe" component = {Mainpage} exact />
