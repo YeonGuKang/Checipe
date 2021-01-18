@@ -203,7 +203,8 @@ const Mainpage = () => {
 
     );
     
-}   
+
+ 
 // sdfsdfsdafsdaf
 // sdfsdfsdafsdaf
 // sdfsdfsdafsdaf
@@ -218,5 +219,11 @@ const Mainpage = () => {
 // sdfsdfsdafsdaf
 // sdfsdfsdafsdaf
 
+       
+// 컴퓨터와 맞지 않습니다.
+//ㅗ
+//ㅇ
+//ㅇ
+//ㅡ
 
  export default Mainpage;
