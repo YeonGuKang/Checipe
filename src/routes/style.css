@@ -10,50 +10,56 @@
 
 /*뒤에 배경크기와 색깔을 설정*/
 .half_bg{
-    height: 400px;
+    position : relative;
+    left : 225px;
+    height: 885px;
+    width : 1695px;
     background-color: #537f46;
     
 }
 
 /*헤더의 위치와 색깔을 설정 (네비게션바)*/
 .header{
-    position: relative;
-        top: 50px;
+    position: absolute;
+        top: 120px;
     display: flex;
     justify-content: flex-end;
-    height: 40px;
+    height: 75px;
+    width : 1695px;
     background-color: white;
 }
 
 /*로고를 헤더위에 올려줌*/
 .logo{
-    position: relative;
-    bottom: 30px;
-    right: 150px;
-    width: 200px;
-    height: 100px;
+    position: absolute;
+        top : -60px;
+        left: 150px;
+    height: 300px;
    
 }
 
 /*네비게이션 바의 글씨들 위치를 정해줌*/
 .nav{
-   
-    margin-top: 10px;
-    margin-right: 400px;
+   position :absolute;
+        top : 20px;
+        left : 450px;
     display: flex;
 }
 
 /*글씨들의 글꼴과 사이간격을 정해줌*/
 .nav > li{
     font-family: 'Song Myung', serif;
+    font-size : 25px;
     margin-left: 84px;
 }
 
 .login{
     font-family: 'Song Myung', serif;
+    font-size : 25px;
     color: black;
-     margin-top: 10px;
-    margin-right: 30px;
+    position : absolute;
+        top : 25px;
+        right : 200px;
     display: flex;
 }
 
@@ -74,10 +80,10 @@
 /* Slideshow container */
 .slideshow-container {
 
-    width: 700px;
-  position: relative;
-  bottom: 200px;
-    left: 80px;
+    width: 1300px;
+    height : 730px;
+  position: absolute;
+    top : 410px;
 }
 
 /* Caption text */
@@ -143,13 +149,14 @@
 .about_vegan{
     height: 300px;
     width: 500px;
-    position: relative;
-    bottom: 150px;
-    left: 200px;
+    position: absolute;
+    top : 530px;
+    left: 1400px;
     
 }
 
 .about_vegan > li{
+    color : white;
      text-shadow: 3px 3px 2px gray;
     font-family: 'Song Myung', serif;
     font-weight: bold;
@@ -159,10 +166,11 @@
 }
 
 /*레시피 이동 버튼*/
+
 .btn{
-    position: relative;
-    top: 100px;
-    right: 280px;
+    position: absolute;
+        top: 100px;
+        right: 280px;
     height: 100px;
     width: 400px;
     background-color: #28421f;
@@ -183,21 +191,20 @@
 
 /*맨 아래 레이아웃 크기*/
 .lat{
-    height: 200px;
-    width: 100%;
+    height: 300px;
+    width: 1920px;
     
 }
 /*아래 슬라이드 설정*/
 .visual{
     height: auto;
-    width: auto;
+    width: 1920px;
     position: relative;
-    top: 70px;
-    left: 70px;
+        top: 150px;
 }
 /*술라이드 이미지 크기 설정*/
-.link-image { height: 100px;
-                width: 100px;
+.link-image { height: 300px;
+                width: 550px;
 }
 
 /*슬라이드에 보일 글씨설정 평소엔 투명*/
