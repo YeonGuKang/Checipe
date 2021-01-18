@@ -203,7 +203,20 @@ const Mainpage = () => {
 
     );
     
-}         
-// 주완이 바보
+}   
+// sdfsdfsdafsdaf
+// sdfsdfsdafsdaf
+// sdfsdfsdafsdaf
+// sdfsdfsdafsdaf
+
+
+// sdfsdfsdafsdaf
+// sdfsdfsdafsdaf
+// sdfsdfsdafsdaf
+// sdfsdfsdafsdaf
+// sdfsdfsdafsdaf
+// sdfsdfsdafsdaf
+// sdfsdfsdafsdaf
+
 
  export default Mainpage;
