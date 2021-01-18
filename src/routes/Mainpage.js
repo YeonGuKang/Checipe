@@ -60,6 +60,7 @@ const Mainpage = () => {
       
       // 중앙에 있는 슬라이드 설정
       var settings_mid = {
+        fade: true,
           // 점의 유무설정
         dots: true,
         // 좌우 화살표 줄 것인가
@@ -205,25 +206,6 @@ const Mainpage = () => {
     
 
  
-// sdfsdfsdafsdaf
-// sdfsdfsdafsdaf
-// sdfsdfsdafsdaf
-// sdfsdfsdafsdaf
-
-
-// sdfsdfsdafsdaf
-// sdfsdfsdafsdaf
-// sdfsdfsdafsdaf
-// sdfsdfsdafsdaf
-// sdfsdfsdafsdaf
-// sdfsdfsdafsdaf
-// sdfsdfsdafsdaf
-
-       
-// 컴퓨터와 맞지 않습니다.
-//ㅗ
-//ㅇ
-//ㅇ
-//ㅡ
+    }
 
  export default Mainpage;
