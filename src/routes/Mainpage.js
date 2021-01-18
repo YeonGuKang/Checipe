@@ -27,10 +27,6 @@ const Mainpage = () => {
         setIsLoggedIn(false);
       }
       setInit(true);
-      return(
-       
-        console.log("clean up") 
-       )
     });
     
   }, []);
@@ -88,15 +84,15 @@ const Mainpage = () => {
                               {/* js에서는 img를 이런식으로 import해서 불러온다. */}
                               <img
                                 src={ checipe_logo }
-                                width='100px'
-                                height='100px'
+                                width='200px'
+                                height='200px'
                                 alt= 'logo image'/>
                           </div>
                               <div>
                                   <ul className="nav">
                                     {/* 수정해야하는 부분 아래처럼 Link가 li를 덮어야한다. */}
                                       <li><Link to="#" />About</li>
-                                      <li><Link to="/Recipe">Recipe</Link></li>
+                                       <li><Link to="#" />Recipe</li>
                                        <li><Link to="#" />Notice</li>
                                        <li><Link to="#" />Open</li>
                                   </ul>
@@ -123,18 +119,18 @@ const Mainpage = () => {
                   <Slider {...settings_mid}>
                             <img
                                 src={ image2 }
-                                width='700px'
-                                height='370px'
+                                width='1300px'
+                                height='730px'
                                 />
                                  <img
                                 src={ image2 }
-                                width='700px'
-                                height='370px'
+                                width='1300px'
+                                height='730px'
                                 />
                                  <img
                                 src={ image2 }
-                                width='700px'
-                                height='370px'
+                                width='1300px'
+                                height='730px'
                                 />
                   </Slider>
                   </div>
@@ -147,7 +143,12 @@ const Mainpage = () => {
                               </div>
 
                           <div className="btn">
-                              <li><Link to="#" />레시피찾기</li>
+                              {/* js에서는 img를 이런식으로 import해서 불러온다. */}
+                              <img
+                                src={ checipe_logo }
+                                width='200px'
+                                height='200px'
+                                alt= 'logo image'/>
                       </div>
       
                   </div>
@@ -158,7 +159,7 @@ const Mainpage = () => {
                           <div id="link-image">
                              <img
                                 src={ image2 }
-                                width='200px'
+                                width='550px'
                                 alt='호박고구마'
                                 border='3'
                                 />
@@ -166,7 +167,7 @@ const Mainpage = () => {
                           <div id="link-image">
                           <img
                                 src={ image2 }
-                                width='200px'
+                                width='550px'
                                 alt='호박고구마'
                                 border='3'
                                 />
@@ -174,7 +175,7 @@ const Mainpage = () => {
                            <div id="link-image">
                            <img
                                 src={ image2 }
-                                width='200px'
+                                width='550px'
                                 alt='호박고구마'
                                 border='3'
                                 />
@@ -182,7 +183,7 @@ const Mainpage = () => {
                            <div id="link-image">
                            <img
                                 src={ image2 }
-                                width='200px'
+                                width='550px'
                                 alt='호박고구마'
                                 border='3'
                                 />
@@ -190,7 +191,7 @@ const Mainpage = () => {
                            <div id="link-image">
                            <img
                                 src={ image2 }
-                                width='200px'
+                                width='550px'
                                 alt='호박고구마'
                                 border='3'
                                 />
