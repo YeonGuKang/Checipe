@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Loginform from '../routes/Loginform';
 import Mainpage from '../routes/Mainpage';
+import Recipe from '../routes/Recipe';
 
 console.log("run App");
 
@@ -27,6 +28,7 @@ function App() {
         setIsLoggedIn(false);
       }
       setInit(true);
+       
     });
     
   }, []);
@@ -34,13 +36,12 @@ function App() {
   return(
     <BrowserRouter>
     {/* 만약 로그인이 되면 Mainpage로 Redirect 아닌경우 Loginform을 보여줌 */}
-        {isLoggedIn ? ( <Redirect from="/Loginform" to = "/Checipe" /> ) : <Route path="/Loginform"> <Loginform /> </Route> }
-
+    {/* {isLoggedIn ? (<Redirect from="/Loginform" to = "/Checipe" /> ) : null } */}
 
     {/* url path가 아래로 바뀔때 마다 component에 맞는 화면을 보여줌 */}
      <Route path="/Checipe" component = {Mainpage} exact />
-     
-
+     <Route path="/Recipe" component = {Recipe} />
+     <Route path="/Loginform" component = {Loginform} />
   </BrowserRouter>
 
   );

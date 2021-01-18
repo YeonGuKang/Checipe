@@ -1,9 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch, Link, BrowserRoute, Redirect } from 'react-router-dom';
 import { authService, firebaseInstance } from "../firebase";
 import "./Loginform.css";
 import App from '../components/App'
 
 const Loginform = () => {
+  const [init, setInit] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userObj, setUserObj] = useState(null);
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      console.log("changed");
+      if (user) {
+        console.log("user login")
+        setIsLoggedIn(true);
+        setUserObj(user);
+      } else {
+        console.log("user logout")
+        setIsLoggedIn(false);
+      }
+      setInit(true);
+    });
+    
+  }, []);
     const [email, setEmail] =useState("");
     const [password, setPassword] = useState("");
     const [newAccount, setNewAccount] = useState(true);
@@ -71,6 +90,7 @@ const Loginform = () => {
             <button onClick={onSocialClick} name="Github">Continue with Github</button>
         </div>
    </div>
+   <div>{isLoggedIn ? <Redirect from="/Loginform" to = "/Checipe" />: null}</div>
    </div>
 
   

@@ -27,6 +27,10 @@ const Mainpage = () => {
         setIsLoggedIn(false);
       }
       setInit(true);
+      return(
+       
+        console.log("clean up") 
+       )
     });
     
   }, []);
@@ -92,7 +96,7 @@ const Mainpage = () => {
                                   <ul className="nav">
                                     {/* 수정해야하는 부분 아래처럼 Link가 li를 덮어야한다. */}
                                       <li><Link to="#" />About</li>
-                                       <li><Link to="#" />Recipe</li>
+                                      <li><Link to="/Recipe">Recipe</Link></li>
                                        <li><Link to="#" />Notice</li>
                                        <li><Link to="#" />Open</li>
                                   </ul>
