@@ -204,6 +204,6 @@ const Mainpage = () => {
     );
     
 }         
-
+// 주완이 바보
 
  export default Mainpage;
