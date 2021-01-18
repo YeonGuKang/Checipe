@@ -204,6 +204,9 @@ const Mainpage = () => {
     );
     
 }         
-// 주완이 바보
+// 컴퓨터와 맞지 않습니다.
+//ㅗ
+//ㅇ
+//ㅇ
 
  export default Mainpage;
