@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
+import Frecipebtn from './image/Frecipe.png';
 import image2 from './image/image2.jfif';
 import "./style.css";
 import { authService } from '../firebase';
@@ -46,7 +47,7 @@ const Mainpage = () => {
       infinite: true,
       speed: 4000,
       // 한 번에 스크롤 몇 개 보여줄 건가
-      slidesToShow: 4,
+      slidesToShow: 3,
       // 스크롤 할 때마다 몇 장씩 넘길 것인가
       slidesToScroll: 1,
       // 자동 넘김을 할 것인가. 한다면 스피드는?
@@ -125,17 +126,17 @@ const Mainpage = () => {
                             <img
                                 src={ image2 }
                                 width='700px'
-                                height='370px'
+                                height='inherit'
                                 />
                                  <img
                                 src={ image2 }
                                 width='700px'
-                                height='370px'
+                                height='inherit'
                                 />
                                  <img
                                 src={ image2 }
                                 width='700px'
-                                height='370px'
+                                height='inherit'
                                 />
                   </Slider>
                   </div>
@@ -148,7 +149,11 @@ const Mainpage = () => {
                               </div>
 
                           <div className="btn">
-                              <li><Link to="#" />레시피찾기</li>
+                          <img
+                                src={ Frecipebtn }
+                                width='400px'
+                                height='150px'
+                                alt= 'recipebtn'/>
                       </div>
       
                   </div>
