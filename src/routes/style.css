@@ -10,7 +10,11 @@
 
 /*뒤에 배경크기와 색깔을 설정*/
 .half_bg{
-    height: 400px;
+    z-index: 1;
+    position : absolute;
+    left : 6vw;
+    width : 95vw;
+    height: 70vh;
     background-color: #537f46;
     
 }
@@ -18,10 +22,10 @@
 /*헤더의 위치와 색깔을 설정 (네비게션바)*/
 .header{
     position: relative;
-        top: 50px;
+        top: 10vh;
     display: flex;
     justify-content: flex-end;
-    height: 40px;
+    height: 5vh;
     background-color: white;
 }
 
@@ -29,10 +33,7 @@
 .logo{
     position: relative;
     bottom: 30px;
-    right: 150px;
-    width: 200px;
-    height: 100px;
-   
+    right: 150px;   
 }
 
 /*네비게이션 바의 글씨들 위치를 정해줌*/
@@ -59,8 +60,11 @@
 
 /*가운데 레이아웃 크기를 결정해줌*/
 .midle{
-
-    height: 150px;
+    z-index: 2;
+    position : absolute;
+    height : 20vh;
+    top : 80vh;
+    left : 0px;
     display: flex;
 
 }
@@ -73,11 +77,11 @@
 
 /* Slideshow container */
 .slideshow-container {
+  position: absolute;
+    top : -45vh;
+    width : 70vw;
+    height : 10vh;
 
-    width: 700px;
-  position: relative;
-  bottom: 200px;
-    left: 80px;
 }
 
 /* Caption text */
@@ -160,12 +164,9 @@
 
 /*레시피 이동 버튼*/
 .btn{
-    position: relative;
-    top: 100px;
-    right: 280px;
-    height: 100px;
-    width: 400px;
-    background-color: #28421f;
+    position: absolute; /*나중에 다시 relative로 수정 진행할거임*/
+    top: 30vh;
+    right : 5vw;
     
 }
 
@@ -192,8 +193,8 @@
     height: auto;
     width: auto;
     position: relative;
-    top: 70px;
-    left: 70px;
+    top: 70vh;
+    left: 10vw;
 }
 /*술라이드 이미지 크기 설정*/
 .link-image { height: 100px;
