@@ -127,16 +127,19 @@ const Mainpage = () => {
                     {/* react slick은 이런식으로 사용이 가능하다 */}
                   <Slider {...settings_mid}>
                             <img
+                                className='slideimg'
                                 src={ Whyvegan }
                                 width='1300px'
                                 height='100vh'
                                 />
                                  <img
+                               className='slideimg'
                                src={ Noticeimg }
                                width='1300px'
                                height='100vh'
                                 />
                                  <img
+                                className='slideimg' 
                                 src={ Aboutveg }
                                 width='1300px'
                                 height='100vh'
@@ -167,7 +170,6 @@ const Mainpage = () => {
                           <div id="link-image">
                              <img
                                 src={ image2 }
-                                width='200px'
                                 alt='호박고구마'
                                 border='3'
                                 />
@@ -175,7 +177,6 @@ const Mainpage = () => {
                           <div id="link-image">
                           <img
                                 src={ image2 }
-                                width='200px'
                                 alt='호박고구마'
                                 border='3'
                                 />
@@ -183,7 +184,6 @@ const Mainpage = () => {
                            <div id="link-image">
                            <img
                                 src={ image2 }
-                                width='200px'
                                 alt='호박고구마'
                                 border='3'
                                 />
@@ -191,7 +191,6 @@ const Mainpage = () => {
                            <div id="link-image">
                            <img
                                 src={ image2 }
-                                width='200px'
                                 alt='호박고구마'
                                 border='3'
                                 />
@@ -199,7 +198,6 @@ const Mainpage = () => {
                            <div id="link-image">
                            <img
                                 src={ image2 }
-                                width='200px'
                                 alt='호박고구마'
                                 border='3'
                                 />
