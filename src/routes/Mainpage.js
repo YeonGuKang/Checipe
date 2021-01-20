@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
 import Frecipebtn from './image/Frecipe.png';
+import Whyvegan from './image/whyvegan.png';
+import Noticeimg from './image/Noticeimg.png';
+import Aboutveg from './image/Aboutvege.png';
 import image2 from './image/image2.jfif';
 import "./style.css";
 import { authService } from '../firebase';
@@ -124,26 +127,26 @@ const Mainpage = () => {
                     {/* react slick은 이런식으로 사용이 가능하다 */}
                   <Slider {...settings_mid}>
                             <img
-                                src={ image2 }
-                                width='700px'
-                                height='inherit'
+                                src={ Whyvegan }
+                                width='1300px'
+                                height='100vh'
                                 />
                                  <img
-                                src={ image2 }
-                                width='700px'
-                                height='inherit'
+                               src={ Noticeimg }
+                               width='1300px'
+                               height='100vh'
                                 />
                                  <img
-                                src={ image2 }
-                                width='700px'
-                                height='inherit'
+                                src={ Aboutveg }
+                                width='1300px'
+                                height='100vh'
                                 />
                   </Slider>
                   </div>
   
                               <div className="about_vegan">
                                   {/* 모든 link to 부분 수정해야함 */}
-                                 <li><Link to="#" />About</li>
+                                 <li><Link to="#" />About </li>
                                   <li><Link to="#" />VEGETARIAN</li>
                                   <li><Link to="#" />채식에관하여</li>
                               </div>
