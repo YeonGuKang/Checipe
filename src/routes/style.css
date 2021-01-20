@@ -14,7 +14,7 @@
     position : relative;
     left : 6vw;
     width : 95vw;
-    height: 75vh;
+    height: 80vh;
     background-color: #537f46;
     
 }
@@ -63,10 +63,11 @@
 .midle{
     z-index: 2;
     position : relative;
-    top : -15vh;
+    top : -20vh;
     left : 0px;
     height : 500px;
-    /*display: flex; 해당 디스플레이 플렉스 수정 */
+    width: 50vw;
+    display: flex; /*해당 디스플레이 플렉스 수정 */
 
 }
 
@@ -75,17 +76,14 @@
     display: none;
 }
 
-.slick-slide {
-    height : 50%;
-}
-
 
 /* Slideshow container */
 .slideshow-container {
+    display: inline;
   position: relative;
     top : inherit;
     width : 70vw;
-    height : 1000px; /*여기 오지게 미친놈있다 이거 조심해라 다들*/
+    
 
 }
 
@@ -120,7 +118,10 @@
   transition: background-color 0.6s ease;
 }
 
-
+div > img.slideimg {
+    height: 80vh;
+    
+}
 .active {
   background-color: black;
 }
@@ -152,10 +153,7 @@
 .about_vegan{
     height: 300px;
     width: 500px;
-    position: relative; /*나중에 릴레이티브로 수정가능성있음 */
-    bottom : 0vh;
-    left: 0vw;
-    
+    position: absolute; /*나중에 릴레이티브로 수정가능성있음 */
 }
 
 .about_vegan > li{
@@ -172,8 +170,8 @@
 .btn{
     z-index: 5;
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
-    top: 0px;
-    right : 0px;
+    top: 30vh;
+    left: 0vw;
     
 }
 
@@ -198,14 +196,13 @@
 /*아래 슬라이드 설정*/
 .visual{
     height: auto;
-    width: auto;
+    width: 80vw;
     position: relative;
-    top: 70vh;
-    left: 10vw;
+    top: 10vh;
 }
 /*술라이드 이미지 크기 설정*/
-.link-image { height: 100px;
-                width: 100px;
+.link-image { height: 100vh;
+                width: 100vw;
 }
 
 /*슬라이드에 보일 글씨설정 평소엔 투명*/
