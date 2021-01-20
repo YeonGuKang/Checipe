@@ -11,21 +11,22 @@
 /*뒤에 배경크기와 색깔을 설정*/
 .half_bg{
     z-index: 1;
-    position : absolute;
+    position : relative;
     left : 6vw;
     width : 95vw;
-    height: 70vh;
+    height: 75vh;
     background-color: #537f46;
     
 }
 
 /*헤더의 위치와 색깔을 설정 (네비게션바)*/
 .header{
+    z-index: 3;
     position: relative;
         top: 10vh;
     display: flex;
     justify-content: flex-end;
-    height: 5vh;
+    height: 8vh;
     background-color: white;
 }
 
@@ -61,11 +62,11 @@
 /*가운데 레이아웃 크기를 결정해줌*/
 .midle{
     z-index: 2;
-    position : absolute;
-    height : 20vh;
-    top : 80vh;
+    position : relative;
+    top : -15vh;
     left : 0px;
-    display: flex;
+    height : 500px;
+    /*display: flex; 해당 디스플레이 플렉스 수정 */
 
 }
 
@@ -74,13 +75,17 @@
     display: none;
 }
 
+.slick-slide {
+    height : 50%;
+}
+
 
 /* Slideshow container */
 .slideshow-container {
-  position: absolute;
-    top : -45vh;
+  position: relative;
+    top : inherit;
     width : 70vw;
-    height : 10vh;
+    height : 1000px; /*여기 오지게 미친놈있다 이거 조심해라 다들*/
 
 }
 
@@ -147,13 +152,14 @@
 .about_vegan{
     height: 300px;
     width: 500px;
-    position: relative;
-    bottom: 150px;
-    left: 200px;
+    position: relative; /*나중에 릴레이티브로 수정가능성있음 */
+    bottom : 0vh;
+    left: 0vw;
     
 }
 
 .about_vegan > li{
+    color : white;
      text-shadow: 3px 3px 2px gray;
     font-family: 'Song Myung', serif;
     font-weight: bold;
@@ -164,9 +170,10 @@
 
 /*레시피 이동 버튼*/
 .btn{
-    position: absolute; /*나중에 다시 relative로 수정 진행할거임*/
-    top: 30vh;
-    right : 5vw;
+    z-index: 5;
+    position: relative; /*나중에 다시 relative로 수정 진행할거임*/
+    top: 0px;
+    right : 0px;
     
 }
 
