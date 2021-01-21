@@ -23,6 +23,7 @@ while t <= 2:
             d = re.sub(r'\([^)]*\)', '', d) # 괄호 안의 것 필터링
             d = re.sub(r'약간|적당량|다진것|\d.', '', d)  # 괄호 안의 것 필터링
             ingre.append(hangul.sub(' ', d).strip())  # 한글과 띄어쓰기를 제외한 모든 부분 필터링
+            print(ingre)
     start = end+1
     end = 1237
     t += 1
@@ -80,6 +81,7 @@ while t <= 2:
 set_ingre = set(edit_ingre)
 ingre = list(set_ingre)
 
-with open('mining.csv', 'w', newline='') as f:
-    writer = csv.writer(f)
-    writer.writerow(ingre)
+print(ingre)
+# with open('mining.csv', 'w', newline='') as f:
+#     writer = csv.writer(f)
+#     writer.writerow(ingre)
