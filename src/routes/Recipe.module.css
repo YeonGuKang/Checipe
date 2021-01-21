@@ -1,0 +1,92 @@
+/* 뒤에 배경크기와 색깔을 설정
+.half_bg{
+    z-index: 1;
+    position : relative;
+    display: flex;
+    left : 6vw;
+    width : 95vw;
+    height: 80vh;
+    background-color: #537f46;
+} */
+:root{
+    --text-color: #f0f4f5;
+    --background-color: #537f46;
+    --header-background: #ffffff;
+    --main-color: #537f46;
+}
+body{
+    background-color: var(--background-color);
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-background);
+    padding: 8px 12px;
+}
+
+.nav{
+    display: flex;
+    padding-left: 0;
+}
+
+.nav li{
+    padding-left: 0;
+    padding-right: 0;
+    padding: 8px 12px;
+}
+
+.nav li:hover{
+    background-color: var(--main-color);
+    border-radius: 8px;
+}
+.login{
+    padding-left: 0;
+    padding-right: 0;
+    padding: 8px 12px;    
+}
+
+.menubtn{
+    display: none;
+    width: 24px;
+    height: 24px;
+    color: var(--main-color);
+    position: absolute;
+    right: 20px;
+}
+
+@media screen and (max-width: 768px){
+    .nav{
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 8px 24px;
+    }
+
+    .header{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav li {
+        padding-left: 0;
+        width: 100%;
+        text-align: center;    
+    }
+    .login{
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        /* display: none; */
+    }
+    .menubtn{
+        display: block;
+    }
+    /* 로그인 네비바 부분이 활성화 되었을때(클릭 시) */
+    .login.active,
+    .nav.active{
+        display: flex;
+    }
+}
+
