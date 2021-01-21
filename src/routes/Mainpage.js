@@ -87,14 +87,14 @@ const Mainpage = () => {
 
     return(
             <div className="wrap">
-                  <div className="half_bg">   
+                  <div className="half_bg">
                       <div className="header">
                           <div className="logo">
                               {/* js에서는 img를 이런식으로 import해서 불러온다. */}
                               <img
                                 src={ checipe_logo }
-                                width='100px'
-                                height='100px'
+                                width='220vw'
+                                height='220vh'
                                 alt= 'logo image'/>
                           </div>
                               <div>
@@ -117,13 +117,29 @@ const Mainpage = () => {
                                 </Link> }
 
                                
-                              </div>
-                           
+                              </div>        
                    </div>
+                   <div className="about_vegan">
+                                  {/* 모든 link to 부분 수정해야함 */}
+                                 <li><Link to="#" />About </li>
+                                  <li><Link to="#" />VEGETARIAN</li>
+                                  <li><Link to="#" />채식에관하여</li>
+                      <div className="btn">
+                          <img
+                                src={ Frecipebtn }
+                                alt= 'recipebtn'/>
+                      </div>  
+                              </div>
+
+                    
               </div>  
                   
                   <div className="midle">
+                
                   <div className="slideshow-container">
+                  <div className="greentrans">
+                    
+                    </div>
                     {/* react slick은 이런식으로 사용이 가능하다 */}
                   <Slider {...settings_mid}>
                             <img
@@ -146,21 +162,6 @@ const Mainpage = () => {
                                 />
                   </Slider>
                   </div>
-  
-                              <div className="about_vegan">
-                                  {/* 모든 link to 부분 수정해야함 */}
-                                 <li><Link to="#" />About </li>
-                                  <li><Link to="#" />VEGETARIAN</li>
-                                  <li><Link to="#" />채식에관하여</li>
-                              </div>
-
-                          <div className="btn">
-                          <img
-                                src={ Frecipebtn }
-                                width='400px'
-                                height='150px'
-                                alt= 'recipebtn'/>
-                      </div>
       
                   </div>
 
