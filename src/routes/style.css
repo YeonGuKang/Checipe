@@ -13,7 +13,7 @@
     z-index: 1;
     position : relative;
     left : 7vw;
-    width : 92vw;
+    width : 90vw;
     height: 85vh;
     background-color: #537f46;
     
@@ -25,7 +25,7 @@
     position: relative;
         top: 12vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     height: 8vh;
     background-color: white;
 }
@@ -34,7 +34,7 @@
 .logo{
     position: relative;
     top : -7vh;
-    left : -20vw;   
+    left : 0vw;   
 }
 
 /*네비게이션 바의 글씨들 위치를 정해줌*/
@@ -55,7 +55,7 @@
     font-family: 'Song Myung', serif;
     color: black;
      margin-top: 10px;
-    margin-right: 30px;
+    margin-right: 0px;
     display: flex;
 }
 
@@ -64,9 +64,7 @@
     z-index: 2;
     position : relative;
     top : -20vh;
-    left : 0px;
     height : 500px;
-    width: 50vw;
     display: flex; /*해당 디스플레이 플렉스 수정 */
 
 }
@@ -77,12 +75,11 @@
 }
 
 .greentrans {
-    position : relative;
+    position : absolute;
     background-color : #28421f;
-    opacity : 0.5;
-    height : 100px;
-    width : 100px;
-    display : flex;
+    height : inherit;
+    width : inherit;
+    
 
 }
 
@@ -92,7 +89,7 @@
   position: relative;
     top : inherit;
     width : 70vw;
-    
+    height: 75vh;
 
 }
 
@@ -160,9 +157,13 @@ div > img.slideimg {
 
 /*비건 설명 이동 버튼*/
 .about_vegan{
-    height: 300px;
-    width: 500px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative; /*나중에 릴레이티브로 수정가능성있음 */
+    left: 65vw;
+    top: 50vh;
+    
 }
 
 .about_vegan > li{
@@ -172,28 +173,21 @@ div > img.slideimg {
     font-weight: bold;
     font-size: 40px;
     letter-spacing: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 3vh;
+    display: inline;
 }
 
 /*레시피 이동 버튼*/
 .btn{
+    display: inline;
     z-index: 5;
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
-    top: 30vh;
-    left: 4.5vw;
-    
+    margin-top: 5vh;
 }
 
-.btn > li{
-    
-     text-shadow: 3px 3px 2px gray;
-    font-family: 'Song Myung', serif;
-    font-weight: bold;
-    font-size: 40px;
-    letter-spacing: 10px;
-    
-    text-align: center;
-    margin-top: 20px;
+.btn > img {
+    width: 20vw;
+    height: 13vh;
 }
 
 /*맨 아래 레이아웃 크기*/
