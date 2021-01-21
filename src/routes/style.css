@@ -12,9 +12,9 @@
 .half_bg{
     z-index: 1;
     position : relative;
-    left : 6vw;
-    width : 95vw;
-    height: 80vh;
+    left : 7vw;
+    width : 92vw;
+    height: 85vh;
     background-color: #537f46;
     
 }
@@ -23,7 +23,7 @@
 .header{
     z-index: 3;
     position: relative;
-        top: 10vh;
+        top: 12vh;
     display: flex;
     justify-content: flex-end;
     height: 8vh;
@@ -33,8 +33,8 @@
 /*로고를 헤더위에 올려줌*/
 .logo{
     position: relative;
-    bottom: 30px;
-    right: 150px;   
+    top : -7vh;
+    left : -20vw;   
 }
 
 /*네비게이션 바의 글씨들 위치를 정해줌*/
@@ -76,6 +76,15 @@
     display: none;
 }
 
+.greentrans {
+    position : relative;
+    background-color : #28421f;
+    opacity : 0.5;
+    height : 100px;
+    width : 100px;
+    display : flex;
+
+}
 
 /* Slideshow container */
 .slideshow-container {
@@ -119,7 +128,7 @@
 }
 
 div > img.slideimg {
-    height: 80vh;
+    height: 75vh;
     
 }
 .active {
@@ -153,7 +162,7 @@ div > img.slideimg {
 .about_vegan{
     height: 300px;
     width: 500px;
-    position: absolute; /*나중에 릴레이티브로 수정가능성있음 */
+    position: relative; /*나중에 릴레이티브로 수정가능성있음 */
 }
 
 .about_vegan > li{
@@ -171,7 +180,7 @@ div > img.slideimg {
     z-index: 5;
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
     top: 30vh;
-    left: 0vw;
+    left: 4.5vw;
     
 }
 
