@@ -6,7 +6,7 @@ import re
 start = '1'
 end = '1000'
 
-ma = re.compile('manual[0-20]')
+ma = re.compile('manual[0-20]') 
 manual_list = []
 for _ in range(2):
     url = 'http://openapi.foodsafetykorea.go.kr/api/ddc71faf24fc455e8410/COOKRCP01/xml/' + start + '/' + end
