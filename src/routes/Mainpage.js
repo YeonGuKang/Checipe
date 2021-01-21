@@ -93,8 +93,8 @@ const Mainpage = () => {
                               {/* js에서는 img를 이런식으로 import해서 불러온다. */}
                               <img
                                 src={ checipe_logo }
-                                width='100px'
-                                height='100px'
+                                width='220vw'
+                                height='220vh'
                                 alt= 'logo image'/>
                           </div>
                               <div>
@@ -146,7 +146,6 @@ const Mainpage = () => {
                                 />
                   </Slider>
                   </div>
-  
                               <div className="about_vegan">
                                   {/* 모든 link to 부분 수정해야함 */}
                                  <li><Link to="#" />About </li>
