@@ -35,15 +35,15 @@ const Recipe = () => {
   // 로그아웃을 위한 함수를 선언
   const onLogOutClick = () => authService.signOut();
 
-  const toggleBtn = document.querySelector("menubtn");
-  const nav = document.querySelector('nav');
-  const login = document.querySelector('login');
-  toggleBtn.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    login.classList.toggle('active');
-  });
-    return(
-            <div className={rec.wrap}>              
+  // const toggleBtn = document.querySelector("menubtn");
+  // const nav = document.querySelector('nav');
+  // const login = document.querySelector('login');
+  // toggleBtn.addEventListener('click', () => {
+  //   nav.classList.toggle('active');
+  //   login.classList.toggle('active');
+  // });
+    return(            
+            <div className={rec.wrap}>                            
               <nav className={rec.header}>                                  
                 {/* js에서는 img를 이런식으로 import해서 불러온다. */}
                 <a href="/Checipe">
@@ -74,8 +74,8 @@ const Recipe = () => {
                   <Msvg className></Msvg>
                 </a>
               </nav>
-              <div className={rec.half_bg} />   
-            </div>
+              <div className={rec.half_bg} />               
+            </div>            
     );
 }         
 
