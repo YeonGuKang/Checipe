@@ -14,7 +14,7 @@
     --header-background: #ffffff;
     --main-color: #537f46;
 }
-body{
+.wrap{    
     background-color: var(--background-color);
 }
 .header{
@@ -24,18 +24,15 @@ body{
     background-color: var(--header-background);
     padding: 8px 12px;
 }
-
 .nav{
     display: flex;
     padding-left: 0;
 }
-
 .nav li{
     padding-left: 0;
     padding-right: 0;
     padding: 8px 12px;
 }
-
 .nav li:hover{
     background-color: var(--main-color);
     border-radius: 8px;
@@ -45,7 +42,6 @@ body{
     padding-right: 0;
     padding: 8px 12px;    
 }
-
 .menubtn{
     display: none;
     width: 24px;
@@ -54,7 +50,12 @@ body{
     position: absolute;
     right: 20px;
 }
-
+.half_bg{
+    display: flex;    
+    background-color: var(--background-color);
+    width: 80%;
+    height: 100vh;
+}
 @media screen and (max-width: 768px){
     .nav{
         display: none;
