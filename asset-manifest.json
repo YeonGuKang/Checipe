@@ -1,25 +1,30 @@
 {
   "files": {
-    "main.css": "/Checipe/static/css/main.0adf767e.chunk.css",
-    "main.js": "/Checipe/static/js/main.7492144e.chunk.js",
-    "main.js.map": "/Checipe/static/js/main.7492144e.chunk.js.map",
+    "main.css": "/Checipe/static/css/main.7b57ab26.chunk.css",
+    "main.js": "/Checipe/static/js/main.5995403d.chunk.js",
+    "main.js.map": "/Checipe/static/js/main.5995403d.chunk.js.map",
     "runtime-main.js": "/Checipe/static/js/runtime-main.34120e2b.js",
     "runtime-main.js.map": "/Checipe/static/js/runtime-main.34120e2b.js.map",
     "static/css/2.653800cc.chunk.css": "/Checipe/static/css/2.653800cc.chunk.css",
-    "static/js/2.ba2ef6f9.chunk.js": "/Checipe/static/js/2.ba2ef6f9.chunk.js",
-    "static/js/2.ba2ef6f9.chunk.js.map": "/Checipe/static/js/2.ba2ef6f9.chunk.js.map",
+    "static/js/2.80d42e92.chunk.js": "/Checipe/static/js/2.80d42e92.chunk.js",
+    "static/js/2.80d42e92.chunk.js.map": "/Checipe/static/js/2.80d42e92.chunk.js.map",
     "index.html": "/Checipe/index.html",
     "static/css/2.653800cc.chunk.css.map": "/Checipe/static/css/2.653800cc.chunk.css.map",
-    "static/css/main.0adf767e.chunk.css.map": "/Checipe/static/css/main.0adf767e.chunk.css.map",
-    "static/js/2.ba2ef6f9.chunk.js.LICENSE.txt": "/Checipe/static/js/2.ba2ef6f9.chunk.js.LICENSE.txt",
+    "static/css/main.7b57ab26.chunk.css.map": "/Checipe/static/css/main.7b57ab26.chunk.css.map",
+    "static/js/2.80d42e92.chunk.js.LICENSE.txt": "/Checipe/static/js/2.80d42e92.chunk.js.LICENSE.txt",
+    "static/media/Aboutvege.9dcd15cc.png": "/Checipe/static/media/Aboutvege.9dcd15cc.png",
+    "static/media/Frecipe.60ec6ca9.png": "/Checipe/static/media/Frecipe.60ec6ca9.png",
+    "static/media/Noticeimg.7b3c9142.png": "/Checipe/static/media/Noticeimg.7b3c9142.png",
     "static/media/image2.f440a34b.jfif": "/Checipe/static/media/image2.f440a34b.jfif",
-    "static/media/slick-theme.css": "/Checipe/static/media/slick.c94f7671.ttf"
+    "static/media/menu.e8db7520.svg": "/Checipe/static/media/menu.e8db7520.svg",
+    "static/media/slick-theme.css": "/Checipe/static/media/slick.c94f7671.ttf",
+    "static/media/whyvegan.5c170251.png": "/Checipe/static/media/whyvegan.5c170251.png"
   },
   "entrypoints": [
     "static/js/runtime-main.34120e2b.js",
     "static/css/2.653800cc.chunk.css",
-    "static/js/2.ba2ef6f9.chunk.js",
-    "static/css/main.0adf767e.chunk.css",
-    "static/js/main.7492144e.chunk.js"
+    "static/js/2.80d42e92.chunk.js",
+    "static/css/main.7b57ab26.chunk.css",
+    "static/js/main.5995403d.chunk.js"
   ]
 }
