@@ -5,7 +5,6 @@ import rec from "./Recipe.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
-  
 const Recipe = () => {
 
   const [init, setInit] = useState(false);
@@ -229,6 +228,7 @@ const Recipe = () => {
                   <h1>{Show.id}</h1>
                   <img
                     src={ Show.img }
+                    alt = "보이지않는 이미지입니다."
                     width='300px'
                     height='300vh'
                  />
