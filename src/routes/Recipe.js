@@ -54,13 +54,14 @@ const Recipe = () => {
       
       // dbLacto에 존재하는 모든 각각의 document에 대해서 실행
       dbLacto.forEach((document) => {
+        // 임시로 객체를 하나 선언해서 그 객체에 모든 존재하는 데이터와 id를 추가해서 넣어줌
         const LactoObject = {
           ...document.data(),
           id: document.id,
         };
         // Lacto 객체에 파이어베이스에 있는 정보를 set해줌 (set 함수인자에 함수를 넣어준 형태)
         // prev => []  형태는 모든 이전의 document에 대해서 배열을 리턴한다
-        // 가장 최근 document인 Object를 보여주고 그 뒤로 이전 documnet를 보여줌
+        // 가장 최근 document인 Object를 return해서 set해주고 그 뒤로 이전 documnet를 return해서 set해줌 (implict return 형식)
         setLacto((prev) => [LactoObject, ...prev]);
       });
 
@@ -142,6 +143,7 @@ const Recipe = () => {
 
   // 사용자가 선택한 type에 맞게 데이터를 선택하는 함수
       const getChosen = async (event) => {
+        // event안에 존재하는 target의 value를 name으로 넘긴다.
       const {
         target: {name},
       } = event;
@@ -223,6 +225,7 @@ const Recipe = () => {
 
             {/* 사용자가 클릭한 type에 맞는 객체 정보를 쭉 나열해서 보여줌 */}
             <div>
+              {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
               {chosen.map((Show)=>(
                 <div key={Show.id}>
                   <h1>{Show.id}</h1>
