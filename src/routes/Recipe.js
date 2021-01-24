@@ -177,18 +177,21 @@ const Recipe = () => {
       console.log(chosen);
     }
 
-    return(            
-            <div className={rec.wrap}>                            
-              <nav className={rec.header}>                                  
+    return(           
+            <div className={rec.wrap}> 
+               <div className={rec.half_bgs}>     
+              <nav className={rec.header}> 
+              <div className={rec.Rlogo}>                               
                 {/* js에서는 img를 이런식으로 import해서 불러온다. */}
                 <a href="/Checipe">
                   <img                  
                   className={rec.logo_img}
                   src={ checipe_logo }
-                  width='100px'
-                  height='100px'
+                  width='220vw'
+                  height='220vh'
                   />
                 </a>
+                </div>  
                 <ul className={rec.nav}>
                   {/* 수정해야하는 부분 아래처럼 Link가 li를 덮어야한다. */}
                   <li><Link to="#" />About</li>
@@ -209,6 +212,7 @@ const Recipe = () => {
                   <Msvg className></Msvg>
                 </a>
               </nav>
+              </div>
               <div>
 
           {/* 버튼을 클릭했을때 name의 값을 getChosen으로 넘겨줌 */}
