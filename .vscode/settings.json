@@ -1,0 +1,6 @@
+{
+    "powermode.comboThreshold": 1,
+    "powermode.enabled": true,
+    "powermode.enableShake": false,
+    "powermode.presets": "fireworks"
+}
