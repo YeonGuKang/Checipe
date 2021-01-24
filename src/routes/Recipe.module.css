@@ -1,28 +1,39 @@
-/* 뒤에 배경크기와 색깔을 설정
-.half_bg{
+/* 뒤에 배경크기와 색깔을 설정*/
+.half_bgs{
     z-index: 1;
     position : relative;
-    display: flex;
-    left : 6vw;
-    width : 95vw;
-    height: 80vh;
+    left : 7vw;
+    width : 92vw;
+    height: 85vh;
     background-color: #537f46;
-} */
+}
+
+.Rlogo{
+    position: relative;
+    display : inline;
+    left : 10vw;   
+}
 :root{
     --text-color: #f0f4f5;
-    --background-color: #537f46;
+    --background-color: #28421f;
     --header-background: #ffffff;
     --main-color: #537f46;
 }
 .wrap{    
     background-color: var(--background-color);
+    right : 6vw;
+    width : 92vw;
+    height : 2000px;
 }
 .header{
+    position : relative;
+    top : 12vh;
     display: flex;
+    width : 92vw;
+    height : 8vh;
     justify-content: space-between;
     align-items: center;
     background-color: var(--header-background);
-    padding: 8px 12px;
 }
 .nav{
     display: flex;
@@ -50,12 +61,7 @@
     position: absolute;
     right: 20px;
 }
-.half_bg{
-    display: flex;    
-    background-color: var(--background-color);
-    width: 80%;
-    height: 100vh;
-}
+
 @media screen and (max-width: 768px){
     .nav{
         display: none;
