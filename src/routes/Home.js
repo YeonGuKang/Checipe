@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { dbService } from "../firebase";
 
+// 현재 사용하지 않음
 console.log("run home");
 
 const Home = ({userObj}) => {

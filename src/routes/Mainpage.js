@@ -99,7 +99,6 @@ const Mainpage = () => {
                           </div>
                               <div>
                                   <ul className="nav">
-                                    {/* 수정해야하는 부분 아래처럼 Link가 li를 덮어야한다. */}
                                       <li><Link to="/About">About</Link></li>
                                       <li><Link to="/Recipe">Recipe</Link></li>
                                        <li><Link to="/Notice" >Notice</Link></li>
@@ -120,7 +119,6 @@ const Mainpage = () => {
                               </div>        
                    </div>
                    <div className="about_vegan">
-                                  {/* 모든 link to 부분 수정해야함 */}
                                  <li><Link to="#" />About </li>
                                   <li><Link to="#" />VEGETARIAN</li>
                                   <li><Link to="#" />채식에관하여</li>
