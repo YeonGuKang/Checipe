@@ -19,7 +19,7 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 
-for i in range(len(merge)):
+'''for i in range(len(merge)):
     doc_ref = db.collection('merge').document(merge.iloc[i]['name'])
     doc_ref.set({
         'part': merge.iloc[i]['part'],
@@ -30,5 +30,5 @@ for i in range(len(merge)):
         'numbers': label[i]
     })
 
-
+'''
 
