@@ -194,10 +194,10 @@ const Recipe = () => {
                 </div>  
                 <ul className={rec.nav}>
                   {/* 수정해야하는 부분 아래처럼 Link가 li를 덮어야한다. */}
-                  <li><Link to="#" />About</li>
-                  <li><Link to="/Recipe" />Recipe</li>
-                  <li><Link to="#" />Notice</li>
-                  <li><Link to="#" />Open</li>
+                  <li><Link to="/About">About</Link></li>
+                  <li><Link to="/Recipe">Recipe</Link></li>
+                  <li><Link to="/Notice">Notice</Link></li>
+                  <li><Link to="/Open">Open</Link></li>
                 </ul>
                 <div className={rec.login}>
                   {/* 로그인이 되어있는 상태라면 로그아웃 , 아니라면 로그인 버튼을 보여줌 */}
