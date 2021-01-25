@@ -2,10 +2,12 @@
 .half_bgs{
     z-index: 1;
     position : relative;
+    flex-direction: column;
     left : 7vw;
     width : 92vw;
     height: 85vh;
     background-color:  #537f46;
+    display : flex;
 }
 
 .Rlogo{
@@ -19,12 +21,6 @@
     --header-background: #ffffff;
     --main-color: #537f46;
 }
-.wrap{    
-    background-color: var(--background-color);
-    right : 6vw;
-    width : 92vw;
-    height : 2000px;
-}
 .header{
     position : relative;
     top : 12vh;
@@ -34,6 +30,25 @@
     justify-content: space-between;
     align-items: center;
     background-color: var(--header-background);
+}
+.section {
+    background-color : var(--background-color);
+    width : 92vw;
+    height : inherit;
+    position : relative;
+    top : -20vh;
+}
+.whiteselect { 
+    z-index: 1;
+    background-color : white;
+    width : 80vw;
+    height : 45vh;
+    border-top-left-radius : 40px;
+    border-top-right-radius : 40px;
+    border-bottom-right-radius: 40px;
+    position : relative;
+    left : 2vw;
+    bottom : -28vh;
 }
 .nav{
     display: flex;
@@ -60,6 +75,24 @@
     color: var(--main-color);
     position: absolute;
     right: 20px;
+}
+
+.vegetarianbtn {
+    width : 60vw;
+    position : relative;
+    left : 8vw;
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.originalbtn {
+    width : 70vw;
+    position : relative;
+    left : 5vw;
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Register.js 부분 css */
