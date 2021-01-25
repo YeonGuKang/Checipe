@@ -12,18 +12,23 @@ const Notice = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
 
-  const [checipe, setchecipe] = useState("");
-  const [checipes, setchecipes] = useState([]);
+  //  DB에 존재하는 게시글을 받아오기 위함
+  const [board, setboard] = useState("");
+  const [boards, setboards] = useState([]);
+  
+
   
   useEffect(() => {
 
+    // DB에서 게시글을 받아오는 과정
     dbService.collection("게시글").onSnapshot((snapshot) => {
-        const checipeArray = snapshot.docs.map((doc) => ({
+        const boardArray = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setchecipes(checipeArray);
+        setboards(boardArray);
       });
+
 
     authService.onAuthStateChanged((user) => {
       console.log("changed");
@@ -59,7 +64,6 @@ const Notice = () => {
             </a>
             </div>  
             <ul className={rec.nav}>
-              {/* 수정해야하는 부분 아래처럼 Link가 li를 덮어야한다. */}
               <li><Link to="/About">About</Link></li>
               <li><Link to="/Recipe">Recipe</Link></li>
               <li><Link to="/Notice">Notice</Link></li>
@@ -80,17 +84,33 @@ const Notice = () => {
           </nav>
           <li><Link to="/Register">글 등록하기</Link></li>
 
+        {/* 게시글을 보여주기 위한 middle 부분 */}
           <div className = {rec.middle}>
-            <div key={checipe.id}>
-                {checipes.map(checipe => 
-                <div>
-                    <h4>{checipe.text}</h4>
-                </div>)
-                }
-        </div>
+            <div className={rec.board}>
+                <div  className={rec.board_detail}>
+                  {/* 제목 부분에 title을 불러옴 */}
+                    <div>
+                        제목
+                        {boards.map(board => 
+                        <div key={board.id}>
+                            <h4>{board.title}</h4>
+                        </div>)
+                        }
+                    </div>
+                    {/* 마찬가지로 날짜 부분에 만든 날짜를 게시글 작성 날짜를 불러옴 */}
+                    <div className={rec.board_date}>
+                        날짜
+                        {boards.map(board => 
+                        <div key={board.id}>
+                            <h4>{board.createdAt}</h4>
+                        </div>)
+                        }
+                    </div>
+                    </div>
+              </div>
 
           </div>
-          </div>         
+      </div>         
           <div className={rec.half_bg} />  
         </div>
         
