@@ -1,30 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
 import rec from "./Recipe.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
 
-const Notice = () => {
+const Register = () => {
 
     const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
 
-  const [checipe, setchecipe] = useState("");
-  const [checipes, setchecipes] = useState([]);
+  const [title, settitle] = useState("");
+  const [content, setcontent] = useState("");
+  const [check, setcheck] =useState(false);
+
+
   
   useEffect(() => {
-
-    dbService.collection("게시글").onSnapshot((snapshot) => {
-        const checipeArray = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setchecipes(checipeArray);
-      });
-
     authService.onAuthStateChanged((user) => {
       console.log("changed");
       if (user) {
@@ -40,12 +34,39 @@ const Notice = () => {
     
   }, []);
 
+  const onclick = async (event) => {
+    event.preventDefault();
+    await dbService.collection("게시글").add({
+        title:title,
+        content:content,
+        createdAt:Date.now(),
+        creatorId: userObj.uid,
+    });
+    settitle("");
+    setcontent("");
+    setcheck(true);
+  };
+
+  const onChange_title = (event) => {
+    const {
+      target: { value },
+    } = event;
+    settitle(value)
+  };
+
+  const onChange_content = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setcontent(value)
+  };
+
     // 로그아웃을 위한 함수를 선언
     const onLogOutClick = () => authService.signOut();
 
     return(           
         <div className={rec.wrap}> 
-           <div className={rec.half_bgs}>     
+           <div className={rec.half_bgs}>        
           <nav className={rec.header}> 
           <div className={rec.Rlogo}>                               
             {/* js에서는 img를 이런식으로 import해서 불러온다. */}
@@ -78,25 +99,44 @@ const Notice = () => {
               <Msvg className></Msvg>
             </a>
           </nav>
-          <li><Link to="/Register">글 등록하기</Link></li>
-
           <div className = {rec.middle}>
-            <div key={checipe.id}>
-                {checipes.map(checipe => 
+            <form className = {rec.registerform}>
+                <div className = {rec.Write}>
+                    <input 
+                    onChange={onChange_title}
+                    type = 'text'
+                    value={title}
+                    className={rec.title_txt}
+                    placeholder='제목'/>
+                </div>
                 <div>
-                    <h4>{checipe.text}</h4>
-                </div>)
-                }
-        </div>
+                    <textarea 
+                    onChange={onChange_content}
+                    className={rec.content_txt} 
+                    placeholder='내용을 입력하세요.'
+                    type = 'text'
+                    value={content}
+                    minLength={10} />
+                </div>
 
-          </div>
-          </div>         
+                <button onClick={onclick} className = {rec.registerbtn}>
+                Register
+                </button>
+
+                <div>{check ? <Redirect from="/Register" to = "/Notice" />: null}
+                </div>
+            </form>  
+            <div>
+        </div>
+          </div> 
+
+          </div>           
           <div className={rec.half_bg} />  
         </div>
         
-        
+      
 );
 }
 
 
-export default Notice;
+export default Register;
