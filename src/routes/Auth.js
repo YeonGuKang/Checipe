@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { authService, firebaseInstance } from "../firebase";
 
+//현재 사용하지 않음
+
 console.log("run auth");
 
 //const Auth = function() { } 와 동일하다

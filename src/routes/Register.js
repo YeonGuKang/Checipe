@@ -5,6 +5,7 @@ import rec from "./Recipe.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
+// 게시글을 등록하는 component
 
 const Register = () => {
 
@@ -12,11 +13,15 @@ const Register = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
 
+  // 게시글을 위한 title과 content
   const [title, settitle] = useState("");
   const [content, setcontent] = useState("");
+
+  // 게시글이 작성되었나 확인
   const [check, setcheck] =useState(false);
 
-
+  // 게시글 작성 날짜를 위함
+  let today = new Date();
   
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
@@ -34,19 +39,23 @@ const Register = () => {
     
   }, []);
 
+  // 버튼 클릭이 있을때 게시글을 추가해줌
   const onclick = async (event) => {
     event.preventDefault();
     await dbService.collection("게시글").add({
         title:title,
         content:content,
-        createdAt:Date.now(),
+        // 현재 날짜를 이런식으로 추가해준다
+        createdAt:today.toLocaleDateString('en-US'),
         creatorId: userObj.uid,
     });
     settitle("");
     setcontent("");
+    // 게시글을 추가하였으니 true로 변환
     setcheck(true);
   };
 
+  // title과 content의 값을 변환해준다
   const onChange_title = (event) => {
     const {
       target: { value },
@@ -80,7 +89,6 @@ const Register = () => {
             </a>
             </div>  
             <ul className={rec.nav}>
-              {/* 수정해야하는 부분 아래처럼 Link가 li를 덮어야한다. */}
               <li><Link to="/About">About</Link></li>
               <li><Link to="/Recipe">Recipe</Link></li>
               <li><Link to="/Notice">Notice</Link></li>
@@ -99,15 +107,18 @@ const Register = () => {
               <Msvg className></Msvg>
             </a>
           </nav>
+          {/* 게시글 작성을 위한 middle부분 */}
           <div className = {rec.middle}>
             <form className = {rec.registerform}>
                 <div className = {rec.Write}>
+                  {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
                     <input 
                     onChange={onChange_title}
                     type = 'text'
                     value={title}
                     className={rec.title_txt}
-                    placeholder='제목'/>
+                    placeholder='제목'
+                    maxLength={10} />
                 </div>
                 <div>
                     <textarea 
@@ -118,11 +129,12 @@ const Register = () => {
                     value={content}
                     minLength={10} />
                 </div>
-
+                
                 <button onClick={onclick} className = {rec.registerbtn}>
                 Register
                 </button>
 
+            {/* 게시글이 작성되었나 판단해서 작성된 경우에는 redirect로 게시판 페이지로 이동 */}
                 <div>{check ? <Redirect from="/Register" to = "/Notice" />: null}
                 </div>
             </form>  
