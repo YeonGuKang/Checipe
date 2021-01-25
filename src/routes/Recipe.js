@@ -4,6 +4,33 @@ import checipe_logo from './image/chaecipielogo.png';
 import rec from "./Recipe.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
+import vegetarian from './icons/vegetarian.svg';
+import veganx from './icons/veganx.svg';
+import vegano from './icons/vegano.svg';
+import lactox from './icons/lactox.svg';
+import lactoo from './icons/lactoo.svg';
+import ovox from './icons/ovox.svg';
+import ovoo from './icons/ovoo.svg';
+import lactovox from './icons/lactovox.svg';
+import lactovoo from './icons/lactovoo.svg';
+import pollox from './icons/pollox.svg';
+import polloo from './icons/polloo.svg';
+import pescox from './icons/pescox.svg';
+import pescoo from './icons/pescoo.svg';
+import polpescox from './icons/polpescox.svg';
+import polpescod from './icons/polpescoo.svg';
+import vegeline from './icons/vegeline.svg';
+import flexix from './icons/flexix.svg';
+import flecxio from './icons/flexio.svg';
+
+
+
+
+
+
+
+
+
 
 const Recipe = () => {
 
@@ -172,6 +199,10 @@ const Recipe = () => {
       }
       else if(name == "Vegan"){
         setchosen(Vegan);
+            <img src={vegano} 
+                    width='100vw'
+                    height='100vh'
+                    name="Vegan"/>
       }
 
       console.log(chosen);
@@ -212,12 +243,51 @@ const Recipe = () => {
                   <Msvg className></Msvg>
                 </a>
               </nav>
-              </div>
-              <div>
-
-          {/* 버튼을 클릭했을때 name의 값을 getChosen으로 넘겨줌 */}
-            <div>
-               <button onClick={getChosen} name="Lacto">Lacto</button>
+              <div className={rec.whiteselect}>
+              <div className={rec.vegetarianbtn}>
+              <img src={vegetarian}
+                                width='150vw'
+                                height='150vh'
+                                alt= 'vegetarian'/>
+               <img src={vegeline}
+                                width='10vw'
+                                height='100vh'
+                                alt= 'justaline'/>                  
+              <img onClick={getChosen} src={veganx} 
+                                width='100vw'
+                                height='100vh'
+                                name="Vegan"/>
+               <img onClick={getChosen} src={lactox} 
+                                  width='100vw'
+                                  height='100vh'
+                                name="Lacto"/>
+               <img onClick={getChosen} src={ovox} 
+                                  width='100vw'
+                                  height='100vh'
+                                name="Ovo"/>
+               <img onClick={getChosen} src={lactovox} 
+                                  width='100vw'
+                                  height='100vh'
+                                name="LactoOvo"/>
+               <img onClick={getChosen} src={pollox} 
+                                  width='100vw'
+                                  height='100vh'
+                                name="Pollo"/>
+               <img onClick={getChosen} src={pescox} 
+                                  width='100vw'
+                                  height='100vh'
+                                name="Pesco"/>   
+                <img onClick={getChosen} src={polpescox} 
+                                  width='100vw'
+                                  height='100vh'
+                                name="PolloPesco"/>   
+                <img onClick={getChosen} src={flexix} 
+                                  width='100vw'
+                                  height='100vh'
+                                name="Flexi"/>                                                                        
+            </div>
+            <div className={rec.originalbtn}>
+            <button onClick={getChosen} name="Lacto">Lacto</button>
                <button onClick={getChosen} name="Ovo">Ovo</button>
                <button onClick={getChosen} name="LactoOvo">LactoOvo</button>
                <button onClick={getChosen} name="Pesco">Pesco</button>
@@ -226,7 +296,12 @@ const Recipe = () => {
                <button onClick={getChosen} name="Flexi">Flexi</button>
                <button onClick={getChosen} name="Vegan">Vegan</button>
             </div>
+              </div>
+              </div>
+              <div>
 
+          {/* 버튼을 클릭했을때 name의 값을 getChosen으로 넘겨줌 */}
+          <div className={rec.section}>
             {/* 사용자가 클릭한 type에 맞는 객체 정보를 쭉 나열해서 보여줌 */}
             <div>
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
@@ -246,9 +321,9 @@ const Recipe = () => {
                   </div>
               ))}
             </div>
-            
+            </div>
+
           </div>            
-              <div className={rec.half_bg} />  
             </div>
             
           
