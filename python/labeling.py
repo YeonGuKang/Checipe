@@ -78,10 +78,3 @@ for d in dives:
         vegan.append('flex')
 print(vegan)
 print(len(vegan))'''
-for d in dives:
-    if 1 not in d:
-        if 2 not in d:
-            if 3 not in d:
-                if 4 not in d:
-                    if 5 not in d:
-                        print(d)
