@@ -96,6 +96,8 @@
 }
 
 /* Register.js 부분 css */
+
+/* 헤더 아래에 middle이 필요해서 추가해줌 */
 .middle{
     position: relative;
     top : 25vh;
@@ -140,6 +142,36 @@
 }
 
 /* Register.js 부분 css */
+
+/* Notice.js 부분 css */
+.board{
+    padding: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-height: 500px;
+
+    display: grid;
+ 
+}
+
+.board_detail{
+   
+    color:white;
+
+    display: grid;
+    /* 제목, 조회수 , 날짜가 길어지면 사이가 길어짐; */
+    grid-template-columns: 400% 100%;
+
+    line-height: 40px;
+}
+
+.board_date{
+    text-align: center;
+}
+
+/* Notice.js 부분 css */
+
+
 
 @media screen and (max-width: 768px){
     .nav{
