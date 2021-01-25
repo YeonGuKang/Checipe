@@ -1,5 +1,7 @@
 import pandas as pd
 import re
+import csv
+
 
 ing = pd.read_csv('data/merge.csv')
 ing = ing['detail']
@@ -42,12 +44,44 @@ for fspl in spliting_fin:
     dives.append(list(set(div_num)))
 
 print(dives)
-div = pd.Series({'numbers': []})
-for v in dives:
-    
-print(div)
 
+with open('data/label.csv', 'w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(dives)
 
-'''merge = pd.read_csv('data/merge.csv')
+'''vegan = []
 
-print(merge)'''
+for d in dives:
+    if 1 not in d:
+        if d == [0]:
+            vegan.append('vegan')
+            continue
+        if d == [0, 4]:
+            vegan.append('ovo')
+            continue
+        if d == [0, 5]:
+            vegan.append('lacto')
+            continue
+        if d == [0, 4, 5]:
+            vegan.append('lacto-ovo')
+            continue
+        if d == [0, 2, 4, 5]:
+            vegan.append('pollo')
+            continue
+        if d == [0, 3, 4, 5]:
+            vegan.append('pesco')
+            continue
+        if d == [0, 2, 3, 4, 5]:
+            vegan.append('pollo-pesco')
+            continue
+    else:
+        vegan.append('flex')
+print(vegan)
+print(len(vegan))'''
+for d in dives:
+    if 1 not in d:
+        if 2 not in d:
+            if 3 not in d:
+                if 4 not in d:
+                    if 5 not in d:
+                        print(d)
