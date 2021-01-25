@@ -100,10 +100,10 @@ const Mainpage = () => {
                               <div>
                                   <ul className="nav">
                                     {/* 수정해야하는 부분 아래처럼 Link가 li를 덮어야한다. */}
-                                      <li><Link to="#" />About</li>
+                                      <li><Link to="/About">About</Link></li>
                                       <li><Link to="/Recipe">Recipe</Link></li>
-                                       <li><Link to="#" />Notice</li>
-                                       <li><Link to="#" />Open</li>
+                                       <li><Link to="/Notice" >Notice</Link></li>
+                                       <li><Link to="/Open">Open</Link></li>
                                   </ul>
                               </div>
                          
