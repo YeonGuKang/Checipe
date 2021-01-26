@@ -159,7 +159,7 @@
     color:white;
 
     display: grid;
-    /* 제목, 조회수 , 날짜가 길어지면 사이가 길어짐; */
+    /* 제목, 날짜가 길어지면 사이가 길어짐; */
     grid-template-columns: 400% 100%;
 
     line-height: 40px;
@@ -171,6 +171,12 @@
 
 /* Notice.js 부분 css */
 
+
+/* View.js 부분 css */
+
+
+
+/* View.js 부분 css */
 
 
 @media screen and (max-width: 768px){
