@@ -82,7 +82,7 @@ for index in range(1234):
                 i = 0
                 break
         if i == 1:
-            step[index] = 'pollo_pesco'
+            step[index] = 'pollo-pesco'
 
 step = pd.Series(step)
 merge_f['step'] = step
