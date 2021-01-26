@@ -7,7 +7,7 @@ import {ReactComponent as Msvg} from './image/menu.svg'
 
 // 게시글을 보는 component
 
-const View = () => {
+const View_borad = () => {
 
     const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -101,4 +101,4 @@ const View = () => {
 }
 
 
-export default View;
+export default View_borad;
