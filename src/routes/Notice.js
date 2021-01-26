@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
 import rec from "./Recipe.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
+
 
 
 const Notice = () => {
@@ -15,8 +16,15 @@ const Notice = () => {
   //  DB에 존재하는 게시글을 받아오기 위함
   const [board, setboard] = useState("");
   const [boards, setboards] = useState([]);
-  
 
+  // url 설정이 완료됐나 확인
+  const [check,setcheck] = useState(false);
+
+  // 선택한 게시글에 알맞는 url을 설정해주기 위함
+  const [View_url,setView_url] = useState("")
+
+
+  
   
   useEffect(() => {
 
@@ -28,7 +36,6 @@ const Notice = () => {
         }));
         setboards(boardArray);
       });
-
 
     authService.onAuthStateChanged((user) => {
       console.log("changed");
@@ -45,8 +52,25 @@ const Notice = () => {
     
   }, []);
 
+  // 게시글에 맞는 url을 설정해주는 함수
+  const setUrl = async (event) => {
+    // event안에 존재하는 target의 value를 name으로 넘긴다.
+  const {
+    target: {name},
+  } = event;
+
+  // url에 /View/ 와 전달받은 name을 붙임 name은 doc.id이다
+ setView_url('/View/' + name);
+
+//  url설정이 완료됐음을 설정
+  setcheck(true);
+}
+
+
     // 로그아웃을 위한 함수를 선언
     const onLogOutClick = () => authService.signOut();
+
+   
 
     return(           
         <div className={rec.wrap}> 
@@ -93,9 +117,16 @@ const Notice = () => {
                         제목
                         {boards.map(board => 
                         <div key={board.id}>
-                            <h4>{board.title}</h4>
-                        </div>)
+                          {/* 현재 버튼이 아니면 인식이 안돼서 일단 버튼으로 만들어 놓음 name에 id를 넘겨줌 */}
+                            <button onClick={setUrl} name={board.id}>{board.title}</button>
+                            {/* url 설정이 완료됐으면 그 url로 redirect */}
+                            <div>{check ? <Redirect from="*" to = {View_url} />: null}
+                        </div>
+                        </div>
+                     
+                       )
                         }
+              
                     </div>
                     {/* 마찬가지로 날짜 부분에 만든 날짜를 게시글 작성 날짜를 불러옴 */}
                     <div className={rec.board_date}>
