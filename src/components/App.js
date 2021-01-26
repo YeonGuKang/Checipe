@@ -10,22 +10,22 @@ import Register from '../routes/Register';
 import View from '../routes/View_borad'
 import View_borad from '../routes/View_borad';
 
-console.log("run App");
+
 
 function App() {
-  console.log("run App fuction");
+ 
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
-      console.log("changed");
+      
       if (user) {
-        console.log("user login")
+
         setIsLoggedIn(true);
         setUserObj(user);
       } else {
-        console.log("user logout")
+   
         setIsLoggedIn(false);
       }
       setInit(true);
