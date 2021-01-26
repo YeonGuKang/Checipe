@@ -7,7 +7,8 @@ import Mainpage from '../routes/Mainpage';
 import Recipe from '../routes/Recipe';
 import Notice from '../routes/Notice';
 import Register from '../routes/Register';
-import View from '../routes/View'
+import View from '../routes/View_borad'
+import View_borad from '../routes/View_borad';
 
 console.log("run App");
 
@@ -44,7 +45,7 @@ function App() {
      <Route path="/Loginform" component = {Loginform} />
      <Route path="/Notice" component = {Notice} />
      <Route path="/Register" component = {Register} />
-     <Route path="/View" component = {View} />
+     <Route path="/View" component = {View_borad} />
   </BrowserRouter>
 
   );

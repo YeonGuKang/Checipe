@@ -172,11 +172,29 @@
 /* Notice.js 부분 css */
 
 
-/* View.js 부분 css */
+/* View_board.js 부분 css */
 
+.paging_div{
+    position: relative;
+    top: 10px;
+    left: 200px;
+    border-top: solid 1px #ababab;
+    display: grid;
+    grid-template-columns: 100% 50% 50%;
+    text-align: center;
 
+    
+}
 
-/* View.js 부분 css */
+.page_num {
+    color: black;
+    margin-right: 20px;
+    list-style: none;
+    display : inline-block;
+    cursor: pointer;
+}
+
+/* View_board.js 부분 css */
 
 
 @media screen and (max-width: 768px){
