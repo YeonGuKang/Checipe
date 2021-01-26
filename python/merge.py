@@ -9,6 +9,7 @@ for ma in manual:
     temp = temp.replace('\\r', '').replace('\\n', ' ')
     new_ma.append(temp)
 
+
 manual = pd.DataFrame({'manual': new_ma})
 merge = pd.concat([data, manual], axis=1)
 merge = merge.dropna(subset=['detail'], axis=0)

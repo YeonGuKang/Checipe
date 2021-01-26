@@ -1,6 +1,6 @@
 import pandas as pd
 import re
-import csv
+
 
 spliting, spliting_fin, dives = [], [], []
 
@@ -32,70 +32,21 @@ for rcp in ing:
     spliting_fin.append(spliting)
     spliting = []
 
+
 # 원본 데이터의 재료 분류코드 생성 작업
 for fspl in spliting_fin:
     div_num = []
     for sspl in fspl:
         div_num.append(div_dic[sspl])
-    dives.append(list(set(div_num)))    #중복제거하여 리스트에 저장
+        st = str(set(div_num))
+        st = st.rstrip('}').lstrip('{')
+        st = st.replace(',', '')
+    dives.append(st)    #중복제거하여 리스트에 저장
 
 # 분류코드와 원본 데이터를 통합
 df = pd.DataFrame(ing_ori)
 div = pd.Series(dives)
 df['number'] = div  #df의 number칼럼에 분류 코드를 통합
 df.to_csv('data/merge_fin.csv', encoding='utf-8-sig', index=False)
-merge_f = pd.read_csv('data/merge_fin.csv')
-merge_f = pd.DataFrame(merge_f)
-# with open('data/label.csv', 'w', newline='') as f:
-#     writer = csv.writer(f)
-#     writer.writerow(dives)
 
-'''vegan = []
 
-for d in dives:
-    if 1 not in d:
-        if d == [0]:
-            vegan.append('vegan')
-            continue
-        if d == [0, 4]:
-            vegan.append('ovo')
-            continue
-        if d == [0, 5]:
-            vegan.append('lacto')
-            continue
-        if d == [0, 4, 5]:
-            vegan.append('lacto-ovo')
-            continue
-        if d == [0, 2, 4, 5]:
-            vegan.append('pollo')
-            continue
-        if d == [0, 3, 4, 5]:
-            vegan.append('pesco')
-            continue
-        if d == [0, 2, 3, 4, 5]:
-            vegan.append('pollo-pesco')
-            continue
-    else:
-        vegan.append('flex')
-print(vegan)
-print(len(vegan))'''
-search = [1,2,3,4,5]
-merge_f['step'] = ''
-print(merge_f)
-for me in merge_f['number']:
-    i = 0
-    for se in search:
-        if se in list(me):
-            continue
-        else:
-            i = 1
-    if i == 1:
-        merge_f['step'].append('vegan')
-print(merge_f['step'])
-dd = []
-for se in search:
-    print(type(se))
-    dd.append([word for word in merge_f['number'] if se in list(word)])
-print(dd)
-
- 
