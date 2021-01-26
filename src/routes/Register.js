@@ -25,13 +25,13 @@ const Register = () => {
   
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
-      console.log("changed");
+
       if (user) {
-        console.log("user login")
+
         setIsLoggedIn(true);
         setUserObj(user);
       } else {
-        console.log("user logout")
+    
         setIsLoggedIn(false);
       }
       setInit(true);
