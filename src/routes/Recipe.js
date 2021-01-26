@@ -70,14 +70,14 @@ const Recipe = () => {
     const getChecipes = async () =>
     {
       // 파이어베이스에 있는 컬렉션으름으로 각각의 db정보를 받아옴
-      const dbLacto = await dbService.collection("락토").get();
-      const dbLactoOvo = await dbService.collection("락토오보").get();
-      const dbOvo = await dbService.collection("오보").get();
-      const dbPesco = await dbService.collection("페스코").get();
-      const dbPollo = await dbService.collection("폴로").get();
-      const dbPolloPesco = await dbService.collection("폴로페스코").get();
-      const dbFlexi = await dbService.collection("플렉시테리언").get();
-      const dbVegan = await dbService.collection("비건").get();
+      const dbLacto = await dbService.collection("lacto").get();
+      const dbLactoOvo = await dbService.collection("lacto-ovo").get();
+      const dbOvo = await dbService.collection("ovo").get();
+      const dbPesco = await dbService.collection("pesco").get();
+      const dbPollo = await dbService.collection("pollo").get();
+      const dbPolloPesco = await dbService.collection("pollo-pesco").get();
+      const dbFlexi = await dbService.collection("flex").get();
+      const dbVegan = await dbService.collection("vegan").get();
       
       // dbLacto에 존재하는 모든 각각의 document에 대해서 실행
       dbLacto.forEach((document) => {
@@ -208,6 +208,11 @@ const Recipe = () => {
       console.log(chosen);
     }
 
+    // 이미지에 오류가 있을 때 대체로 보여줄 이미지
+    const handleImgError = (e) => {
+      e.target.src = 'https://ichef.bbci.co.uk/news/640/cpsprodpb/1825A/production/_116060989_5dd578be-22b5-471c-b424-81e1689d570a.jpg';
+    }
+
     return(           
             <div className={rec.wrap}> 
                <div className={rec.half_bgs}>     
@@ -309,7 +314,7 @@ const Recipe = () => {
                   <h1>{Show.id}</h1>
                   <img
                     src={ Show.img }
-                    alt = "보이지않는 이미지입니다."
+                    onError={handleImgError}
                     width='300px'
                     height='300vh'
                  />

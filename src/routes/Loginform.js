@@ -72,7 +72,7 @@ const Loginform = () => {
     return(
       <div className="backwrap">
       <div className="mainform">
-        <form onSubmit={onSubmit} className="container">
+      {/* <form onSubmit={onSubmit} className="container">
             <input name="email" type="email" placeholder="Email" required value={email} className="authInput" onChange={onChange}/>
             <input name="password" type="password" placeholder="Password" required value={password} className="authInput" onChange={onChange}/>
             <input
@@ -84,10 +84,10 @@ const Loginform = () => {
         </form>
         <span onClick={toggleAccount} className="authSwitch">
             {newAccount ? "Sign In" : "Create Account"}
-          </span>
+    </span>*/}
         <div className="authBtns">
-            <button onClick={onSocialClick} name="Google">Continue with Google</button>
-            <button onClick={onSocialClick} name="Github">Continue with Github</button>
+            <button className="authBtn" onClick={onSocialClick} name="Google">Continue with Google</button>
+            <button className="authBtn" onClick={onSocialClick} name="Github">Continue with Github</button>
         </div>
    </div>
    <div>{isLoggedIn ? <Redirect from="/Loginform" to = "/Checipe" />: null}</div>
