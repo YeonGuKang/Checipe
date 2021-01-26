@@ -41,9 +41,9 @@
     padding: 10px 0px;
     font-size: 12px;
     text-align: center;
-    width: 150px;
     background: white;
     cursor: pointer;
+
   }
 
 .authInput {
@@ -55,6 +55,7 @@
     margin-bottom: 10px;
     font-size: 12px;
     color: black;
+    
   }
   
   .authSubmit {
@@ -74,3 +75,5 @@
     font-size: 12px;
     text-decoration: underline;
   }
+
+ 

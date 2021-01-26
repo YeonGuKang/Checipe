@@ -122,10 +122,14 @@ const Mainpage = () => {
                                  <li><Link to="#" />About </li>
                                   <li><Link to="#" />VEGETARIAN</li>
                                   <li><Link to="#" />채식에관하여</li>
+                        
                       <div className="btn">
-                          <img
-                                src={ Frecipebtn }
-                                alt= 'recipebtn'/>
+                          <a href="/Recipe">
+                              <img className="recipebtn"
+                                    src={ Frecipebtn }
+                                    alt= 'recipebtn'
+                              />
+                              </a>
                       </div>  
                               </div>
 
