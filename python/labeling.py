@@ -44,7 +44,8 @@ df = pd.DataFrame(ing_ori)
 div = pd.Series(dives)
 df['number'] = div  #df의 number칼럼에 분류 코드를 통합
 df.to_csv('data/merge_fin.csv', encoding='utf-8-sig', index=False)
-
+merge_f = pd.read_csv('data/merge_fin.csv')
+merge_f = pd.DataFrame(merge_f)
 # with open('data/label.csv', 'w', newline='') as f:
 #     writer = csv.writer(f)
 #     writer.writerow(dives)
@@ -78,4 +79,23 @@ for d in dives:
         vegan.append('flex')
 print(vegan)
 print(len(vegan))'''
+search = [1,2,3,4,5]
+merge_f['step'] = ''
+print(merge_f)
+for me in merge_f['number']:
+    i = 0
+    for se in search:
+        if se in list(me):
+            continue
+        else:
+            i = 1
+    if i == 1:
+        merge_f['step'].append('vegan')
+print(merge_f['step'])
+dd = []
+for se in search:
+    print(type(se))
+    dd.append([word for word in merge_f['number'] if se in list(word)])
+print(dd)
 
+ 
