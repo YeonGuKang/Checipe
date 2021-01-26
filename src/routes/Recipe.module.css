@@ -86,6 +86,11 @@
     align-items: center;
 }
 
+
+.vegetarianbtn:hover {
+    cursor: pointer;
+}
+
 .originalbtn {
     width : 70vw;
     position : relative;
