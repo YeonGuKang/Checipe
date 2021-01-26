@@ -208,9 +208,8 @@ const Recipe = () => {
       console.log(chosen);
     }
 
-    // 이미지에 오류가 있을 때 대체로 보여줄 이미지
     const handleImgError = (e) => {
-      e.target.src = 'https://ichef.bbci.co.uk/news/640/cpsprodpb/1825A/production/_116060989_5dd578be-22b5-471c-b424-81e1689d570a.jpg';
+      e.target.src = './image/chaecipielogo.png';
     }
 
     return(           
