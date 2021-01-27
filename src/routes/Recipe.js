@@ -371,25 +371,32 @@ const Recipe = () => {
           {/* 버튼을 클릭했을때 name의 값을 getChosen으로 넘겨줌 */}
           <div className={rec.section}>
             {/* 사용자가 클릭한 type에 맞는 객체 정보를 쭉 나열해서 보여줌 */}
+            <div className={rec.sectionplace}>
             <div>
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
               {chosen.map((Show)=>(
                 <div className={rec.result}>                
                 <div key={Show.id}>
-                  <h1>{Show.id}</h1>
                   <img
                     src={ Show.img }
                     onError={handleImgError}
-                    width='300px'
+                    width='100%'
                     height='300vh'
                  />
-                  <h2> # {Show.part} / {Show.way}</h2>
-                  <h5>{Show.detail}</h5>
+                 <hr size='5' color='#537f46'></hr>
+                 <div className={rec.Rtitle}>
+                  {Show.id}
+                  </div>
+                  <hr size='5' color='#537f46'></hr>  
+                  <div className={rec.Rhash}>
+                  # {Show.part} / {Show.way}
+                  </div>
+                  <h4>{Show.detail}</h4>
                   <h6>{Show.number}</h6>
-                  <h3>개빡치네</h3>
                   </div>
                   </div>
               ))}
+            </div>
             </div>
             </div>
 
