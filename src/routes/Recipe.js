@@ -177,8 +177,8 @@ const Recipe = () => {
 
       // 아래 name으로 판단해서 chosen 객체에 앎맞는 데이터를 주입
       if(name == "Lacto"){
+
         const dbLacto = await dbService.collection("lacto").where("order", ">=", 2).limit(3).get(); //order값이 2번이상부터인 문서 중에서 3번 나옴
-        
         dbLacto.forEach((document) => {
           // 임시로 객체를 하나 선언해서 그 객체에 모든 존재하는 데이터와 id를 추가해서 넣어줌
           const LactoObject = {
@@ -193,7 +193,7 @@ const Recipe = () => {
         setchosen(Lacto);
       } 
       else if(name == "Ovo"){
-        const dbOvo = await dbService.collection("ovo").limit(13).get();
+        const dbOvo = await dbService.collection("ovo").limit(7).get();
         dbOvo.forEach((document) => {
           const OvoObject = {
             ...document.data(),
@@ -204,7 +204,7 @@ const Recipe = () => {
         setchosen(Ovo);
       }
       else if(name == "LactoOvo"){
-        const dbLactoOvo = await dbService.collection("lacto-ovo").limit(13).get();
+        const dbLactoOvo = await dbService.collection("lacto-ovo").limit(7).get();
         dbLactoOvo.forEach((document) => {
           const LactoOvoObject = {
             ...document.data(),
@@ -215,7 +215,7 @@ const Recipe = () => {
         setchosen(LactoOvo);
       }
       else if(name == "Pollo"){
-        const dbPollo = await dbService.collection("pollo").limit(13).get();
+        const dbPollo = await dbService.collection("pollo").limit(7).get();
         dbPollo.forEach((document) => {
           const PolloObject = {
             ...document.data(),
@@ -226,7 +226,7 @@ const Recipe = () => {
         setchosen(Pollo);
       }
       else if(name == "Pesco"){
-        const dbPesco = await dbService.collection("pesco").limit(13).get();
+        const dbPesco = await dbService.collection("pesco").limit(7).get();
         dbPesco.forEach((document) => {
           const PescoObject = {
             ...document.data(),
@@ -237,7 +237,7 @@ const Recipe = () => {
         setchosen(Pesco);
       }
       else if(name == "PolloPesco"){
-        const dbPolloPesco = await dbService.collection("pollo-pesco").limit(13).get();
+        const dbPolloPesco = await dbService.collection("pollo-pesco").limit(7).get();
         dbPolloPesco.forEach((document) => {
           const PolloPescoObject = {
             ...document.data(),
@@ -248,7 +248,7 @@ const Recipe = () => {
         setchosen(PolloPesco);
       }
       else if(name == "Flexi"){
-        const dbFlexi = await dbService.collection("flex").limit(13).get();
+        const dbFlexi = await dbService.collection("flex").limit(7).get();
         dbFlexi.forEach((document) => {
           const FlexiObject = {
             ...document.data(),
@@ -260,7 +260,7 @@ const Recipe = () => {
         setchosen(Flexi);
       }
       else if(name == "Vegan"){
-        const dbVegan = await dbService.collection("vegan").limit(13).get();
+        const dbVegan = await dbService.collection("vegan").limit(7).get();
         dbVegan.forEach((document) => {
           const VeganObject = {
             ...document.data(),
@@ -375,6 +375,7 @@ const Recipe = () => {
             <div>
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
               {chosen.map((Show)=>(
+                <div className={rec.result}>                
                 <div key={Show.id}>
                   <h1>{Show.id}</h1>
                   <img
@@ -383,10 +384,11 @@ const Recipe = () => {
                     width='300px'
                     height='300vh'
                  />
-                  <h2>{Show.part}</h2>
-                  <h3>{Show.way}</h3>
+                  <h2> # {Show.part} / {Show.way}</h2>
                   <h5>{Show.detail}</h5>
                   <h6>{Show.number}</h6>
+                  <h3>개빡치네</h3>
+                  </div>
                   </div>
               ))}
             </div>
