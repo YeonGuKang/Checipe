@@ -112,12 +112,12 @@
 .result {
     z-index: 2;
     background-color: yellowgreen;
-    /* position : relative;
+    position : relative;
     width : 400px;
-    height : 100px;
+    height : 500px;
     border-top-left-radius : 40px;
     border-top-right-radius : 40px;
-    border-bottom-right-radius: 40px; */
+    border-bottom-right-radius: 40px; 
 }
 .originalbtn {
     width : 70vw;
