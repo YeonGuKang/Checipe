@@ -374,6 +374,7 @@ const Recipe = () => {
             <div>
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
               {chosen.map((Show)=>(
+                <div ClassName={rec.result}>                
                 <div key={Show.id}>
                   <h1>{Show.id}</h1>
                   <img
@@ -382,10 +383,11 @@ const Recipe = () => {
                     width='300px'
                     height='300vh'
                  />
-                  <h2>{Show.part}</h2>
-                  <h3>{Show.way}</h3>
+                  <h2> # {Show.part} / {Show.way}</h2>
                   <h5>{Show.detail}</h5>
                   <h6>{Show.number}</h6>
+                  <h3>개빡치네</h3>
+                  </div>
                   </div>
               ))}
             </div>
