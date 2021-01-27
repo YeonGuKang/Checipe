@@ -70,14 +70,14 @@ const Recipe = () => {
     const getChecipes = async () =>
     {
       // 파이어베이스에 있는 컬렉션으름으로 각각의 db정보를 받아옴
-      const dbLacto = await dbService.collection("lacto").limit(36).get();
-      const dbLactoOvo = await dbService.collection("lacto-ovo").limit(36).get();
-      const dbOvo = await dbService.collection("ovo").limit(36).get();
-      const dbPesco = await dbService.collection("pesco").limit(36).get();
-      const dbPollo = await dbService.collection("pollo").limit(36).get();
-      const dbPolloPesco = await dbService.collection("pollo-pesco").limit(36).get();
-      const dbFlexi = await dbService.collection("flex").limit(36).get();
-      const dbVegan = await dbService.collection("vegan").limit(36).get();
+      const dbLacto = await dbService.collection("lacto") .limit(13).get();
+      const dbLactoOvo = await dbService.collection("lacto-ovo").limit(13).get();
+      const dbOvo = await dbService.collection("ovo").limit(13).get();
+      const dbPesco = await dbService.collection("pesco").limit(13).get();
+      const dbPollo = await dbService.collection("pollo").limit(13).get();
+      const dbPolloPesco = await dbService.collection("pollo-pesco").limit(13).get();
+      const dbFlexi = await dbService.collection("flex").limit(13).get();
+      const dbVegan = await dbService.collection("vegan").limit(13).get();
       
       // dbLacto에 존재하는 모든 각각의 document에 대해서 실행
       dbLacto.forEach((document) => {
