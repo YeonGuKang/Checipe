@@ -8,6 +8,16 @@
     
 }
 
+@font-face{
+    font-family: goldenpier;
+    src:url('./fonts/MapoGoldenPier.ttf');
+}
+
+@font-face{
+    font-family: bombaram;
+    src:url('./fonts/HSBombaram_Regular.ttf');
+}
+
 /*뒤에 배경크기와 색깔을 설정*/
 .half_bg{
     z-index: 1;
@@ -34,7 +44,7 @@
 .logo{
     position: relative;
     display : inline;
-    top : -7vh;
+    top : -7.7vh;
     left : 10vw;   
 }
 
@@ -44,7 +54,7 @@ a:visited { color: black; text-decoration: none;}
 .nav{
     position : relative;
     left : 15vw;
-    bottom : 3vh;
+    bottom : 2.5vh;
     margin-top: 5vh;
     margin-right: 300px;
     display: flex;
@@ -52,20 +62,24 @@ a:visited { color: black; text-decoration: none;}
 
 /*글씨들의 글꼴과 사이간격을 정해줌*/
 .nav > li{
-    font-family: 'Song Myung', serif;
+    font-family: 'goldenpier', serif;
     font-size : 1.5em;
     margin-left: 5vw;
+    font-weight: bold;
 }
 
 .login{
-    font-family: 'Song Myung', serif;
+    font-family: 'goldenpier', serif;
     font-size : 1.3em;
     color: black;
      margin-top: 2.5vh;
     /*margin-right: 0px;*/
     display: flex;
     position : relative;
-    right : -13vw;
+    top : 0.1vh;
+    right : -17.5vw;
+    font-weight: bold;
+
 }
 
 /*가운데 레이아웃 크기를 결정해줌*/
@@ -171,16 +185,15 @@ div > img.slideimg {
     justify-content: center;
     position: relative; /*나중에 릴레이티브로 수정가능성있음 */
     left: 64vw;
-    top: 48vh;
+    top: 43vh;
     
 }
 
 .about_vegan > li{
     color : white;
      text-shadow: 3px 3px 2px gray;
-    font-family: 'Song Myung', serif;
-    font-weight: bold;
-    font-size: 40px;
+    font-family: 'bombaram', serif;
+    font-size: 50px;
     letter-spacing: 10px;
     margin-bottom: 3vh;
     display: inline;
