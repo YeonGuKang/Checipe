@@ -47,7 +47,7 @@ const Notice = () => {
   useEffect(() => {
 
     // DB에서 게시글을 받아오는 과정
-    dbService.collection("게시글").onSnapshot((snapshot) => {
+    dbService.collection("게시글").orderBy("createdAt","asc").onSnapshot((snapshot) => {
         const boardArray = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
