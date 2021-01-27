@@ -42,9 +42,33 @@
     height : inherit;
     position : relative;
     top : -20vh;
-    font-family: 'goldenpier', serif;
-    justify-content: flex-end;
+    display: flex;
+    
 }
+
+.sectionplace {
+    position : relative;
+    top : 22vh;
+    left : 10vw;
+    font-family: 'goldenpier', serif;
+    display : flex;
+    flex-direction: column;
+}
+
+
+.result {
+    padding  : 0.5vw;
+    margin : 1vw;
+    z-index: 2;
+    background-color:white;
+    position : relative;
+    width : 400px;
+    height : 500px;
+    border-bottom-right-radius: 40px; 
+    border-bottom-left-radius: 40px; 
+}
+
+
 .whiteselect { 
     z-index: 1;
     background-color : white;
@@ -57,6 +81,21 @@
     left : 2vw;
     bottom : -28vh;
 }
+
+.Rtitle {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.Rhash {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
 .nav{
     display: flex;
     padding-left: 0;
@@ -109,16 +148,6 @@
     cursor: pointer;
 }
 
-.result {
-    z-index: 2;
-    background-color: yellowgreen;
-    position : relative;
-    width : 400px;
-    height : 500px;
-    border-top-left-radius : 40px;
-    border-top-right-radius : 40px;
-    border-bottom-right-radius: 40px; 
-}
 .originalbtn {
     width : 70vw;
     position : relative;
