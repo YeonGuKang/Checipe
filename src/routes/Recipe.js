@@ -199,10 +199,6 @@ const Recipe = () => {
       }
       else if(name == "Vegan"){
         setchosen(Vegan);
-            <img src={vegano} 
-                    width='100vw'
-                    height='100vh'
-                    name="Vegan"/>
       }
 
       console.log(chosen);
