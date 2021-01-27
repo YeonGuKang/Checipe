@@ -1,4 +1,9 @@
 /* 뒤에 배경크기와 색깔을 설정*/
+@font-face{
+    font-family: goldenpier;
+    src:url('./fonts/MapoGoldenPier.ttf');
+}
+
 .half_bgs{
     z-index: 1;
     position : relative;
@@ -37,6 +42,8 @@
     height : inherit;
     position : relative;
     top : -20vh;
+    font-family: 'goldenpier', serif;
+    justify-content: flex-end;
 }
 .whiteselect { 
     z-index: 1;
@@ -53,20 +60,31 @@
 .nav{
     display: flex;
     padding-left: 0;
+    position : relative;
+    top : 1vh;
 }
 .nav li{
-    padding-left: 0;
-    padding-right: 0;
-    padding: 8px 12px;
+    font-family: 'goldenpier', serif;
+    font-size : 1.5em;
+    margin-left: 5vw;
+    font-weight: bold;
+    position : relative;
+    right : 6.6vw;
+    top : -1vh;
 }
 .nav li:hover{
     background-color: var(--main-color);
     border-radius: 8px;
 }
 .login{
-    padding-left: 0;
-    padding-right: 0;
-    padding: 8px 12px;    
+    font-family: 'goldenpier', serif;
+    font-size : 1.3em;
+    color: black;
+    position : relative;
+    right : 10vw;
+    bottom : 0.2vh;
+    font-weight: bold;
+    
 }
 .menubtn{
     display: none;
@@ -91,6 +109,16 @@
     cursor: pointer;
 }
 
+.result {
+    z-index: 2;
+    background-color: yellowgreen;
+    /* position : relative;
+    width : 400px;
+    height : 100px;
+    border-top-left-radius : 40px;
+    border-top-right-radius : 40px;
+    border-bottom-right-radius: 40px; */
+}
 .originalbtn {
     width : 70vw;
     position : relative;
@@ -98,6 +126,10 @@
     display : flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.map {
+    font-family: 'goldenpier', serif;
 }
 
 /* Register.js 부분 css */
