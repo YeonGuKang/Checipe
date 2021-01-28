@@ -23,9 +23,10 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 
-'''for i in range(len(merge)):
+for i in range(len(merge)):
     db_merge = db.collection('merge').document(merge.iloc[i]['name'])
     db_merge.set({
+        'id': i,
         'part': merge.iloc[i]['part'],
         'way': merge.iloc[i]['way'],
         'img': merge.iloc[i]['img'],
@@ -33,11 +34,12 @@ db = firestore.client()
         'manual': merge.iloc[i]['manual'].lstrip('[').rstrip(']'),
         'numbers': merge.iloc[i]['number'],
         'step': merge.iloc[i]['step']
-    })'''
+    })
 
 for i in range(len(merge1)):
     vegan = db.collection('vegan').document(merge1.iloc[i]['name'])
     vegan.set({
+        'id': i,
         'part': merge1.iloc[i]['part'],
         'way': merge1.iloc[i]['way'],
         'img': merge1.iloc[i]['img'],
@@ -50,6 +52,7 @@ for i in range(len(merge1)):
 for i in range(len(merge2)):
     vegan = db.collection('lacto').document(merge2.iloc[i]['name'])
     vegan.set({
+        'id': i,
         'part': merge2.iloc[i]['part'],
         'way': merge2.iloc[i]['way'],
         'img': merge2.iloc[i]['img'],
@@ -62,6 +65,7 @@ for i in range(len(merge2)):
 for i in range(len(merge3)):
     vegan = db.collection('ovo').document(merge3.iloc[i]['name'])
     vegan.set({
+        'id': i,
         'part': merge3.iloc[i]['part'],
         'way': merge3.iloc[i]['way'],
         'img': merge3.iloc[i]['img'],
@@ -74,6 +78,7 @@ for i in range(len(merge3)):
 for i in range(len(merge4)):
     vegan = db.collection('lacto-ovo').document(merge4.iloc[i]['name'])
     vegan.set({
+        'id': i,
         'part': merge4.iloc[i]['part'],
         'way': merge4.iloc[i]['way'],
         'img': merge4.iloc[i]['img'],
@@ -86,6 +91,7 @@ for i in range(len(merge4)):
 for i in range(len(merge5)):
     vegan = db.collection('pollo').document(merge5.iloc[i]['name'])
     vegan.set({
+        'id': i,
         'part': merge5.iloc[i]['part'],
         'way': merge5.iloc[i]['way'],
         'img': merge5.iloc[i]['img'],
@@ -98,6 +104,7 @@ for i in range(len(merge5)):
 for i in range(len(merge6)):
     vegan = db.collection('pollo-pesco').document(merge6.iloc[i]['name'])
     vegan.set({
+        'id': i,
         'part': merge6.iloc[i]['part'],
         'way': merge6.iloc[i]['way'],
         'img': merge6.iloc[i]['img'],
@@ -110,6 +117,7 @@ for i in range(len(merge6)):
 for i in range(len(merge7)):
     vegan = db.collection('pesco').document(merge7.iloc[i]['name'])
     vegan.set({
+        'id': i,
         'part': merge7.iloc[i]['part'],
         'way': merge7.iloc[i]['way'],
         'img': merge7.iloc[i]['img'],
@@ -122,6 +130,7 @@ for i in range(len(merge7)):
 for i in range(len(merge8)):
     vegan = db.collection('flex').document(merge8.iloc[i]['name'])
     vegan.set({
+        'id': i,
         'part': merge8.iloc[i]['part'],
         'way': merge8.iloc[i]['way'],
         'img': merge8.iloc[i]['img'],
