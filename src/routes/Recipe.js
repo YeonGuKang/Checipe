@@ -272,12 +272,12 @@ const Recipe = () => {
         setchosen(Vegan);
       }
 
-      console.log(chosen);
+      console.log("정보세팅" , chosen);
+      
     }
 
-    const handleImgError = (e) => {
-      e.target.src = 'https://previews.123rf.com/images/alexwhite/alexwhite1501/alexwhite150104186/35585441-%EC%98%A4%EB%A5%98-%EC%95%84%EC%9D%B4%EC%BD%98.jpg';
-    }
+    console.log("함수 밖 정보세팅" , chosen);
+
 
     return(           
             <div className={rec.wrap}> 
@@ -378,7 +378,7 @@ const Recipe = () => {
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
               {chosen.map((Show)=>(
                 < Rlist
-                  key={ Show.id }
+                  key={ Show.name }
                   img={ Show.img }
                   part={ Show.part }
                   way={ Show.way }
