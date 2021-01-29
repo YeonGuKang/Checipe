@@ -22,8 +22,7 @@ import polpescod from './icons/polpescoo.svg';
 import vegeline from './icons/vegeline.svg';
 import flexix from './icons/flexix.svg';
 import flecxio from './icons/flexio.svg';
-
-
+import Rlist from './Rlist'
 
 
 
@@ -33,7 +32,7 @@ import flecxio from './icons/flexio.svg';
 
 
 const Recipe = () => {
-
+  
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
@@ -170,6 +169,7 @@ const Recipe = () => {
 
   // 사용자가 선택한 type에 맞게 데이터를 선택하는 함수
       const getChosen = async (event) => {
+        console.log("getChosen")
         // event안에 존재하는 target의 value를 name으로 넘긴다.
       const {
         target: {name},
@@ -177,7 +177,7 @@ const Recipe = () => {
 
       // 아래 name으로 판단해서 chosen 객체에 앎맞는 데이터를 주입
       if(name == "Lacto"){
-
+        console.log("lacto")
         // const dbLacto = await dbService.collection("lacto").orderBy("order").limit(3).get();
         const dbLacto = await dbService.collection("lacto").where("order", ">=", 3).limit(4).get(); //order값이 2번이상부터인 문서 중에서 3번 나옴
         dbLacto.forEach((document) => {
@@ -377,7 +377,15 @@ const Recipe = () => {
             <div>
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
               {chosen.map((Show)=>(
-                <div className={rec.result}>                
+                < Rlist
+                  key={ Show.id }
+                  img={ Show.img }
+                  part={ Show.part }
+                  way={ Show.way }
+                  detail={ Show.detail }
+                  number={ Show.number }
+                />
+                /*<div className={rec.result}>                
                 <div key={Show.id}>
                   <img
                     src={ Show.img }
@@ -391,12 +399,12 @@ const Recipe = () => {
                   </div>
                   <hr size='5' color='#537f46'></hr>  
                   <div className={rec.Rhash}>
-                  # {Show.part} / {Show.way}
+                   {Show.part} / {Show.way}
                   </div>
                   <h4>{Show.detail}</h4>
                   <h6>{Show.number}</h6>
                   </div>
-                  </div>
+                  </div>*/
               ))}
             </div>
             </div>
