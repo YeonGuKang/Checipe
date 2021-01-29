@@ -62,14 +62,25 @@ const Recipe = () => {
     const [PolloPesco, setPolloPesco] = useState([]);
     const [Flexi, setFlexi] = useState([]);
     const [Vegan, setVegan] = useState([]);
+
+
     let dbVegan=[];
+    let dbFlexi=[];
+
+    // 대충 일단 vegan이랑 flex 6개씩 계속 넣어주기위함
+    const [Vegan_start, setVegan_start] = useState(6);
+
+    // 페이지에 사용할 예정
+    const [Page,setPage] = useState(1);
 
   // 사용자가 선택한 type에 맞게 보여주기위함
     const [chosen, setchosen] = useState([]);
 
     const getChecipes = async () =>
     {
-      dbVegan = await dbService.collection("vegan").limit(7).get();
+      // 가장 처음에 데이터를 받아오는 작업
+      dbVegan = await dbService.collection("vegan").where("order", "<=", Vegan_start).limit(6).get();
+      dbFlexi = await dbService.collection("flex").where("order", "<=", Vegan_start).limit(6).get();
       // 파이어베이스에 있는 컬렉션으름으로 각각의 db정보를 받아옴
       // const dbLacto = await dbService.collection("lacto") .limit(13).get();
       // const dbLactoOvo = await dbService.collection("lacto-ovo").limit(13).get();
@@ -133,13 +144,24 @@ const Recipe = () => {
       //   setPolloPesco((prev) => [PolloPescoObject, ...prev]);
       // });
 
-      // dbFlexi.forEach((document) => {
-      //   const FlexiObject = {
-      //     ...document.data(),
-      //     id: document.id,
-      //   };
-      //   setFlexi((prev) => [FlexiObject, ...prev]);
-      // });
+       // dbFlexi.forEach((document) => {
+       //  const FlexiObject = {
+       //    ...document.data(),
+       //    id: document.id,
+       //  };
+       //  setFlexi((prev) => [FlexiObject, ...prev]);
+       // });
+
+
+       // 테스트로 일단 flex랑 vegan 섞는중
+       dbFlexi.forEach((document) => {
+        const FlexiObject = {
+          ...document.data(),
+          id: document.id,
+        };
+        // flex정보를 vegan에 set
+        setVegan((prev) => [FlexiObject, ...prev]);
+      });
 
        dbVegan.forEach((document) => {
          const VeganObject = {
@@ -171,7 +193,6 @@ const Recipe = () => {
 
   // 사용자가 선택한 type에 맞게 데이터를 선택하는 함수
       const getChosen = async (event) => {
-        console.log("getChosen")
         // event안에 존재하는 target의 value를 name으로 넘긴다.
       const {
         target: {name},
@@ -191,7 +212,8 @@ const Recipe = () => {
           // Lacto 객체에 파이어베이스에 있는 정보를 set해줌 (set 함수인자에 함수를 넣어준 형태)
           // prev => []  형태는 모든 이전의 document에 대해서 배열을 리턴한다
           // 가장 최근 document인 Object를 return해서 set해주고 그 뒤로 이전 documnet를 return해서 set해줌 (implict return 형식)
-          setLacto((prev) => [LactoObject, ...prev]);
+          setLacto((prev) => [LactoObject, ...prev]) ;
+
         });
         setchosen(Lacto);
       } 
@@ -262,8 +284,14 @@ const Recipe = () => {
   
         setchosen(Flexi);
       }
+      // 테스트로 비건이랑 플렉시 섞음
       else if(name == "Vegan"){
-        dbVegan = await dbService.collection("vegan").limit(7).get();
+      
+        setVegan_start(Vegan_start+6)
+        console.log(Vegan_start)
+        dbVegan = await dbService.collection("vegan").where("order",  ">" , Vegan_start).limit(6).get();
+        dbFlexi = await dbService.collection("flex").where("order",  ">" , Vegan_start).limit(6).get();
+
         dbVegan.forEach((document) => {
           const VeganObject = {
             ...document.data(),
@@ -271,14 +299,29 @@ const Recipe = () => {
           };
           setVegan((prev) => [VeganObject, ...prev]);
         });
-        setchosen(Vegan);
-      }
-      console.log("vegan 정보", Vegan);
-      console.log("정보세팅" , chosen);
+
+
+        dbFlexi.forEach((document) => {
+          const FlexiObject = {
+            ...document.data(),
+            id: document.id,
+          };
+          setVegan((prev) => [FlexiObject, ...prev]);
+        });
+
+        // 객체 정보 무작위로 섞는 작업
+        for (let i = 0; i < Vegan.length; i++) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [Vegan[i], Vegan[j]] = [Vegan[j], Vegan[i]];  
+      };
       
+        setchosen(Vegan);
+
+      }    
+
     }
-    console.log("함수 밖 vegan 정보", Vegan);
-    console.log("함수 밖 정보세팅" , chosen);
+  
+   
 
 
     return(           
