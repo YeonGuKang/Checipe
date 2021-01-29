@@ -62,12 +62,14 @@ const Recipe = () => {
     const [PolloPesco, setPolloPesco] = useState([]);
     const [Flexi, setFlexi] = useState([]);
     const [Vegan, setVegan] = useState([]);
+    let dbVegan=[];
 
   // 사용자가 선택한 type에 맞게 보여주기위함
     const [chosen, setchosen] = useState([]);
 
     const getChecipes = async () =>
     {
+      dbVegan = await dbService.collection("vegan").limit(7).get();
       // 파이어베이스에 있는 컬렉션으름으로 각각의 db정보를 받아옴
       // const dbLacto = await dbService.collection("lacto") .limit(13).get();
       // const dbLactoOvo = await dbService.collection("lacto-ovo").limit(13).get();
@@ -139,13 +141,13 @@ const Recipe = () => {
       //   setFlexi((prev) => [FlexiObject, ...prev]);
       // });
 
-      // dbVegan.forEach((document) => {
-      //   const VeganObject = {
-      //     ...document.data(),
-      //     id: document.id,
-      //   };
-      //   setVegan((prev) => [VeganObject, ...prev]);
-      // });
+       dbVegan.forEach((document) => {
+         const VeganObject = {
+           ...document.data(),
+           id: document.id,
+         };
+         setVegan((prev) => [VeganObject, ...prev]);
+       });
     }
 
     
@@ -261,7 +263,7 @@ const Recipe = () => {
         setchosen(Flexi);
       }
       else if(name == "Vegan"){
-        const dbVegan = await dbService.collection("vegan").limit(7).get();
+        dbVegan = await dbService.collection("vegan").limit(7).get();
         dbVegan.forEach((document) => {
           const VeganObject = {
             ...document.data(),
@@ -271,11 +273,11 @@ const Recipe = () => {
         });
         setchosen(Vegan);
       }
-
+      console.log("vegan 정보", Vegan);
       console.log("정보세팅" , chosen);
       
     }
-
+    console.log("함수 밖 vegan 정보", Vegan);
     console.log("함수 밖 정보세팅" , chosen);
 
 
