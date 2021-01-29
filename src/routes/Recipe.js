@@ -178,7 +178,8 @@ const Recipe = () => {
       // 아래 name으로 판단해서 chosen 객체에 앎맞는 데이터를 주입
       if(name == "Lacto"){
 
-        const dbLacto = await dbService.collection("lacto").where("order", ">=", 2).limit(3).get(); //order값이 2번이상부터인 문서 중에서 3번 나옴
+        // const dbLacto = await dbService.collection("lacto").orderBy("order").limit(3).get();
+        const dbLacto = await dbService.collection("lacto").where("order", ">=", 3).limit(4).get(); //order값이 2번이상부터인 문서 중에서 3번 나옴
         dbLacto.forEach((document) => {
           // 임시로 객체를 하나 선언해서 그 객체에 모든 존재하는 데이터와 id를 추가해서 넣어줌
           const LactoObject = {
