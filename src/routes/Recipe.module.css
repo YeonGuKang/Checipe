@@ -36,23 +36,45 @@
     align-items: center;
     background-color: var(--header-background);
 }
-.section {
+/* 섹션디폴트는 현재 버튼 클릭 안했을 때 보여지는 진한 초록색 부분임. */
+/* .sectiondefault {
     background-color : var(--background-color);
     width : 92vw;
-    height : inherit;
+    height : 100vh;
     position : relative;
     top : -20vh;
     display: flex;
+} */
+
+
+.space {
+    background-color : var(--background-color);
+    width : 92vw;
+    height : 30vh;
+    position : relative;
+    top : -20vh;
+    display : flex;
+}
+.section {
+    z-index: 1;
+    background-color : var(--background-color);
+    width : 92vw;
+    height : 150%;
+    top : -30vh;
+    position : relative;
+    display: inline-flex;
     
 }
 
 .sectionplace {
     position : relative;
-    top : 22vh;
-    left : 10vw;
+    margin-top: 1vh;
+    margin-bottom: 15vh;
+    left : 9vw;
     font-family: 'goldenpier', serif;
-    display : flex;
-    flex-direction: column;
+    display : inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 
@@ -62,8 +84,8 @@
     z-index: 2;
     background-color:white;
     position : relative;
-    width : 400px;
-    height : 500px;
+    width : 17vw;
+    height : 47vh;
     border-bottom-right-radius: 40px; 
     border-bottom-left-radius: 40px; 
 }
@@ -83,7 +105,7 @@
 }
 
 .Rtitle {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
     margin-top: 1vh;
     margin-bottom: 1vh;
