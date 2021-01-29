@@ -47,7 +47,7 @@ const Notice = () => {
   useEffect(() => {
 
     // DB에서 게시글을 받아오는 과정
-    dbService.collection("게시글").orderBy("createdAt","asc").onSnapshot((snapshot) => {
+    dbService.collection("게시글").orderBy("createdAt","desc").onSnapshot((snapshot) => {
         const boardArray = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -91,9 +91,11 @@ const Notice = () => {
 
 //  다시 그 temp 객체를 hook객체에 저장 (아래에 사용을 위해서 hook을 이용해야함)
  setlimit_boards(page_boards)
+ console.log("정보세팅" , limit_boards)
 
 }
 
+console.log("함수밖 정보세팅" , limit_boards)
   // 게시글에 맞는 url을 설정해주는 함수
   const setUrl = async (event) => {
     // event안에 존재하는 target의 value를 name으로 넘긴다.
@@ -173,8 +175,9 @@ const Notice = () => {
                     {/* 마찬가지로 날짜 부분에 만든 날짜를 게시글 작성 날짜를 불러옴 */}
                     <div className={rec.board_date}>
                         날짜
+                        {console.log("정보출력" , limit_boards)}
                         {limit_boards.map(board => 
-                        <div key={board.id}>
+                        <div key={board.id} >
                             <h4>{board.createdAt}</h4>
                         </div>)
                         }
