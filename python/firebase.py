@@ -23,11 +23,11 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 # 락토컬랙션 각 문서에 order 필드 추가
-for i in range(len(merge2)):
-    lacto = db.collection('lacto').document(merge2.iloc[i]['name'])
-    lacto.update({
-        'order': i
-    })
+# for i in range(len(merge2)):
+#     lacto = db.collection('lacto').document(merge2.iloc[i]['name'])
+#     lacto.update({
+#         'order': i
+#     })
 
 # for i in range(len(merge)):
 #     db_merge = db.collection('merge').document(merge.iloc[i]['name'])
