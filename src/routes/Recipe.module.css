@@ -47,6 +47,11 @@
 } */
 
 
+.testing{
+    background-color: red;
+    height: "1000px";
+}
+
 .space {
     background-color : var(--background-color);
     width : 92vw;
@@ -109,6 +114,8 @@
     font-weight: bold;
     margin-top: 1vh;
     margin-bottom: 1vh;
+
+    cursor: pointer;
 }
 
 .Rhash {

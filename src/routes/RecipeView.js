@@ -4,25 +4,7 @@ import checipe_logo from './image/chaecipielogo.png';
 import rec from "./Recipe.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
-import vegetarian from './icons/vegetarian.svg';
-import veganx from './icons/veganx.svg';
-import vegano from './icons/vegano.svg';
-import lactox from './icons/lactox.svg';
-import lactoo from './icons/lactoo.svg';
-import ovox from './icons/ovox.svg';
-import ovoo from './icons/ovoo.svg';
-import lactovox from './icons/lactovox.svg';
-import lactovoo from './icons/lactovoo.svg';
-import pollox from './icons/pollox.svg';
-import polloo from './icons/polloo.svg';
-import pescox from './icons/pescox.svg';
-import pescoo from './icons/pescoo.svg';
-import polpescox from './icons/polpescox.svg';
-import polpescod from './icons/polpescoo.svg';
-import vegeline from './icons/vegeline.svg';
-import flexix from './icons/flexix.svg';
-import flecxio from './icons/flexio.svg';
-import Rlist from './Rlist'
+
 
 
 const RecipeView = () => {
@@ -37,10 +19,20 @@ const RecipeView = () => {
     // 사용자가 선택한 게시글이 어떤것인지 url parmeter로 판단하기 위함
     let now_url = window.location.href.split('/')
 
-    // 일단은 4번째 배열에 있는것이 그 parmeter임
-    const chosen_url = now_url[4];
+
+    // 4번째는 비건의 종류 (콜렉션을 위함) 5번째는 음식의 종류 (doc를 위함)
+    const chosne_type = now_url[4];
+    let chosen_title = now_url[5];
+
+    // 한글이므로 decode를 해줘야함
+    chosen_title= decodeURIComponent(chosen_title);
+ 
 
   useEffect(() => {
+        //  사용자가 선택한 음식에 맞게 데이터를 불러옴
+        const docRef = dbService.collection(chosne_type).doc(chosen_title)
+        docRef.get().then(function(doc) {  setboard(doc.data()); });
+
     authService.onAuthStateChanged((user) => {
       console.log("changed");
       if (user) {
@@ -56,30 +48,13 @@ const RecipeView = () => {
     
   }, []);
 
-
-    
-    
-    // 처음에 mount 됐을때 실행해줌으로써 데이터를 불러옴
-    useEffect(()=>{
-    
- 
-    },[]);
-  
   // 로그아웃을 위한 함수를 선언
   const onLogOutClick = () => authService.signOut();
 
-  // const toggleBtn = document.querySelector("menubtn");
-  // const nav = document.querySelector('nav');
-  // const login = document.querySelector('login');
-  // toggleBtn.addEventListener('click', () => {
-  //   nav.classList.toggle('active');
-  //   login.classList.toggle('active');
-  // });
-
-
+  const handleImgError = (e) => {
+    e.target.src = 'https://previews.123rf.com/images/alexwhite/alexwhite1501/alexwhite150104186/35585441-%EC%98%A4%EB%A5%98-%EC%95%84%EC%9D%B4%EC%BD%98.jpg';
+  }
   
-   
-
 
     return(           
             <div className={rec.wrap}> 
@@ -115,13 +90,24 @@ const RecipeView = () => {
                   <Msvg className></Msvg>
                 </a>
               </nav>
+              {/* 사용자가 선택한 음식의 정보를 보여주는 부분 */}
               <div className={rec.whiteselect}>
+                <img
+                    src={ board.img }
+                    onError={handleImgError}
+                    width='250px'
+                    height='250vh'
+                 />
+                <h1>{chosen_title}</h1>
+                <h1>{board.detail}</h1>
+                <h1>{board.part}</h1>
+                <h1>{board.way}</h1>
               <div className={rec.vegetarianbtn}>
                              
-                                                                   
+                               
             </div>
             <div className={rec.originalbtn}>
-        
+       
             </div>
               </div>
               </div>
@@ -133,8 +119,7 @@ const RecipeView = () => {
             {/* 사용자가 클릭한 type에 맞는 객체 정보를 쭉 나열해서 보여줌 */}
             <div className={rec.sectionplace}>
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
-             
-              
+              {board.manual}   
               
             </div>
             </div>
