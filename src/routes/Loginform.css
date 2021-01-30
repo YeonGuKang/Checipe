@@ -116,4 +116,9 @@
     text-decoration: underline;
   }
 
+  .google_log, .github_log{
+    width: 40px;
+    height: 40px;
+  }
+
  

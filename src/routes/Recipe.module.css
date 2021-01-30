@@ -177,15 +177,6 @@
     cursor: pointer;
 }
 
-.originalbtn {
-    width : 70vw;
-    position : relative;
-    left : 5vw;
-    display : flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .map {
     font-family: 'goldenpier', serif;
 }
