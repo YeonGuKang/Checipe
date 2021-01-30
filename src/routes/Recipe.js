@@ -82,6 +82,7 @@ const Recipe = () => {
     setchosen(boardArray);
     // 첫화면에 merge에서 limit만큼 가져온걸 보여줌
     setlimit_boards(boardArray.slice(0,limit))
+
   });
 
   dbService.collection("vegan").limit(5).onSnapshot((snapshot) => {
@@ -89,7 +90,17 @@ const Recipe = () => {
       id: doc.id,
       ...doc.data(),
     }));
-    setVegan(boardArray);
+    // 값을 섞어서 넣어줌
+    setVegan(shuffle(boardArray))
+    
+    // 비건은 자기 위에 모든 타입에 들어감
+    setLacto(boardArray)
+    setOvo(boardArray)
+    setLactoOvo(boardArray)
+    setPollo(boardArray)
+    setPesco(boardArray)
+    setPolloPesco(boardArray)
+    setFlexi(boardArray)
   });
 
   dbService.collection("lacto").limit(5).onSnapshot((snapshot) => {
@@ -97,7 +108,14 @@ const Recipe = () => {
       id: doc.id,
       ...doc.data(),
     }));
-    setLacto(boardArray);
+    // 이전값과 현재값을 섞어서 넣어줌
+    setLacto((prev) => shuffle([...boardArray, ...prev]));
+    // 락토는 위로 오보를 제외하고 모두 해당
+    setLactoOvo((prev) => [...boardArray, ...prev])
+    setPollo((prev) => [...boardArray, ...prev])
+    setPesco((prev) => [...boardArray, ...prev])
+    setPolloPesco((prev) => [...boardArray, ...prev])
+    setFlexi((prev) => [...boardArray, ...prev])
   });
 
   dbService.collection("ovo").limit(5).onSnapshot((snapshot) => {
@@ -105,7 +123,13 @@ const Recipe = () => {
       id: doc.id,
       ...doc.data(),
     }));
-    setOvo(boardArray);
+    setOvo((prev) => shuffle([...boardArray, ...prev]));
+    // 오보는 위로 락토를 제외하고 모두 해당
+    setLactoOvo((prev) => [...boardArray, ...prev])
+    setPollo((prev) => [...boardArray, ...prev])
+    setPesco((prev) => [...boardArray, ...prev])
+    setPolloPesco((prev) => [...boardArray, ...prev])
+    setFlexi((prev) => [...boardArray, ...prev])
   });
 
   dbService.collection("lacto-ovo").limit(5).onSnapshot((snapshot) => {
@@ -113,7 +137,13 @@ const Recipe = () => {
       id: doc.id,
       ...doc.data(),
     }));
-    setLactoOvo(boardArray);
+    setLactoOvo((prev) => shuffle([...boardArray, ...prev]));
+
+    // 락토오보 위로 모두 해당
+    setPollo((prev) => [...boardArray, ...prev])
+    setPesco((prev) => [...boardArray, ...prev])
+    setPolloPesco((prev) => [...boardArray, ...prev])
+    setFlexi((prev) => [...boardArray, ...prev])
   });
 
   dbService.collection("pollo").limit(5).onSnapshot((snapshot) => {
@@ -121,7 +151,12 @@ const Recipe = () => {
       id: doc.id,
       ...doc.data(),
     }));
-    setPollo(boardArray);
+    setPollo((prev) => shuffle([...boardArray, ...prev]));
+
+    // 페스코를 제외하고 위로 모두 해당
+    setPolloPesco((prev) => [...boardArray, ...prev])
+    setFlexi((prev) => [...boardArray, ...prev])
+
   });
 
   dbService.collection("pesco").limit(5).onSnapshot((snapshot) => {
@@ -129,7 +164,12 @@ const Recipe = () => {
       id: doc.id,
       ...doc.data(),
     }));
-    setPesco(boardArray);
+    setPesco((prev) => shuffle([...boardArray, ...prev]));
+
+    // 폴로를 제외하고 위로 모두 해당
+    setPolloPesco((prev) => [...boardArray, ...prev])
+    setFlexi((prev) => [...boardArray, ...prev])
+
   });
 
   dbService.collection("pollo-pesco").limit(5).onSnapshot((snapshot) => {
@@ -137,7 +177,11 @@ const Recipe = () => {
       id: doc.id,
       ...doc.data(),
     }));
-    setPolloPesco(boardArray);
+    setPolloPesco((prev) => shuffle([...boardArray, ...prev]));
+
+    // 본인 위로 모두 해당
+    setFlexi((prev) => [...boardArray, ...prev])
+
   });
 
   dbService.collection("flex").limit(5).onSnapshot((snapshot) => {
@@ -145,7 +189,9 @@ const Recipe = () => {
       id: doc.id,
       ...doc.data(),
     }));
-    setFlexi(boardArray);
+
+    // 모든 것을 감싸는 felxi
+    setFlexi((prev) => shuffle([...boardArray, ...prev]));
   });
 
     authService.onAuthStateChanged((user) => {
@@ -162,6 +208,19 @@ const Recipe = () => {
     });
     
   }, []);
+
+  // 객체 정보를 섞어주는 함수
+  function shuffle(sourceArray) {
+    for (var i = 0; i < sourceArray.length - 1; i++) {
+        var j = i + Math.floor(Math.random() * (sourceArray.length - i));
+
+        var temp = sourceArray[j];
+        sourceArray[j] = sourceArray[i];
+        sourceArray[i] = temp;
+    }
+    
+    return sourceArray
+}
     
       // 데이터 속도를 높이기 위해 useEffect에서 곧 바로 데이터를 받아옴
    /* const getChecipes = async () =>
@@ -317,7 +376,9 @@ const Recipe = () => {
         setpage(1);
         setlimit_boards(Vegan.slice(0,limit))
       }
+
 }
+
 
 
     // 현재 페이지를 보고 그 페이지에 맞게 게시글을 보여주는 함수
@@ -341,7 +402,6 @@ const Recipe = () => {
   //  다시 그 temp 객체를 hook객체에 저장 (아래에 사용을 위해서 hook을 이용해야함)
    setlimit_boards(page_boards)
  
-  
   }
 
   
