@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Link, BrowserRoute, Redirect } 
 import { authService, firebaseInstance } from "../firebase";
 import "./Loginform.css";
 import App from '../components/App'
+import checipelogo from './image/checipelogo.svg';
+
 
 const Loginform = () => {
   const [init, setInit] = useState(false);
@@ -69,9 +71,22 @@ const Loginform = () => {
         const data = await authService.signInWithPopup(provider);
         console.log(data);
       };
+
     return(
       <div className="backwrap">
+        
       <div className="mainform">
+      <div className="Line"></div>
+      <div className="Llogo">
+                              {/* js에서는 img를 이런식으로 import해서 불러온다. */}
+                              <a href="/Checipe">
+                              <img
+                                src={checipelogo}
+                                width='220vw'
+                                height='220vh'
+                                alt= 'login logo'/>
+                                </a>
+                          </div>
       {/* <form onSubmit={onSubmit} className="container">
             <input name="email" type="email" placeholder="Email" required value={email} className="authInput" onChange={onChange}/>
             <input name="password" type="password" placeholder="Password" required value={password} className="authInput" onChange={onChange}/>
@@ -86,8 +101,8 @@ const Loginform = () => {
             {newAccount ? "Sign In" : "Create Account"}
     </span>*/}
         <div className="authBtns">
-            <button className="authBtn" onClick={onSocialClick} name="Google">Continue with Google</button>
-            <button className="authBtn" onClick={onSocialClick} name="Github">Continue with Github</button>
+            <button className="authBtn" onClick={onSocialClick} name="Google">구글 계정으로 계속하기</button>
+            <button className="authBtn" onClick={onSocialClick} name="Github">깃허브 계정으로 계속하기</button>
         </div>
    </div>
    <div>{isLoggedIn ? <Redirect from="/Loginform" to = "/Checipe" />: null}</div>

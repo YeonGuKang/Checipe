@@ -1,15 +1,43 @@
+@font-face{
+  font-family: goldenpier;
+  src:url('./fonts/MapoGoldenPier.ttf');
+}
 
 /* 로그인 페이지 */
 
+.Llogo {
+  position : relative;
+  display: flex;
+  top:-8vh;
+}
+
+.Line {
+  position : relative;
+  width: 27vw;
+  height: 30px;
+  background-color: #537f46 ;
+  top : 100px;
+}
 .backwrap {
-    height: 710px;
-    background-color: #537f46;
+    height: 100vh;
+    background-color: #dcdcdc;
+    display: flex;
+    justify-content: center;
+
 }
 
 .mainform {
+    background-color: white;
+    height: 600px;
+    width: 27vw;
     position: relative;
-    top: 250px;
-    left: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    top : 20vh;
+    border-radius: 20px;
+    align-items: center;
+
 }
 
 .container {
@@ -28,21 +56,33 @@
   }
 
 .authBtns {
+   top : -4vh;
+   position: relative;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
-    max-width: 320px;
+    max-width: 20vw;
   }
 
 .authBtn {
+    margin: 1vw;
+    font-family: 'goldenpier', serif;
+    width: 100%;
     cursor: pointer;
-    border-radius: 20px;
+    border-top-left-radius : 10px;
+    border-top-right-radius : 10px;
+    border-bottom-right-radius: 10px;
     border: none;
-    padding: 10px 0px;
-    font-size: 12px;
+    padding: 10px 10px;
+    color : white;
+    font-size: 1.5em;
+    /* font-weight: bold; */
     text-align: center;
-    background: white;
+    background: #537f46 ;
     cursor: pointer;
+    border:  #28421f;
 
   }
 
