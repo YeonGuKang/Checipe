@@ -316,15 +316,6 @@ const Recipe = () => {
   // 로그아웃을 위한 함수를 선언
   const onLogOutClick = () => authService.signOut();
 
-  // const toggleBtn = document.querySelector("menubtn");
-  // const nav = document.querySelector('nav');
-  // const login = document.querySelector('login');
-  // toggleBtn.addEventListener('click', () => {
-  //   nav.classList.toggle('active');
-  //   login.classList.toggle('active');
-  // });
-
-
   // 사용자가 선택한 type에 맞게 데이터를 선택하는 함수
       const getChosen = async (event) => {
         // event안에 존재하는 target의 value를 name으로 넘긴다.
@@ -448,7 +439,7 @@ const Recipe = () => {
                                 width='150vw'
                                 height='150vh'
                                 alt= 'vegetarian'/>
-               <img src={vegeline}
+              <img src={vegeline}
                                 width='10vw'
                                 height='100vh'
                                 alt= 'justaline'/>                  
@@ -456,7 +447,7 @@ const Recipe = () => {
                                 width='100vw'
                                 height='100vh'
                                 name="Vegan"/>
-               <img onClick={getChosen} src={lactox} 
+              <img onClick={getChosen} src={lactox} 
                                   width='100vw'
                                   height='100vh'
                                 name="Lacto"/>
@@ -484,17 +475,7 @@ const Recipe = () => {
                                   width='100vw'
                                   height='100vh'
                                 name="Flexi"/>                                                                        
-            </div>
-            <div className={rec.originalbtn}>
-            <button onClick={getChosen} name="Lacto">Lacto</button>
-               <button onClick={getChosen} name="Ovo">Ovo</button>
-               <button onClick={getChosen} name="LactoOvo">LactoOvo</button>
-               <button onClick={getChosen} name="Pesco">Pesco</button>
-               <button onClick={getChosen} name="Pollo">Pollo</button>
-               <button onClick={getChosen} name="PolloPesco">PolloPesco</button>
-               <button onClick={getChosen} name="Flexi">Flexi</button>
-               <button onClick={getChosen} name="Vegan">Vegan</button>
-            </div>
+            </div>            
               </div>
               </div>
               <div>

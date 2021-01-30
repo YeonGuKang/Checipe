@@ -4,7 +4,8 @@ import { authService, firebaseInstance } from "../firebase";
 import "./Loginform.css";
 import App from '../components/App'
 import checipelogo from './image/checipelogo.svg';
-
+import google from './image/google.png';
+import github from './image/github.png';
 
 const Loginform = () => {
   const [init, setInit] = useState(false);
@@ -101,8 +102,14 @@ const Loginform = () => {
             {newAccount ? "Sign In" : "Create Account"}
     </span>*/}
         <div className="authBtns">
-            <button className="authBtn" onClick={onSocialClick} name="Google">구글 계정으로 계속하기</button>
-            <button className="authBtn" onClick={onSocialClick} name="Github">깃허브 계정으로 계속하기</button>
+            <button className="authBtn" onClick={onSocialClick} name="Google">
+              <img className="google_log" src={google} /><br/>
+              구글 계정으로 계속하기
+            </button>
+            <button className="authBtn" onClick={onSocialClick} name="Github">
+              <img className="github_log" src={github} /><br/>
+              깃허브 계정으로 계속하기
+            </button>
         </div>
    </div>
    <div>{isLoggedIn ? <Redirect from="/Loginform" to = "/Checipe" />: null}</div>
