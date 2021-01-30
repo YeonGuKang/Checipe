@@ -27,16 +27,31 @@ import Rlist from './Rlist'
 
 
 
-
-
-
-
 const Recipe = () => {
   
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
+
+  
+  // 파이어베이스에서 데이터를 가져오는 과정
+  // 각각 채식 type에 맞게 데이터를 불러오기 위함
+  const [Lacto, setLacto] = useState([]);
+  const [LactoOvo, setLactoOvo] = useState([]);
+  const [Ovo, setOvo] = useState([]);
+  const [Pesco, setPesco] = useState([]);
+  const [Pollo, setPollo] = useState([]);
+  const [PolloPesco, setPolloPesco] = useState([]);
+  const [Flexi, setFlexi] = useState([]);
+  const [Vegan, setVegan] = useState([]);
+
+  const [chosen,setchosen] = useState([]);
+
+  
   useEffect(() => {
+
+    getChecipes();
+
     authService.onAuthStateChanged((user) => {
       console.log("changed");
       if (user) {
@@ -51,117 +66,81 @@ const Recipe = () => {
     });
     
   }, []);
-
-  // 파이어베이스에서 데이터를 가져오는 과정
-  // 각각 채식 type에 맞게 데이터를 불러오기 위함
-    const [Lacto, setLacto] = useState([]);
-    const [LactoOvo, setLactoOvo] = useState([]);
-    const [Ovo, setOvo] = useState([]);
-    const [Pesco, setPesco] = useState([]);
-    const [Pollo, setPollo] = useState([]);
-    const [PolloPesco, setPolloPesco] = useState([]);
-    const [Flexi, setFlexi] = useState([]);
-    const [Vegan, setVegan] = useState([]);
-
-
-    let dbVegan=[];
-    let dbFlexi=[];
-
-    // 대충 일단 vegan이랑 flex 6개씩 계속 넣어주기위함
-    const [Vegan_start, setVegan_start] = useState(6);
-
-    // 페이지에 사용할 예정
-    const [Page,setPage] = useState(1);
-
-  // 사용자가 선택한 type에 맞게 보여주기위함
-    const [chosen, setchosen] = useState([]);
+    
 
     const getChecipes = async () =>
     {
-      // 가장 처음에 데이터를 받아오는 작업
-      dbVegan = await dbService.collection("vegan").where("order", "<=", Vegan_start).limit(6).get();
-      dbFlexi = await dbService.collection("flex").where("order", "<=", Vegan_start).limit(6).get();
-      // 파이어베이스에 있는 컬렉션으름으로 각각의 db정보를 받아옴
-      // const dbLacto = await dbService.collection("lacto") .limit(13).get();
-      // const dbLactoOvo = await dbService.collection("lacto-ovo").limit(13).get();
-      // const dbOvo = await dbService.collection("ovo").limit(13).get();
-      // const dbPesco = await dbService.collection("pesco").limit(13).get();
-      // const dbPollo = await dbService.collection("pollo").limit(13).get();
-      // const dbPolloPesco = await dbService.collection("pollo-pesco").limit(13).get();
-      // const dbFlexi = await dbService.collection("flex").limit(13).get();
-      // const dbVegan = await dbService.collection("vegan").limit(13).get();
+     
+       //파이어베이스에 있는 컬렉션으름으로 각각의 db정보를 받아옴
+       const dbLacto = await dbService.collection("lacto") .limit(7).get();
+       const dbLactoOvo = await dbService.collection("lacto-ovo").limit(7).get();
+       const dbOvo = await dbService.collection("ovo").limit(7).get();
+       const dbPesco = await dbService.collection("pesco").limit(7).get();
+       const dbPollo = await dbService.collection("pollo").limit(7).get();
+       const dbPolloPesco = await dbService.collection("pollo-pesco").limit(7).get();
+       const dbFlexi = await dbService.collection("flex").limit(7).get();
+       const dbVegan = await dbService.collection("vegan").limit(7).get();
       
-      // // dbLacto에 존재하는 모든 각각의 document에 대해서 실행
-      // dbLacto.forEach((document) => {
-      //   // 임시로 객체를 하나 선언해서 그 객체에 모든 존재하는 데이터와 id를 추가해서 넣어줌
-      //   const LactoObject = {
-      //     ...document.data(),
-      //     id: document.id,
-      //   };
-      //   // Lacto 객체에 파이어베이스에 있는 정보를 set해줌 (set 함수인자에 함수를 넣어준 형태)
-      //   // prev => []  형태는 모든 이전의 document에 대해서 배열을 리턴한다
-      //   // 가장 최근 document인 Object를 return해서 set해주고 그 뒤로 이전 documnet를 return해서 set해줌 (implict return 형식)
-      //   setLacto((prev) => [LactoObject, ...prev]);
-      // });
+       // dbLacto에 존재하는 모든 각각의 document에 대해서 실행
+       dbLacto.forEach((document) => {
+         // 임시로 객체를 하나 선언해서 그 객체에 모든 존재하는 데이터와 id를 추가해서 넣어줌
+         const LactoObject = {
+           ...document.data(),
+           id: document.id,
+         };
+         // Lacto 객체에 파이어베이스에 있는 정보를 set해줌 (set 함수인자에 함수를 넣어준 형태)
+         // prev => []  형태는 모든 이전의 document에 대해서 배열을 리턴한다
+         // 가장 최근 document인 Object를 return해서 set해주고 그 뒤로 이전 documnet를 return해서 set해줌 (implict return 형식)
+         setLacto((prev) => [LactoObject, ...prev]);
+       });
 
-      // dbLactoOvo.forEach((document) => {
-      //   const LactoOvoObject = {
-      //     ...document.data(),
-      //     id: document.id,
-      //   };
-      //   setLactoOvo((prev) => [LactoOvoObject, ...prev]);
-      // });
+       dbLactoOvo.forEach((document) => {
+         const LactoOvoObject = {
+           ...document.data(),
+           id: document.id,
+         };
+         setLactoOvo((prev) => [LactoOvoObject, ...prev]);
+       });
 
-      // dbOvo.forEach((document) => {
-      //   const OvoObject = {
-      //     ...document.data(),
-      //     id: document.id,
-      //   };
-      //   setOvo((prev) => [OvoObject, ...prev]);
-      // });
+       dbOvo.forEach((document) => {
+         const OvoObject = {
+           ...document.data(),
+           id: document.id,
+         };
+         setOvo((prev) => [OvoObject, ...prev]);
+       });
 
-      // dbPesco.forEach((document) => {
-      //   const PescoObject = {
-      //     ...document.data(),
-      //     id: document.id,
-      //   };
-      //   setPesco((prev) => [PescoObject, ...prev]);
-      // });
+       dbPesco.forEach((document) => {
+         const PescoObject = {
+           ...document.data(),
+           id: document.id,
+         };
+         setPesco((prev) => [PescoObject, ...prev]);
+       });
 
-      // dbPollo.forEach((document) => {
-      //   const PolloObject = {
-      //     ...document.data(),
-      //     id: document.id,
-      //   };
-      //   setPollo((prev) => [PolloObject, ...prev]);
-      // });
+       dbPollo.forEach((document) => {
+         const PolloObject = {
+           ...document.data(),
+           id: document.id,
+         };
+         setPollo((prev) => [PolloObject, ...prev]);
+       });
 
-      // dbPolloPesco.forEach((document) => {
-      //   const PolloPescoObject = {
-      //     ...document.data(),
-      //     id: document.id,
-      //   };
-      //   setPolloPesco((prev) => [PolloPescoObject, ...prev]);
-      // });
+       dbPolloPesco.forEach((document) => {
+         const PolloPescoObject = {
+           ...document.data(),
+           id: document.id,
+         };
+         setPolloPesco((prev) => [PolloPescoObject, ...prev]);
+       });
 
-       // dbFlexi.forEach((document) => {
-       //  const FlexiObject = {
-       //    ...document.data(),
-       //    id: document.id,
-       //  };
-       //  setFlexi((prev) => [FlexiObject, ...prev]);
-       // });
-
-
-       // 테스트로 일단 flex랑 vegan 섞는중
-       dbFlexi.forEach((document) => {
-        const FlexiObject = {
-          ...document.data(),
-          id: document.id,
-        };
-        // flex정보를 vegan에 set
-        setVegan((prev) => [FlexiObject, ...prev]);
-      });
+        dbFlexi.forEach((document) => {
+         const FlexiObject = {
+           ...document.data(),
+           id: document.id,
+         };
+         setFlexi((prev) => [FlexiObject, ...prev]);
+        });
 
        dbVegan.forEach((document) => {
          const VeganObject = {
@@ -172,12 +151,6 @@ const Recipe = () => {
        });
     }
 
-    
-    // 처음에 mount 됐을때 실행해줌으로써 데이터를 불러옴
-    useEffect(()=>{
-      getChecipes();
- 
-    },[]);
   
   // 로그아웃을 위한 함수를 선언
   const onLogOutClick = () => authService.signOut();
@@ -197,127 +170,33 @@ const Recipe = () => {
       const {
         target: {name},
       } = event;
-
       // 아래 name으로 판단해서 chosen 객체에 앎맞는 데이터를 주입
       if(name == "Lacto"){
-        console.log("lacto")
-        // const dbLacto = await dbService.collection("lacto").orderBy("order").limit(3).get();
-        const dbLacto = await dbService.collection("lacto").where("order", ">=", 3).limit(4).get(); //order값이 2번이상부터인 문서 중에서 3번 나옴
-        dbLacto.forEach((document) => {
-          // 임시로 객체를 하나 선언해서 그 객체에 모든 존재하는 데이터와 id를 추가해서 넣어줌
-          const LactoObject = {
-            ...document.data(),
-            id: document.id,
-          };
-          // Lacto 객체에 파이어베이스에 있는 정보를 set해줌 (set 함수인자에 함수를 넣어준 형태)
-          // prev => []  형태는 모든 이전의 document에 대해서 배열을 리턴한다
-          // 가장 최근 document인 Object를 return해서 set해주고 그 뒤로 이전 documnet를 return해서 set해줌 (implict return 형식)
-          setLacto((prev) => [LactoObject, ...prev]) ;
-
-        });
         setchosen(Lacto);
       } 
       else if(name == "Ovo"){
-        const dbOvo = await dbService.collection("ovo").limit(7).get();
-        dbOvo.forEach((document) => {
-          const OvoObject = {
-            ...document.data(),
-            id: document.id,
-          };
-          setOvo((prev) => [OvoObject, ...prev]);
-        });
         setchosen(Ovo);
       }
       else if(name == "LactoOvo"){
-        const dbLactoOvo = await dbService.collection("lacto-ovo").limit(7).get();
-        dbLactoOvo.forEach((document) => {
-          const LactoOvoObject = {
-            ...document.data(),
-            id: document.id,
-          };
-          setLactoOvo((prev) => [LactoOvoObject, ...prev]);
-        });
         setchosen(LactoOvo);
       }
       else if(name == "Pollo"){
-        const dbPollo = await dbService.collection("pollo").limit(7).get();
-        dbPollo.forEach((document) => {
-          const PolloObject = {
-            ...document.data(),
-            id: document.id,
-          };
-          setPollo((prev) => [PolloObject, ...prev]);
-        });
         setchosen(Pollo);
       }
       else if(name == "Pesco"){
-        const dbPesco = await dbService.collection("pesco").limit(7).get();
-        dbPesco.forEach((document) => {
-          const PescoObject = {
-            ...document.data(),
-            id: document.id,
-          };
-          setPesco((prev) => [PescoObject, ...prev]);
-        });
         setchosen(Pesco);
       }
       else if(name == "PolloPesco"){
-        const dbPolloPesco = await dbService.collection("pollo-pesco").limit(7).get();
-        dbPolloPesco.forEach((document) => {
-          const PolloPescoObject = {
-            ...document.data(),
-            id: document.id,
-          };
-          setPolloPesco((prev) => [PolloPescoObject, ...prev]);
-        });
         setchosen(PolloPesco);
       }
       else if(name == "Flexi"){
-        const dbFlexi = await dbService.collection("flex").limit(7).get();
-        dbFlexi.forEach((document) => {
-          const FlexiObject = {
-            ...document.data(),
-            id: document.id,
-          };
-          setFlexi((prev) => [FlexiObject, ...prev]);
-        });
-  
         setchosen(Flexi);
       }
-      // 테스트로 비건이랑 플렉시 섞음
       else if(name == "Vegan"){
-      
-        setVegan_start(Vegan_start+6)
-        console.log(Vegan_start)
-        dbVegan = await dbService.collection("vegan").where("order",  ">" , Vegan_start).limit(6).get();
-        dbFlexi = await dbService.collection("flex").where("order",  ">" , Vegan_start).limit(6).get();
-
-        dbVegan.forEach((document) => {
-          const VeganObject = {
-            ...document.data(),
-            id: document.id,
-          };
-          setVegan((prev) => [VeganObject, ...prev]);
-        });
-
-
-        dbFlexi.forEach((document) => {
-          const FlexiObject = {
-            ...document.data(),
-            id: document.id,
-          };
-          setVegan((prev) => [FlexiObject, ...prev]);
-        });
-
-        // 객체 정보 무작위로 섞는 작업
-        for (let i = 0; i < Vegan.length; i++) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [Vegan[i], Vegan[j]] = [Vegan[j], Vegan[i]];  
-      };
-      
         setchosen(Vegan);
+      }
 
-      }    
+      console.log(chosen);
 
     }
   
@@ -423,13 +302,15 @@ const Recipe = () => {
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
               {chosen.map((Show)=>(
                 < Rlist
-                  key={ Show.name }
+                  name={Show.id}
+                  key={ Show.id } 
                   img={ Show.img }
                   part={ Show.part }
                   way={ Show.way }
                   detail={ Show.detail }
                   number={ Show.number }
                 />
+               
                 /*<div className={rec.result}>                
                 <div key={Show.id}>
                   <img
