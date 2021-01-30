@@ -192,17 +192,23 @@
 
 /* Register.js 부분 css */
 
+
+
 /* 헤더 아래에 middle이 필요해서 추가해줌 */
 .middle{
+    background-color : var(--background-color);
     position: relative;
+    right:10vw;
     top : 25vh;
     display: flex;
+    justify-content: center;
     width : 92vw;
     height : 70vh;
     
 }
 
 .Write{
+    font-family: 'goldenpier', serif;
     padding: 20px;
     position: relative;
     left: 65px;
@@ -210,6 +216,7 @@
 }
 
 .title_txt{
+    font-family: 'goldenpier', serif;
     width: 80vw;
     padding-bottom: 30px;
     border: none;
@@ -219,6 +226,7 @@
 }
 
 .content_txt{
+    font-family: 'goldenpier', serif;
     position: relative;
     left: 85px;
     border: none;
@@ -250,6 +258,8 @@
 }
 
 .board_detail{
+    font-family: 'goldenpier', serif;
+
    
     color:white;
 
