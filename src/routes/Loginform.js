@@ -4,7 +4,7 @@ import { authService, firebaseInstance } from "../firebase";
 import "./Loginform.css";
 import App from '../components/App'
 import checipelogo from './image/checipelogo.svg';
-import google from './image/google.png';
+import google from './image/google.svg';
 import github from './image/github.png';
 
 const Loginform = () => {
