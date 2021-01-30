@@ -23,7 +23,6 @@ const View_borad = () => {
     const chosen_url = now_url[4];
   
   useEffect(() => {
-
     //   사용자가 선택한 게시글에 맞게 데이터를 불러옴
     const docRef = dbService.collection("게시글").doc(chosen_url)
     docRef.get().then(function(doc) {  setboard(doc.data()); });
