@@ -34,7 +34,7 @@ function Rlist({ name,id, img, part, way, detail, number, step}) {
                   </div>
                   <hr size='5' color='#537f46'></hr>  
                   <div className={rec.Rhash}>
-                   { part } / { way }
+                   # { part } / { way }
                   </div>
                   <h4>{ detail }</h4>
                   <h6>{ number }</h6>
