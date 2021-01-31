@@ -10,6 +10,7 @@
 
 }
 
+/* 모든 링크와 방문한 기록에 대해서 검정색으로 보여줌 */
 *:link { color: black; text-decoration: none;}
 *:visited { color: black; text-decoration: none;}
 
