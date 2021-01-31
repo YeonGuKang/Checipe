@@ -18,11 +18,6 @@ const Notice = () => {
   const [boards, setboards] = useState([]);
   const [limit_boards,setlimit_boards]=useState([]);
 
-  // url 설정이 완료됐나 확인
-  const [check,setcheck] = useState(false);
-
-  // 선택한 게시글에 알맞는 url을 설정해주기 위함
-  const [View_url,setView_url] = useState("")
 
   // 현재 자신이 존재하는 페이지를 알기 위함
   const [page,setpage] = useState(1);
@@ -91,24 +86,11 @@ const Notice = () => {
 
 //  다시 그 temp 객체를 hook객체에 저장 (아래에 사용을 위해서 hook을 이용해야함)
  setlimit_boards(page_boards)
- console.log("정보세팅" , limit_boards)
+
 
 }
 
-console.log("함수밖 정보세팅" , limit_boards)
-  // 게시글에 맞는 url을 설정해주는 함수
-  const setUrl = async (event) => {
-    // event안에 존재하는 target의 value를 name으로 넘긴다.
-  const {
-    target: {name},
-  } = event;
 
-  // url에 /View/ 와 전달받은 name을 붙임 name은 doc.id이다
- setView_url('/View/' + name);
-
-//  url설정이 완료됐음을 설정
-  setcheck(true);
-}
 
 
     // 로그아웃을 위한 함수를 선언
@@ -161,11 +143,7 @@ console.log("함수밖 정보세팅" , limit_boards)
                         제목
                         {limit_boards.map(board => 
                         <div key={board.id}>
-                          {/* 현재 버튼이 아니면 인식이 안돼서 일단 버튼으로 만들어 놓음 name에 id를 넘겨줌 */}
-                            <button onClick={setUrl} name={board.id}>{board.title}</button>
-                            {/* url 설정이 완료됐으면 그 url로 redirect */}
-                            <div>{check ? <Redirect from="*" to = {View_url} />: null}
-                        </div>
+                         <li><Link to = {"/View/" + board.id}>{board.title}</Link></li>
                         </div>
                      
                        )
