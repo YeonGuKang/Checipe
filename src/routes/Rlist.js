@@ -16,40 +16,23 @@ const handleImgError = (e) => {
 
 function Rlist({ name,id, img, part, way, detail, number, step}) {
 
-    // url 설정이 완료됐나 확인
-    const [check,setcheck] = useState(false);
-
-    // 선택한 게시글에 알맞는 url을 설정해주기 위함
-    const [View_url,setView_url] = useState("")
-
-    // 게시글에 맞는 url을 설정해주는 함수
-    const setUrl = () => {
-  
-    // url에 /RecipeView/ 와 전달받은 type과 name을 붙임
-   setView_url('/RecipeView/' + step + '/' + name);
-
-  //  url설정이 완료됐음을 설정
-    setcheck(true);
-  }
 
 
     return (
       <div className={rec.result}>                
                 <div key={ name }>
+                  <Link to = {"/RecipeView/" + step + '/' + name}>
                   <img
                     src={ img }
                     onError={handleImgError}
                     width='100%'
                     height='300vh'
                  />
+                 </Link>
                  <hr size='5' color='#537f46'></hr>
-                 <div onClick={setUrl} className={rec.Rtitle}>
+                 <div className={rec.Rtitle}>
                   {name}
                   </div>
-                  {/* url 설정이 완료됐으면 그 url로 redirect */}
-                  <div>
-                    {check ? <Redirect from="*" to = {View_url} />: null}
-                    </div>
                   <hr size='5' color='#537f46'></hr>  
                   <div className={rec.Rhash}>
                    { part } / { way }

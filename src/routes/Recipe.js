@@ -498,26 +498,6 @@ const Recipe = () => {
                   step={Show.step}
                 />
                
-                /*<div className={rec.result}>                
-                <div key={Show.id}>
-                  <img
-                    src={ Show.img }
-                    onError={handleImgError}
-                    width='100%'
-                    height='220vh'
-                 />
-                 <hr size='5' color='#537f46'></hr>
-                 <div className={rec.Rtitle}>
-                  {Show.id}
-                  </div>
-                  <hr size='5' color='#537f46'></hr>  
-                  <div className={rec.Rhash}>
-                   {Show.part} / {Show.way}
-                  </div>
-                  <h4>{Show.detail}</h4>
-                  <h6>{Show.number}</h6>
-                  </div>
-                  </div>*/
               ))}
             </div>
             </div>
