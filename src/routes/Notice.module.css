@@ -53,4 +53,12 @@
     
 }
 
+.page_num {	
+    color: black;	
+    margin-right: 20px;	
+    list-style: none;	
+    display : inline-block;	
+    cursor: pointer;	
+}
+
 
