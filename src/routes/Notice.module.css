@@ -1,0 +1,64 @@
+/* Notice.js 부분 css */
+/* 헤더 아래에 middle이 필요해서 추가해줌 */
+.middle{
+    background-color : var(--background-color);
+    position: relative;
+    right:10vw;
+    top : 25vh;
+    display: flex;
+    justify-content: center;
+    width : 92vw;
+    height : 70vh;
+    
+}
+
+.board{
+    padding: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-height: 500px;
+
+    display: grid;
+ 
+}
+
+.board_detail{
+    font-family: 'goldenpier', serif;
+
+   
+    color:white;
+
+    display: grid;
+    /* 제목, 날짜가 길어지면 사이가 길어짐; */
+    grid-template-columns: 400% 100%;
+
+    line-height: 40px;
+}
+
+.board_date{
+    text-align: center;
+}
+
+/* Notice.js 부분 css */
+
+.paging_div{
+    position: relative;
+    top: 10px;
+    left: 200px;
+    border-top: solid 1px #ababab;
+    display: grid;
+    grid-template-columns: 100% 50% 50%;
+    text-align: center;
+
+    
+}
+
+.page_num {
+    color: black;
+    margin-right: 20px;
+    list-style: none;
+    display : inline-block;
+    cursor: pointer;
+}
+
+
