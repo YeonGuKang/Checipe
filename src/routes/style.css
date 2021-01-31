@@ -202,7 +202,7 @@ div > img.slideimg {
 /*레시피 이동 버튼*/
 .btn{
     display: inline;
-    z-index: 5;
+    /* z-index: 5; */
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
     margin-top: 13vh;
 }
