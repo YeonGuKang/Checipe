@@ -119,9 +119,9 @@ const Mainpage = () => {
                               </div>        
                    </div>
                    <div className="about_vegan">
-                                 <li><Link to="#" />About </li>
-                                  <li><Link to="#" />VEGETARIAN</li>
-                                  <li><Link to="#" />채식에관하여</li>
+                                 <li><Link to="/About" >About</Link> </li>
+                                  <li><Link to="/About" >VEGETARIAN</Link></li>
+                                  <li><Link to="/About" >채식에관하여</Link></li>
                               </div>
 
                               <Link to = "/Recipe">
