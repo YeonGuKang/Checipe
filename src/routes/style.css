@@ -184,8 +184,8 @@ div > img.slideimg {
     flex-direction: column;
     justify-content: center;
     position: relative; /*나중에 릴레이티브로 수정가능성있음 */
-    left: 64vw;
-    top: 43vh;
+    /* left: 64vw;
+    top: 43vh; */
     
 }
 
