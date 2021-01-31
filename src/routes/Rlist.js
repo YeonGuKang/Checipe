@@ -16,19 +16,18 @@ const handleImgError = (e) => {
 
 function Rlist({ name,id, img, part, way, detail, number, step}) {
 
-
-
     return (
-      <div className={rec.result}>                
+      <div className={rec.result}>     
+      <Link to = {"/RecipeView/" + step + '/' + name}>           
                 <div key={ name }>
-                  <Link to = {"/RecipeView/" + step + '/' + name}>
+                 
                   <img
                     src={ img }
                     onError={handleImgError}
                     width='100%'
                     height='300vh'
                  />
-                 </Link>
+                 
                  <hr size='5' color='#537f46'></hr>
                  <div className={rec.Rtitle}>
                   {name}
@@ -40,6 +39,7 @@ function Rlist({ name,id, img, part, way, detail, number, step}) {
                   <h4>{ detail }</h4>
                   <h6>{ number }</h6>
                   </div>
+                  </Link>
                   </div>
     )
   }
