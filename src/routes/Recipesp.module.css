@@ -1,0 +1,270 @@
+/* 뒤에 배경크기와 색깔을 설정*/
+@font-face{
+    font-family: goldenpier;
+    src:url('./fonts/MapoGoldenPier.ttf');
+}
+
+.half_bgs{
+    z-index: 1;
+    position : relative;
+    flex-direction: column;
+    left : 7vw;    
+    width : 92vw;
+    height: 85vh;
+    background-color:  #537f46;
+    display : flex;
+}
+
+.Rlogo{
+    position: relative;
+    display : inline;
+    left : 30px;   
+}
+:root{
+    --text-color: #f0f4f5;
+    --background-color: #28421f;
+    --header-background: #ffffff;
+    --main-color: #537f46;
+}
+.header{
+    position : relative;
+    top : 90px;
+    display: flex;
+    width : 100%;
+    height : 60px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-background);
+    margin-left: auto;
+    margin-right: auto;
+}
+/* 섹션디폴트는 현재 버튼 클릭 안했을 때 보여지는 진한 초록색 부분임. */
+/* .sectiondefault {
+    background-color : var(--background-color);
+    width : 92vw;
+    height : 100vh;
+    position : relative;
+    top : -20vh;
+    display: flex;
+} */
+
+
+.testing{
+    background-color: red;
+    height: "1000px";
+}
+
+.space {
+    background-color : var(--background-color);
+    width : 92vw;
+    height : 30vh;
+    position : relative;
+    top : -20vh;
+    display : flex;
+}
+.section {
+    z-index: 1;
+    background-color : var(--background-color);
+    width : 92vw;
+    height : 150%;
+    top : -30vh;
+    position : relative;
+    display: inline-flex;
+    
+}
+
+.sectionplace {
+    position : relative;
+    margin-top: 1vh;
+    margin-bottom: 15vh;
+    left : 9vw;
+    font-family: 'goldenpier', serif;
+    display : inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.result {
+    padding  : 0.5vw;
+    margin : 1vw;
+    z-index: 2;
+    background-color:white;
+    position : relative;
+    width : 17vw;
+    height : 53vh;
+    border-bottom-right-radius: 40px; 
+    border-bottom-left-radius: 40px; 
+
+   /*틀에 맞춰서 정보를 보여줌 넘치는건 hidden*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+   
+}
+
+
+.whiteselect { 
+    z-index: 1;
+    background-color : white;
+    width : 80vw;
+    height : 45vh;
+    border-top-left-radius : 40px;
+    border-top-right-radius : 40px;
+    border-bottom-right-radius: 40px;
+    position : relative;
+    left : 2vw;
+    bottom : -28vh;
+}
+
+.Rtitle {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+    
+}
+
+.Rhash {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.nav{
+    display: flex;
+    padding-left: 0;
+    cursor: pointer    
+    /* position : relative; */
+    /* top : 1vh; */    
+}
+.nav li{    
+    padding: 0;
+    font-family: 'goldenpier', serif;    
+    font-size : 1.5em;
+    /* margin-left: 5vw; */
+    margin-left: 18px;
+    font-weight: bold;
+    position : relative;
+    margin: 28px;    
+    right : 6.6vw;    
+    transition:all .3s ease
+}
+/* .nav li:hover{
+    /* background-color: var(--main-color); */
+    /* border-radius: 8px; */
+
+/*} */
+li:hover { color:#39d9c8; transition:all .3s ease }
+.nav li ::after {
+    content: '';
+    width: 0%;
+    left: 50%;
+    height: 1px;
+    display: block;
+    position: absolute;
+    margin-top: 2px;
+    border-bottom: 3px solid var(--main-color);
+    transition:all .4s ease;
+  }
+.nav li:hover ::after {
+    content: '';
+    width: 100%;
+    left: 0px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    margin-top: 2px;
+    border-bottom: 3px solid var(--main-color);
+    transition:all .4s ease;
+}
+
+.login{
+    font-family: 'goldenpier', serif;
+    font-size : 1.3em;
+    color: black;
+    position : relative;
+    right : 10vw;    
+    font-weight: bold;
+    
+}
+.menubtn{
+    display: none;
+    width: 24px;
+    height: 24px;
+    color: var(--main-color);
+    position: absolute;
+    right: 20px;
+}
+
+.vegetarianbtn {
+    width : 60vw;
+    position : relative;
+    left : 8vw;
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ingredientbtn {
+    width : 47.3vw;
+    position : relative;
+    left: 8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.vegetarianbtn:hover {
+    cursor: pointer;
+}
+
+.map {
+    font-family: 'goldenpier', serif;
+}
+.page_num {
+    color: black;
+    margin-right: 20px;
+    list-style: none;
+    display : inline-block;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1065px){
+    .nav{
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 8px 24px;
+    }
+
+    .header{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav li {
+        padding-left: 0;
+        width: 100%;
+        text-align: center;    
+    }
+    .login{
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        /* display: none; */
+    }
+    .menubtn{
+        display: block;
+    }
+    /* 로그인 네비바 부분이 활성화 되었을때(클릭 시) */
+    .login.active,
+    .nav.active{
+        display: flex;
+    }
+
+}
+
