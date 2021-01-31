@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
 import rec from "./Recipe.module.css";
@@ -64,6 +64,16 @@ const Recipe = () => {
       let end=limit;
      // 총 페이지가 몇개 나오는지 담는 배열
       let page_arr=[];
+
+      // useRef를 이용하여 이미지들의 src를 변경하기 위함
+      let vegan_imageRef = useRef(null);
+      let lacto_imageRef = useRef(null);
+      let ovo_imageRef = useRef(null);
+      let lactoovo_imageRef = useRef(null);
+      let pollo_imageRef = useRef(null);
+      let pesco_imageRef = useRef(null);
+      let pollopesco_imageRef = useRef(null);
+      let flex_imageRef = useRef(null);
 
        // 페이지 개수를 알기위한 for문
       for(let i = 1; i <= Math.ceil(chosen.length / limit); i++) {
@@ -329,43 +339,125 @@ const Recipe = () => {
         setpage(1);
         // 처음에 0부터 limit만큼 값을 넣어줌
         setlimit_boards(Lacto.slice(0,limit))
+
+        // 클릭했을때 o로 사진을 바꿔줌
+        lacto_imageRef.current.src = lactoo;
+
+        //  나머지는 모두 x로 사진을 바꿈
+        ovo_imageRef.current.src = ovox;
+        lactoovo_imageRef.current.src = lactovox;
+        pollo_imageRef.current.src = pollox;
+        pesco_imageRef.current.src = pescox;
+        pollopesco_imageRef.current.src = polpescox;
+        flex_imageRef.current.src = flexix;
+        vegan_imageRef.current.src = veganx;
       } 
       else if(name == "Ovo"){
         setchosen(Ovo);
         setpage(1);
         setlimit_boards(Ovo.slice(0,limit))
+
+        ovo_imageRef.current.src = ovoo;
+
+        lacto_imageRef.current.src = lactox;
+        lactoovo_imageRef.current.src = lactovox;
+        pollo_imageRef.current.src = pollox;
+        pesco_imageRef.current.src = pescox;
+        pollopesco_imageRef.current.src = polpescox;
+        flex_imageRef.current.src = flexix;
+        vegan_imageRef.current.src = veganx;
       }
       else if(name == "LactoOvo"){
         setchosen(LactoOvo);
         setpage(1);
         setlimit_boards(LactoOvo.slice(0,limit))
-     
+
+
+       lactoovo_imageRef.current.src = lactovoo;
+
+       lacto_imageRef.current.src = lactox;
+       ovo_imageRef.current.src = ovox;
+       pollo_imageRef.current.src = pollox;
+       pesco_imageRef.current.src = pescox;
+       pollopesco_imageRef.current.src = polpescox;
+       flex_imageRef.current.src = flexix;
+       vegan_imageRef.current.src = veganx;
       }
       else if(name == "Pollo"){
         setchosen(Pollo);
         setpage(1);
         setlimit_boards(Pollo.slice(0,limit))
-  
+
+
+      pollo_imageRef.current.src = polloo;
+
+      lacto_imageRef.current.src = lactox;
+      ovo_imageRef.current.src = ovox;
+      lactoovo_imageRef.current.src = lactovox;
+      pesco_imageRef.current.src = pescox;
+      pollopesco_imageRef.current.src = polpescox;
+      flex_imageRef.current.src = flexix;
+      vegan_imageRef.current.src = veganx;
       }
       else if(name == "Pesco"){
         setchosen(Pesco);
         setpage(1);
         setlimit_boards(Pesco.slice(0,limit))
+
+        pesco_imageRef.current.src = pescoo;
+
+        lacto_imageRef.current.src = lactox;
+        ovo_imageRef.current.src = ovox;
+        lactoovo_imageRef.current.src = lactovox;
+        pollo_imageRef.current.src = pollox;
+        pollopesco_imageRef.current.src = polpescox;
+        flex_imageRef.current.src = flexix;
+        vegan_imageRef.current.src = veganx;
       }
       else if(name == "PolloPesco"){
         setchosen(PolloPesco);
         setpage(1);
         setlimit_boards(PolloPesco.slice(0,limit))
+
+      pollopesco_imageRef.current.src = polpescod;
+
+      lacto_imageRef.current.src = lactox;
+      ovo_imageRef.current.src = ovox;
+      lactoovo_imageRef.current.src = lactovox;
+      pollo_imageRef.current.src = pollox;
+      pesco_imageRef.current.src = pescox;
+      flex_imageRef.current.src = flexix;
+      vegan_imageRef.current.src = veganx;
       }
       else if(name == "Flexi"){
         setchosen(Flexi);
         setpage(1);
         setlimit_boards(Flexi.slice(0,limit))
+
+       flex_imageRef.current.src = flecxio;
+
+       lacto_imageRef.current.src = lactox;
+       ovo_imageRef.current.src = ovox;
+       lactoovo_imageRef.current.src = lactovox;
+       pollo_imageRef.current.src = pollox;
+       pesco_imageRef.current.src = pescox;
+       pollopesco_imageRef.current.src = polpescox;
+       vegan_imageRef.current.src = veganx;
       }
       else if(name == "Vegan"){
         setchosen(Vegan);
         setpage(1);
-        setlimit_boards(Vegan.slice(0,limit))
+        setlimit_boards(Vegan.slice(0,limit));
+
+        vegan_imageRef.current.src = vegano;
+
+        lacto_imageRef.current.src = lactox;
+        ovo_imageRef.current.src = ovox;
+        lactoovo_imageRef.current.src = lactovox;
+        pollo_imageRef.current.src = pollox;
+        pesco_imageRef.current.src = pescox;
+        pollopesco_imageRef.current.src = polpescox;
+        flex_imageRef.current.src = flexix;
       }
 
 }
@@ -396,8 +488,6 @@ const Recipe = () => {
   }
 
   
-   
-
 
     return(           
             <div className={rec.wrap}> 
@@ -442,36 +532,37 @@ const Recipe = () => {
               <img src={vegeline}
                                 width='10vw'
                                 height='100vh'
-                                alt= 'justaline'/>                  
-              <img onClick={getChosen} src={veganx} 
+                                alt= 'justaline'/>          
+                                        {/*클릭시 이미지의 변경을 위해 ref를 사용  */}
+              <img onClick={getChosen} src={veganx} ref={vegan_imageRef}
                                 width='100vw'
                                 height='100vh'
                                 name="Vegan"/>
-              <img onClick={getChosen} src={lactox} 
+              <img onClick={getChosen} src={lactox} ref={lacto_imageRef}
                                   width='100vw'
                                   height='100vh'
                                 name="Lacto"/>
-               <img onClick={getChosen} src={ovox} 
+               <img onClick={getChosen} src={ovox} ref={ovo_imageRef}
                                   width='100vw'
                                   height='100vh'
                                 name="Ovo"/>
-               <img onClick={getChosen} src={lactovox} 
+               <img onClick={getChosen} src={lactovox} ref={lactoovo_imageRef}
                                   width='100vw'
                                   height='100vh'
                                 name="LactoOvo"/>
-               <img onClick={getChosen} src={pollox} 
+               <img onClick={getChosen} src={pollox} ref={pollo_imageRef}
                                   width='100vw'
                                   height='100vh'
                                 name="Pollo"/>
-               <img onClick={getChosen} src={pescox} 
+               <img onClick={getChosen} src={pescox} ref={pesco_imageRef}
                                   width='100vw'
                                   height='100vh'
                                 name="Pesco"/>   
-                <img onClick={getChosen} src={polpescox} 
+                <img onClick={getChosen} src={polpescox} ref={pollopesco_imageRef}
                                   width='100vw'
                                   height='100vh'
                                 name="PolloPesco"/>   
-                <img onClick={getChosen} src={flexix} 
+                <img onClick={getChosen} src={flexix} ref={flex_imageRef}
                                   width='100vw'
                                   height='100vh'
                                 name="Flexi"/>                                                                        

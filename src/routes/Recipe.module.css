@@ -94,6 +94,7 @@
     border-bottom-right-radius: 40px; 
     border-bottom-left-radius: 40px; 
 
+   /*틀에 맞춰서 정보를 보여줌 넘치는건 hidden*/
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
