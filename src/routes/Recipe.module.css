@@ -90,9 +90,14 @@
     background-color:white;
     position : relative;
     width : 17vw;
-    height : 47vh;
+    height : 53vh;
     border-bottom-right-radius: 40px; 
     border-bottom-left-radius: 40px; 
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+   
 }
 
 
