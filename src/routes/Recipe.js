@@ -22,7 +22,30 @@ import polpescod from './icons/polpescoo.svg';
 import vegeline from './icons/vegeline.svg';
 import flexix from './icons/flexix.svg';
 import flecxio from './icons/flexio.svg';
-import Rlist from './Rlist'
+import Rlist from './Rlist';
+
+import ingredient from './ingicons/ingredient.svg';
+import vegex from './ingicons/vegex.svg';
+import vegeo from './ingicons/vegeo.svg';
+import milkx from './ingicons/milkx.svg';
+import milko from './ingicons/milko.svg';
+import eggx from './ingicons/eggx.svg';
+import eggo from './ingicons/eggo.svg';
+import fishx from './ingicons/fishx.svg';
+import fisho from './ingicons/fisho.svg';
+import chickenx from './ingicons/chickenx.svg';
+import chickeno from './ingicons/chickeno.svg';
+import meatx from './ingicons/meatx.svg';
+import meato from './ingicons/meato.svg';
+
+
+
+
+
+
+
+
+
 
 
 const Recipe = () => {
@@ -74,6 +97,17 @@ const Recipe = () => {
       let pesco_imageRef = useRef(null);
       let pollopesco_imageRef = useRef(null);
       let flex_imageRef = useRef(null);
+
+      let vege_imageRef = useRef(null);
+      let milk_imageRef = useRef(null);
+      let egg_imageRef = useRef(null);
+      let fish_imageRef = useRef(null);
+      let chicken_imageRef = useRef(null);
+      let meat_imageRef = useRef(null);
+
+
+
+
 
        // 페이지 개수를 알기위한 for문
       for(let i = 1; i <= Math.ceil(chosen.length / limit); i++) {
@@ -340,6 +374,13 @@ const Recipe = () => {
         // 처음에 0부터 limit만큼 값을 넣어줌
         setlimit_boards(Lacto.slice(0,limit))
 
+        vege_imageRef.current.src = vegeo;
+        egg_imageRef.current.src = eggo;
+        milk_imageRef.current.src = milkx;
+        fish_imageRef.current.src = fishx;
+        chicken_imageRef.current.src = chickenx;
+        meat_imageRef.current.src =  meatx;
+
         // 클릭했을때 o로 사진을 바꿔줌
         lacto_imageRef.current.src = lactoo;
 
@@ -357,6 +398,13 @@ const Recipe = () => {
         setpage(1);
         setlimit_boards(Ovo.slice(0,limit))
 
+        vege_imageRef.current.src = vegeo;
+        egg_imageRef.current.src = eggx;
+        milk_imageRef.current.src = milko;
+        fish_imageRef.current.src = fishx;
+        chicken_imageRef.current.src = chickenx;
+        meat_imageRef.current.src =  meatx;
+
         ovo_imageRef.current.src = ovoo;
 
         lacto_imageRef.current.src = lactox;
@@ -371,6 +419,13 @@ const Recipe = () => {
         setchosen(LactoOvo);
         setpage(1);
         setlimit_boards(LactoOvo.slice(0,limit))
+
+        vege_imageRef.current.src = vegeo;
+        egg_imageRef.current.src = eggo;
+        milk_imageRef.current.src = milko;
+        fish_imageRef.current.src = fishx;
+        chicken_imageRef.current.src = chickenx;
+        meat_imageRef.current.src =  meatx;
 
 
        lactoovo_imageRef.current.src = lactovoo;
@@ -388,6 +443,13 @@ const Recipe = () => {
         setpage(1);
         setlimit_boards(Pollo.slice(0,limit))
 
+        vege_imageRef.current.src = vegeo;
+        egg_imageRef.current.src = eggo;
+        milk_imageRef.current.src = milko;
+        fish_imageRef.current.src = fishx;
+        chicken_imageRef.current.src = chickeno;
+        meat_imageRef.current.src =  meatx;
+
 
       pollo_imageRef.current.src = polloo;
 
@@ -404,6 +466,13 @@ const Recipe = () => {
         setpage(1);
         setlimit_boards(Pesco.slice(0,limit))
 
+        vege_imageRef.current.src = vegeo;
+        egg_imageRef.current.src = eggo;
+        milk_imageRef.current.src = milko;
+        fish_imageRef.current.src = fisho;
+        chicken_imageRef.current.src = chickenx;
+        meat_imageRef.current.src =  meatx;
+
         pesco_imageRef.current.src = pescoo;
 
         lacto_imageRef.current.src = lactox;
@@ -418,6 +487,13 @@ const Recipe = () => {
         setchosen(PolloPesco);
         setpage(1);
         setlimit_boards(PolloPesco.slice(0,limit))
+
+        vege_imageRef.current.src = vegeo;
+        egg_imageRef.current.src = eggo;
+        milk_imageRef.current.src = milko;
+        fish_imageRef.current.src = fisho;
+        chicken_imageRef.current.src = chickeno;
+        meat_imageRef.current.src =  meatx;
 
       pollopesco_imageRef.current.src = polpescod;
 
@@ -434,6 +510,14 @@ const Recipe = () => {
         setpage(1);
         setlimit_boards(Flexi.slice(0,limit))
 
+        vege_imageRef.current.src = vegeo;
+        egg_imageRef.current.src = eggo;
+        milk_imageRef.current.src = milko;
+        fish_imageRef.current.src = fisho;
+        chicken_imageRef.current.src = chickeno;
+        meat_imageRef.current.src =  meato;
+
+
        flex_imageRef.current.src = flecxio;
 
        lacto_imageRef.current.src = lactox;
@@ -448,6 +532,13 @@ const Recipe = () => {
         setchosen(Vegan);
         setpage(1);
         setlimit_boards(Vegan.slice(0,limit));
+
+        vege_imageRef.current.src = vegeo;
+        egg_imageRef.current.src = eggx;
+        milk_imageRef.current.src = milkx;
+        fish_imageRef.current.src = fishx;
+        chicken_imageRef.current.src = chickenx;
+        meat_imageRef.current.src =  meatx;
 
         vegan_imageRef.current.src = vegano;
 
@@ -524,6 +615,41 @@ const Recipe = () => {
                 </a>
               </nav>
               <div className={rec.whiteselect}>
+              <div className={rec.ingredientbtn}>
+                 <img src={ingredient}
+                                width='150vw'
+                                height='150vh'
+                                alt= 'ingredient'/>
+                 <img src={vegeline}
+                                width='10vw'
+                                height='100vh'
+                                alt= 'justaline'/> 
+               <img src={vegex} ref={vege_imageRef}
+                                width='100vw'
+                                height='100vh'
+                                name="Vege"/>                                
+               <img src={eggx} ref={egg_imageRef}
+                                width='100vw'
+                                height='100vh'
+                                name="Egg"/>
+               <img src={milkx} ref={milk_imageRef}
+                                width='100vw'
+                                height='100vh'
+                                name="Milk"/>  
+               <img src={fishx} ref={fish_imageRef}
+                                width='100vw'
+                                height='100vh'
+                                name="Fish"/> 
+               <img src={chickenx} ref={chicken_imageRef}
+                                width='100vw'
+                                height='100vh'
+                                name="Chicken"/> 
+               <img src={meatx} ref={meat_imageRef}
+                                width='100vw'
+                                height='100vh'
+                                name="Meat"/>                                                                                  
+              </div>
+
               <div className={rec.vegetarianbtn}>
               <img src={vegetarian}
                                 width='150vw'
@@ -566,7 +692,9 @@ const Recipe = () => {
                                   width='100vw'
                                   height='100vh'
                                 name="Flexi"/>                                                                        
-            </div>            
+            </div>  
+           
+          
               </div>
               </div>
               <div>
