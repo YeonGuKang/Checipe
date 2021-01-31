@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
 import rec from "./Recipe.module.css";
+import viewb from "./View_board.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
@@ -83,7 +84,7 @@ const View_borad = () => {
             </a>
           </nav>
           {/* 게시글을 보여주기 위한 middle부분 */}
-          <div className = {rec.middle}>
+          <div className = {viewb.middle}>
            
             <div>
                 <h3>{board.createdAt}</h3>

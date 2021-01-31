@@ -1,0 +1,12 @@
+/* 헤더 아래에 middle이 필요해서 추가해줌 */
+.middle{
+    background-color : var(--background-color);
+    position: relative;
+    right:10vw;
+    top : 25vh;
+    display: flex;
+    justify-content: center;
+    width : 92vw;
+    height : 70vh;
+    
+}

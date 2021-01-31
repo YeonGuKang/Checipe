@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect }
 import checipe_logo from './image/chaecipielogo.png';
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
-import View_borad from "./View_borad";
+import View_borad from "./View_board";
 import RecipeView from "./RecipeView";
 
 const handleImgError = (e) => {
