@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
 import rec from "./Recipe.module.css";
+import regi from "./Register.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
@@ -108,29 +109,29 @@ const Register = () => {
             </a>
           </nav>
           {/* 게시글 작성을 위한 middle부분 */}
-          <div className = {rec.middle}>
-            <form className = {rec.registerform}>
-                <div className = {rec.Write}>
+          <div className = {regi.middle}>
+            <form className = {regi.registerform}>
+                <div className = {regi.Write}>
                   {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
                     <input 
                     onChange={onChange_title}
                     type = 'text'
                     value={title}
-                    className={rec.title_txt}
+                    className={regi.title_txt}
                     placeholder='제목'
                     maxLength={10} />
                 </div>
                 <div>
                     <textarea 
                     onChange={onChange_content}
-                    className={rec.content_txt} 
+                    className={regi.content_txt} 
                     placeholder='내용을 입력하세요.'
                     type = 'text'
                     value={content}
                     minLength={10} />
                 </div>
                 
-                <button onClick={onclick} className = {rec.registerbtn}>
+                <button onClick={onclick} className = {regi.registerbtn}>
                 Register
                 </button>
 

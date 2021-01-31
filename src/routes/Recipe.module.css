@@ -186,108 +186,6 @@
 .map {
     font-family: 'goldenpier', serif;
 }
-
-/* Register.js 부분 css */
-
-
-
-/* 헤더 아래에 middle이 필요해서 추가해줌 */
-.middle{
-    background-color : var(--background-color);
-    position: relative;
-    right:10vw;
-    top : 25vh;
-    display: flex;
-    justify-content: center;
-    width : 92vw;
-    height : 70vh;
-    
-}
-
-.Write{
-    font-family: 'goldenpier', serif;
-    padding: 20px;
-    position: relative;
-    left: 65px;
-   
-}
-
-.title_txt{
-    font-family: 'goldenpier', serif;
-    width: 80vw;
-    padding-bottom: 30px;
-    border: none;
-    font-size: 22px;
-    border-bottom: solid 1px #ababab;
-    font-weight: bold;
-}
-
-.content_txt{
-    font-family: 'goldenpier', serif;
-    position: relative;
-    left: 85px;
-    border: none;
-    resize: none;
-    width:80vw;
-    height: 80vh;
-}
-
-.registerbtn{
-    position: relative;
-    left : 1200px;
-
-    width:10vw;
-    height:5vh;
-
-}
-
-/* Register.js 부분 css */
-
-/* Notice.js 부분 css */
-.board{
-    padding: 30px;
-    margin-left: 20px;
-    margin-right: 20px;
-    min-height: 500px;
-
-    display: grid;
- 
-}
-
-.board_detail{
-    font-family: 'goldenpier', serif;
-
-   
-    color:white;
-
-    display: grid;
-    /* 제목, 날짜가 길어지면 사이가 길어짐; */
-    grid-template-columns: 400% 100%;
-
-    line-height: 40px;
-}
-
-.board_date{
-    text-align: center;
-}
-
-/* Notice.js 부분 css */
-
-
-/* View_board.js 부분 css */
-
-.paging_div{
-    position: relative;
-    top: 10px;
-    left: 200px;
-    border-top: solid 1px #ababab;
-    display: grid;
-    grid-template-columns: 100% 50% 50%;
-    text-align: center;
-
-    
-}
-
 .page_num {
     color: black;
     margin-right: 20px;
@@ -295,9 +193,6 @@
     display : inline-block;
     cursor: pointer;
 }
-
-/* View_board.js 부분 css */
-
 
 @media screen and (max-width: 768px){
     .nav{

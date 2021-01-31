@@ -1,0 +1,51 @@
+/* 헤더 아래에 middle이 필요해서 추가해줌 */
+.middle{
+    background-color : var(--background-color);
+    position: relative;
+    right:10vw;
+    top : 25vh;
+    display: flex;
+    justify-content: center;
+    width : 92vw;
+    height : 70vh;
+    
+}
+
+.Write{
+    font-family: 'goldenpier', serif;
+    padding: 20px;
+    position: relative;
+    left: 65px;
+   
+}
+
+.title_txt{
+    font-family: 'goldenpier', serif;
+    width: 80vw;
+    padding-bottom: 30px;
+    border: none;
+    font-size: 22px;
+    border-bottom: solid 1px #ababab;
+    font-weight: bold;
+}
+
+.content_txt{
+    font-family: 'goldenpier', serif;
+    position: relative;
+    left: 85px;
+    border: none;
+    resize: none;
+    width:80vw;
+    height: 80vh;
+}
+
+.registerbtn{
+    position: relative;
+    left : 1200px;
+
+    width:10vw;
+    height:5vh;
+
+}
+
+/* Register.js 부분 css */
