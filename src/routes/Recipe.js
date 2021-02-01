@@ -362,6 +362,7 @@ const Recipe = () => {
 
   // 사용자가 선택한 type에 맞게 데이터를 선택하는 함수
       const getChosen = async (event) => {
+        
         // event안에 존재하는 target의 value를 name으로 넘긴다.
       const {
         target: {name},
@@ -714,6 +715,7 @@ const Recipe = () => {
                   way={ Show.way }
                   detail={ Show.detail }
                   number={ Show.number }
+                  manual={ Show.manual}
                   step={Show.step}
                 />
                
