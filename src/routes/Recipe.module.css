@@ -52,7 +52,7 @@
     height: "1000px";
 }
 
-.space {
+.space { /* 겹치는 여백을 따로 진행한 부분. 난 이거 보고 이해 했을걸*/
     background-color : var(--background-color);
     width : 92vw;
     height : 30vh;
