@@ -1,7 +1,7 @@
 /* 뒤에 배경크기와 색깔을 설정*/
 @font-face{
     font-family: goldenpier;
-    src:url('./fonts/MapoGoldenPier.ttf');
+    src:url('./fonts/MapoGoldenPier.ttf');    
 }
 
 .half_bgs{
@@ -136,12 +136,12 @@
 .nav{
     display: flex;
     padding-left: 0;
-    cursor: pointer    
+    cursor: pointer           
     /* position : relative; */
     /* top : 1vh; */    
 }
 .nav li{    
-    padding: 0;
+    padding: 0;    
     font-family: 'goldenpier', serif;    
     font-size : 1.5em;
     /* margin-left: 5vw; */
@@ -157,8 +157,9 @@
     /* border-radius: 8px; */
 
 /*} */
-li:hover { color:#39d9c8; transition:all .3s ease }
-.nav li ::after {
+.nav :hover, .login :hover { color:var(--main-color); transition:all .4s ease }
+
+.nav li ::after, .login ::after {
     content: '';
     width: 0%;
     left: 50%;
@@ -169,7 +170,7 @@ li:hover { color:#39d9c8; transition:all .3s ease }
     border-bottom: 3px solid var(--main-color);
     transition:all .4s ease;
   }
-.nav li:hover ::after {
+.nav li:hover ::after, .login:hover ::after {
     content: '';
     width: 100%;
     left: 0px;
@@ -177,6 +178,7 @@ li:hover { color:#39d9c8; transition:all .3s ease }
     display: block;
     position: absolute;
     margin-top: 2px;
+    color: var(--text-color);
     border-bottom: 3px solid var(--main-color);
     transition:all .4s ease;
 }
@@ -190,6 +192,7 @@ li:hover { color:#39d9c8; transition:all .3s ease }
     font-weight: bold;
     
 }
+
 .menubtn{
     display: none;
     width: 24px;
@@ -233,6 +236,7 @@ li:hover { color:#39d9c8; transition:all .3s ease }
 }
 
 @media screen and (max-width: 1065px){
+
     .nav{
         display: none;
         flex-direction: column;
