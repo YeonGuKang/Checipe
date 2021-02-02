@@ -6,8 +6,11 @@ import noti from "./Notice.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
+let btnlimit = 3;
+let check=0;
 
 const Notice = () => {
+  
 
     const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -87,7 +90,6 @@ const Notice = () => {
 //  다시 그 temp 객체를 hook객체에 저장 (아래에 사용을 위해서 hook을 이용해야함)
  setlimit_boards(page_boards)
 
-
 }
 
 
@@ -96,7 +98,38 @@ const Notice = () => {
     // 로그아웃을 위한 함수를 선언
     const onLogOutClick = () => authService.signOut();
 
-   
+  
+
+    const change_page_arr = async(event) => {
+
+      const {
+        target: {name},
+      } = event;
+      
+        // 현재 페이지를 받고
+       setpage(name);
+
+       check+=1;
+       btnlimit+=3;
+
+        //  그 페이지에 맞게 보여줄 게시글을 계산한다
+    start=(name-1) * limit;
+    end=start+limit;
+    
+  //  계산이 끝난뒤 그 게시글만 slice해서 temp객체에 저장
+ page_boards=boards.slice(start,end)
+
+
+//  다시 그 temp 객체를 hook객체에 저장 (아래에 사용을 위해서 hook을 이용해야함)
+ setlimit_boards(page_boards)
+
+
+      console.log(page_arr)
+      console.log(name)
+
+    }
+
+
 
     return(           
         <div className={rec.wrap}> 
@@ -165,14 +198,17 @@ const Notice = () => {
                     <div className={noti.paging_div}>
          
          {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
+
               <div>
-                {page_arr ? page_arr.map( (el,key) => 
-                    el == page ? <button key={key} className={noti.page_num} onClick={getpage} name={el}> {el} </button>
-                                : <button key={key} className={noti.page_num} onClick={getpage} name={el}> {el}  </button> 
-                )
-                
-                : null}
+              <button className={noti.page_num}>PREV</button>
+                {check==0 ?  page_arr.map( (el,key) =>  
+                    el < btnlimit ? (console.log("참",check) ,<button key={key} className={noti.page_num} onClick={getpage} name={el} > {el} </button>         
+                ): ( console.log("거짓",check) ,<button className={noti.page_num} onClick={change_page_arr} name={el}>NEXT</button>) ) 
+                : page_arr.map( (el,key) =>  
+                el+btnlimit-3 < btnlimit ? (console.log("참",el) ,<button key={key} className={noti.page_num} onClick={getpage} name={el+btnlimit-3-1} > {el+btnlimit-3-1} </button>         
+            ): ( console.log("거짓",el) ,<button className={noti.page_num} onClick={change_page_arr} name={el+btnlimit-3-1}>NEXT</button>) ) }
               </div>
+
             </div>
     
               </div>
