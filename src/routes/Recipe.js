@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, useHistory } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
 import rec from "./Recipesp.module.css";
 import { authService , dbService } from '../firebase';
@@ -37,6 +37,7 @@ import chickenx from './ingicons/chickenx.svg';
 import chickeno from './ingicons/chickeno.svg';
 import meatx from './ingicons/meatx.svg';
 import meato from './ingicons/meato.svg';
+import { event } from "jquery";
 
 
 
@@ -65,8 +66,11 @@ const Recipe = () => {
   const [PolloPesco, setPolloPesco] = useState([]);
   const [Flexi, setFlexi] = useState([]);
   const [Vegan, setVegan] = useState([]);
- 
 
+  const history = useHistory();
+ 
+  const [Search_name, setSearch_name] = useState("");
+  const [Searchdb, setSearchdb] =useState([]);
 
 
   // 선택한 정보를 보여주기 위함
@@ -579,7 +583,34 @@ const Recipe = () => {
  
   }
 
-  
+
+  // 검색한 name을 set해줌
+   const set_search_name = (event) => {
+    const {
+      target: { value },
+    } = event;
+
+    setSearch_name(value)
+ 
+  };
+  let stringVal=""
+
+  // 검색한 name으로 검색을해서 limit_board에 넣어줌
+  const search_db = () => {
+
+    // 이전에 넣어둔 데이터를 밀어줌
+    setlimit_boards([])
+    // Flexi는 모든 레시피를 가지고 있으므로 Flexi에서 검색
+   Flexi.map((name)=>(
+    stringVal = name.id,
+    // 찾는 name이 존재하면 값을 넣어줌
+    stringVal.includes(Search_name) ? setlimit_boards((prev) => [name, ...prev]) : null
+    ))
+    
+  }
+
+
+
 
     return(           
             <div className={rec.wrap}> 
@@ -724,20 +755,26 @@ const Recipe = () => {
             </div>
   {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
   <div>
-                {page_arr ? page_arr.map( (el,key) => 
-                    el == page ? <button key={key} className={rec.page_num} onClick={getpage} name={el}> {el} </button>
-                                : <button key={key} className={rec.page_num} onClick={getpage} name={el}> {el}  </button> 
-                )
-                
-                : null}
-              </div>  
+    <button>PREV</button>
+                {page_arr ?  page_arr.map( (el,key) => 
+                  <button key={key} className={rec.page_num} onClick={getpage} name={el}> {el} </button>
+                )   : null
+          }
+              <button className={rec.page_num} >NEXT</button>
+              </div> 
           </div>          
-          
+          <div >
+                
+                    <input 
+                    onChange={set_search_name}
+                    type = 'text'
+                    placeholder='검색'
+                     />
+                     <button onClick={search_db}>검색</button>
+                </div>
             </div>
             
           
-            
-            
     );
 }         
 
