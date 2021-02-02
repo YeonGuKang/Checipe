@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, useHistory } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
+import checipelogo from './image/checipelogo.svg';
 import rec from "./Recipesp.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
@@ -38,6 +39,23 @@ import chickeno from './ingicons/chickeno.svg';
 import meatx from './ingicons/meatx.svg';
 import meato from './ingicons/meato.svg';
 import { event } from "jquery";
+
+import hashtag from './hashicons/hashtag.svg';
+import hashline from './hashicons/hashline.svg';
+import soupx from './hashicons/soupx.svg';
+import soupo from './hashicons/soupo.svg';
+import sidex from './hashicons/sidex.svg';
+import sideo from './hashicons/sideo.svg';
+import coursex from './hashicons/coursex.svg';
+import courseo from './hashicons/courseo.svg';
+import dessertx from './hashicons/dessertx.svg';
+import desserto from './hashicons/deserto.svg';
+import etcx from './hashicons/etcx.svg';
+import etco from './hashicons/etco.svg';
+
+
+
+
 
 
 
@@ -108,6 +126,15 @@ const Recipe = () => {
       let fish_imageRef = useRef(null);
       let chicken_imageRef = useRef(null);
       let meat_imageRef = useRef(null);
+
+      let soup_imageRef = useRef(null);
+      let side_imageRef = useRef(null);
+      let course_imageRef = useRef(null);
+      let dessert_imageRef = useRef(null);
+      let etc_imageRef = useRef(null);
+
+
+
 
 
 
@@ -621,9 +648,9 @@ const Recipe = () => {
                 <a href="/Checipe">
                   <img                  
                   className={rec.logo_img}
-                  src={ checipe_logo }
-                  width='220vw'
-                  height='220vh'
+                  src={ checipelogo }
+                  width='200vw'
+                  height='200vh'
                   />
                 </a>
                 </div>  
@@ -725,7 +752,36 @@ const Recipe = () => {
                                   height='100vh'
                                 name="Flexi"/>                                                                        
             </div>  
-           
+            <div className={rec.hashtagbtn}>
+            <img src={hashtag}
+                                width='150vw'
+                                height='150vh'
+                                alt= 'hashtag'/>
+             <img src={hashline}
+                                width='10vw'
+                                height='50vh'
+                                alt= 'hashline'/>
+            <img onClick={getChosen} src={soupx} ref={soup_imageRef}
+                                  width='130vw'
+                                  height='130vh'
+                                name="Soup"/>   
+            <img onClick={getChosen} src={sidex} ref={side_imageRef}
+                                  width='100vw'
+                                  height='100vh'
+                                name="Side"/>      
+            <img onClick={getChosen} src={coursex} ref={course_imageRef}
+                                  width='100vw'
+                                  height='100vh'
+                                name="Course"/>        
+            <img onClick={getChosen} src={dessertx} ref={dessert_imageRef}
+                                  width='100vw'
+                                  height='100vh'
+                                name="Dessert"/> 
+            <img onClick={getChosen} src={etcx} ref={etc_imageRef}
+                                  width='100vw'
+                                  height='100vh'
+                                name="Etc"/>                                                                                                                                                             
+            </div>
           
               </div>
               </div>

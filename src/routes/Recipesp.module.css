@@ -5,6 +5,7 @@
 }
 
 .half_bgs{
+    /* 우측상단에 위치한 큰 밝은 초록박스 */
     z-index: 1;
     position : relative;
     flex-direction: column;
@@ -16,9 +17,10 @@
 }
 
 .Rlogo{
+    /* 로고 위치 지정 */
     position: relative;
     display : inline;
-    left : 30px;   
+    left : 60px;   
 }
 :root{
     --text-color: #f0f4f5;
@@ -38,15 +40,6 @@
     margin-left: auto;
     margin-right: auto;
 }
-/* 섹션디폴트는 현재 버튼 클릭 안했을 때 보여지는 진한 초록색 부분임. */
-/* .sectiondefault {
-    background-color : var(--background-color);
-    width : 92vw;
-    height : 100vh;
-    position : relative;
-    top : -20vh;
-    display: flex;
-} */
 
 
 .testing{
@@ -55,6 +48,7 @@
 }
 
 .space {
+    /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
     background-color : var(--background-color);
     width : 92vw;
     height : 30vh;
@@ -63,6 +57,7 @@
     display : flex;
 }
 .section {
+    /* 그냥 뒤에 진한 초록색배경 */
     z-index: 1;
     background-color : var(--background-color);
     width : 92vw;
@@ -74,6 +69,7 @@
 }
 
 .sectionplace {
+    /* 진한초록배경 앞에 위치해서 레시피들 정렬하는 클래스 */
     position : relative;
     margin-top: 1vh;
     margin-bottom: 15vh;
@@ -86,6 +82,7 @@
 
 
 .result {
+    /* 결과 레시피들을 각각 감싸는 하얀색 네모 */
     padding  : 0.5vw;
     margin : 1vw;
     z-index: 2;
@@ -105,6 +102,7 @@
 
 
 .whiteselect { 
+    /* 사용자들이 직접 선택할 수 있는 버튼이 있는 하얀 박스 */
     z-index: 1;
     background-color : white;
     width : 80vw;
@@ -118,6 +116,7 @@
 }
 
 .Rtitle {
+    /* result에 있는 레시피들의 이름 크기 설정 */
     font-size: 1.6rem;
     font-weight: bold;
     margin-top: 1vh;
@@ -127,6 +126,7 @@
 }
 
 .Rhash {
+    /* 이름 밑에 있는 해시태그, 조리방법 글씨 크기 설정 */
     font-size: 1.3rem;
     font-weight: bold;
     margin-top: 1vh;
@@ -201,24 +201,37 @@
     position: absolute;
     right: 20px;
 }
-
-.vegetarianbtn {
-    width : 60vw;
-    position : relative;
-    left : 8vw;
-    display : flex;
-    justify-content: space-between;
-    align-items: center;
-}
 .ingredientbtn {
-    width : 47.3vw;
+    /* 재료 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
+    width : 906px;
     position : relative;
+    top : 3vh;
     left: 8vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.vegetarianbtn {
+    /* 채식 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
+    width : 1150px;
+    position : relative;
+    top : 1.5vh;
+    left : 8vw;
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+
+.hashtagbtn {
+    width: 815px;
+    position : relative;
+    top : -2.5vh;
+    left : 8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .vegetarianbtn:hover {
     cursor: pointer;
