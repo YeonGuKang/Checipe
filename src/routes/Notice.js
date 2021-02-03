@@ -6,7 +6,7 @@ import noti from "./Notice.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
-const init_btnlimit=3;
+const init_btnlimit=4;
 let btnlimit=init_btnlimit;
 let check=0;
 
@@ -101,7 +101,30 @@ const Notice = () => {
 
   
 
+const prev_page = async() =>{
 
+  setpage((page-init_btnlimit+1))
+
+  console.log(page)
+
+  // Next가 실행됐는지 check
+  check+=1;
+
+  // limit 만큼 증가
+  btnlimit-=init_btnlimit;
+
+   //  그 페이지에 맞게 보여줄 게시글을 계산한다
+start=((page-init_btnlimit+1)-1) * limit;
+end=start+limit;
+
+//  계산이 끝난뒤 그 게시글만 slice해서 temp객체에 저장
+page_boards=boards.slice(start,end)
+
+
+//  다시 그 temp 객체를 hook객체에 저장 (아래에 사용을 위해서 hook을 이용해야함)
+setlimit_boards(page_boards)
+
+}
 
 
 
@@ -118,7 +141,7 @@ const Notice = () => {
        check+=1;
 
        // limit 만큼 증가
-       btnlimit+=3;
+       btnlimit+=init_btnlimit;
 
         //  그 페이지에 맞게 보여줄 게시글을 계산한다
     start=(name-1) * limit;
@@ -207,14 +230,15 @@ const Notice = () => {
          
          {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
 
-              <div>
-              <button className={noti.page_num}>PREV</button>
+
+         <div>
+         <button className={rec.page_num}  onClick={prev_page}>PREV</button>
                 {check==0 ?  page_arr.map( (el,key) =>  
-                    el < btnlimit ? (console.log("처음 참",check) ,<button key={key} className={noti.page_num} onClick={getpage} name={el} > {el} </button>         
-                ): ( console.log("처음 거짓",check) ,<button className={noti.page_num} onClick={change_page_arr} name={el}>NEXT</button>) ) 
+                    el < btnlimit + 1 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
+                : el < btnlimit + 2 ? <button className={rec.page_num} onClick={change_page_arr} name={el}>NEXT</button> : null ) 
                 : page_arr.map( (el,key) =>  
-                el+btnlimit-init_btnlimit < btnlimit ? (console.log("이후 참",el) ,<button key={key} className={noti.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > {el+btnlimit-init_btnlimit-1} </button>         
-            ): ( console.log("이후 거짓",el) ,<button className={noti.page_num} onClick={change_page_arr} name={el+btnlimit-init_btnlimit-1}>NEXT</button>) ) }
+                el+btnlimit-init_btnlimit < btnlimit + 1 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > {el+btnlimit-init_btnlimit-1} </button>         
+            : el < btnlimit-init_btnlimit*check + 2 ? <button className={rec.page_num} onClick={change_page_arr} name={el+btnlimit-init_btnlimit-1}>NEXT</button> : null ) }
               </div>
 
             </div>
