@@ -6,7 +6,8 @@ import noti from "./Notice.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
-let btnlimit = 3;
+const init_btnlimit=3;
+let btnlimit=init_btnlimit;
 let check=0;
 
 const Notice = () => {
@@ -100,6 +101,10 @@ const Notice = () => {
 
   
 
+
+
+
+
     const change_page_arr = async(event) => {
 
       const {
@@ -109,7 +114,10 @@ const Notice = () => {
         // 현재 페이지를 받고
        setpage(name);
 
+       // Next가 실행됐는지 check
        check+=1;
+
+       // limit 만큼 증가
        btnlimit+=3;
 
         //  그 페이지에 맞게 보여줄 게시글을 계산한다
@@ -202,11 +210,11 @@ const Notice = () => {
               <div>
               <button className={noti.page_num}>PREV</button>
                 {check==0 ?  page_arr.map( (el,key) =>  
-                    el < btnlimit ? (console.log("참",check) ,<button key={key} className={noti.page_num} onClick={getpage} name={el} > {el} </button>         
-                ): ( console.log("거짓",check) ,<button className={noti.page_num} onClick={change_page_arr} name={el}>NEXT</button>) ) 
+                    el < btnlimit ? (console.log("처음 참",check) ,<button key={key} className={noti.page_num} onClick={getpage} name={el} > {el} </button>         
+                ): ( console.log("처음 거짓",check) ,<button className={noti.page_num} onClick={change_page_arr} name={el}>NEXT</button>) ) 
                 : page_arr.map( (el,key) =>  
-                el+btnlimit-3 < btnlimit ? (console.log("참",el) ,<button key={key} className={noti.page_num} onClick={getpage} name={el+btnlimit-3-1} > {el+btnlimit-3-1} </button>         
-            ): ( console.log("거짓",el) ,<button className={noti.page_num} onClick={change_page_arr} name={el+btnlimit-3-1}>NEXT</button>) ) }
+                el+btnlimit-init_btnlimit < btnlimit ? (console.log("이후 참",el) ,<button key={key} className={noti.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > {el+btnlimit-init_btnlimit-1} </button>         
+            ): ( console.log("이후 거짓",el) ,<button className={noti.page_num} onClick={change_page_arr} name={el+btnlimit-init_btnlimit-1}>NEXT</button>) ) }
               </div>
 
             </div>
