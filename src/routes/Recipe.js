@@ -137,7 +137,7 @@ const Recipe = () => {
     
 
    // 첫 화면에 merge에서 가져온 값을 나타냄
-   dbService.collection("merge").limit(433).onSnapshot((snapshot) => {
+   dbService.collection("merge").limit(13).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
