@@ -207,7 +207,12 @@ setlimit_boards(page_boards)
                         제목
                         {limit_boards.map(board => 
                         <div key={board.id}>
-                         <li><Link to = {"/View/" + board.id}>{board.title}</Link></li>
+                         <li><Link to = {{pathname: "/View/" + board.id,
+                                          state: {
+                                            createdAt: board.createdAt,
+                                            title: board.title,
+                                            content: board.content
+                                          }}}>{board.title}</Link></li>
                         </div>
                      
                        )
