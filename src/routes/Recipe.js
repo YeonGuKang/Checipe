@@ -57,17 +57,17 @@ import etco from './hashicons/etco.svg';
 
 
 
-
-
-
-
-
-
-
-
+  
+const init_btnlimit=10;
+let btnlimit=init_btnlimit;
+let check=0;
 
 
 const Recipe = () => {
+
+  
+
+
   
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -259,7 +259,7 @@ const Recipe = () => {
 
   });
 
-  dbService.collection("flex").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("flex").limit(200).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -296,103 +296,15 @@ const Recipe = () => {
     
     return sourceArray
 }
-    
-      // 데이터 속도를 높이기 위해 useEffect에서 곧 바로 데이터를 받아옴
-   /* const getChecipes = async () =>
-    {
-     
-       //파이어베이스에 있는 컬렉션으름으로 각각의 db정보를 받아옴
-      const dbLacto = await dbService.collection("lacto") .limit(5).get();
-      const dbLactoOvo = await dbService.collection("lacto-ovo").limit(5).get();
-      const dbOvo = await dbService.collection("ovo").limit(5).get();
-      const dbPesco = await dbService.collection("pesco").limit(5).get();
-      const dbPollo = await dbService.collection("pollo").limit(5).get();
-      const dbPolloPesco = await dbService.collection("pollo-pesco").limit(5).get();
-      const dbFlexi = await dbService.collection("flex").limit(5).get();
-      const dbVegan = await dbService.collection("vegan").limit(5).get();
-
-    
-
-
-      
-       // dbLacto에 존재하는 모든 각각의 document에 대해서 실행
-       dbLacto.forEach((document) => {
-         // 임시로 객체를 하나 선언해서 그 객체에 모든 존재하는 데이터와 id를 추가해서 넣어줌
-         const LactoObject = {
-           ...document.data(),
-           id: document.id,
-         };
-         // Lacto 객체에 파이어베이스에 있는 정보를 set해줌 (set 함수인자에 함수를 넣어준 형태)
-         // prev => []  형태는 모든 이전의 document에 대해서 배열을 리턴한다
-         // 가장 최근 document인 Object를 return해서 set해주고 그 뒤로 이전 documnet를 return해서 set해줌 (implict return 형식)
-         setLacto((prev) => [LactoObject, ...prev]);
-       });
-
-       dbLactoOvo.forEach((document) => {
-         const LactoOvoObject = {
-           ...document.data(),
-           id: document.id,
-         };
-         setLactoOvo((prev) => [LactoOvoObject, ...prev]);
-       });
-
-       dbOvo.forEach((document) => {
-         const OvoObject = {
-           ...document.data(),
-           id: document.id,
-         };
-         setOvo((prev) => [OvoObject, ...prev]);
-       });
-
-       dbPesco.forEach((document) => {
-         const PescoObject = {
-           ...document.data(),
-           id: document.id,
-         };
-         setPesco((prev) => [PescoObject, ...prev]);
-       });
-
-       dbPollo.forEach((document) => {
-         const PolloObject = {
-           ...document.data(),
-           id: document.id,
-         };
-         setPollo((prev) => [PolloObject, ...prev]);
-       });
-
-       dbPolloPesco.forEach((document) => {
-         const PolloPescoObject = {
-           ...document.data(),
-           id: document.id,
-         };
-         setPolloPesco((prev) => [PolloPescoObject, ...prev]);
-       });
-
-        dbFlexi.forEach((document) => {
-         const FlexiObject = {
-           ...document.data(),
-           id: document.id,
-         };
-         setFlexi((prev) => [FlexiObject, ...prev]);
-        });
-
-       dbVegan.forEach((document) => {
-         const VeganObject = {
-           ...document.data(),
-           id: document.id,
-         };
-         setVegan((prev) => [VeganObject, ...prev]);
-       })
-
-      
-    }*/
-
+  
   
   // 로그아웃을 위한 함수를 선언
   const onLogOutClick = () => authService.signOut();
 
   // 사용자가 선택한 type에 맞게 데이터를 선택하는 함수
       const getChosen = async (event) => {
+        btnlimit=init_btnlimit;
+        check=0;
         
         // event안에 존재하는 target의 value를 name으로 넘긴다.
       const {
@@ -620,20 +532,62 @@ const Recipe = () => {
     setSearch_name(value)
  
   };
+
+  // 임시로 객체를 담는 temp와 스트링을 담는 변수 선언
   let stringVal=""
+  let temp=[];
 
   // 검색한 name으로 검색을해서 limit_board에 넣어줌
   const search_db = () => {
 
+    btnlimit=init_btnlimit;
+    check=0;
     // 이전에 넣어둔 데이터를 밀어줌
     setlimit_boards([])
     // Flexi는 모든 레시피를 가지고 있으므로 Flexi에서 검색
    Flexi.map((name)=>(
     stringVal = name.id,
     // 찾는 name이 존재하면 값을 넣어줌
-    stringVal.includes(Search_name) ? setlimit_boards((prev) => [name, ...prev]) : null
+    stringVal.includes(Search_name) ? temp.push(name) : null
     ))
+
+    // 넣은 값들을 chosen과 limit_boards에 set 페이지도 1로 다시 set
+    setchosen(temp);
+    setpage(1);
+    setlimit_boards(temp.slice(0,limit))
+ 
+  }
+
+  const change_page_arr = async(event) => {
+
+    const {
+      target: {name},
+    } = event;
     
+      // 현재 페이지를 받고
+     setpage(name);
+
+     // Next가 실행됐는지 check
+     check+=1;
+
+     // limit 만큼 증가
+     btnlimit+=init_btnlimit;
+
+      //  그 페이지에 맞게 보여줄 게시글을 계산한다
+  start=(name-1) * limit;
+  end=start+limit;
+  
+//  계산이 끝난뒤 그 게시글만 slice해서 temp객체에 저장
+page_boards=chosen.slice(start,end)
+
+
+//  다시 그 temp 객체를 hook객체에 저장 (아래에 사용을 위해서 hook을 이용해야함)
+setlimit_boards(page_boards)
+
+
+    console.log(page_arr)
+    console.log(name)
+
   }
 
 
@@ -811,13 +765,14 @@ const Recipe = () => {
             </div>
   {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
   <div>
-    <button>PREV</button>
-                {page_arr ?  page_arr.map( (el,key) => 
-                  <button key={key} className={rec.page_num} onClick={getpage} name={el}> {el} </button>
-                )   : null
-          }
-              <button className={rec.page_num} >NEXT</button>
-              </div> 
+              <button className={rec.page_num}>PREV</button>
+                {check==0 ?  page_arr.map( (el,key) =>  
+                    el < btnlimit ?  <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
+                : el < btnlimit + 1 ? <button className={rec.page_num} onClick={change_page_arr} name={el}>NEXT</button> : null ) 
+                : page_arr.map( (el,key) =>  
+                el+btnlimit-init_btnlimit < btnlimit ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > {el+btnlimit-init_btnlimit-1} </button>         
+            : el < btnlimit-init_btnlimit*check + 1 ? <button className={rec.page_num} onClick={change_page_arr} name={el+btnlimit-init_btnlimit-1}>NEXT</button> : null ) }
+              </div>
           </div>          
           <div >
                 
