@@ -55,20 +55,13 @@ import etco from './hashicons/etco.svg';
 
 
 
-
-
-  
 const init_btnlimit=10;
 let btnlimit=init_btnlimit;
 let check=0;
 
-
 const Recipe = () => {
-
   
 
-
-  
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
@@ -134,12 +127,6 @@ const Recipe = () => {
       let etc_imageRef = useRef(null);
 
 
-
-
-
-
-
-
        // 페이지 개수를 알기위한 for문
       for(let i = 1; i <= Math.ceil(chosen.length / limit); i++) {
         page_arr.push(i);
@@ -147,9 +134,10 @@ const Recipe = () => {
 
   
   useEffect(() => {
+    
 
    // 첫 화면에 merge에서 가져온 값을 나타냄
-   dbService.collection("merge").limit(12).onSnapshot((snapshot) => {
+   dbService.collection("merge").limit(433).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -259,7 +247,7 @@ const Recipe = () => {
 
   });
 
-  dbService.collection("flex").limit(200).onSnapshot((snapshot) => {
+  dbService.collection("flex").limit(5).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -558,23 +546,30 @@ const Recipe = () => {
  
   }
 
-  const change_page_arr = async(event) => {
-
-    const {
-      target: {name},
-    } = event;
-    
-      // 현재 페이지를 받고
-     setpage(name);
-
-     // Next가 실행됐는지 check
-     check+=1;
-
+  const change_page_arr = async() => {
      // limit 만큼 증가
-     btnlimit+=init_btnlimit;
+     if(btnlimit+init_btnlimit <= page_arr.length){
+       btnlimit+=init_btnlimit;
+       setpage((page+init_btnlimit))
+         // Next가 실행됐는지 check
+         check+=1;
+     }
+     else
+     {
+       let i=1;
+       let k=1;
+       while(btnlimit != page_arr.length && page_arr.length > 10)
+       {
+         btnlimit+=i
+         k++
+       }
+       setpage((page+k))
+     }
+     console.log(page_arr.length)
+     console.log(btnlimit)
 
       //  그 페이지에 맞게 보여줄 게시글을 계산한다
-  start=(name-1) * limit;
+  start=((page+init_btnlimit)-1) * limit;
   end=start+limit;
   
 //  계산이 끝난뒤 그 게시글만 slice해서 temp객체에 저장
@@ -585,11 +580,44 @@ page_boards=chosen.slice(start,end)
 setlimit_boards(page_boards)
 
 
-    console.log(page_arr)
-    console.log(name)
-
   }
 
+
+  const prev_page = async() =>{
+
+
+    if(btnlimit-init_btnlimit > init_btnlimit){
+      btnlimit-=init_btnlimit;
+
+      setpage((page-init_btnlimit+1))
+  
+      console.log(page)
+    
+    }
+    else
+    {
+      let i=1;
+      while(btnlimit!=1)
+      {
+        btnlimit-=i
+      }
+      btnlimit+=init_btnlimit
+      check=0;
+    }
+
+   
+     //  그 페이지에 맞게 보여줄 게시글을 계산한다
+  start=((page-init_btnlimit+1)-1) * limit;
+  end=start+limit;
+  
+  //  계산이 끝난뒤 그 게시글만 slice해서 temp객체에 저장
+  page_boards=chosen.slice(start,end)
+  
+  
+  //  다시 그 temp 객체를 hook객체에 저장 (아래에 사용을 위해서 hook을 이용해야함)
+  setlimit_boards(page_boards)
+  
+  }
 
 
 
@@ -759,19 +787,20 @@ setlimit_boards(page_boards)
                   manual={ Show.manual}
                   step={Show.step}
                 />
-               
               ))}
             </div>
             </div>
   {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
   <div>
-              <button className={rec.page_num}>PREV</button>
+              <button className={rec.page_num} onClick={prev_page}>PREV</button>
                 {check==0 ?  page_arr.map( (el,key) =>  
-                    el < btnlimit ?  <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
-                : el < btnlimit + 1 ? <button className={rec.page_num} onClick={change_page_arr} name={el}>NEXT</button> : null ) 
+                    el < btnlimit + 1 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
+                : null ) 
                 : page_arr.map( (el,key) =>  
-                el+btnlimit-init_btnlimit < btnlimit ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > {el+btnlimit-init_btnlimit-1} </button>         
-            : el < btnlimit-init_btnlimit*check + 1 ? <button className={rec.page_num} onClick={change_page_arr} name={el+btnlimit-init_btnlimit-1}>NEXT</button> : null ) }
+                el+btnlimit-init_btnlimit < btnlimit + 2 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > {el+btnlimit-init_btnlimit-1} </button>         
+            :  null ) }
+    <button className={rec.page_num} onClick={change_page_arr} >NEXT</button>
+
               </div>
           </div>          
           <div >
