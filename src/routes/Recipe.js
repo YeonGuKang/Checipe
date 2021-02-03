@@ -83,6 +83,15 @@ const Recipe = () => {
   const [Search_name, setSearch_name] = useState("");
   const [Searchdb, setSearchdb] =useState([]);
 
+  // hashtag check
+  const [soupCheck, setsoupCheck] = useState(false);
+  const [sideCheck, setsideCheck] = useState(false);
+  const [courseCheck, setcourseCheck] = useState(false);
+  const [dessertCheck, setdessertCheck] = useState(false);
+  const [etcCheck, setetcCheck] = useState(false);
+
+  // 이전 상태 limit_board
+  const [prev, setprev] = useState([]);
 
   // 선택한 정보를 보여주기 위함
   const [chosen,setchosen] = useState([]);
@@ -145,7 +154,6 @@ const Recipe = () => {
     setchosen(boardArray);
     // 첫화면에 merge에서 limit만큼 가져온걸 보여줌
     setlimit_boards(boardArray.slice(0,limit))
-
   });
 
   dbService.collection("vegan").limit(5).onSnapshot((snapshot) => {
@@ -289,11 +297,33 @@ const Recipe = () => {
   // 로그아웃을 위한 함수를 선언
   const onLogOutClick = () => authService.signOut();
 
+  const checkoutHash = () => {
+    // hashtag 일괄 해제
+    setsoupCheck(false);
+    setsideCheck(false);
+    setdessertCheck(false); 
+    setcourseCheck(false);
+    setetcCheck(false);
+
+    soup_imageRef.current.src = soupx;
+    side_imageRef.current.src = sidex;
+    course_imageRef.current.src = coursex;
+    dessert_imageRef.current.src = dessertx;
+    etc_imageRef.current.src = etcx;
+    
+    
+    setprev(() => limit_boards);
+    console.log('setprev', prev);
+    setlimit_boards(() => prev);
+    console.log('setboard', limit_boards);
+
+  }
   // 사용자가 선택한 type에 맞게 데이터를 선택하는 함수
       const getChosen = async (event) => {
         btnlimit=init_btnlimit;
         check=0;
         
+      checkoutHash();
         // event안에 존재하는 target의 value를 name으로 넘긴다.
       const {
         target: {name},
@@ -305,7 +335,6 @@ const Recipe = () => {
         setpage(1);
         // 처음에 0부터 limit만큼 값을 넣어줌
         setlimit_boards(Lacto.slice(0,limit))
-
         vege_imageRef.current.src = vegeo;
         egg_imageRef.current.src = eggo;
         milk_imageRef.current.src = milkx;
@@ -329,7 +358,6 @@ const Recipe = () => {
         setchosen(Ovo);
         setpage(1);
         setlimit_boards(Ovo.slice(0,limit))
-
         vege_imageRef.current.src = vegeo;
         egg_imageRef.current.src = eggx;
         milk_imageRef.current.src = milko;
@@ -351,7 +379,6 @@ const Recipe = () => {
         setchosen(LactoOvo);
         setpage(1);
         setlimit_boards(LactoOvo.slice(0,limit))
-
         vege_imageRef.current.src = vegeo;
         egg_imageRef.current.src = eggo;
         milk_imageRef.current.src = milko;
@@ -374,7 +401,6 @@ const Recipe = () => {
         setchosen(Pollo);
         setpage(1);
         setlimit_boards(Pollo.slice(0,limit))
-
         vege_imageRef.current.src = vegeo;
         egg_imageRef.current.src = eggo;
         milk_imageRef.current.src = milko;
@@ -397,7 +423,6 @@ const Recipe = () => {
         setchosen(Pesco);
         setpage(1);
         setlimit_boards(Pesco.slice(0,limit))
-
         vege_imageRef.current.src = vegeo;
         egg_imageRef.current.src = eggo;
         milk_imageRef.current.src = milko;
@@ -419,7 +444,6 @@ const Recipe = () => {
         setchosen(PolloPesco);
         setpage(1);
         setlimit_boards(PolloPesco.slice(0,limit))
-
         vege_imageRef.current.src = vegeo;
         egg_imageRef.current.src = eggo;
         milk_imageRef.current.src = milko;
@@ -441,7 +465,6 @@ const Recipe = () => {
         setchosen(Flexi);
         setpage(1);
         setlimit_boards(Flexi.slice(0,limit))
-
         vege_imageRef.current.src = vegeo;
         egg_imageRef.current.src = eggo;
         milk_imageRef.current.src = milko;
@@ -464,7 +487,6 @@ const Recipe = () => {
         setchosen(Vegan);
         setpage(1);
         setlimit_boards(Vegan.slice(0,limit));
-
         vege_imageRef.current.src = vegeo;
         egg_imageRef.current.src = eggx;
         milk_imageRef.current.src = milkx;
@@ -485,7 +507,78 @@ const Recipe = () => {
 
 }
 
+const hashChosen = (event) => {
+  const {
+    target: {name},
+  } = event;
+  checkoutHash();
+  if (name == "Soup") {
+    if (!soupCheck){
+      setpage(1);
+      setlimit_boards(() => limit_boards.filter(board => board.part == "국&찌개"));
+      setsoupCheck(true);
+      soup_imageRef.current.src = soupo;
+    }
+    
+  }
 
+  else if (name == "Side") {
+    if (!sideCheck){
+      setpage(1);
+      setlimit_boards(() => limit_boards.filter(board => board.part == "반찬"));
+      setsideCheck(true);
+      side_imageRef.current.src = sideo;
+    }
+    else {
+      setpage(1);
+      setsideCheck(false);
+      side_imageRef.current.src = sidex;
+    }
+  }
+
+  else if (name == "Course") {
+    if (!courseCheck){
+      setpage(1);
+      setlimit_boards(() => limit_boards.filter(board => board.part == "일품"));
+      setcourseCheck(true);
+      course_imageRef.current.src = courseo;
+    }
+    else {
+      setpage(1);
+      setcourseCheck(false);
+      course_imageRef.current.src = coursex;
+    }
+  }
+
+  else if (name == "Dessert") {
+    if (!dessertCheck){
+      setpage(1);
+      setlimit_boards(() => limit_boards.filter(board => board.part == "후식"));
+      setdessertCheck(true);
+      dessert_imageRef.current.src = desserto;
+    }
+    else {
+      setpage(1);
+      setdessertCheck(false);
+      dessert_imageRef.current.src = dessertx;
+    }
+  }
+
+  else if (name == "Etc") {
+    if (!etcCheck){
+      setpage(1);
+      setlimit_boards(() => limit_boards.filter(board => (board.part != "국&찌개" && board.part != "일품"
+                                                    && board.part != "후식" && board.part != "반찬")));
+      setetcCheck(true);
+      etc_imageRef.current.src = etco;
+    }
+    else {
+      setpage(1);
+      setetcCheck(false);
+      etc_imageRef.current.src = etcx;
+    }
+  }
+}
 
     // 현재 페이지를 보고 그 페이지에 맞게 게시글을 보여주는 함수
     const getpage = async (event) => {
@@ -743,23 +836,23 @@ setlimit_boards(page_boards)
                                 width='10vw'
                                 height='50vh'
                                 alt= 'hashline'/>
-            <img onClick={getChosen} src={soupx} ref={soup_imageRef}
+            <img onClick={hashChosen} src={soupx} ref={soup_imageRef}
                                   width='130vw'
                                   height='130vh'
                                 name="Soup"/>   
-            <img onClick={getChosen} src={sidex} ref={side_imageRef}
+            <img onClick={hashChosen} src={sidex} ref={side_imageRef}
                                   width='100vw'
                                   height='100vh'
                                 name="Side"/>      
-            <img onClick={getChosen} src={coursex} ref={course_imageRef}
+            <img onClick={hashChosen} src={coursex} ref={course_imageRef}
                                   width='100vw'
                                   height='100vh'
                                 name="Course"/>        
-            <img onClick={getChosen} src={dessertx} ref={dessert_imageRef}
+            <img onClick={hashChosen} src={dessertx} ref={dessert_imageRef}
                                   width='100vw'
                                   height='100vh'
                                 name="Dessert"/> 
-            <img onClick={getChosen} src={etcx} ref={etc_imageRef}
+            <img onClick={hashChosen} src={etcx} ref={etc_imageRef}
                                   width='100vw'
                                   height='100vh'
                                 name="Etc"/>                                                                                                                                                             
@@ -797,7 +890,8 @@ setlimit_boards(page_boards)
                     el < btnlimit + 1 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
                 : null ) 
                 : page_arr.map( (el,key) =>  
-                el+btnlimit-init_btnlimit < btnlimit + 2 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > {el+btnlimit-init_btnlimit-1} </button>         
+                el+btnlimit-init_btnlimit < btnlimit + 2 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > 
+                {el+btnlimit-init_btnlimit-1} </button>         
             :  null ) }
     <button className={rec.page_num} onClick={change_page_arr} >NEXT</button>
 
