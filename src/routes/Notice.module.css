@@ -1,4 +1,9 @@
 /* Notice.js 부분 css */
+@font-face{
+    font-family: goldenpier;
+    src:url('./fonts/MapoGoldenPier.ttf');
+}
+
 /* 헤더 아래에 middle이 필요해서 추가해줌 */
 .middle{
     background-color : var(--background-color);
@@ -13,21 +18,18 @@
 }
 
 .board{
+    /* font-family: 'goldenpier', serif; */
     padding: 30px;
     margin-left: 20px;
     margin-right: 20px;
     min-height: 500px;
-
     display: grid;
  
 }
 
 .board_detail{
     font-family: 'goldenpier', serif;
-
-   
     color:white;
-
     display: grid;
     /* 제목, 날짜가 길어지면 사이가 길어짐; */
     grid-template-columns: 400% 100%;
@@ -35,8 +37,15 @@
     line-height: 40px;
 }
 
+.board_detail  li a {
+    font-family: 'goldenpier', serif;
+    color:white;
+
+}
+
 .board_date{
     text-align: center;
+    font-family: 'goldenpier', serif;
 }
 
 /* Notice.js 부분 css */

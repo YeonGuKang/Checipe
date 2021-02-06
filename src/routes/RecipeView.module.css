@@ -1,0 +1,53 @@
+/* 해당 css는 RecipeView자바스크립트 화면을 위한 css입니다. */
+/* 현재 css 분리작업 진행하고있습니다. 곧 터질 예정. */
+
+@font-face{
+    font-family: goldenpier;
+    src:url('./fonts/MapoGoldenPier.ttf');    
+}
+
+.LGbgr{
+    /* 라이트그린 백그라운드 */
+    /* 우측상단에 위치한 큰 밝은 초록박스 */
+    z-index: 1;
+    position : relative;
+    flex-direction: column;
+    left : 7vw;    
+    width : 92vw;
+    height: 85vh;
+    background-color:  #537f46;
+    display : flex;
+}
+
+.Rlogo{
+    /* 로고 위치 지정 */
+    position: relative;
+    display : inline;
+    left : 60px;   
+}
+
+/* 해당 css는 색을 직관적으로 표현하고 싶어 root 지정 안할 생각입니다. */
+
+.header{
+    /* 메뉴가 위치할 공간입니다. */
+    position : relative;
+    top : 90px;
+    display: flex;
+    width : 100%;
+    height : 60px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.space {
+    /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
+    background-color : var(--background-color);
+    width : 92vw;
+    height : 30vh;
+    position : relative;
+    top : -20vh;
+    display : flex;
+}

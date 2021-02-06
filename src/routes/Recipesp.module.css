@@ -5,7 +5,7 @@
 }
 
 .half_bgs{
-    /* 우측상단에 위치한 큰 밝은 초록박스 */
+    /* 메뉴바CSS로 이전완료 */
     z-index: 1;
     position : relative;
     flex-direction: column;
@@ -17,6 +17,7 @@
 }
 
 .Rlogo{
+    /* 메뉴바CSS로 이전완료 */
     /* 로고 위치 지정 */
     position: relative;
     display : inline;
@@ -29,6 +30,7 @@
     --main-color: #537f46;
 }
 .header{
+    /* 메뉴바CSS로 이전완료 */
     position : relative;
     top : 90px;
     display: flex;
@@ -41,13 +43,14 @@
     margin-right: auto;
 }
 
-
-.testing{
+/* 삭제예정 */
+/* .testing{
     background-color: red;
     height: "1000px";
-}
+} */
 
 .space {
+    /* 메뉴바CSS로 이전완료 */
     /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
     background-color : var(--background-color);
     width : 92vw;
@@ -57,6 +60,7 @@
     display : flex;
 }
 .section {
+    /* 메뉴바CSS로 이전완료 */
     /* 그냥 뒤에 진한 초록색배경 */
     z-index: 1;
     background-color : var(--background-color);
@@ -102,6 +106,7 @@
 
 
 .whiteselect { 
+    /* 메뉴바CSS로 이전완료 */
     /* 사용자들이 직접 선택할 수 있는 버튼이 있는 하얀 박스 */
     z-index: 1;
     background-color : white;
@@ -136,15 +141,14 @@
 .nav{
     display: flex;
     padding-left: 0;
-    cursor: pointer           
-    /* position : relative; */
-    /* top : 1vh; */    
+    cursor: pointer              
 }
-.nav li{    
+
+
+.nav li{   
     padding: 0;    
     font-family: 'goldenpier', serif;    
     font-size : 1.5em;
-    /* margin-left: 5vw; */
     margin-left: 18px;
     font-weight: bold;
     position : relative;
@@ -152,11 +156,13 @@
     right : 6.6vw;    
     transition:all .3s ease
 }
-/* .nav li:hover{
-    /* background-color: var(--main-color); */
-    /* border-radius: 8px; */
 
-/*} */
+/* .nav li:hover{
+    background-color: var(--main-color);
+    border-radius: 8px;
+
+} */
+
 .nav :hover, .login :hover { color:var(--main-color); transition:all .4s ease }
 
 .nav li ::after, .login ::after {
@@ -193,14 +199,16 @@
     transition:all .3s ease
 }
 
-.menubtn{
+/* 삭제예정 */
+/* .menubtn{
     display: none;
     width: 24px;
     height: 24px;
     color: var(--main-color);
     position: absolute;
     right: 20px;
-}
+} */
+
 .ingredientbtn {
     /* 재료 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
     width : 906px;
@@ -224,6 +232,7 @@
 
 
 .hashtagbtn {
+    /* 해시태그 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
     width: 815px;
     position : relative;
     top : -2.5vh;
@@ -240,6 +249,7 @@
 .map {
     font-family: 'goldenpier', serif;
 }
+
 .page_num {
     color: black;
     margin-right: 20px;
@@ -254,6 +264,7 @@
         display : inline;                   
     }
     .nav{
+    
         display: none;
         flex-direction: column;
         align-items: flex-start;

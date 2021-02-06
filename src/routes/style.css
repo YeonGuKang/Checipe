@@ -28,7 +28,8 @@
 }
 
 /*뒤에 배경크기와 색깔을 설정*/
-.half_bg{
+/* 해당 메뉴바는 통합이 진행됐기 때문에 곧 삭제 예정입니다. 0207삭제 예정. */
+/* .half_bg{
     z-index: 1;
     position : relative;
     left : 7vw;
@@ -36,60 +37,59 @@
     height: 85vh;
     background-color: #537f46;
     
-}
+} */
 
 /*헤더의 위치와 색깔을 설정 (네비게션바)*/
-.header{
+/* .header{
     z-index: 3;
     position: relative;
-        top: 12vh;
+    top : 90px;
     display: flex;
     justify-content: flex-start;
-    height: 8vh;
+    height: 60px;
     background-color: white;
-}
+} */
 
 /*로고를 헤더위에 올려줌*/
-.logo{
+/* .logo{
     position: relative;
     display : inline;
     top : -7.7vh;
     left : 10vw;   
-}
+} */
 
-a:visited { color: black; text-decoration: none;}
+/* a:visited { color: black; text-decoration: none;} */
 
 /*네비게이션 바의 글씨들 위치를 정해줌*/
-.nav{
+/* .nav{
     position : relative;
     left : 15vw;
-    bottom : 2.5vh;
+    bottom : 3.5vh;
     margin-top: 5vh;
     margin-right: 300px;
     display: flex;
-}
+} */
 
 /*글씨들의 글꼴과 사이간격을 정해줌*/
-.nav > li{
+/* .nav > li{
     font-family: 'goldenpier', serif;
     font-size : 1.5em;
     margin-left: 5vw;
     font-weight: bold;
-}
+} */
 
-.login{
+/* .login{
     font-family: 'goldenpier', serif;
     font-size : 1.3em;
     color: black;
      margin-top: 2.5vh;
-    /*margin-right: 0px;*/
     display: flex;
     position : relative;
     top : 0.1vh;
     right : -17.5vw;
     font-weight: bold;
 
-}
+} */
 
 /*가운데 레이아웃 크기를 결정해줌*/
 .midle{
@@ -158,6 +158,7 @@ a:visited { color: black; text-decoration: none;}
 }
 
 div > img.slideimg {
+    /* 메인페이지 중앙에 위치한 슬라이드이미지 높이조정 */
     height: 75vh;
     
 }
@@ -196,11 +197,12 @@ div > img.slideimg {
     position: relative; /*나중에 릴레이티브로 수정가능성있음 */
     top : 30vh;
     left : 64vw;
+
     
 }
 
-.about_vegan > li{
-    color : white;
+.about_vegan  li{
+    font-weight: bold;
      text-shadow: 3px 3px 2px gray;
     font-family: 'bombaram', serif;
     font-size: 50px;
@@ -209,20 +211,17 @@ div > img.slideimg {
     display: inline;
 }
 
+.about_vegan li a {
+    color : white;
+}
 /*레시피 이동 버튼*/
 .btn{
     display: inline;
     /* z-index: 5; */
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
     margin-top: 13vh;
-    top : 87vh;
-    left : 43.5vw;
-}
-
-
-.btn > img {
-    width: 24vw;
-    height: 18vh;
+    top : 86vh;
+    left : 43.3vw;
 }
 
 /*맨 아래 레이아웃 크기*/
@@ -233,14 +232,18 @@ div > img.slideimg {
 }
 /*아래 슬라이드 설정*/
 .visual{
+    left : 2vw;
     height: auto;
-    width: 80vw;
+    width: 97vw;
     position: relative;
-    top: 10vh;
+    top: 2vh;
+    
 }
 /*술라이드 이미지 크기 설정*/
-.link-image { height: 100vh;
-                width: 100vw;
+.link-image { 
+    margin: 2vw;
+    height: 100vh;
+     width: 100vw;
 }
 
 /*슬라이드에 보일 글씨설정 평소엔 투명*/
