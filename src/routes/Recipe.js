@@ -3,8 +3,11 @@ import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, useHistory
 import checipe_logo from './image/chaecipielogo.png';
 import checipelogo from './image/checipelogo.svg';
 import rec from "./Recipesp.module.css";
+import menu from "./MenuBar.module.css";
+
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
+
 import vegetarian from './icons/vegetarian.svg';
 import veganx from './icons/veganx.svg';
 import vegano from './icons/vegano.svg';
@@ -716,26 +719,26 @@ setlimit_boards(page_boards)
 
     return(           
             <div className={rec.wrap}> 
-               <div className={rec.half_bgs}>     
-              <nav className={rec.header}> 
-              <div className={rec.Rlogo}>                               
+               <div className={menu.LGbgr}> 
+              <nav className={menu.header}> 
+              <div className={menu.Rlogo}>                               
                 {/* js에서는 img를 이런식으로 import해서 불러온다. */}
                 <a href="/Checipe">
                   <img                  
-                  className={rec.logo_img}
+                  className={menu.logo_img}
                   src={ checipelogo }
                   width='200vw'
                   height='200vh'
                   />
                 </a>
                 </div>  
-                <ul className={rec.nav}>
+                <ul className={menu.nav}>
                   <li><Link to="/About">About</Link></li>
                   <li><Link to="/Recipe">Recipe</Link></li>
                   <li><Link to="/Notice">Notice</Link></li>
                   <li><Link to="/Open">Open</Link></li>
                 </ul>
-                <div className={rec.login}>
+                <div className={menu.login}>
                   {/* 로그인이 되어있는 상태라면 로그아웃 , 아니라면 로그인 버튼을 보여줌 */}
                   {isLoggedIn ?  <Link to="/Checipe">
                     {/* 위에 선언한 로그아웃함수를 클릭했을 때 실행 */}
@@ -744,11 +747,14 @@ setlimit_boards(page_boards)
                         <li>로그인</li>
                   </Link> }
                 </div>
-                <a href='#' className={rec.menubtn} onClick>
+
+                {/* 해당부분 삭제예정 */}
+                {/* <a href='#' className={rec.menubtn} onClick>
                   <Msvg className></Msvg>
-                </a>
+                </a> */}
+
               </nav>
-              <div className={rec.whiteselect}>
+              <div className={menu.WHbgr}>
               <div className={rec.ingredientbtn}>
                  <img src={ingredient}
                                 width='150vw'
@@ -828,6 +834,7 @@ setlimit_boards(page_boards)
                                 name="Flexi"/>                                                                        
             </div>  
             <div className={rec.hashtagbtn}>
+              {/* 해시테그 부분임 */}
             <img src={hashtag}
                                 width='150vw'
                                 height='150vh'
@@ -861,10 +868,9 @@ setlimit_boards(page_boards)
               </div>
               </div>
               <div>
-              {/* <div className={rec.sectiondefault}></div> */}
-              <div className={rec.space}></div>
+              <div className={menu.space}></div>
           {/* 버튼을 클릭했을때 name의 값을 getChosen으로 넘겨줌 */}
-          <div className={rec.section}>
+          <div className={menu.DGbgr}>
             {/* 사용자가 클릭한 type에 맞는 객체 정보를 쭉 나열해서 보여줌 */}
             <div className={rec.sectionplace}>
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}

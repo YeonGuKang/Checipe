@@ -1,0 +1,182 @@
+/* 해당 css는 메뉴바 만을 위한 css입니다. */
+/* 메뉴바에 해당하는 부분과 함께 다양한 페이지에서 사용이 될 css는 이곳으로 옮겨질 예정. */
+/* 현재 css분리작업 진행중입니다. 내가 못하면 터뜨릴 예정임. */
+
+@font-face{
+    font-family: goldenpier;
+    src:url('./fonts/MapoGoldenPier.ttf');    
+}
+
+@media screen and (max-width: 1065px){
+    .logo_img{
+        position: relative;                
+        display : inline;                   
+    }
+    .nav{
+    
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 8px 24px;
+    }
+
+    .header{
+        /* flex-direction: column; */
+        align-items: center;
+    }
+
+    .nav li {
+        padding-left: 0;
+        width: 100%;
+        text-align: center;    
+    }
+    .login{   
+        flex-direction: column;     
+        /* top: 50px; */
+        /* right: 20px; */
+        /* display: none; */
+    }
+    .menubtn{
+        display: block;
+    }
+    /* 로그인 네비바 부분이 활성화 되었을때(클릭 시) */
+    .login.active,
+    .nav.active{
+        display: flex;
+    }
+
+}
+
+
+.LGbgr{
+    /* 라이트그린 백그라운드 */
+    /* 우측상단에 위치한 큰 밝은 초록박스 */
+    z-index: 1;
+    position : relative;
+    flex-direction: column;
+    left : 7vw;    
+    width : 92vw;
+    height: 85vh;
+    background-color:  #537f46;
+    display : flex;
+}
+
+.Rlogo{
+    /* 로고 위치 지정 */
+    position: relative;
+    display : inline;
+    left : 60px;   
+}
+
+/* 해당 css는 색을 직관적으로 표현하고 싶어 root 지정 안할 생각입니다. */
+
+.header{
+    /* 메뉴가 위치할 공간입니다. */
+    position : relative;
+    top : 90px;
+    display: flex;
+    width : 100%;
+    height : 60px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.space {
+    /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
+    /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
+    background-color :  #28421f;
+    width : 92vw;
+    height : 30vh;
+    position : relative;
+    top : -20vh;
+    display : flex;
+}
+
+.DGbgr {
+    /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
+    /* 그냥 뒤에 진한 초록색배경 */
+    z-index: 1;
+    background-color :  #28421f;
+    width : 92vw;
+    height : 150%;
+    top : -30vh;
+    position : relative;
+    display: inline-flex;
+    
+}
+
+.nav{
+    /* 아마 메뉴들 위치일거 같음. */
+    display: flex;
+    padding-left: 0;
+    cursor: pointer              
+}
+
+
+.nav li{   
+    /* 해당 메뉴에 있는 리스트 디자인 변경 클래스. */
+    padding: 0;    
+    font-family: 'goldenpier', serif;    
+    font-size : 1.5em;
+    margin-left: 18px;
+    font-weight: bold;
+    position : relative;
+    margin: 28px;    
+    right : 6.6vw;    
+    transition:all .3s ease
+}
+
+.nav :hover, .login :hover { color:#537f46;; transition:all .4s ease }
+
+.nav li ::after, .login ::after {
+    content: '';
+    width: 0%;
+    left: 50%;
+    height: 1px;
+    display: block;
+    position: absolute;
+    margin-top: 2px;
+    border-bottom: 3px solid #537f46;
+    transition:all .4s ease;
+  }
+
+.nav li:hover ::after, .login:hover ::after {
+    content: '';
+    width: 100%;
+    left: 0px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    margin-top: 2px;
+    color: var(--text-color);
+    border-bottom: 3px solid #537f46;
+    transition:all .4s ease;
+}
+
+.login{
+    font-family: 'goldenpier', serif;
+    font-size : 1.3em;
+    color: black;
+    position : relative;
+    right : 10vw;    
+    font-weight: bold;
+    transition:all .3s ease
+}
+
+.WHbgr { 
+    /* 하얀색 백그라운드 */
+    z-index: 1;
+    background-color : white;
+    width : 80vw;
+    height : 45vh;
+    border-top-left-radius : 40px;
+    border-top-right-radius : 40px;
+    border-bottom-right-radius: 40px;
+    position : relative;
+    left : 2vw;
+    bottom : -28vh;
+}

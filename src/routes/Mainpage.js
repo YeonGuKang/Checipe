@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
+import checipelogo from './image/checipelogo.svg';
+
 import Frecipebtn from './image/Frecipe.png';
 import Whyvegan from './image/pjwhy.png';
 import Noticeimg from './image/pjNotice.png';
@@ -12,6 +14,8 @@ import { authService } from '../firebase';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import menu from "./MenuBar.module.css";
+
 
   
 const Mainpage = () => {
@@ -87,18 +91,17 @@ const Mainpage = () => {
 
     return(
             <div className="wrap">
-                  <div className="half_bg">
-                      <div className="header">
-                          <div className="logo">
+                  <div className={menu.LGbgr}>
+                      <div className={menu.header}>
+                          <div className={menu.Rlogo}>
                               {/* js에서는 img를 이런식으로 import해서 불러온다. */}
                               <img
-                                src={ checipe_logo }
-                                width='220vw'
-                                height='220vh'
-                                alt= 'logo image'/>
+                                src={ checipelogo }
+                                width='200vw'
+                                height='200vh'/>
                           </div>
                               <div>
-                                  <ul className="nav">
+                                  <ul className={menu.nav}>
                                       <li><Link to="/About">About</Link></li>
                                       <li><Link to="/Recipe">Recipe</Link></li>
                                        <li><Link to="/Notice" >Notice</Link></li>
@@ -106,7 +109,7 @@ const Mainpage = () => {
                                   </ul>
                               </div>
                          
-                              <div className="login">
+                              <div className={menu.login}>
                                 {/* 로그인이 되어있는 상태라면 로그아웃 , 아니라면 로그인 버튼을 보여줌 */}
                                 {isLoggedIn ?  <Link to="/Checipe">
                                   {/* 위에 선언한 로그아웃함수를 클릭했을 때 실행 */}
@@ -129,6 +132,7 @@ const Mainpage = () => {
                         <Link to = "/Recipe">
                               <img className="recipebtn"
                                     src={ Frecipebtn }
+                                    width='26%'
                                     alt= 'recipebtn'
                               /> 
                         </Link>
@@ -137,7 +141,7 @@ const Mainpage = () => {
 
                     
               </div>  
-                  
+             
                   <div className="midle">
                 
                   <div className="slideshow-container">
@@ -176,6 +180,7 @@ const Mainpage = () => {
                              <img
                                 src={ image2 }
                                 alt='호박고구마'
+                                width='90%'
                                 border='3'
                                 />
                               </div>
@@ -183,6 +188,7 @@ const Mainpage = () => {
                           <img
                                 src={ image2 }
                                 alt='호박고구마'
+                                width='90%'
                                 border='3'
                                 />
                           </div>
@@ -190,6 +196,7 @@ const Mainpage = () => {
                            <img
                                 src={ image2 }
                                 alt='호박고구마'
+                                width='90%'
                                 border='3'
                                 />
                           </div>
@@ -197,6 +204,7 @@ const Mainpage = () => {
                            <img
                                 src={ image2 }
                                 alt='호박고구마'
+                                width='90%'
                                 border='3'
                                 />
                           </div>
@@ -204,6 +212,7 @@ const Mainpage = () => {
                            <img
                                 src={ image2 }
                                 alt='호박고구마'
+                                width='90%'
                                 border='3'
                                 />
                           </div>

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
+import checipelogo from './image/checipelogo.svg';
 import rec from "./Recipe.module.css";
 import noti from "./Notice.module.css";
+import menu from "./MenuBar.module.css";
+
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
@@ -164,26 +167,26 @@ setlimit_boards(page_boards)
 
     return(           
         <div className={rec.wrap}> 
-           <div className={rec.half_bgs}>     
-          <nav className={rec.header}> 
-          <div className={rec.Rlogo}>                               
+           <div className={menu.LGbgr}>     
+          <nav className={menu.header}> 
+          <div className={menu.Rlogo}>                               
             {/* js에서는 img를 이런식으로 import해서 불러온다. */}
             <a href="/Checipe">
               <img                  
-              className={rec.logo_img}
-              src={ checipe_logo }
-              width='220vw'
-              height='220vh'
+              className={menu.logo_img}
+              src={ checipelogo }
+              width='200vw'
+              height='200vh'
               />
             </a>
             </div>  
-            <ul className={rec.nav}>
+            <ul className={menu.nav}>
               <li><Link to="/About">About</Link></li>
               <li><Link to="/Recipe">Recipe</Link></li>
               <li><Link to="/Notice">Notice</Link></li>
               <li><Link to="/Open">Open</Link></li>
             </ul>
-            <div className={rec.login}>
+            <div className={menu.login}>
               {/* 로그인이 되어있는 상태라면 로그아웃 , 아니라면 로그인 버튼을 보여줌 */}
               {isLoggedIn ?  <Link to="/Checipe">
                 {/* 위에 선언한 로그아웃함수를 클릭했을 때 실행 */}
@@ -237,7 +240,7 @@ setlimit_boards(page_boards)
 
 
          <div>
-         <button className={rec.page_num}  onClick={prev_page}>PREV</button>
+              <button className={rec.page_num}  onClick={prev_page}>PREV</button>
                 {check==0 ?  page_arr.map( (el,key) =>  
                     el < btnlimit + 1 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
                 : el < btnlimit + 2 ? <button className={rec.page_num} onClick={change_page_arr} name={el}>NEXT</button> : null ) 
@@ -245,12 +248,14 @@ setlimit_boards(page_boards)
                 el+btnlimit-init_btnlimit < btnlimit + 1 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > {el+btnlimit-init_btnlimit-1} </button>         
             : el < btnlimit-init_btnlimit*check + 2 ? <button className={rec.page_num} onClick={change_page_arr} name={el+btnlimit-init_btnlimit-1}>NEXT</button> : null ) }
               </div>
-
             </div>
-    
+            
               </div>
+              
+              
 
           </div>
+          
       </div>         
           <div className={rec.half_bg} />  
         </div>
