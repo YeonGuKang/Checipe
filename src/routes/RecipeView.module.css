@@ -6,48 +6,50 @@
     src:url('./fonts/MapoGoldenPier.ttf');    
 }
 
-.LGbgr{
-    /* 라이트그린 백그라운드 */
-    /* 우측상단에 위치한 큰 밝은 초록박스 */
-    z-index: 1;
-    position : relative;
-    flex-direction: column;
-    left : 7vw;    
-    width : 92vw;
-    height: 85vh;
-    background-color:  #537f46;
-    display : flex;
-}
-
-.Rlogo{
-    /* 로고 위치 지정 */
+.whitealign {
+    /* 하얀색 배경에서 그림, 선, 정보를 정렬할때 사용된 클래스 */
+    width : 72vw;
+    height : 45vh;
     position: relative;
-    display : inline;
-    left : 60px;   
-}
-
-/* 해당 css는 색을 직관적으로 표현하고 싶어 root 지정 안할 생각입니다. */
-
-.header{
-    /* 메뉴가 위치할 공간입니다. */
-    position : relative;
-    top : 90px;
     display: flex;
-    width : 100%;
-    height : 60px;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    margin-left: auto;
-    margin-right: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px;
 }
 
-.space {
-    /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
-    background-color : var(--background-color);
+.information {
+    /* 레시피의 기본정보들을 배열할 때 쓰는 클래스 */
+    font-family: 'goldenpier', serif;   
+    margin: 10px; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.DGwhite {
+    font-family: 'goldenpier', serif;   
+
+    z-index: 1;
+    position: relative;
+    display: flex;
+    background-color: white;
+    width : 72vw;
+    height: inherit;
+    left : 9vw;
+    flex-direction: column;
+}
+
+.underspace {
+    z-index: 2;
+    top :-30vh;
+    background-color :  #28421f;
     width : 92vw;
-    height : 30vh;
+    height : 5vh;
     position : relative;
-    top : -20vh;
     display : flex;
 }

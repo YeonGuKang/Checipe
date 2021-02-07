@@ -1,10 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
 import checipe_logo from './image/chaecipielogo.png';
+import checipelogo from './image/checipelogo.svg';
 import rec from "./Recipe.module.css";
+import menu from "./MenuBar.module.css";
+import recv from "./RecipeView.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
-
+import infoline from './image/infoline.svg';
 
 class Test extends React.Component {
     state = {
@@ -63,26 +66,25 @@ class Test extends React.Component {
         return (
             <div className={rec.wrap}> 
             
-               <div className={rec.half_bgs}>     
-              <nav className={rec.header}> 
-              <div className={rec.Rlogo}>                               
+               <div className={menu.LGbgr}>     
+              <nav className={menu.header}> 
+              <div className={menu.Rlogo}>                               
                 {/* js에서는 img를 이런식으로 import해서 불러온다. */}
                 <a href="/Checipe">
                   <img                  
-                  className={rec.logo_img}
-                  src={ checipe_logo }
-                  width='220vw'
-                  height='220vh'
+                  src={ checipelogo }
+                  width='200vw'
+                  height='200vh'
                   />
                 </a>
                 </div>  
-                <ul className={rec.nav}>
+                <ul className={menu.nav}>
                   <li><Link to="/About">About</Link></li>
                   <li><Link to="/Recipe">Recipe</Link></li>
                   <li><Link to="/Notice">Notice</Link></li>
                   <li><Link to="/Open">Open</Link></li>
                 </ul>
-                <div className={rec.login}>
+                <div className={menu.login}>
                   {/* 로그인이 되어있는 상태라면 로그아웃 , 아니라면 로그인 버튼을 보여줌 */}
                   {this.state.isLoggedIn ?  <Link to="/Checipe">
                     {/* 위에 선언한 로그아웃함수를 클릭했을 때 실행 */}
@@ -96,32 +98,44 @@ class Test extends React.Component {
                 </a>
               </nav>
               {/* 사용자가 선택한 음식의 정보를 보여주는 부분 */}
-              <div className={rec.whiteselect}>
-                <img
-                    src={ this.state.img }
+              <div className={menu.WHbgr}>
+                <div className={recv.whitealign}>
+                  <img src={ this.state.img }
                     onError={handleImgError}
-                    width='250px'
-                    height='250vh'
-                 />
-                <h1>{this.state.name}</h1>
-                <h1>{this.state.detail}</h1>
-                <h1>{this.state.part}</h1>
-                <h1>{this.state.way}</h1>
-                {manuals.map((ma) => {
+                    width='350px'
+                    height='350px'/>
+                  <img src={infoline}
+                    width='50px'
+                    height='350px'
+                    alt= 'justaline'/>
+                  <div className={recv.information}>
+                    <div className={recv.title}>
+                     {this.state.name}
+                    </div>
+                    <h1>{this.state.detail}</h1>
+                    <h1> # {this.state.part} / {this.state.way}</h1>
+                  </div>
+                </div>
+
+
+                
+              </div>    
+          </div> 
+
+          <div className={menu.space}></div>
+
+          <div className={menu.DGbgr}>
+            <div className={recv.DGwhite}>
+              {manuals.map((ma) => {
                   if (ma != ','){
                     return <h1>{ma}</h1>
                   }
                   
-              })}
-              <div className={rec.vegetarianbtn}>
-                             
-                               
+                 })}
             </div>
-            <div className={rec.originalbtn}>
-       
-            </div>
-              </div>
-          </div>                      
+          </div>
+          <div className={recv.underspace}></div>
+   
             </div>
         );
     }

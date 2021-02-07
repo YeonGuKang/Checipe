@@ -122,10 +122,9 @@
     padding: 0;    
     font-family: 'goldenpier', serif;    
     font-size : 1.5em;
-    margin-left: 18px;
     font-weight: bold;
     position : relative;
-    margin: 28px;    
+    margin: 60px;    
     right : 6.6vw;    
     transition:all .3s ease
 }

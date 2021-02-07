@@ -725,7 +725,6 @@ setlimit_boards(page_boards)
                 {/* js에서는 img를 이런식으로 import해서 불러온다. */}
                 <a href="/Checipe">
                   <img                  
-                  className={menu.logo_img}
                   src={ checipelogo }
                   width='200vw'
                   height='200vh'
