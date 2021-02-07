@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
-import checipe_logo from './image/chaecipielogo.png';
 import checipelogo from './image/checipelogo.svg';
 import rec from "./Recipe.module.css";
 import menu from "./MenuBar.module.css";
