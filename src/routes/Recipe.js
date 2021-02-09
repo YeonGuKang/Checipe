@@ -93,6 +93,8 @@ const Recipe = () => {
   const [dessertCheck, setdessertCheck] = useState(false);
   const [etcCheck, setetcCheck] = useState(false);
   
+  // vegan step state
+  const [step, setstep] = useState([]);
 
   // 선택한 정보를 보여주기 위함
   const [chosen,setchosen] = useState([]);
@@ -153,6 +155,7 @@ const Recipe = () => {
       ...doc.data(),
     }));
     setchosen(boardArray);
+    setstep(boardArray);  // setp 설정
     // 첫화면에 merge에서 limit만큼 가져온걸 보여줌
     setlimit_boards(boardArray.slice(0,limit))
   });
@@ -328,6 +331,7 @@ const Recipe = () => {
       } = event;
       // 아래 name으로 판단해서 chosen 객체에 앎맞는 데이터를 주입
       if(name == "Lacto"){
+        setstep(Lacto);
         setchosen(Lacto);
         // type버튼이 클릭되면 page를 다시 1로 세팅
         setpage(1);
@@ -353,6 +357,7 @@ const Recipe = () => {
         vegan_imageRef.current.src = veganx;
       } 
       else if(name == "Ovo"){
+        setstep(Ovo)
         setchosen(Ovo);
         setpage(1);
         setlimit_boards(Ovo.slice(0,limit))
@@ -374,6 +379,7 @@ const Recipe = () => {
         vegan_imageRef.current.src = veganx;
       }
       else if(name == "LactoOvo"){
+        setstep(LactoOvo)
         setchosen(LactoOvo);
         setpage(1);
         setlimit_boards(LactoOvo.slice(0,limit))
@@ -396,6 +402,7 @@ const Recipe = () => {
        vegan_imageRef.current.src = veganx;
       }
       else if(name == "Pollo"){
+        setstep(Pollo)
         setchosen(Pollo);
         setpage(1);
         setlimit_boards(Pollo.slice(0,limit))
@@ -418,6 +425,7 @@ const Recipe = () => {
       vegan_imageRef.current.src = veganx;
       }
       else if(name == "Pesco"){
+        setstep(Pesco)
         setchosen(Pesco);
         setpage(1);
         setlimit_boards(Pesco.slice(0,limit))
@@ -439,6 +447,7 @@ const Recipe = () => {
         vegan_imageRef.current.src = veganx;
       }
       else if(name == "PolloPesco"){
+        setstep(PolloPesco)
         setchosen(PolloPesco);
         setpage(1);
         setlimit_boards(PolloPesco.slice(0,limit))
@@ -460,6 +469,7 @@ const Recipe = () => {
       vegan_imageRef.current.src = veganx;
       }
       else if(name == "Flexi"){
+        setstep(Flexi)
         setchosen(Flexi);
         setpage(1);
         setlimit_boards(Flexi.slice(0,limit))
@@ -482,6 +492,7 @@ const Recipe = () => {
        vegan_imageRef.current.src = veganx;
       }
       else if(name == "Vegan"){
+        setstep(Vegan)
         setchosen(Vegan);
         setpage(1);
         setlimit_boards(Vegan.slice(0,limit));
@@ -516,14 +527,16 @@ const hashChosen = (event) => {
   if (name == "Soup") {     // name이 soup이면 국과 찌개인 레시피를 보여줌
     if (!soupCheck){  // 버튼이 눌려있는지 확인
       setpage(1);     // 페이지 설정
-      setlimit_boards(() => chosen.filter(board => board.part == "국&찌개")); // limit_boards에 chosen을 fillter한 결과를 넣는다.
+      setlimit_boards(() => step.filter(board => board.part == "국&찌개").slice(0,limit)); // limit_boards에 step을 fillter한 결과를 넣는다.
+      setchosen(() => step.filter(board => board.part == "국&찌개"))    // step을 필터한 결과를 chosen에 넣음(페이지 네이션을 위한 것)
       setsoupCheck(true);     // 버튼이 눌림 상태로 변경
       soup_imageRef.current.src = soupo;   // 이미지 변경
     }
 
     else {
       setpage(1);
-      setlimit_boards(() => chosen) // 한 번더 누른 경우 원래 상태로 되돌린다.(chosen으로 되돌림)
+      setlimit_boards(() => step.slice(0,limit)) // 한 번더 누른 경우 원래 상태로 되돌린다.(step으로 되돌림)
+      setchosen(step) // 페이지 네이션을 위해 다시 chosen을 원래 상태로 돌려 놓음
       side_imageRef.current.src = sidex;   // 이미지 변경
     }
     
@@ -532,13 +545,15 @@ const hashChosen = (event) => {
   else if (name == "Side") {
     if (!sideCheck){
       setpage(1);
-      setlimit_boards(() => chosen.filter(board => board.part == "반찬"));
+      setlimit_boards(() => step.filter(board => board.part == "반찬").slice(0,limit));
+      setchosen(() => step.filter(board => board.part == "반찬"));
       setsideCheck(true);
       side_imageRef.current.src = sideo;
     }
     else {
       setpage(1);
-      setlimit_boards(() => chosen)
+      setlimit_boards(() => step.slice(0,limit));
+      setchosen(step);
       side_imageRef.current.src = sidex;
     }
   }
@@ -546,13 +561,15 @@ const hashChosen = (event) => {
   else if (name == "Course") {
     if (!courseCheck){
       setpage(1);
-      setlimit_boards(() => chosen.filter(board => board.part == "일품"));
+      setlimit_boards(() => step.filter(board => board.part == "일품").slice(0,limit));
+      setchosen(() => step.filter(board => board.part == "일품"));
       setcourseCheck(true);
       course_imageRef.current.src = courseo;
     }
     else {
       setpage(1);
-      setlimit_boards(() => chosen)
+      setlimit_boards(() => step.slice(0,limit));
+      setchosen(step);
       course_imageRef.current.src = coursex;
     }
   }
@@ -560,12 +577,15 @@ const hashChosen = (event) => {
   else if (name == "Dessert") {
     if (!dessertCheck){
       setpage(1);
-      setlimit_boards(() => chosen.filter(board => board.part == "후식"));
+      setlimit_boards(() => step.filter(board => board.part == "후식").slice(0,limit));
+      setchosen(() => step.filter(board => board.part == "후식"))
+      setdessertCheck(true);
       dessert_imageRef.current.src = desserto;
     }
     else {
       setpage(1);
-      setlimit_boards(() => chosen)
+      setlimit_boards(() => step.slice(0,limit))
+      setchosen(step)
       dessert_imageRef.current.src = dessertx;
     }
   }
@@ -573,14 +593,17 @@ const hashChosen = (event) => {
   else if (name == "Etc") {
     if (!etcCheck){
       setpage(1);
-      setlimit_boards(() => chosen.filter(board => (board.part != "국&찌개" && board.part != "일품"
-                                                    && board.part != "후식" && board.part != "반찬")));
+      setlimit_boards(() => step.filter(board => (board.part != "국&찌개" && board.part != "일품"
+                                                    && board.part != "후식" && board.part != "반찬")).slice(0,limit));
+      setchosen(() => step.filter(board => (board.part != "국&찌개" && board.part != "일품"
+                                                    && board.part != "후식" && board.part != "반찬")))
       setetcCheck(true);
       etc_imageRef.current.src = etco;
     }
     else {
       setpage(1);
-      setlimit_boards(() => chosen)
+      setlimit_boards(() => step.slice(0,limit))
+      setchosen(step)
       etc_imageRef.current.src = etcx;
     }
   }
