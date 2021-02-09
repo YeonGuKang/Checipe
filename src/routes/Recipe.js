@@ -92,9 +92,7 @@ const Recipe = () => {
   const [courseCheck, setcourseCheck] = useState(false);
   const [dessertCheck, setdessertCheck] = useState(false);
   const [etcCheck, setetcCheck] = useState(false);
-
-  // 이전 상태 limit_board
-  const [prev, setprev] = useState([]);
+  
 
   // 선택한 정보를 보여주기 위함
   const [chosen,setchosen] = useState([]);
@@ -300,6 +298,7 @@ const Recipe = () => {
   // 로그아웃을 위한 함수를 선언
   const onLogOutClick = () => authService.signOut();
 
+  // hashtag를 일괄 해제 해주는 함수
   const checkoutHash = () => {
     // hashtag 일괄 해제
     setsoupCheck(false);
@@ -313,20 +312,16 @@ const Recipe = () => {
     course_imageRef.current.src = coursex;
     dessert_imageRef.current.src = dessertx;
     etc_imageRef.current.src = etcx;
-    
-    
-    setprev(() => limit_boards);
-    console.log('setprev', prev);
-    setlimit_boards(() => prev);
-    console.log('setboard', limit_boards);
 
   }
   // 사용자가 선택한 type에 맞게 데이터를 선택하는 함수
       const getChosen = async (event) => {
         btnlimit=init_btnlimit;
         check=0;
-        
-      checkoutHash();
+      
+        // 사용자가 비건 type을 선정하면 hashtag를 모두 선택해제한다.
+        checkoutHash();
+
         // event안에 존재하는 target의 value를 name으로 넘긴다.
       const {
         target: {name},
@@ -514,13 +509,22 @@ const hashChosen = (event) => {
   const {
     target: {name},
   } = event;
+  
+  // hashtag 버튼이 눌리면 우선 모든 hashtag의 버튼 눌림을 해제(???????????)
   checkoutHash();
-  if (name == "Soup") {
-    if (!soupCheck){
+
+  if (name == "Soup") {     // name이 soup이면 국과 찌개인 레시피를 보여줌
+    if (!soupCheck){  // 버튼이 눌려있는지 확인
+      setpage(1);     // 페이지 설정
+      setlimit_boards(() => chosen.filter(board => board.part == "국&찌개")); // limit_boards에 chosen을 fillter한 결과를 넣는다.
+      setsoupCheck(true);     // 버튼이 눌림 상태로 변경
+      soup_imageRef.current.src = soupo;   // 이미지 변경
+    }
+
+    else {
       setpage(1);
-      setlimit_boards(() => limit_boards.filter(board => board.part == "국&찌개"));
-      setsoupCheck(true);
-      soup_imageRef.current.src = soupo;
+      setlimit_boards(() => chosen) // 한 번더 누른 경우 원래 상태로 되돌린다.(chosen으로 되돌림)
+      side_imageRef.current.src = sidex;   // 이미지 변경
     }
     
   }
@@ -528,13 +532,13 @@ const hashChosen = (event) => {
   else if (name == "Side") {
     if (!sideCheck){
       setpage(1);
-      setlimit_boards(() => limit_boards.filter(board => board.part == "반찬"));
+      setlimit_boards(() => chosen.filter(board => board.part == "반찬"));
       setsideCheck(true);
       side_imageRef.current.src = sideo;
     }
     else {
       setpage(1);
-      setsideCheck(false);
+      setlimit_boards(() => chosen)
       side_imageRef.current.src = sidex;
     }
   }
@@ -542,13 +546,13 @@ const hashChosen = (event) => {
   else if (name == "Course") {
     if (!courseCheck){
       setpage(1);
-      setlimit_boards(() => limit_boards.filter(board => board.part == "일품"));
+      setlimit_boards(() => chosen.filter(board => board.part == "일품"));
       setcourseCheck(true);
       course_imageRef.current.src = courseo;
     }
     else {
       setpage(1);
-      setcourseCheck(false);
+      setlimit_boards(() => chosen)
       course_imageRef.current.src = coursex;
     }
   }
@@ -556,13 +560,12 @@ const hashChosen = (event) => {
   else if (name == "Dessert") {
     if (!dessertCheck){
       setpage(1);
-      setlimit_boards(() => limit_boards.filter(board => board.part == "후식"));
-      setdessertCheck(true);
+      setlimit_boards(() => chosen.filter(board => board.part == "후식"));
       dessert_imageRef.current.src = desserto;
     }
     else {
       setpage(1);
-      setdessertCheck(false);
+      setlimit_boards(() => chosen)
       dessert_imageRef.current.src = dessertx;
     }
   }
@@ -570,14 +573,14 @@ const hashChosen = (event) => {
   else if (name == "Etc") {
     if (!etcCheck){
       setpage(1);
-      setlimit_boards(() => limit_boards.filter(board => (board.part != "국&찌개" && board.part != "일품"
+      setlimit_boards(() => chosen.filter(board => (board.part != "국&찌개" && board.part != "일품"
                                                     && board.part != "후식" && board.part != "반찬")));
       setetcCheck(true);
       etc_imageRef.current.src = etco;
     }
     else {
       setpage(1);
-      setetcCheck(false);
+      setlimit_boards(() => chosen)
       etc_imageRef.current.src = etcx;
     }
   }
