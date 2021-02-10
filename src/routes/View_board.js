@@ -37,9 +37,6 @@ class View_test extends React.Component {
     }
 
     render() {
-
-        const onLogOutClick = () => authService.signOut();
-
         return ( 
         <div className={rec.wrap}> 
         

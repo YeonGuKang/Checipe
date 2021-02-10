@@ -26,37 +26,7 @@ const Loginform = () => {
     });
     
   }, []);
-    const [email, setEmail] =useState("");
-    const [password, setPassword] = useState("");
-    const [newAccount, setNewAccount] = useState(true);
-    const [error, setError] = useState("");
-    const onChange = (event) =>{
-       const {target: {name, value}} = event;
-       if(name==="email"){
-           setEmail(value)
-       }else if(name==="password"){
-           setPassword(value);
-       }
-    } ;
-    const onSubmit = async (event) => {
-        event.preventDefault();
-        try {
-          let data;
-          if (newAccount) {
-            data = await authService.createUserWithEmailAndPassword(
-              email,
-              password
-            )
-          } else {
-            data = await authService.signInWithEmailAndPassword(email, password)
-          }
-          console.log(data)
-        } catch (error) {
-          setError(error.message)
-        }
-      };
 
-      const toggleAccount = () => setNewAccount((prev) => !prev);
       const onSocialClick = async (event) =>{
         const {
           target: {name},
@@ -75,7 +45,6 @@ const Loginform = () => {
 
     return(
       <div className="backwrap">
-        
       <div className="mainform">
       <div className="Line"></div>
       <div className="Llogo">

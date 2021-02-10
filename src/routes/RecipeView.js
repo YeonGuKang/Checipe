@@ -60,7 +60,6 @@ class Test extends React.Component {
       const handleImgError = (e) => {
         e.target.src = 'https://previews.123rf.com/images/alexwhite/alexwhite1501/alexwhite150104186/35585441-%EC%98%A4%EB%A5%98-%EC%95%84%EC%9D%B4%EC%BD%98.jpg';
       }
-        const onLogOutClick = () => authService.signOut();
       const manuals = spliting(this.state.manual)
       
         return (

@@ -66,13 +66,7 @@ let btnlimit=init_btnlimit;
 let check=0;
 
 const Recipe = () => {
-  
-
-  const [init, setInit] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userObj, setUserObj] = useState(null);
-  
-  
+   
   // 파이어베이스에서 데이터를 가져오는 과정
   // 각각 채식 type에 맞게 데이터를 불러오기 위함
   const [Lacto, setLacto] = useState([]);
@@ -273,19 +267,6 @@ const Recipe = () => {
     setFlexi((prev) => shuffle([...boardArray, ...prev]));
   });
 
-    authService.onAuthStateChanged((user) => {
-      console.log("changed");
-      if (user) {
-        console.log("user login")
-        setIsLoggedIn(true);
-        setUserObj(user);
-      } else {
-        console.log("user logout")
-        setIsLoggedIn(false);
-      }
-      setInit(true);
-    });
-    
   }, []);
 
   // 객체 정보를 섞어주는 함수
@@ -301,9 +282,6 @@ const Recipe = () => {
     return sourceArray
 }
   
-  
-  // 로그아웃을 위한 함수를 선언
-  const onLogOutClick = () => authService.signOut();
 
 // 모든 타입 버튼을 일괄 해체 해주는 함수
   const typeoff = () =>

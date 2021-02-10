@@ -17,10 +17,6 @@ let check=0;
 const Notice = () => {
   
 
-    const [init, setInit] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userObj, setUserObj] = useState(null);
-
   //  DB에 존재하는 게시글을 받아오기 위함
   const [board, setboard] = useState("");
   const [boards, setboards] = useState([]);
@@ -58,19 +54,6 @@ const Notice = () => {
         setboards(boardArray);
         setlimit_boards(boardArray.slice(0,limit))
       });
-
-    authService.onAuthStateChanged((user) => {
-      console.log("changed");
-      if (user) {
-        console.log("user login")
-        setIsLoggedIn(true);
-        setUserObj(user);
-      } else {
-        console.log("user logout")
-        setIsLoggedIn(false);
-      }
-      setInit(true);
-    });
     
   }, []);
 
@@ -97,13 +80,6 @@ const Notice = () => {
 
 }
 
-
-
-
-    // 로그아웃을 위한 함수를 선언
-    const onLogOutClick = () => authService.signOut();
-
-  
 
 const prev_page = async() =>{
 
