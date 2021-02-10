@@ -23,12 +23,32 @@
     margin: 10px; 
     position: relative;
     display: flex;
+    width: 1300px;
     flex-direction: column;
 }
 
 .title {
     font-weight: bold;
-    font-size: 3em;
+    font-size: 3.3em;
+    margin-bottom: 15px;
+}
+
+.ingredient {
+    font-size: 1.5em;
+    line-height: 35px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.tagnhow {
+    font-size: 1.5em;
+}
+
+.content {
+    margin-left: 20px;
+    font-size: 1.6em;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 .DGwhite {

@@ -77,7 +77,7 @@
     position : relative;
     margin-top: 1vh;
     margin-bottom: 15vh;
-    left : 9vw;
+    left : 8.5vw;
     font-family: 'goldenpier', serif;
     display : inline-flex;
     flex-direction: row;
@@ -92,8 +92,8 @@
     z-index: 2;
     background-color:white;
     position : relative;
-    width : 17vw;
-    height : 53vh;
+    width : 17.5vw;
+    height : 48vh;
     border-bottom-right-radius: 40px; 
     border-bottom-left-radius: 40px; 
 

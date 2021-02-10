@@ -1,5 +1,5 @@
 
-import rec from "./style/Recipe.module.css";
+import rec from "./style/Recipesp.module.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
 
