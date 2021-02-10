@@ -46,7 +46,24 @@ const Mainpage = () => {
       // 화면에 올리면 슬라이더가 자동으로 넘어가지 않음
       pauseOnHover: true,
       // 레이지 로딩할 거야?
-      lazyLoad: true
+      lazyLoad: true,
+      // centerMode:true,
+      responsive: [
+        { /* 반응형웹*/
+                breakpoint: 960, /*  기준화면사이즈 */
+                settings: {
+                  slidesToShow:2,
+                  infinite:true
+                } /*  사이즈에 적용될 설정 */
+         },
+         { /* 반응형웹*/
+                breakpoint: 768, /*  기준화면사이즈 */
+                settings: {
+                  slidesToShow:1,
+                  infinite:true
+                } /*  사이즈에 적용될 설정 */
+         }
+       ]
       };
       
       // 중앙에 있는 슬라이드 설정
@@ -129,16 +146,36 @@ const Mainpage = () => {
                   <div className="lat">
                        <section className="visual">
                        <Slider {...settings_bttom}>
-                          <div id="link-image">
+                          <div id="link-image">                            
                              <img
+                                className="imgbtn"
                                 src={ image2 }
                                 alt='호박고구마'
                                 width='90%'
                                 border='3'
-                                />
-                              </div>
+                              />                             
+                          </div>
                           <div id="link-image">
                           <img
+                              className="imgbtn"
+                                src={ image2 }
+                                alt='호박고구마'
+                                width='90%'
+                                border='3'
+                                />                               
+                          </div>
+                           <div id="link-image">
+                           <img
+                              className="imgbtn"
+                                src={ image2 }
+                                alt='호박고구마'
+                                width='90%'
+                                border='3'
+                                />                             
+                          </div>
+                           <div id="link-image">
+                           <img
+                              className="imgbtn"
                                 src={ image2 }
                                 alt='호박고구마'
                                 width='90%'
@@ -147,22 +184,7 @@ const Mainpage = () => {
                           </div>
                            <div id="link-image">
                            <img
-                                src={ image2 }
-                                alt='호박고구마'
-                                width='90%'
-                                border='3'
-                                />
-                          </div>
-                           <div id="link-image">
-                           <img
-                                src={ image2 }
-                                alt='호박고구마'
-                                width='90%'
-                                border='3'
-                                />
-                          </div>
-                           <div id="link-image">
-                           <img
+                              className="imgbtn"
                                 src={ image2 }
                                 alt='호박고구마'
                                 width='90%'
