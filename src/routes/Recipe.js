@@ -676,12 +676,7 @@ const hashChosen = (event) => {
   }
 
   const change_page_arr = async() => {
-    // 마지막페이지인지 판단
-    let last;
-    if(last!=true)
-    {
-      last=false;
-    }
+
      // limit 만큼 증가
      if(btnlimit+init_btnlimit <= page_arr.length){
        btnlimit+=init_btnlimit;
@@ -694,13 +689,12 @@ const hashChosen = (event) => {
        let i=1;
        let k=1;
        // 버튼이 init 보단 작지만 뒤에 몇개가 더 생성되는지 판단
-       while(btnlimit != page_arr.length && page_arr.length > 10 && last==false)
+       while(btnlimit != page_arr.length && page_arr.length > 10)
        {
          btnlimit+=i
          k++
        }
-       // 마지막 페이지이므로 true
-       last=true;
+     
        // page가 더이상 마지막을 넘어가지 않도록 설정
        if((page+k)<=btnlimit && k!=1)
        {
@@ -711,24 +705,23 @@ const hashChosen = (event) => {
      }
 
       //  그 페이지에 맞게 보여줄 게시글을 계산한다
+   if(check!=0)  // check가 0이면 페이지가 init 미만이므로 실행 X
+    {
   start=((page+init_btnlimit)-1) * limit;
   end=start+limit;
 
-  console.log("page",page)
-  console.log("btnlimit",btnlimit)
-  console.log("start", start)
-  console.log("end",end)
 
-
-
-//  계산이 끝난뒤 그 게시글만 slice해서 temp객체에 저장
+  //  계산이 끝난뒤 그 게시글만 slice해서 temp객체에 저장
 page_boards=chosen.slice(start,end)
-
-console.log("P_bd",page_boards)
 
 
 //  다시 그 temp 객체를 hook객체에 저장 (아래에 사용을 위해서 hook을 이용해야함)
 setlimit_boards(page_boards)
+
+    } 
+
+
+
 
 
   }
@@ -769,6 +762,8 @@ setlimit_boards(page_boards)
 
    
      //  그 페이지에 맞게 보여줄 게시글을 계산한다
+  
+
   start=((page-init_btnlimit+1)-1) * limit;
   end=start+limit;
 
