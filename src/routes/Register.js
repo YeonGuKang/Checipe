@@ -73,9 +73,6 @@ const Register = () => {
     setcontent(value)
   };
 
-    // 로그아웃을 위한 함수를 선언
-    const onLogOutClick = () => authService.signOut();
-
     return(           
         <div className={rec.wrap}> 
            <div className={rec.half_bgs}>        
