@@ -88,19 +88,6 @@ const Loginform = () => {
                                 alt= 'login logo'/>
                                 </a>
                           </div>
-      {/* <form onSubmit={onSubmit} className="container">
-            <input name="email" type="email" placeholder="Email" required value={email} className="authInput" onChange={onChange}/>
-            <input name="password" type="password" placeholder="Password" required value={password} className="authInput" onChange={onChange}/>
-            <input
-              type="submit"
-              className="authInput authSubmit"
-              value={newAccount ? "Create Account" : "Sign In"}
-            />
-            {error}
-        </form>
-        <span onClick={toggleAccount} className="authSwitch">
-            {newAccount ? "Sign In" : "Create Account"}
-    </span>*/}
         <div className="authBtns">
             <button className="authBtn" onClick={onSocialClick} name="Google">
               <img className="google_log" src={google} /><br/>

@@ -8,6 +8,7 @@ import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 import infoline from './image/infoline.svg';
 
+import Header from "../components/Header"
 class Test extends React.Component {
     state = {
         init: false,
@@ -66,36 +67,7 @@ class Test extends React.Component {
             <div className={rec.wrap}> 
             
                <div className={menu.LGbgr}>     
-              <nav className={menu.header}> 
-              <div className={menu.Rlogo}>                               
-                {/* js에서는 img를 이런식으로 import해서 불러온다. */}
-                <a href="/Checipe">
-                  <img                  
-                  src={ checipelogo }
-                  width='200vw'
-                  height='200vh'
-                  />
-                </a>
-                </div>  
-                <ul className={menu.nav}>
-                  <li><Link to="/About">About</Link></li>
-                  <li><Link to="/Recipe">Recipe</Link></li>
-                  <li><Link to="/Notice">Notice</Link></li>
-                  <li><Link to="/Open">Open</Link></li>
-                </ul>
-                <div className={menu.login}>
-                  {/* 로그인이 되어있는 상태라면 로그아웃 , 아니라면 로그인 버튼을 보여줌 */}
-                  {this.state.isLoggedIn ?  <Link to="/Checipe">
-                    {/* 위에 선언한 로그아웃함수를 클릭했을 때 실행 */}
-                        <li onClick={onLogOutClick}>로그아웃</li>
-                  </Link> : <Link to="/Loginform">
-                        <li>로그인</li>
-                  </Link> }
-                </div>
-                <a href='#' className={rec.menubtn} onClick>
-                  <Msvg className></Msvg>
-                </a>
-              </nav>
+            <Header></Header>
               {/* 사용자가 선택한 음식의 정보를 보여주는 부분 */}
               <div className={menu.WHbgr}>
                 <div className={recv.whitealign}>

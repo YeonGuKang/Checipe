@@ -16,35 +16,18 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import menu from "./style/MenuBar.module.css";
 
+import Header from "../components/Header"
+
+
 
   
 const Mainpage = () => {
 
-  const [init, setInit] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userObj, setUserObj] = useState(null);
+
   useEffect(() => {
-    authService.onAuthStateChanged((user) => {
-      console.log("changed");
-      if (user) {
-        console.log("user login")
-        setIsLoggedIn(true);
-        setUserObj(user);
-      } else {
-        console.log("user logout")
-        setIsLoggedIn(false);
-      }
-      setInit(true);
-      return(
-       
-        console.log("clean up") 
-       )
-    });
-    
+   
   }, []);
 
-  // 로그아웃을 위한 함수를 선언
-  const onLogOutClick = () => authService.signOut();
 
     // 아래쪽에 있는 슬라이드 설정
     var settings_bttom = {
@@ -92,35 +75,7 @@ const Mainpage = () => {
     return(
             <div className="wrap">
                   <div className={menu.LGbgr}>
-                      <div className={menu.header}>
-                          <div className={menu.Rlogo}>
-                              {/* js에서는 img를 이런식으로 import해서 불러온다. */}
-                              <img
-                                src={ checipelogo }
-                                width='200vw'
-                                height='200vh'/>
-                          </div>
-                              <div>
-                                  <ul className={menu.nav}>
-                                      <li><Link to="/About">About</Link></li>
-                                      <li><Link to="/Recipe">Recipe</Link></li>
-                                       <li><Link to="/Notice" >Notice</Link></li>
-                                       <li><Link to="/Open">Open</Link></li>
-                                  </ul>
-                              </div>
-                         
-                              <div className={menu.login}>
-                                {/* 로그인이 되어있는 상태라면 로그아웃 , 아니라면 로그인 버튼을 보여줌 */}
-                                {isLoggedIn ?  <Link to="/Checipe">
-                                  {/* 위에 선언한 로그아웃함수를 클릭했을 때 실행 */}
-                                     <li onClick={onLogOutClick}>로그아웃</li>
-                                </Link> : <Link to="/Loginform">
-                                     <li>로그인</li>
-                                </Link> }
-
-                               
-                              </div>        
-                   </div>
+                    <Header></Header>
                    <div className="about_vegan">
                                  <li><Link to="/About" >About</Link> </li>
                                   <li><Link to="/About" >VEGETARIAN</Link></li>
@@ -137,9 +92,7 @@ const Mainpage = () => {
                               /> 
                         </Link>
                       </div> 
-                      
 
-                    
               </div>  
              
                   <div className="midle">
