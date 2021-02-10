@@ -6,6 +6,8 @@ import viewb from "./style/View_board.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
+import Header from "../components/Header"
+
 class View_test extends React.Component {
     state = {
         init: false,
@@ -42,37 +44,7 @@ class View_test extends React.Component {
         <div className={rec.wrap}> 
         
             <div className={rec.half_bgs}>        
-           <nav className={rec.header}> 
-           <div className={rec.Rlogo}>                               
-             {/* js에서는 img를 이런식으로 import해서 불러온다. */}
-             <a href="/Checipe">
-               <img                  
-               className={rec.logo_img}
-               src={ checipe_logo }
-               width='220vw'
-               height='220vh'
-               />
-             </a>
-             </div>  
-             <ul className={rec.nav}>
-               <li><Link to="/About">About</Link></li>
-               <li><Link to="/Recipe">Recipe</Link></li>
-               <li><Link to="/Notice">Notice</Link></li>
-               <li><Link to="/Open">Open</Link></li>
-             </ul>
-             <div className={rec.login}>
-               {/* 로그인이 되어있는 상태라면 로그아웃 , 아니라면 로그인 버튼을 보여줌 */}
-               {this.state.isLoggedIn ?  <Link to="/Checipe">
-                 {/* 위에 선언한 로그아웃함수를 클릭했을 때 실행 */}
-                     <li onClick={onLogOutClick}>로그아웃</li>
-               </Link> : <Link to="/Loginform">
-                     <li>로그인</li>
-               </Link> }
-             </div>
-             <a href='#' className={rec.menubtn} onClick>
-               <Msvg className></Msvg>
-             </a>
-           </nav>
+          <Header></Header>
            {/* 게시글을 보여주기 위한 middle부분 */}
            <div className = {viewb.middle}>
             

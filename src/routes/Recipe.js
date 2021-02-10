@@ -4,6 +4,8 @@ import checipelogo from './image/checipelogo.svg';
 import rec from "./style/Recipesp.module.css";
 import menu from "./style/MenuBar.module.css";
 
+import Header from "../components/Header"
+
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
@@ -56,9 +58,11 @@ import etcx from './hashicons/etcx.svg';
 import etco from './hashicons/etco.svg';
 
 
-
+// 페이지 잘라서 보여줄 갯수
 const init_btnlimit=10;
+// 몇개의 페이지가 존재할지 확인하는 변수
 let btnlimit=init_btnlimit;
+// next버튼이 클릭됐는지 확인하는 변수
 let check=0;
 
 const Recipe = () => {
@@ -301,6 +305,20 @@ const Recipe = () => {
   // 로그아웃을 위한 함수를 선언
   const onLogOutClick = () => authService.signOut();
 
+// 모든 타입 버튼을 일괄 해체 해주는 함수
+  const typeoff = () =>
+  {
+         //  나머지는 모두 x로 사진을 바꿈
+         ovo_imageRef.current.src = ovox;
+         lactoovo_imageRef.current.src = lactovox;
+         pollo_imageRef.current.src = pollox;
+         pesco_imageRef.current.src = pescox;
+         pollopesco_imageRef.current.src = polpescox;
+         flex_imageRef.current.src = flexix;
+         lacto_imageRef.current.src = lactox;
+         vegan_imageRef.current.src = veganx;
+  }
+
   // hashtag를 일괄 해제 해주는 함수
   const checkoutHash = () => {
     // hashtag 일괄 해제
@@ -344,17 +362,13 @@ const Recipe = () => {
         chicken_imageRef.current.src = chickenx;
         meat_imageRef.current.src =  meatx;
 
+        // 모든 타입을 x로 사진을 바꿈
+        typeoff();
+
         // 클릭했을때 o로 사진을 바꿔줌
         lacto_imageRef.current.src = lactoo;
 
-        //  나머지는 모두 x로 사진을 바꿈
-        ovo_imageRef.current.src = ovox;
-        lactoovo_imageRef.current.src = lactovox;
-        pollo_imageRef.current.src = pollox;
-        pesco_imageRef.current.src = pescox;
-        pollopesco_imageRef.current.src = polpescox;
-        flex_imageRef.current.src = flexix;
-        vegan_imageRef.current.src = veganx;
+      
       } 
       else if(name == "Ovo"){
         setstep(Ovo)
@@ -368,15 +382,11 @@ const Recipe = () => {
         chicken_imageRef.current.src = chickenx;
         meat_imageRef.current.src =  meatx;
 
+        typeoff();
+
         ovo_imageRef.current.src = ovoo;
 
-        lacto_imageRef.current.src = lactox;
-        lactoovo_imageRef.current.src = lactovox;
-        pollo_imageRef.current.src = pollox;
-        pesco_imageRef.current.src = pescox;
-        pollopesco_imageRef.current.src = polpescox;
-        flex_imageRef.current.src = flexix;
-        vegan_imageRef.current.src = veganx;
+        
       }
       else if(name == "LactoOvo"){
         setstep(LactoOvo)
@@ -391,15 +401,11 @@ const Recipe = () => {
         meat_imageRef.current.src =  meatx;
 
 
+      typeoff();
+
+
        lactoovo_imageRef.current.src = lactovoo;
 
-       lacto_imageRef.current.src = lactox;
-       ovo_imageRef.current.src = ovox;
-       pollo_imageRef.current.src = pollox;
-       pesco_imageRef.current.src = pescox;
-       pollopesco_imageRef.current.src = polpescox;
-       flex_imageRef.current.src = flexix;
-       vegan_imageRef.current.src = veganx;
       }
       else if(name == "Pollo"){
         setstep(Pollo)
@@ -413,16 +419,9 @@ const Recipe = () => {
         chicken_imageRef.current.src = chickeno;
         meat_imageRef.current.src =  meatx;
 
+        typeoff();
 
       pollo_imageRef.current.src = polloo;
-
-      lacto_imageRef.current.src = lactox;
-      ovo_imageRef.current.src = ovox;
-      lactoovo_imageRef.current.src = lactovox;
-      pesco_imageRef.current.src = pescox;
-      pollopesco_imageRef.current.src = polpescox;
-      flex_imageRef.current.src = flexix;
-      vegan_imageRef.current.src = veganx;
       }
       else if(name == "Pesco"){
         setstep(Pesco)
@@ -436,15 +435,9 @@ const Recipe = () => {
         chicken_imageRef.current.src = chickenx;
         meat_imageRef.current.src =  meatx;
 
-        pesco_imageRef.current.src = pescoo;
+        typeoff();
 
-        lacto_imageRef.current.src = lactox;
-        ovo_imageRef.current.src = ovox;
-        lactoovo_imageRef.current.src = lactovox;
-        pollo_imageRef.current.src = pollox;
-        pollopesco_imageRef.current.src = polpescox;
-        flex_imageRef.current.src = flexix;
-        vegan_imageRef.current.src = veganx;
+        pesco_imageRef.current.src = pescoo;
       }
       else if(name == "PolloPesco"){
         setstep(PolloPesco)
@@ -458,15 +451,10 @@ const Recipe = () => {
         chicken_imageRef.current.src = chickeno;
         meat_imageRef.current.src =  meatx;
 
+        typeoff();
+
       pollopesco_imageRef.current.src = polpescod;
 
-      lacto_imageRef.current.src = lactox;
-      ovo_imageRef.current.src = ovox;
-      lactoovo_imageRef.current.src = lactovox;
-      pollo_imageRef.current.src = pollox;
-      pesco_imageRef.current.src = pescox;
-      flex_imageRef.current.src = flexix;
-      vegan_imageRef.current.src = veganx;
       }
       else if(name == "Flexi"){
         setstep(Flexi)
@@ -480,16 +468,11 @@ const Recipe = () => {
         chicken_imageRef.current.src = chickeno;
         meat_imageRef.current.src =  meato;
 
+        typeoff();
+
 
        flex_imageRef.current.src = flecxio;
 
-       lacto_imageRef.current.src = lactox;
-       ovo_imageRef.current.src = ovox;
-       lactoovo_imageRef.current.src = lactovox;
-       pollo_imageRef.current.src = pollox;
-       pesco_imageRef.current.src = pescox;
-       pollopesco_imageRef.current.src = polpescox;
-       vegan_imageRef.current.src = veganx;
       }
       else if(name == "Vegan"){
         setstep(Vegan)
@@ -503,15 +486,10 @@ const Recipe = () => {
         chicken_imageRef.current.src = chickenx;
         meat_imageRef.current.src =  meatx;
 
+        typeoff();
+
         vegan_imageRef.current.src = vegano;
 
-        lacto_imageRef.current.src = lactox;
-        ovo_imageRef.current.src = ovox;
-        lactoovo_imageRef.current.src = lactovox;
-        pollo_imageRef.current.src = pollox;
-        pesco_imageRef.current.src = pescox;
-        pollopesco_imageRef.current.src = polpescox;
-        flex_imageRef.current.src = flexix;
       }
 
 }
@@ -777,39 +755,7 @@ setlimit_boards(page_boards)
     return(           
             <div className={rec.wrap}> 
                <div className={menu.LGbgr}> 
-              <nav className={menu.header}> 
-              <div className={menu.Rlogo}>                               
-                {/* js에서는 img를 이런식으로 import해서 불러온다. */}
-                <a href="/Checipe">
-                  <img                  
-                  src={ checipelogo }
-                  width='200vw'
-                  height='200vh'
-                  />
-                </a>
-                </div>  
-                <ul className={menu.nav}>
-                  <li><Link to="/About">About</Link></li>
-                  <li><Link to="/Recipe">Recipe</Link></li>
-                  <li><Link to="/Notice">Notice</Link></li>
-                  <li><Link to="/Open">Open</Link></li>
-                </ul>
-                <div className={menu.login}>
-                  {/* 로그인이 되어있는 상태라면 로그아웃 , 아니라면 로그인 버튼을 보여줌 */}
-                  {isLoggedIn ?  <Link to="/Checipe">
-                    {/* 위에 선언한 로그아웃함수를 클릭했을 때 실행 */}
-                        <li onClick={onLogOutClick}>로그아웃</li>
-                  </Link> : <Link to="/Loginform">
-                        <li>로그인</li>
-                  </Link> }
-                </div>
-
-                {/* 해당부분 삭제예정 */}
-                {/* <a href='#' className={rec.menubtn} onClick>
-                  <Msvg className></Msvg>
-                </a> */}
-
-              </nav>
+             <Header></Header>
               <div className={menu.WHbgr}>
               <div className={rec.ingredientbtn}>
                  <img src={ingredient}
