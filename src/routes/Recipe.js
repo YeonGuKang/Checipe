@@ -721,15 +721,11 @@ setlimit_boards(page_boards)
     } 
 
 
-
-
-
   }
 
 
   const prev_page = async() =>{
 
-    console.log("ch",check)
     // 맨 앞으로 왔을 경우에 prev실행 X
     if(check==0)
     {
@@ -766,11 +762,6 @@ setlimit_boards(page_boards)
 
   start=((page-init_btnlimit+1)-1) * limit;
   end=start+limit;
-
-  console.log("page",page)
-  console.log("btnlimit",btnlimit)
-  console.log("start", start)
-  console.log("end",end)
   
   
   //  계산이 끝난뒤 그 게시글만 slice해서 temp객체에 저장
