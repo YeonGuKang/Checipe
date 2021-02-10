@@ -191,13 +191,13 @@ div > img.slideimg {
 
 /*비건 설명 이동 버튼*/
 .about_vegan{
-    width: 400px;
-    height: 300px;
+    /*width: 400px;*/
+    /*height: 300px;*/
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    position: relative; /*나중에 릴레이티브로 수정가능성있음 */
-    top : 30vh;
+    position: absolute; /*나중에 릴레이티브로 수정가능성있음 */
+    top : 55vh;
     left : 64vw;
 }
 
@@ -223,7 +223,7 @@ div > img.slideimg {
     /* z-index: 5; */
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
     margin-top: 13vh;
-    top : 40vh;
+    top : 75vh;
     left : 63.3vw;
 }
 
