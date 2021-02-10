@@ -132,7 +132,7 @@ const Mainpage = () => {
                         <Link to = "/Recipe">
                               <img className="recipebtn"
                                     src={ Frecipebtn }
-                                    width='26%'
+                                    width='140%'
                                     alt= 'recipebtn'
                               /> 
                         </Link>
