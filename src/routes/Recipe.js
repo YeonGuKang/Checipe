@@ -260,7 +260,7 @@ const Recipe = () => {
 
   });
 
-  dbService.collection("flex").limit(303).onSnapshot((snapshot) => {
+  dbService.collection("flex").limit(5).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
