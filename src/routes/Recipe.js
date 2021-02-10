@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, useHistory } from 'react-router-dom';
-import checipe_logo from './image/chaecipielogo.png';
 import checipelogo from './image/checipelogo.svg';
-import rec from "./Recipesp.module.css";
-import menu from "./MenuBar.module.css";
+import rec from "./style/Recipesp.module.css";
+import menu from "./style/MenuBar.module.css";
 
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'

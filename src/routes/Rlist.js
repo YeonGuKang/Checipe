@@ -1,12 +1,7 @@
 
-import rec from "./Recipe.module.css";
+import rec from "./style/Recipe.module.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
-import checipe_logo from './image/chaecipielogo.png';
-import { authService , dbService } from '../firebase';
-import {ReactComponent as Msvg} from './image/menu.svg'
-import View_borad from "./View_board";
-import RecipeView from "./RecipeView";
 
 const handleImgError = (e) => {
   e.target.src = 'https://previews.123rf.com/images/alexwhite/alexwhite1501/alexwhite150104186/35585441-%EC%98%A4%EB%A5%98-%EC%95%84%EC%9D%B4%EC%BD%98.jpg';

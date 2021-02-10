@@ -3,7 +3,7 @@
 
 @font-face{
     font-family: goldenpier;
-    src:url('./fonts/MapoGoldenPier.ttf');    
+    src:url('../fonts/MapoGoldenPier.ttf');    
 }
 
 .whitealign {

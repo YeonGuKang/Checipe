@@ -1,7 +1,7 @@
 /* 뒤에 배경크기와 색깔을 설정*/
 @font-face{
     font-family: goldenpier;
-    src:url('./fonts/MapoGoldenPier.ttf');    
+    src:url('../fonts/MapoGoldenPier.ttf');    
 }
 
 .half_bgs{

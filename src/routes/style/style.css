@@ -19,12 +19,12 @@
 
 @font-face{
     font-family: goldenpier;
-    src:url('./fonts/MapoGoldenPier.ttf');
+    src:url('../fonts/MapoGoldenPier.ttf');
 }
 
 @font-face{
     font-family: bombaram;
-    src:url('./fonts/HSBombaram_Regular.ttf');
+    src:url('../fonts/HSBombaram_Regular.ttf');
 }
 
 /*뒤에 배경크기와 색깔을 설정*/
