@@ -9,7 +9,7 @@ import menu from "./MenuBar.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
-const init_btnlimit=4;
+const init_btnlimit=10;
 let btnlimit=init_btnlimit;
 let check=0;
 
@@ -106,19 +106,44 @@ const Notice = () => {
 
 const prev_page = async() =>{
 
-  setpage((page-init_btnlimit+1))
 
-  console.log(page)
+  // 맨 앞으로 왔을 경우에 prev실행 X
+  if(check==0)
+  {
+    return
+  }
 
-  // Next가 실행됐는지 check
-  check+=1;
+  // 버튼을 보여주는 limit이 초기에 설정한 값보다 크면 실행
+  if(btnlimit-init_btnlimit > init_btnlimit){
+    btnlimit-=init_btnlimit;
 
-  // limit 만큼 증가
-  btnlimit-=init_btnlimit;
+    setpage((page-init_btnlimit+1))
+  
+  }
+  // 그게 아니라면
+  else
+  {
+    let i=1;
+    
+    while(btnlimit!=1)
+    {
+      console.log("btm",btnlimit)
+      btnlimit-=i
+    }
+    btnlimit+=init_btnlimit
 
+    // 맨 앞으로 왔을경우
+    check=0;
+    setpage(1)
+  }
+
+ 
    //  그 페이지에 맞게 보여줄 게시글을 계산한다
+
+
 start=((page-init_btnlimit+1)-1) * limit;
 end=start+limit;
+
 
 //  계산이 끝난뒤 그 게시글만 slice해서 temp객체에 저장
 page_boards=boards.slice(start,end)
@@ -131,37 +156,53 @@ setlimit_boards(page_boards)
 
 
 
-    const change_page_arr = async(event) => {
+const change_page_arr = async() => {
 
-      const {
-        target: {name},
-      } = event;
-      
-        // 현재 페이지를 받고
-       setpage(name);
+  // limit 만큼 증가
+  if(btnlimit+init_btnlimit <= page_arr.length){
+    btnlimit+=init_btnlimit;
+    setpage((page+init_btnlimit))
+      // Next가 실행됐는지 check
+      check+=1;
+  }
+  else
+  {
+    let i=1;
+    let k=1;
+    // 버튼이 init 보단 작지만 뒤에 몇개가 더 생성되는지 판단
+    while(btnlimit != page_arr.length && page_arr.length > 10)
+    {
+      btnlimit+=i
+      k++
+    }
+  
+    // page가 더이상 마지막을 넘어가지 않도록 설정
+    if((page+k)<=btnlimit && k!=1)
+    {
+    setpage((page+k))
+    }
 
-       // Next가 실행됐는지 check
-       check+=1;
+    console.log("k",k)
+  }
 
-       // limit 만큼 증가
-       btnlimit+=init_btnlimit;
+   //  그 페이지에 맞게 보여줄 게시글을 계산한다
+if(check!=0)  // check가 0이면 페이지가 init 미만이므로 실행 X
+ {
+start=((page+init_btnlimit)-1) * limit;
+end=start+limit;
 
-        //  그 페이지에 맞게 보여줄 게시글을 계산한다
-    start=(name-1) * limit;
-    end=start+limit;
-    
-  //  계산이 끝난뒤 그 게시글만 slice해서 temp객체에 저장
- page_boards=boards.slice(start,end)
+
+//  계산이 끝난뒤 그 게시글만 slice해서 temp객체에 저장
+page_boards=boards.slice(start,end)
 
 
 //  다시 그 temp 객체를 hook객체에 저장 (아래에 사용을 위해서 hook을 이용해야함)
- setlimit_boards(page_boards)
+setlimit_boards(page_boards)
+
+ } 
 
 
-      console.log(page_arr)
-      console.log(name)
-
-    }
+}
 
 
 
@@ -240,13 +281,15 @@ setlimit_boards(page_boards)
 
 
          <div>
-              <button className={rec.page_num}  onClick={prev_page}>PREV</button>
+         <button className={rec.page_num} onClick={prev_page}>PREV</button>
                 {check==0 ?  page_arr.map( (el,key) =>  
                     el < btnlimit + 1 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
-                : el < btnlimit + 2 ? <button className={rec.page_num} onClick={change_page_arr} name={el}>NEXT</button> : null ) 
+                : null ) 
                 : page_arr.map( (el,key) =>  
-                el+btnlimit-init_btnlimit < btnlimit + 1 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > {el+btnlimit-init_btnlimit-1} </button>         
-            : el < btnlimit-init_btnlimit*check + 2 ? <button className={rec.page_num} onClick={change_page_arr} name={el+btnlimit-init_btnlimit-1}>NEXT</button> : null ) }
+                el+btnlimit-init_btnlimit < btnlimit + 2 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > 
+                {el+btnlimit-init_btnlimit-1} </button>         
+            :  null ) }
+    <button className={rec.page_num} onClick={change_page_arr} >NEXT</button>
               </div>
             </div>
             
