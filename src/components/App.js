@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter , Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route,  BrowserRouter  } from 'react-router-dom';
 import { authService } from '../firebase';
-import "../routes/style.css";
+import "../routes/style/style.css";
 import Loginform from '../routes/Loginform';
 import Mainpage from '../routes/Mainpage';
 import Recipe from '../routes/Recipe';

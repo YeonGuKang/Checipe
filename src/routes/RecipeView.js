@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
-import checipe_logo from './image/chaecipielogo.png';
 import checipelogo from './image/checipelogo.svg';
-import rec from "./Recipe.module.css";
-import menu from "./MenuBar.module.css";
-import recv from "./RecipeView.module.css";
+import rec from "./style/Recipe.module.css";
+import menu from "./style/MenuBar.module.css";
+import recv from "./style/RecipeView.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 import infoline from './image/infoline.svg';

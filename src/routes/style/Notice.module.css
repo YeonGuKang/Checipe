@@ -1,7 +1,7 @@
 /* Notice.js 부분 css */
 @font-face{
     font-family: goldenpier;
-    src:url('./fonts/MapoGoldenPier.ttf');
+    src:url('../fonts/MapoGoldenPier.ttf');
 }
 
 /* 헤더 아래에 middle이 필요해서 추가해줌 */

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRoute, Redirect, useHistory } from 'react-router-dom';
 import { authService, firebaseInstance } from "../firebase";
-import "./Loginform.css";
-import App from '../components/App'
+import "./style/Loginform.css";
 import checipelogo from './image/checipelogo.svg';
 import google from './image/google.svg';
 import github from './image/github.png';

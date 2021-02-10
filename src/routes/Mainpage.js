@@ -8,13 +8,13 @@ import Whyvegan from './image/pjwhy.png';
 import Noticeimg from './image/pjNotice.png';
 import Aboutveg from './image/pjchecipe.png';
 import image2 from './image/image2.jfif';
-import "./style.css";
+import "./style/style.css";
 import { authService } from '../firebase';
 // react에서 slick을 사용하기 위한 import 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import menu from "./MenuBar.module.css";
+import menu from "./style/MenuBar.module.css";
 
 
   
