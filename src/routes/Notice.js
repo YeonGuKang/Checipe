@@ -81,7 +81,7 @@ const Notice = () => {
   } = event;
 
   // 현재 페이지를 받고
- setpage(name);
+ setpage(Number(name));
 
 //  그 페이지에 맞게 보여줄 게시글을 계산한다
   start=(name-1) * limit;
