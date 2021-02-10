@@ -72,18 +72,23 @@ class Test extends React.Component {
                 <div className={recv.whitealign}>
                   <img src={ this.state.img }
                     onError={handleImgError}
-                    width='350px'
-                    height='350px'/>
+                    width='400px'
+                    height='400px'/>
                   <img src={infoline}
-                    width='50px'
-                    height='350px'
+                    width='70px'
+                    height='400px'
                     alt= 'justaline'/>
                   <div className={recv.information}>
                     <div className={recv.title}>
                      {this.state.name}
                     </div>
-                    <h1>{this.state.detail}</h1>
-                    <h1> # {this.state.part} / {this.state.way}</h1>
+                    <hr size='7' color='#28421f'></hr>
+                    <div className={recv.ingredient}>
+                      {this.state.detail}
+                    </div>
+                    <div className={recv.tagnhow}>
+                    # {this.state.part} / {this.state.way}
+                    </div>
                   </div>
                 </div>
 
@@ -96,13 +101,14 @@ class Test extends React.Component {
 
           <div className={menu.DGbgr}>
             <div className={recv.DGwhite}>
+              
               {manuals.map((ma) => {
                   if (ma != ','){
-                    return <h1>{ma}</h1>
+                    return <div className={recv.content}>{ma}</div>
                   }
                   
                  })}
-            </div>
+                 </div>
           </div>
           <div className={recv.underspace}></div>
    
