@@ -10,18 +10,18 @@ const handleImgError = (e) => {
 
 
 function Rlist({ name, manual, img, part, way, detail, number, step}) {
-
+    console.log(name)
   
     return (
       <div className={rec.result}>     
       <Link to = {{pathname: "/RecipeView/" + step + '/' + name,
                    state: {
-                     name: {name},
-                     img: {img},
-                     part: {part},
-                     way: {way},
-                     detail: {detail},
-                     manual: {manual}
+                     name: name,
+                     img: img,
+                     part: part,
+                     way: way,
+                     detail: detail,
+                     manual: manual
                    }}}>           
                 <div key={ name }>
                  
