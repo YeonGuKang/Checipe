@@ -9,17 +9,17 @@ import {ReactComponent as Msvg} from './image/menu.svg'
 import infoline from './image/infoline.svg';
 
 import Header from "../components/Header"
-class Test extends React.Component {
+class RecipeView extends React.Component {
     state = {
         init: false,
         userObj: null,
         isLoggedIn: false,
-        name: this.props.location.state.name.name,
-        img: this.props.location.state.img.img,
-        part: this.props.location.state.part.part,
-        way: this.props.location.state.way.way,
-        detail: this.props.location.state.detail.detail,
-        manual: this.props.location.state.manual.manual
+        name: this.props.location.state.name,
+        img: this.props.location.state.img,
+        part: this.props.location.state.part,
+        way: this.props.location.state.way,
+        detail: this.props.location.state.detail,
+        manual: this.props.location.state.manual
     };
 
     
@@ -46,7 +46,6 @@ class Test extends React.Component {
 
     render() {
     const spliting = (manual) => {
-      console.log(manual)
       var manuals = manual.split('\'')
       while (true) {
         var search = manuals.indexOf(', ')
@@ -63,7 +62,7 @@ class Test extends React.Component {
         e.target.src = 'https://previews.123rf.com/images/alexwhite/alexwhite1501/alexwhite150104186/35585441-%EC%98%A4%EB%A5%98-%EC%95%84%EC%9D%B4%EC%BD%98.jpg';
       }
       const manuals = spliting(this.state.manual)
-      
+      console.log('test', this.state.manual)
         return (
             <div className={rec.wrap}> 
             
@@ -120,4 +119,4 @@ class Test extends React.Component {
 
 }
 
-export default Test;
+export default RecipeView;
