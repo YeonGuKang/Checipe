@@ -8,21 +8,31 @@ import "../routes/style/style.css";
 
 import menu from "../routes/style/MenuBar.module.css";
 
+import Notice from '../routes/Notice'
+
+
 const Header = () => {
  
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
+  const [IsManager, setIsManger] = useState(false);
+  // 운영자 UID 추가
+  const Manager = ['swe0dmffFQcoqpEUJ7fHtXYimEJ3','WFS2QtP4kEN3IWscNXtD1Ciso1t2','8s8IU2fnLPe5q0nIUheiZkwpMOk2','7a2QhDJ4gjbysYsQoFP5QbAIYhz2']
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
-      
-      if (user) {
 
+      if (user) {
         setIsLoggedIn(true);
         setUserObj(user);
+        // 운영자 판단
+        if(Manager.includes(user.uid))
+        {
+          setIsManger(true);
+        }
       } else {
-   
         setIsLoggedIn(false);
+        setIsManger(false);
       }
       setInit(true);
        
@@ -34,7 +44,9 @@ const Header = () => {
     const onLogOutClick = () => authService.signOut();
   
   return(
-
+    // 로그인시 일반사용자 , 운영자를 구분
+    <div>
+    {isLoggedIn ? IsManager ? <h>운영자입니다.</h> : <h>일반사용자입니다.</h> : null}
     <div className={menu.header}>
         <div className={menu.Rlogo}>
             {/* js에서는 img를 이런식으로 import해서 불러온다. */}
@@ -63,14 +75,12 @@ const Header = () => {
                    <li>로그인</li>
               </Link> }
 
-             
-            </div>        
+            </div>      
+ </div>
  </div>
 
 
-            
-  
- 
+           
   );
   }  
 

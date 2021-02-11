@@ -21,6 +21,7 @@ class Test extends React.Component {
         detail: this.props.location.state.detail.detail,
         manual: this.props.location.state.manual.manual
     };
+
     
     componentDidMount() {
         /*this.setState(() => 
@@ -45,6 +46,7 @@ class Test extends React.Component {
 
     render() {
     const spliting = (manual) => {
+      console.log(manual)
       var manuals = manual.split('\'')
       while (true) {
         var search = manuals.indexOf(', ')

@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'rea
 import checipe_logo from './image/chaecipielogo.png';
 import checipelogo from './image/checipelogo.svg';
 
+import { authService , dbService } from '../firebase';
+
 import Frecipebtn from './image/Frecipe.png';
 import Whyvegan from './image/pjwhy.png';
 import Noticeimg from './image/pjNotice.png';
 import Aboutveg from './image/pjchecipe.png';
 import image2 from './image/image2.jfif';
 import "./style/style.css";
-import { authService } from '../firebase';
 // react에서 slick을 사용하기 위한 import 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,15 +19,58 @@ import menu from "./style/MenuBar.module.css";
 
 import Header from "../components/Header"
 
+let obj_image = [];
+let obj_name = [];
+let obj_step = [];
+let obj_part = [];
+let obj_way = [];
+let obj_detail = [];
+let obj_manual = [];
 
-
-  
 const Mainpage = () => {
+  // 아래 슬라이드용 객체
+  const [slide_obj,setslide_obj] = useState([]);
 
+  const handleImgError = (e) => {
+    e.target.src = 'https://previews.123rf.com/images/alexwhite/alexwhite1501/alexwhite150104186/35585441-%EC%98%A4%EB%A5%98-%EC%95%84%EC%9D%B4%EC%BD%98.jpg';
+  }
 
   useEffect(() => {
+    
+   let min = Math.ceil(5);
+   let max = Math.floor(1000);
+   let value = Math.floor(Math.random() * (max - min)) + min; 
+
+   // 첫 화면에 merge에서 가져온 값을 나타냄
+   dbService.collection("merge").where('order', '>' , value-5 , '<=', value).limit(5).onSnapshot((snapshot) => {
+    const boardArray = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    setslide_obj(boardArray);
+    console.log(boardArray)
+
+ 
+  });
    
   }, []);
+
+
+
+  slide_obj.filter(element => {
+   obj_image.push(element.img)
+   obj_name.push(element.id)
+   obj_step.push(element.step)
+   obj_part.push(element.part)
+   obj_way.push(element.way)
+   obj_detail.push(element.detail)
+   obj_manual.push(element.manual)
+  })
+
+  console.log(obj_manual[0])
+  
+  
 
 
     // 아래쪽에 있는 슬라이드 설정
@@ -46,24 +90,7 @@ const Mainpage = () => {
       // 화면에 올리면 슬라이더가 자동으로 넘어가지 않음
       pauseOnHover: true,
       // 레이지 로딩할 거야?
-      lazyLoad: true,
-      // centerMode:true,
-      responsive: [
-        { /* 반응형웹*/
-                breakpoint: 960, /*  기준화면사이즈 */
-                settings: {
-                  slidesToShow:2,
-                  infinite:true
-                } /*  사이즈에 적용될 설정 */
-         },
-         { /* 반응형웹*/
-                breakpoint: 768, /*  기준화면사이즈 */
-                settings: {
-                  slidesToShow:1,
-                  infinite:true
-                } /*  사이즈에 적용될 설정 */
-         }
-       ]
+      lazyLoad: true
       };
       
       // 중앙에 있는 슬라이드 설정
@@ -146,47 +173,62 @@ const Mainpage = () => {
                   <div className="lat">
                        <section className="visual">
                        <Slider {...settings_bttom}>
-                          <div id="link-image">                            
-                             <img
-                                className="imgbtn"
-                                src={ image2 }
-                                alt='호박고구마'
-                                width='90%'
-                                border='3'
-                              />                             
-                          </div>
+                       <Link to = {{pathname: "/RecipeView/" + obj_step[0] + '/' + obj_name[0],
+                   state: {
+                     name: "ddddd",
+                     img: obj_image[0],
+                     part: obj_part[0],
+                     way: obj_way[0],
+                     detail: obj_detail[0],
+                     manual: obj_manual[0]
+                   }}}>  
                           <div id="link-image">
+                          <li className="more">{obj_name[0]}</li>
+                             <img
+                                src={ obj_image[0] }
+                                onError={handleImgError}
+                                alt={obj_name[0]}
+                                width='90%'
+                                border='3'
+                                />
+                              </div>
+                              </Link>
+                          <div id="link-image">
+                          <li className="more">{obj_name[1]}</li>
                           <img
-                              className="imgbtn"
-                                src={ image2 }
-                                alt='호박고구마'
-                                width='90%'
-                                border='3'
-                                />                               
-                          </div>
-                           <div id="link-image">
-                           <img
-                              className="imgbtn"
-                                src={ image2 }
-                                alt='호박고구마'
-                                width='90%'
-                                border='3'
-                                />                             
-                          </div>
-                           <div id="link-image">
-                           <img
-                              className="imgbtn"
-                                src={ image2 }
-                                alt='호박고구마'
+                                src={ obj_image[1] }
+                                onError={handleImgError}
+                                alt={obj_name[1]}
                                 width='90%'
                                 border='3'
                                 />
                           </div>
                            <div id="link-image">
+                           <li className="more">{obj_name[2]}</li>
                            <img
-                              className="imgbtn"
-                                src={ image2 }
-                                alt='호박고구마'
+                                src={ obj_image[2] }
+                                onError={handleImgError}
+                                alt={obj_name[2]}
+                                width='90%'
+                                border='3'
+                                />
+                          </div>
+                           <div id="link-image">
+                           <li className="more">{obj_name[3]}</li>
+                           <img
+                                src={ obj_image[3] }
+                                onError={handleImgError}
+                                alt={obj_name[3]}
+                                width='90%'
+                                border='3'
+                                />
+                          </div>
+                           <div id="link-image">
+                           <li className="more">{obj_name[4]}</li>
+                           <img
+                                src={ obj_image[4] }
+                                onError={handleImgError}
+                                alt={obj_name[4]}
                                 width='90%'
                                 border='3'
                                 />
