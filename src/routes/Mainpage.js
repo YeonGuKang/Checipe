@@ -36,12 +36,14 @@ const Mainpage = () => {
   }
 
   useEffect(() => {
-    
+
+
+    // 랜덤으로 불러오도록 난수를 생성
    let min = Math.ceil(5);
    let max = Math.floor(1000);
    let value = Math.floor(Math.random() * (max - min)) + min; 
 
-   // 첫 화면에 merge에서 가져온 값을 나타냄
+   // 메인페이지 하단에 랜덤으로 보여줄 5개 레시피를 불러온다.
    dbService.collection("merge").where('order', '>' , value-5 , '<=', value).limit(5).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
@@ -57,6 +59,7 @@ const Mainpage = () => {
   }, []);
 
 
+  // 값이 없는 상태에서 .id 등으로 접근하면 오류가 나므로 filter로 거르는 작업
 
   slide_obj.filter(element => {
    obj_image.push(element.img)
@@ -68,8 +71,6 @@ const Mainpage = () => {
    obj_manual.push(element.manual)
   })
 
-  console.log(obj_manual[0])
-  
   
 
 
@@ -173,9 +174,10 @@ const Mainpage = () => {
                   <div className="lat">
                        <section className="visual">
                        <Slider {...settings_bttom}>
+                         {/* 해당하는 레시피로 넘기기위해서 path와 state를 넘겨줌 근데 state에서 오류가난다... */}
                        <Link to = {{pathname: "/RecipeView/" + obj_step[0] + '/' + obj_name[0],
                    state: {
-                     name: "ddddd",
+                     name: obj_name[0],
                      img: obj_image[0],
                      part: obj_part[0],
                      way: obj_way[0],
