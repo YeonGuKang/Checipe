@@ -267,7 +267,7 @@ div > img.slideimg {
 }
 
 /*슬라이드에 보일 글씨설정 평소엔 투명*/
-/* .more {    
+ /* .more {    
     color : black;
     display: block;
     position: relative;
@@ -278,5 +278,14 @@ div > img.slideimg {
     font-weight: bold;
     font-size: 20px;
     letter-spacing: 3px;
-    opacity:0; 
-} */
+    opacity:1; 
+}  */
+
+
+.more{
+    opacity: 0; 
+}
+
+.more:hover{
+    opacity: 1; 
+}

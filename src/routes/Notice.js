@@ -14,7 +14,7 @@ const init_btnlimit=10;
 let btnlimit=init_btnlimit;
 let check=0;
 
-const Notice = () => {
+const Notice = ({Manager}) => {
   
 
   //  DB에 존재하는 게시글을 받아오기 위함
@@ -187,7 +187,8 @@ setlimit_boards(page_boards)
         <div className={rec.wrap}> 
            <div className={menu.LGbgr}>     
             <Header></Header>
-          <li><Link to="/Register">글 등록하기</Link></li>
+            {/* Manager을 header에서 받아오려 하는데 계속 무한루프가 걸려서 문제를 모르겠음 ... */}
+          {Manager ? <li><Link to="/Register">글 등록하기</Link></li> : <li><Link to="/Register">글 등록하기</Link></li>}
 
         {/* 게시글을 보여주기 위한 middle 부분 */}
           <div className = {noti.middle}>
