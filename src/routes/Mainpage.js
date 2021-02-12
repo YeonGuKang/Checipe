@@ -70,6 +70,7 @@ const Mainpage = () => {
    obj_way.push(element.way)
    obj_detail.push(element.detail)
    obj_manual.push(element.manual)
+   
   })
 
   
