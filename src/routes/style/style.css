@@ -236,12 +236,10 @@ div > img.slideimg {
 /*아래 슬라이드 설정*/
 .visual{
     left : 2vw;
-    height: auto;
+    height: max-content;
     width: 97vw;
     position: relative;
-    top: 2vh;
-    margin-bottom: 30px;
-    
+    top: 2vh;        
 }
 /*술라이드 이미지 크기 설정*/
 /* img.link-image { 
