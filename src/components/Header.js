@@ -8,7 +8,6 @@ import "../routes/style/style.css";
 
 import menu from "../routes/style/MenuBar.module.css";
 
-import Notice from '../routes/Notice'
 
 
 const Header = () => {
@@ -42,7 +41,8 @@ const Header = () => {
 
     // 로그아웃을 위한 함수를 선언
     const onLogOutClick = () => authService.signOut();
-  
+
+
   return(
     // 로그인시 일반사용자 , 운영자를 구분
     <div>

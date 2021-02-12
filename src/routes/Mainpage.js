@@ -27,6 +27,7 @@ let obj_way = [];
 let obj_detail = [];
 let obj_manual = [];
 
+
 const Mainpage = () => {
   // 아래 슬라이드용 객체
   const [slide_obj,setslide_obj] = useState([]);
@@ -173,6 +174,7 @@ const Mainpage = () => {
 
                   <div className="lat">
                        <section className="visual">
+                         {console.log("메인페이지 ",obj_manual[0])}
                        <Slider {...settings_bttom}>
                          {/* 해당하는 레시피로 넘기기위해서 path와 state를 넘겨줌 근데 state에서 오류가난다... */}
                        <Link to = {{pathname: "/RecipeView/" + obj_step[0] + '/' + obj_name[0],
