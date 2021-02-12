@@ -61,7 +61,12 @@ const Header = () => {
                 <ul className={menu.nav}>
                     <li><Link to="/About">About</Link></li>
                     <li><Link to="/Recipe">Recipe</Link></li>
-                     <li><Link to="/Notice" >Notice</Link></li>
+                     <li><Link to= {{
+                       pathname: "/Notice",
+                       state: {
+                         manager: Manager
+                       }
+                     }} >Notice</Link></li>
                      <li><Link to="/Open">Open</Link></li>
                 </ul>
             </div>
