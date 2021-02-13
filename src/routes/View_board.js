@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
-import checipe_logo from './image/chaecipielogo.png';
 import rec from "./style/Recipe.module.css";
 import viewb from "./style/View_board.module.css";
 import { authService , dbService } from '../firebase';
