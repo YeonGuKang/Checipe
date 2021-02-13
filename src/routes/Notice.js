@@ -254,11 +254,11 @@ setlimit_boards(page_boards)
                <li className={noti.page_num} onClick={prev_page}> &#60; PREV </li>
 
                 {check==0 ?  page_arr.map( (el,key) =>  
-                    el < btnlimit + 1 ?  <li key={key} className={noti.page_num} onClick={getpage} name={el} > {el} </li>
+                    el < btnlimit + 1 ?  <button key={key} className={noti.page_num} onClick={getpage} name={el} > {el} </button>
                   : null ) 
                   : page_arr.map( (el,key) =>  
-                el+btnlimit-init_btnlimit < btnlimit + 2 ?  <li key={key} className={noti.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} >
-                {el+btnlimit-init_btnlimit-1} </li>         
+                el+btnlimit-init_btnlimit < btnlimit + 2 ?  <button key={key} className={noti.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} >
+                {el+btnlimit-init_btnlimit-1} </button>         
                   :  null ) }
 
                <li className={noti.page_num} onClick={change_page_arr}> NEXT &#62; </li>
