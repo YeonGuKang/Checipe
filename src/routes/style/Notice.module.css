@@ -6,19 +6,26 @@
 
 /* 헤더 아래에 middle이 필요해서 추가해줌 */
 .middle{
+    z-index: 1;
     background-color : var(--background-color);
-    position: relative;
-    right:10vw;
-    top : 25vh;
+    position: absolute;
+    top : 40vh;
     display: flex;
-    justify-content: center;
     width : 92vw;
     height : 70vh;
     
 }
 
+.middlewh{
+    /* 미들 안에 있는 회색 네모 (하얀색 나중에 바꿀꺼임) */
+    z-index: 1;
+    background-color: white;
+    width : 700px;
+    height : 600px;
+}
+
 .board{
-    /* font-family: 'goldenpier', serif; */
+    display : flex;
     padding: 30px;
     margin-left: 20px;
     margin-right: 20px;
@@ -27,47 +34,69 @@
  
 }
 
+
+
 .board_detail{
     font-family: 'goldenpier', serif;
-    color:white;
+    color:black;
     display: grid;
     /* 제목, 날짜가 길어지면 사이가 길어짐; */
-    grid-template-columns: 400% 100%;
-
+    grid-template-columns: 60% 60%;
     line-height: 40px;
 }
 
-.board_detail  li a {
-    font-family: 'goldenpier', serif;
-    color:white;
-
+.board li a {
+    margin-left: 50px ;
+    font-size : 1.2em
 }
 
 .board_date{
+    margin-right: 50px;
     text-align: center;
     font-family: 'goldenpier', serif;
+    font-size: 1.2em;
 }
+
 
 /* Notice.js 부분 css */
 
+.titlendate {
+    /* text-align: center; */
+    margin-top: 15px;
+    margin-left: 50px;
+    margin-right : 50px;
+    margin-bottom: 20px;
+    font-family: 'goldenpier', serif;
+    /* font-weight: bold; */
+    color : black;
+    font-size: 20px;
+
+}
 .paging_div{
     position: relative;
+    margin : 10px;
     top: 10px;
-    left: 200px;
-    border-top: solid 1px #ababab;
+    /* left: 200px; */
+    border-top: solid 3px #28421f;
     display: grid;
     grid-template-columns: 100% 50% 50%;
-    text-align: center;
-
-    
+    text-align: center;   
 }
 
 .page_num {	
-    color: black;	
+    color: black;
+    font-family: 'goldenpier', serif;
+	font-size: 1.1em;
     margin-right: 20px;	
     list-style: none;	
     display : inline-block;	
     cursor: pointer;	
+}
+
+.page_num li a {
+    color : black;
+    font-family: 'goldenpier', serif;
+
 }
 
 

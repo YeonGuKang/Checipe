@@ -30,7 +30,7 @@ const Notice = ({Manager}) => {
   let page_boards=[];
 
   // limit은 보여줄 개수
-  let limit=5;
+  let limit=10;
   let start=0;
   let end=limit;
 
@@ -188,15 +188,18 @@ setlimit_boards(page_boards)
            <div className={menu.LGbgr}>     
             <Header></Header>
             {/* Manager을 header에서 받아오려 하는데 계속 무한루프가 걸려서 문제를 모르겠음 ... */}
-          {Manager ? <li><Link to="/Register">글 등록하기</Link></li> : <li><Link to="/Register">글 등록하기</Link></li>}
+            {Manager ? <li><Link to="/Register">글 등록하기</Link></li> : <li><Link to="/Register">글 등록하기</Link></li>}
+           </div>
 
         {/* 게시글을 보여주기 위한 middle 부분 */}
           <div className = {noti.middle}>
             <div className={noti.board}>
+              <div className={noti.middlewh}>
                 <div  className={noti.board_detail}>
+
                   {/* 제목 부분에 title을 불러옴 */}
                     <div>
-                        제목
+                      <div className={noti.titlendate}>제목</div>
                         {limit_boards.map(board => 
                         <div key={board.id}>
                          <li><Link to = {{pathname: "/View/" + board.id,
@@ -206,45 +209,44 @@ setlimit_boards(page_boards)
                                             content: board.content
                                           }}}>{board.title}</Link></li>
                         </div>
-                     
-                       )
-                        }
-              
+                       )}
                     </div>
+
                     {/* 마찬가지로 날짜 부분에 만든 날짜를 게시글 작성 날짜를 불러옴 */}
                     <div className={noti.board_date}>
-                        날짜
+                        <div className={noti.titlendate}>날짜</div>
                         {console.log("정보출력" , limit_boards)}
                         {limit_boards.map(board => 
                         <div key={board.id} >
-                            <h4>{board.createdAt}</h4>
-                        </div>)
-                        }
+                            <p>{board.createdAt}</p>
+                        </div>
+                        )}
                     </div>
-                    </div>
+
+                </div>
+
                 {/* 페이징을 위한 부분 */}
                     <div className={noti.paging_div}>
          
          {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
 
 
-         <div>
-         <button className={rec.page_num} onClick={prev_page}>PREV</button>
+             <div>
+               <li className={noti.page_num} onClick={prev_page}> &#60; PREV </li>
                 {check==0 ?  page_arr.map( (el,key) =>  
-                    el < btnlimit + 1 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
-                : null ) 
-                : page_arr.map( (el,key) =>  
-                el+btnlimit-init_btnlimit < btnlimit + 2 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > 
-                {el+btnlimit-init_btnlimit-1} </button>         
-            :  null ) }
-    <button className={rec.page_num} onClick={change_page_arr} >NEXT</button>
-              </div>
-            </div>
-            
-              </div>
-              
-              
+                    el < btnlimit + 1 ?  <li key={key} className={noti.page_num} onClick={getpage} name={el} > {el} </li>
+                    // <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
+                  : null ) 
+                  : page_arr.map( (el,key) =>  
+                el+btnlimit-init_btnlimit < btnlimit + 2 ?  <li key={key} className={noti.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} >
+                {el+btnlimit-init_btnlimit-1} </li>         
+                  :  null ) }
+               <li className={noti.page_num} onClick={change_page_arr}> NEXT &#62; </li>
+                  
+             </div>
+             </div>
 
+            </div>             
           </div>
           
       </div>         
