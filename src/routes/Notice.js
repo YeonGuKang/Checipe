@@ -14,7 +14,7 @@ const init_btnlimit=10;
 let btnlimit=init_btnlimit;
 let check=0;
 
-const Notice = ({Manager}) => {
+const Notice = () => {
   
 
   //  DB에 존재하는 게시글을 받아오기 위함
@@ -42,8 +42,26 @@ const Notice = ({Manager}) => {
     page_arr.push(i);
   }
 
+  // 매니저 판단을 위해서 상수와 uid추가
+  const [IsManager, setIsManger] = useState(false);
+  const Manager = ['swe0dmffFQcoqpEUJ7fHtXYimEJ3','WFS2QtP4kEN3IWscNXtD1Ciso1t2','8s8IU2fnLPe5q0nIUheiZkwpMOk2','7a2QhDJ4gjbysYsQoFP5QbAIYhz2']
   
   useEffect(() => {
+
+    authService.onAuthStateChanged((user) => {
+
+      //  매니저를 판단
+      if(user)
+      {
+        if(Manager.includes(user.uid))
+        {
+          setIsManger(true);
+        }
+        else{
+          setIsManger(false);
+        }
+      }
+    });
 
     // DB에서 게시글을 받아오는 과정
     dbService.collection("게시글").orderBy("createdAt","desc").onSnapshot((snapshot) => {
@@ -187,9 +205,8 @@ setlimit_boards(page_boards)
         <div className={rec.wrap}> 
            <div className={menu.LGbgr}>     
             <Header></Header>
-            {/* Manager을 header에서 받아오려 하는데 계속 무한루프가 걸려서 문제를 모르겠음 ... */}
-            {Manager ? <li><Link to="/Register">글 등록하기</Link></li> : <li><Link to="/Register">글 등록하기</Link></li>}
-           </div>
+            {/* 글 등록은 매니저만 보임 */}
+          {IsManager ? <li><Link to="/Register">글 등록하기</Link></li> : null}
 
         {/* 게시글을 보여주기 위한 middle 부분 */}
           <div className = {noti.middle}>
@@ -248,7 +265,7 @@ setlimit_boards(page_boards)
 
             </div>             
           </div>
-          
+          </div>
       </div>         
           <div className={rec.half_bg} />  
         </div>
