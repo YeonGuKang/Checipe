@@ -206,7 +206,8 @@ setlimit_boards(page_boards)
            <div className={menu.LGbgr}>     
             <Header></Header>
             {/* 글 등록은 매니저만 보임 */}
-          {IsManager ? <li><Link to="/Register">글 등록하기</Link></li> : null}
+          {/* {IsManager ? <li><Link to="/Register">글 등록하기</Link></li> : null} */}
+          </div>
 
         {/* 게시글을 보여주기 위한 middle 부분 */}
           <div className = {noti.middle}>
@@ -247,25 +248,27 @@ setlimit_boards(page_boards)
          
          {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
 
-
-             <div>
+                            
+             <div className={noti.paging_section}>
+            
                <li className={noti.page_num} onClick={prev_page}> &#60; PREV </li>
+
                 {check==0 ?  page_arr.map( (el,key) =>  
                     el < btnlimit + 1 ?  <li key={key} className={noti.page_num} onClick={getpage} name={el} > {el} </li>
-                    // <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
                   : null ) 
                   : page_arr.map( (el,key) =>  
                 el+btnlimit-init_btnlimit < btnlimit + 2 ?  <li key={key} className={noti.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} >
                 {el+btnlimit-init_btnlimit-1} </li>         
                   :  null ) }
+
                <li className={noti.page_num} onClick={change_page_arr}> NEXT &#62; </li>
                   
              </div>
              </div>
-
+             <div className={noti.register}>{IsManager ? <li><Link to="/Register">글 등록하기</Link></li> : null}</div>    
             </div>             
           </div>
-          </div>
+          
       </div>         
           <div className={rec.half_bg} />  
         </div>

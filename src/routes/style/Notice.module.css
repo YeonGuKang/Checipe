@@ -11,21 +11,24 @@
     position: absolute;
     top : 40vh;
     display: flex;
-    width : 92vw;
-    height : 70vh;
+    width : 91vw;
+    height : 77vh;
     
 }
 
 .middlewh{
     /* 미들 안에 있는 회색 네모 (하얀색 나중에 바꿀꺼임) */
+    border-top-left-radius : 40px;
+    position : relative;
+    top : 10px;
+    left : 300px;
     z-index: 1;
     background-color: white;
-    width : 700px;
-    height : 600px;
+    width : 1200px;
+    height : 650px;
 }
 
 .board{
-    display : flex;
     padding: 30px;
     margin-left: 20px;
     margin-right: 20px;
@@ -41,7 +44,7 @@
     color:black;
     display: grid;
     /* 제목, 날짜가 길어지면 사이가 길어짐; */
-    grid-template-columns: 60% 60%;
+    grid-template-columns: 60% 65%;
     line-height: 40px;
 }
 
@@ -72,6 +75,11 @@
     font-size: 20px;
 
 }
+
+.paging_section {
+    margin : 15px;
+}
+
 .paging_div{
     position: relative;
     margin : 10px;
@@ -97,6 +105,14 @@
     color : black;
     font-family: 'goldenpier', serif;
 
+}
+
+.register {
+    color : black;
+    margin-left: 10px;
+    font-family: 'goldenpier', serif;
+    cursor : pointer;
+    text-align: right;
 }
 
 
