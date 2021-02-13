@@ -30,7 +30,7 @@ const Notice = () => {
   let page_boards=[];
 
   // limit은 보여줄 개수
-  let limit=5;
+  let limit=10;
   let start=0;
   let end=limit;
 
