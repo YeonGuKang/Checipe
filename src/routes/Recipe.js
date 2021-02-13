@@ -616,12 +616,66 @@ const hashChosen = (event) => {
     check=0;
     // 이전에 넣어둔 데이터를 밀어줌
     setlimit_boards([])
-    // Flexi는 모든 레시피를 가지고 있으므로 Flexi에서 검색
-   Flexi.map((name)=>(
-    stringVal = name.id,
-    // 찾는 name이 존재하면 값을 넣어줌
-    stringVal.includes(Search_name) ? temp.push(name) : null
-    ))
+
+    // 현재 chosen 을 판단해서 해당 type에서 검색
+    if( chosen == Vegan)
+    {
+        Vegan.map((name)=>(
+        stringVal = name.id,
+        // 찾는 name이 존재하면 값을 넣어줌
+        stringVal.includes(Search_name) ? temp.push(name) : null
+        ))
+    }
+    else if(chosen == Lacto)
+    {
+       Lacto.map((name)=>(
+        stringVal = name.id,
+        stringVal.includes(Search_name) ? temp.push(name) : null
+        ))
+    }
+    else if(chosen == Ovo)
+    {
+       Ovo.map((name)=>(
+        stringVal = name.id,
+        stringVal.includes(Search_name) ? temp.push(name) : null
+        ))
+    }
+    else if(chosen == LactoOvo)
+    {
+       LactoOvo.map((name)=>(
+        stringVal = name.id,
+        stringVal.includes(Search_name) ? temp.push(name) : null
+        ))
+    }
+    else if(chosen == Pollo)
+    {
+       Pollo.map((name)=>(
+        stringVal = name.id,
+        stringVal.includes(Search_name) ? temp.push(name) : null
+        ))
+    }
+    else if(chosen == Pesco)
+    {
+        Pesco.map((name)=>(
+        stringVal = name.id,
+        stringVal.includes(Search_name) ? temp.push(name) : null
+        ))
+    }
+    else if(chosen == PolloPesco)
+    {
+       PolloPesco.map((name)=>(
+        stringVal = name.id,
+        stringVal.includes(Search_name) ? temp.push(name) : null
+        ))
+    }
+    // 모두 아닌경우 모든 레시피를 가지고있는 Flexi에서 검색
+    else{
+    Flexi.map((name)=>(
+     stringVal = name.id,
+     // 찾는 name이 존재하면 값을 넣어줌
+     stringVal.includes(Search_name) ? temp.push(name) : null
+     ))
+    }
 
     // 넣은 값들을 chosen과 limit_boards에 set 페이지도 1로 다시 set
     setchosen(temp);
