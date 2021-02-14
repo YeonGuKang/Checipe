@@ -1,6 +1,8 @@
 /* 헤더 아래에 middle이 필요해서 추가해줌 */
+
+
 .middle{
-    background-color : var(--background-color);
+    background-color : #28421f;
     position: relative;
     right:10vw;
     top : 25vh;
