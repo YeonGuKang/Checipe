@@ -14,7 +14,7 @@ const init_btnlimit=10;
 let btnlimit=init_btnlimit;
 let check=0;
 
-const Notice = ({Manager}) => {
+const Notice = () => {
   
 
   //  DB에 존재하는 게시글을 받아오기 위함
@@ -30,7 +30,7 @@ const Notice = ({Manager}) => {
   let page_boards=[];
 
   // limit은 보여줄 개수
-  let limit=5;
+  let limit=10;
   let start=0;
   let end=limit;
 
@@ -42,8 +42,26 @@ const Notice = ({Manager}) => {
     page_arr.push(i);
   }
 
+  // 매니저 판단을 위해서 상수와 uid추가
+  const [IsManager, setIsManger] = useState(false);
+  const Manager = ['swe0dmffFQcoqpEUJ7fHtXYimEJ3','WFS2QtP4kEN3IWscNXtD1Ciso1t2','8s8IU2fnLPe5q0nIUheiZkwpMOk2','7a2QhDJ4gjbysYsQoFP5QbAIYhz2']
   
   useEffect(() => {
+
+    authService.onAuthStateChanged((user) => {
+
+      //  매니저를 판단
+      if(user)
+      {
+        if(Manager.includes(user.uid))
+        {
+          setIsManger(true);
+        }
+        else{
+          setIsManger(false);
+        }
+      }
+    });
 
     // DB에서 게시글을 받아오는 과정
     dbService.collection("게시글").orderBy("createdAt","desc").onSnapshot((snapshot) => {
@@ -187,16 +205,19 @@ setlimit_boards(page_boards)
         <div className={rec.wrap}> 
            <div className={menu.LGbgr}>     
             <Header></Header>
-            {/* Manager을 header에서 받아오려 하는데 계속 무한루프가 걸려서 문제를 모르겠음 ... */}
-          {Manager ? <li><Link to="/Register">글 등록하기</Link></li> : <li><Link to="/Register">글 등록하기</Link></li>}
+            {/* 글 등록은 매니저만 보임 */}
+          {/* {IsManager ? <li><Link to="/Register">글 등록하기</Link></li> : null} */}
+          </div>
 
         {/* 게시글을 보여주기 위한 middle 부분 */}
           <div className = {noti.middle}>
             <div className={noti.board}>
+              <div className={noti.middlewh}>
                 <div  className={noti.board_detail}>
+
                   {/* 제목 부분에 title을 불러옴 */}
                     <div>
-                        제목
+                      <div className={noti.titlendate}>제목</div>
                         {limit_boards.map(board => 
                         <div key={board.id}>
                          <li><Link to = {{pathname: "/View/" + board.id,
@@ -206,45 +227,46 @@ setlimit_boards(page_boards)
                                             content: board.content
                                           }}}>{board.title}</Link></li>
                         </div>
-                     
-                       )
-                        }
-              
+                       )}
                     </div>
+
                     {/* 마찬가지로 날짜 부분에 만든 날짜를 게시글 작성 날짜를 불러옴 */}
                     <div className={noti.board_date}>
-                        날짜
+                        <div className={noti.titlendate}>날짜</div>
                         {console.log("정보출력" , limit_boards)}
                         {limit_boards.map(board => 
                         <div key={board.id} >
-                            <h4>{board.createdAt}</h4>
-                        </div>)
-                        }
+                            <p>{board.createdAt}</p>
+                        </div>
+                        )}
                     </div>
-                    </div>
+
+                </div>
+
                 {/* 페이징을 위한 부분 */}
                     <div className={noti.paging_div}>
          
          {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
 
-
-         <div>
-         <button className={rec.page_num} onClick={prev_page}>PREV</button>
-                {check==0 ?  page_arr.map( (el,key) =>  
-                    el < btnlimit + 1 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
-                : null ) 
-                : page_arr.map( (el,key) =>  
-                el+btnlimit-init_btnlimit < btnlimit + 2 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > 
-                {el+btnlimit-init_btnlimit-1} </button>         
-            :  null ) }
-    <button className={rec.page_num} onClick={change_page_arr} >NEXT</button>
-              </div>
-            </div>
+                            
+             <div className={noti.paging_section}>
             
-              </div>
-              
-              
+               <li className={noti.page_num} onClick={prev_page}> &#60; PREV </li>
 
+                {check==0 ?  page_arr.map( (el,key) =>  
+                    el < btnlimit + 1 ?  <button key={key} className={noti.page_num} onClick={getpage} name={el} > {el} </button>
+                  : null ) 
+                  : page_arr.map( (el,key) =>  
+                el+btnlimit-init_btnlimit < btnlimit + 2 ?  <button key={key} className={noti.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} >
+                {el+btnlimit-init_btnlimit-1} </button>         
+                  :  null ) }
+
+               <li className={noti.page_num} onClick={change_page_arr}> NEXT &#62; </li>
+                  
+             </div>
+             </div>
+             <div className={noti.register}>{IsManager ? <li><Link to="/Register">글 등록하기</Link></li> : null}</div>    
+            </div>             
           </div>
           
       </div>         

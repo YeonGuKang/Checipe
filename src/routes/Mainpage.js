@@ -27,17 +27,17 @@ let obj_way = [];
 let obj_detail = [];
 let obj_manual = [];
 
+
 const Mainpage = () => {
   // 아래 슬라이드용 객체
   const [slide_obj,setslide_obj] = useState([]);
+
 
   const handleImgError = (e) => {
     e.target.src = 'https://previews.123rf.com/images/alexwhite/alexwhite1501/alexwhite150104186/35585441-%EC%98%A4%EB%A5%98-%EC%95%84%EC%9D%B4%EC%BD%98.jpg';
   }
 
   useEffect(() => {
-
-
     // 랜덤으로 불러오도록 난수를 생성
    let min = Math.ceil(5);
    let max = Math.floor(1000);
@@ -51,7 +51,6 @@ const Mainpage = () => {
     }));
 
     setslide_obj(boardArray);
-    console.log(boardArray)
 
  
   });
@@ -175,7 +174,6 @@ const Mainpage = () => {
                   <div className="lat">
                        <section className="visual">
                        <Slider {...settings_bttom}>
-                         {/* 해당하는 레시피로 넘기기위해서 path와 state를 넘겨줌 근데 state에서 오류가난다... */}
                        <Link to = {{pathname: "/RecipeView/" + obj_step[0] + '/' + obj_name[0],
                    state: {
                      name: obj_name[0],
@@ -197,6 +195,16 @@ const Mainpage = () => {
                                 />
                               </div>
                               </Link>
+
+                              <Link to = {{pathname: "/RecipeView/" + obj_step[1] + '/' + obj_name[1],
+                   state: {
+                     name: obj_name[1],
+                     img: obj_image[1],
+                     part: obj_part[1],
+                     way: obj_way[1],
+                     detail: obj_detail[1],
+                     manual: obj_manual[1]
+                   }}}>  
                           <div id="link-image">
                           <li className="more">{obj_name[1]}</li>
                           <img
@@ -208,6 +216,17 @@ const Mainpage = () => {
                                 border='3'
                                 />
                           </div>
+                          </Link>
+
+                          <Link to = {{pathname: "/RecipeView/" + obj_step[2] + '/' + obj_name[2],
+                   state: {
+                     name: obj_name[2],
+                     img: obj_image[2],
+                     part: obj_part[2],
+                     way: obj_way[2],
+                     detail: obj_detail[2],
+                     manual: obj_manual[2]
+                   }}}>  
                            <div id="link-image">
                            <li className="more">{obj_name[2]}</li>
                            <img
@@ -219,6 +238,16 @@ const Mainpage = () => {
                                 border='3'
                                 />
                           </div>
+                          </Link>
+                          <Link to = {{pathname: "/RecipeView/" + obj_step[3] + '/' + obj_name[3],
+                   state: {
+                     name: obj_name[3],
+                     img: obj_image[3],
+                     part: obj_part[3],
+                     way: obj_way[3],
+                     detail: obj_detail[3],
+                     manual: obj_manual[3]
+                   }}}>  
                            <div id="link-image">
                            <li className="more">{obj_name[3]}</li>
                            <img
@@ -230,17 +259,7 @@ const Mainpage = () => {
                                 border='3'
                                 />
                           </div>
-                           <div id="link-image">
-                           <li className="more">{obj_name[4]}</li>
-                           <img
-                                className="imgbtn"
-                                src={ obj_image[4] }
-                                onError={handleImgError}
-                                alt={obj_name[4]}
-                                // width='90%'
-                                border='3'
-                                />
-                          </div>
+                          </Link>
                           </Slider>
                       </section>
                    
