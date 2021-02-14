@@ -192,7 +192,7 @@ const Mainpage = () => {
                                 src={ obj_image[0] }
                                 onError={handleImgError}
                                 alt={obj_name[0]}
-                                width='90%'
+                                // width='90%'
                                 border='3'
                                 />
                               </div>
@@ -204,7 +204,7 @@ const Mainpage = () => {
                                 src={ obj_image[1] }
                                 onError={handleImgError}
                                 alt={obj_name[1]}
-                                width='90%'
+                                // width='90%'
                                 border='3'
                                 />
                           </div>
@@ -215,7 +215,7 @@ const Mainpage = () => {
                                 src={ obj_image[2] }
                                 onError={handleImgError}
                                 alt={obj_name[2]}
-                                width='90%'
+                                // width='90%'
                                 border='3'
                                 />
                           </div>
@@ -226,21 +226,21 @@ const Mainpage = () => {
                                 src={ obj_image[3] }
                                 onError={handleImgError}
                                 alt={obj_name[3]}
-                                width='90%'
+                                // width='90%'
                                 border='3'
                                 />
                           </div>
-                           {/* <div id="link-image">
+                           <div id="link-image">
                            <li className="more">{obj_name[4]}</li>
                            <img
                                 className="imgbtn"
                                 src={ obj_image[4] }
                                 onError={handleImgError}
                                 alt={obj_name[4]}
-                                width='90%'
+                                // width='90%'
                                 border='3'
                                 />
-                          </div> */}
+                          </div>
                           </Slider>
                       </section>
                    
