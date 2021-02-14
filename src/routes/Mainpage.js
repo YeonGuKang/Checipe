@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'rea
 import checipe_logo from './image/chaecipielogo.png';
 import checipelogo from './image/checipelogo.svg';
 
+import noimage from './image/noimage.svg';
+
 import { authService , dbService } from '../firebase';
 
 import Frecipebtn from './image/Frecipe.png';
@@ -34,7 +36,7 @@ const Mainpage = () => {
 
 
   const handleImgError = (e) => {
-    e.target.src = 'https://previews.123rf.com/images/alexwhite/alexwhite1501/alexwhite150104186/35585441-%EC%98%A4%EB%A5%98-%EC%95%84%EC%9D%B4%EC%BD%98.jpg';
+    e.target.src = noimage;
   }
 
   useEffect(() => {
