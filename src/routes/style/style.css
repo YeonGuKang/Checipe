@@ -239,29 +239,47 @@ div > img.slideimg {
     width: 97vw;
     position: relative;
     top: 2vh;
-    margin-bottom: 30px;
-            
+    margin-bottom: 30px;         
 }
-술라이드 이미지 크기 설정
+/* 슬라이드 이미지 크기 설정 */
 .link-image { 
+    position: relative;
     margin: 2vw;
     height: 100vh;
-    width: 100px;    
-    padding: 0;    
+    width: 100px;               
+    object-fit: cover;
+    overflow: hidden;
 }
+
 /* 이미지 크기 설정 */
 .imgbtn{
-    height: 300px;
-    width: 30vw;
-    object-fit: cover;    
+    height:20vh;
+    width: 20vw;    
+    object-fit: cover;
+    margin: 10px;    
+    overflow: hidden;
 }
 
 /* 하단 슬라이드 글씨 작업 */
-
 .more{
-    opacity: 0; 
+    position: absolute;
+    bottom: 150%;
+    text-align: center;
+    z-index: 2;
+    color: white;
+    padding-left: 40px;
+    transition: all .4s;    
+    /* opacity: 0;  */
 }
 
-.more:hover{
-    opacity: 1; 
+/* 텍스트 위치 */
+div>section>div>div>div .slick-slide:hover .more{
+    bottom: 50%;
+}
+/* 마우스 오버 효과 */
+div>section>div>div>div .slick-slide:hover .imgbtn{
+    filter: brightness(70%);    
+    /* transform:scale(1.1); */
+    overflow: hidden;
+    transition: all .4s;    
 }
