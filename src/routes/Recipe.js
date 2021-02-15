@@ -919,6 +919,7 @@ setlimit_boards(page_boards)
                   number={ Show.number }
                   manual={ Show.manual}
                   step={Show.step}
+                  like={Show.like}
                 />
               ))}
             </div>
