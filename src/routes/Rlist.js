@@ -2,15 +2,16 @@
 import rec from "./style/Recipesp.module.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
+import noimage from './image/noimage.svg';
 
 const handleImgError = (e) => {
-  e.target.src = 'https://previews.123rf.com/images/alexwhite/alexwhite1501/alexwhite150104186/35585441-%EC%98%A4%EB%A5%98-%EC%95%84%EC%9D%B4%EC%BD%98.jpg';
+  e.target.src = noimage;
 }
 
 
 
-function Rlist({ name, manual, img, part, way, detail, number, step}) {
-    console.log(name)
+function Rlist({ name, manual, img, part, way, detail, number, step, like}) {
+    console.log(like)
   
     return (
       <div className={rec.result}>     
@@ -21,7 +22,8 @@ function Rlist({ name, manual, img, part, way, detail, number, step}) {
                      part: part,
                      way: way,
                      detail: detail,
-                     manual: manual
+                     manual: manual,
+                     like : like
                    }}}>           
                 <div key={ name }>
                  
