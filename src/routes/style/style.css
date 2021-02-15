@@ -234,32 +234,36 @@ div > img.slideimg {
 }
 /*아래 슬라이드 설정*/
 .visual{
-    left : 2vw;
+    /* left : 2vw; */
     /* height: 200px; */
-    width: 97vw;
+    /* width: 97vw; */
     position: relative;
     top: 2vh;
+    margin-left: 0;
     margin-bottom: 30px;         
 }
 /* 슬라이드 이미지 크기 설정 */
 .link-image { 
     position: relative;
-    margin: 2vw;
-    height: 100vh;
-    width: 100px;               
-    object-fit: cover;
+    /* margin: 2vw; */
+    height: 400px;
+    width: 400px;               
     overflow: hidden;
+    object-fit: cover;
+    outline:none;
 }
 
 /* 이미지 크기 설정 */
 .imgbtn{
-    height:20vh;
-    width: 20vw;    
-    object-fit: cover;
-    margin: 10px;    
+    /* height:20vh; */
+    /* width: 20vw;     */
+    object-fit: cover;   
     overflow: hidden;
+    outline:none;
 }
-
+.slick-slide>div>a:focus{
+    outline: none;
+}
 /* 하단 슬라이드 글씨 작업 */
 .more{
     position: absolute;
@@ -271,15 +275,24 @@ div > img.slideimg {
     transition: all .4s;    
     /* opacity: 0;  */
 }
-
+div>section>div>div>div .slick-slide{
+    padding: 0;
+    /* margin: 30px; */
+    object-fit: cover;
+    overflow: hidden;
+    outline:none;
+}
+div>section>div>div>div .slick-slide:focus{
+    outline: none;
+}
 /* 텍스트 위치 */
 div>section>div>div>div .slick-slide:hover .more{
-    bottom: 50%;
+    bottom: 70%;
 }
 /* 마우스 오버 효과 */
 div>section>div>div>div .slick-slide:hover .imgbtn{
     filter: brightness(70%);    
-    /* transform:scale(1.1); */
+    transform:scale(1.1);
     overflow: hidden;
     transition: all .4s;    
 }
