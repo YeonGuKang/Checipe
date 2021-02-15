@@ -11,7 +11,7 @@ const handleImgError = (e) => {
 
 
 function Rlist({ name, manual, img, part, way, detail, number, step, like}) {
-    console.log(like)
+
   
     return (
       <div className={rec.result}>     
