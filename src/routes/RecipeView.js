@@ -4,7 +4,7 @@ import checipelogo from './image/checipelogo.svg';
 import rec from "./style/Recipe.module.css";
 import menu from "./style/MenuBar.module.css";
 import recv from "./style/RecipeView.module.css";
-import { authService , dbService } from '../firebase';
+import { authService , dbService , firebaseInstance } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 import infoline from './image/infoline.svg';
 import noimage from './image/noimage.svg';
@@ -24,9 +24,9 @@ class RecipeView extends React.Component {
         part: this.props.location.state.part,
         way: this.props.location.state.way,
         detail: this.props.location.state.detail,
-        manual: this.props.location.state.manual
+        manual: this.props.location.state.manual,
+        like: this.props.location.state.like
     };
-
     
     componentDidMount() {
         /*this.setState(() => 
@@ -45,6 +45,7 @@ class RecipeView extends React.Component {
             }
            this.setState({init: true})
           });
+        
     }
 
 
@@ -63,61 +64,88 @@ class RecipeView extends React.Component {
         return manuals
     }
       const handleImgError = (e) => {
-        e.target.src = 'https://previews.123rf.com/images/alexwhite/alexwhite1501/alexwhite150104186/35585441-%EC%98%A4%EB%A5%98-%EC%95%84%EC%9D%B4%EC%BD%98.jpg';
+        e.target.src = noimage;
       }
       const manuals = spliting(this.state.manual)
 
 
+      // 즐겨찾기 함수
       const favorite = async () => {
         // 현재 해당유저의 즐겨찾기 정보를 가져옴
-        const res = await dbService.collection('즐겨찾기').doc(this.state.userObj.uid).get();
+        const res = await dbService.collection('유저정보').doc(this.state.userObj.uid).collection('즐겨찾기').doc(this.state.name).get();
 
-        // 만약에 즐겨찾기가 이미 하나라도 있을 경우 실행
-        if(res.data()!=undefined)
-        {
-          // 현재 몇개의 즐겨찾기가 있는지 판단
-         const count = Object.keys(res.data().data).length;
+        const data = {
+              favorite : this.state.name
+             };
 
-        //  해당 레시피가 이미 즐찾 되어있는지 판단
-         const check = Object.values(res.data().data);
-         if(check.includes(this.state.name))
-         {
+            // 만약에 해당 이름으로 데이터가 있는경우 실행
+         if(res.data()!=undefined)
+           {
           alert('이미 즐겨찾기 되어있는 레시피입니다!')
+            // 확인을 누르면 실행
+            if(window.confirm('즐겨찾기를 취소 하시겠습니까?')){
+              // 즐겨찾기에서 해당하는 레시피를 삭제
+              await dbService.collection('유저정보').doc(this.state.userObj.uid).collection('즐겨찾기').doc(this.state.name).delete();
+              alert('즐겨찾기가 삭제 되었습니다!')
+             }
+           }
+          // 데이터가 없는경우 해당하는 레시피를 set
+           else{
+            await dbService.collection('유저정보').doc(this.state.userObj.uid).collection('즐겨찾기').doc(this.state.name).set(data); 
+            alert('즐겨찾기가 완료 되었습니다!')
+           }
+    
+      }
 
-          // 필드 삭제가 생각보다 어려워서 아직 취소 구현 X
-          if(window.confirm('즐겨찾기를 취소 하시겠습니까?')){
+      // 좋아요 함수
+      const like = async () => {
+        // 현재 해당유저의 좋아요 정보를 가져옴
+        const res = await dbService.collection('유저정보').doc(this.state.userObj.uid).collection('좋아요').doc(this.state.name).get();
 
-       
-          }
+        const data = {
+              like : true
+             };
 
+            //  현재 선택한 레시피의 타입을 알기위함
+             const nowAddress = document.location.href;
+             const type =nowAddress.split('/')[4]
+             
+            //  현재 타입의 레시피 like 정보를 가져옴
+              const type_data =  await dbService.collection(type).doc(this.state.name).get();
+              let current_like = type_data.data().like
 
-          return
-         }
-         alert('즐겨찾기가 완료 되었습니다!')
-          
-          // 그 갯수에 맞춰 새로운 key를 만들어서 넣어줌
-          // key 이름이 같으면 덮어씌워지므로 이런식으로 구현
-          const key = 'favorite' + String(count);
-          const data = {};
+          // 만약에 해당 레시피를 좋아요 누른경우
+         if(res.data()!=undefined)
+           {
+          alert('이미 좋아요 한 레시피입니다!')
+            // 확인을 누르면 실행
+            if(window.confirm('좋아요를 취소 하시겠습니까?')){
+              // 좋아요에서 해당하는 레시피를 삭제
+              await dbService.collection('유저정보').doc(this.state.userObj.uid).collection('좋아요').doc(this.state.name).delete();
 
-          data[key] = this.state.name
+              // merge와 현재 type 레시피의 like를 1씩 뺌
+              await dbService.collection(type).doc(this.state.name).update({like : current_like - 1});
+              await dbService.collection('merge').doc(this.state.name).update({like : current_like - 1});
 
-          await dbService.collection('즐겨찾기').doc(this.state.userObj.uid).set({data}, { merge: true }); 
-        }
-        //  즐겨찾기가 하나도 없었을 경우에 실향
-        else{
-          alert('즐겨찾기가 완료 되었습니다!')
-          //  doc과 field를 만들어서 set해줌
-          const data = {
-            favorite : this.state.name
-          };
+              alert('좋아요가 삭제 되었습니다!')
+             }
+           }
+          // 좋아요를 누른적이 없을 경우 실행
+           else{
+             console.log(current_like)
+             if(current_like == undefined)
+             {
+               current_like = 0;
+             }
 
-          await dbService.collection('즐겨찾기').doc(this.state.userObj.uid).set({data} ,{ merge: true });  
-        }
-        
-      
+            //  merge와 해당 type의 레시피 like를 1씩증가
+            await dbService.collection(type).doc(this.state.name).update({like : current_like + 1});
+            await dbService.collection('merge').doc(this.state.name).update({like : current_like + 1});
 
-        
+            await dbService.collection('유저정보').doc(this.state.userObj.uid).collection('좋아요').doc(this.state.name).set(data); 
+            alert('좋아요가 완료 되었습니다!')
+           }
+    
       }
         return (
             <div className={rec.wrap}> 
@@ -126,7 +154,8 @@ class RecipeView extends React.Component {
             <Header></Header>
               {/* 사용자가 선택한 음식의 정보를 보여주는 부분 */}
               <div className={menu.WHbgr}>
-                <div onClick={favorite}>즐겨찾기</div>
+                <a onClick={favorite}>즐겨찾기</a>
+                <a onClick={like}>좋아요 {this.state.like}</a>
                 <div className={recv.whitealign}>
                   <img src={ this.state.img }
                     onError={handleImgError}
