@@ -44,20 +44,26 @@
     color:black;
     display: grid;
     /* 제목, 날짜가 길어지면 사이가 길어짐; */
-    grid-template-columns: 60% 65%;
+    grid-template-columns: 60% 40%;
     line-height: 40px;
 }
 
-.board li a {
-    margin-left: 50px ;
-    font-size : 1.2em
+.board li {
+    line-height: 40px;
+    /* margin-left: 50px ; */
+    font-size : 20px;
+}
+
+.board li a{
+    line-height: 40px;
+    font-size : 20px;
 }
 
 .board_date{
     margin-right: 50px;
-    text-align: center;
+    text-align: right;
     font-family: 'goldenpier', serif;
-    font-size: 1.2em;
+    font-size: 20px;
 }
 
 
