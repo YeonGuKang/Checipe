@@ -15,7 +15,6 @@ let btnlimit=init_btnlimit;
 let check=0;
 
 const Notice = () => {
-  
 
   //  DB에 존재하는 게시글을 받아오기 위함
   const [board, setboard] = useState("");
