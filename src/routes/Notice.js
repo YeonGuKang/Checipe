@@ -226,6 +226,8 @@ setlimit_boards(page_boards)
                                             title: board.title,
                                             content: board.content
                                           }}}>{board.title}</Link></li>
+                          <hr size='2' color='lightgray'></hr>                   
+
                         </div>
                        )}
                     </div>
@@ -236,7 +238,8 @@ setlimit_boards(page_boards)
                         {console.log("정보출력" , limit_boards)}
                         {limit_boards.map(board => 
                         <div key={board.id} >
-                            <p>{board.createdAt}</p>
+                            <li>{board.createdAt}</li>
+                            <hr size='2' color='lightgray'></hr>                   
                         </div>
                         )}
                     </div>
