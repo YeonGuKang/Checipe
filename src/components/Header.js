@@ -20,6 +20,7 @@ const Header = () => {
   const Manager = ['swe0dmffFQcoqpEUJ7fHtXYimEJ3','WFS2QtP4kEN3IWscNXtD1Ciso1t2','8s8IU2fnLPe5q0nIUheiZkwpMOk2','7a2QhDJ4gjbysYsQoFP5QbAIYhz2']
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
+    
 
       if (user) {
         setIsLoggedIn(true);

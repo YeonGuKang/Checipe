@@ -117,9 +117,8 @@ class RecipeView extends React.Component {
           // 만약에 해당 레시피를 좋아요 누른경우
          if(res.data()!=undefined)
            {
-          alert('이미 좋아요 한 레시피입니다!')
             // 확인을 누르면 실행
-            if(window.confirm('좋아요를 취소 하시겠습니까?')){
+            if(window.confirm('이미 좋아요 한 레시피입니다! 좋아요를 취소 하시겠습니까?')){
               // 좋아요에서 해당하는 레시피를 삭제
               await dbService.collection('유저정보').doc(this.state.userObj.uid).collection('좋아요').doc(this.state.name).delete();
 
