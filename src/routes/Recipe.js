@@ -66,6 +66,11 @@ let btnlimit=init_btnlimit;
 let check=0;
 
 const Recipe = () => {
+
+  const [init, setInit] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userObj, setUserObj] = useState(null);
+  const [IsManager, setIsManger] = useState(false);
    
   // 파이어베이스에서 데이터를 가져오는 과정
   // 각각 채식 type에 맞게 데이터를 불러오기 위함
@@ -89,6 +94,10 @@ const Recipe = () => {
   const [courseCheck, setcourseCheck] = useState(false);
   const [dessertCheck, setdessertCheck] = useState(false);
   const [etcCheck, setetcCheck] = useState(false);
+
+  // 즐겨찾기해놓은 레시피의 이름을 담는다
+  const [favorite_list, setfavorite_list] = useState([]);
+
   
   // vegan step state
   const [step, setstep] = useState([]);
@@ -143,6 +152,21 @@ const Recipe = () => {
 
   
   useEffect(() => {
+
+    authService.onAuthStateChanged((user) => {
+
+      if (user) {
+        setIsLoggedIn(true);
+        setUserObj(user);
+
+      } else {
+        setIsLoggedIn(false);
+        setIsManger(false);
+      }
+      setInit(true);
+       
+    });
+  
     
 
    // 첫 화면에 merge에서 가져온 값을 나타냄
@@ -782,6 +806,47 @@ setlimit_boards(page_boards)
   
   }
 
+  // 내가 현재 즐겨찾기 해놓은것을 알기 위한 함수
+  const Show_favorite = async() =>{
+    // 
+    setfavorite_list([]);
+    setlimit_boards([]);
+    setchosen([]);
+    // 해당 유저의 즐겨찾기 정보를 보두 가져온다.
+    await dbService.collection("유저정보").doc(userObj.uid).collection("즐겨찾기").onSnapshot((snapshot) => {
+      const favoriteArray = snapshot.docs.map((doc) => ({
+        ...doc.data()
+      }));
+      // 즐겨찾기 해놓은 모든 레시피에 대해서 실행
+       while(favoriteArray.length)
+       {
+        //  즐겨찾기 해놓은 이름을 기반으로 객체를 넣어주는 함수를 실행
+         get_favorite(favoriteArray)
+       }
+    });
+
+
+    setpage(1);
+   
+
+  }
+
+   //  즐겨찾기 해놓은 이름을 기반으로 객체를 넣어주는 함수
+  const get_favorite = async(favoriteArray) =>{
+    // 즐겨찾기 해놓은 레시피 이름을 저장
+    const id=favoriteArray.pop()['favorite']
+    // 그 레시피 이름을 기반으로 데이터를 merge에서 불러옴
+    const res = await dbService.collection('merge').doc(id).get();
+    var favorite_data = res.data()
+
+    // id를 이렇게 따로 넣어줘야 함
+    favorite_data.id=id;
+   
+  // 불러온 레시피의 정보를 모두 set해줌
+    setfavorite_list((prev) => [favorite_data, ...prev]);
+    setchosen((prev) => [favorite_data, ...prev]);
+    setlimit_boards((prev) => [favorite_data, ...prev].slice(0,limit))
+  }
 
 
     return(           
@@ -789,6 +854,7 @@ setlimit_boards(page_boards)
                <div className={menu.LGbgr}> 
              <Header></Header>
               <div className={menu.WHbgr}>
+                <a onClick={Show_favorite}>내 즐겨찾기</a>
               <div className={rec.ingredientbtn}>
                  <img src={ingredient}
                                 width='150vw'
