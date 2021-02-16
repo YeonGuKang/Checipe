@@ -230,7 +230,7 @@ div > img.slideimg {
 /*맨 아래 레이아웃 크기*/
 .lat{
     /* height: 200px; */
-    width: 100%;    
+    width: auto;    
 }
 /*아래 슬라이드 설정*/
 .visual{
@@ -240,59 +240,50 @@ div > img.slideimg {
     position: relative;
     top: 2vh;
     margin-left: 0;
-    margin-bottom: 30px;         
+    margin-bottom: 30px;
+    overflow: hidden;         
 }
 /* 슬라이드 이미지 크기 설정 */
 .link-image { 
-    position: relative;
-    /* margin: 2vw; */
-    height: 400px;
-    width: 400px;               
-    overflow: hidden;
-    object-fit: cover;
-    outline:none;
+    /* position: relative; */
+    margin: 10px;
 }
 
 /* 이미지 크기 설정 */
 .imgbtn{
-    /* height:20vh; */
-    /* width: 20vw;     */
     object-fit: cover;   
-    overflow: hidden;
-    outline:none;
 }
-.slick-slide>div>a:focus{
-    outline: none;
-}
+
 /* 하단 슬라이드 글씨 작업 */
 .more{
     position: absolute;
     bottom: 150%;
-    text-align: center;
     z-index: 2;
     color: white;
-    padding-left: 40px;
+    font-size: 18pt;
+    padding-left: 10px;    
     transition: all .4s;    
-    /* opacity: 0;  */
 }
-div>section>div>div>div .slick-slide{
-    padding: 0;
-    /* margin: 30px; */
-    object-fit: cover;
+
+/* 이미지 오버 되었을 때 크기 커지는 현상 방지 */
+div>section>div>div>div .slick-slide >div{
+    width: 400px;
+    height: 400px;
     overflow: hidden;
-    outline:none;
 }
-div>section>div>div>div .slick-slide:focus{
-    outline: none;
+
+/* 마우스 클릭 시 검은 테두리 제거 */
+div>section>div>div>div .slick-slide{
+    outline: hidden;
 }
+
 /* 텍스트 위치 */
 div>section>div>div>div .slick-slide:hover .more{
-    bottom: 70%;
+    bottom: 50%;
 }
 /* 마우스 오버 효과 */
 div>section>div>div>div .slick-slide:hover .imgbtn{
-    filter: brightness(70%);    
+    filter: brightness(60%);    
     transform:scale(1.1);
-    overflow: hidden;
     transition: all .4s;    
 }

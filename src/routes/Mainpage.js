@@ -217,9 +217,8 @@ const Mainpage = () => {
                                 onError={handleImgError}
                                 alt={obj_name[1]}
                                 width='400px'
-                                height='400px'
-                                // width='90%'
-                                // border='3'
+                                height='400px'                                
+                                // width='90%'                                
                                 />
                           </div>
                           </Link>
