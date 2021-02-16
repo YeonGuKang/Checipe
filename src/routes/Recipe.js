@@ -76,6 +76,7 @@ const Recipe = () => {
    
   // 파이어베이스에서 데이터를 가져오는 과정
   // 각각 채식 type에 맞게 데이터를 불러오기 위함
+  const [Merge, setMerge] = useState([]); // merge 추가
   const [Lacto, setLacto] = useState([]);
   const [LactoOvo, setLactoOvo] = useState([]);
   const [Ovo, setOvo] = useState([]);
@@ -96,6 +97,9 @@ const Recipe = () => {
   const [courseCheck, setcourseCheck] = useState(false);
   const [dessertCheck, setdessertCheck] = useState(false);
   const [etcCheck, setetcCheck] = useState(false);
+
+  // 즐찾 버튼 확인
+  const [bookmarkCheck, setbookmarkCheck] = useState(false);
 
   // 즐겨찾기해놓은 레시피의 이름을 담는다
   const [favorite_list, setfavorite_list] = useState([]);
@@ -179,6 +183,7 @@ const Recipe = () => {
       ...doc.data(),
     }));
     shuffle(boardArray);
+    setMerge(boardArray);
     setchosen(boardArray);
     setstep(boardArray);  // setp 설정
     // 첫화면에 merge에서 limit만큼 가져온걸 보여줌
@@ -832,17 +837,12 @@ setlimit_boards(page_boards)
     btnlimit=init_btnlimit;
     check=0;
   
-      const {
-        target: {name},
-      } = event;
-
-      if(name == "Bookmark"){
-        typeoff();
-        checkoutHash();
-        BookmarkRef.current.src = bookmarko;
+    if (!bookmarkCheck){
+    typeoff();
+    checkoutHash();
+    BookmarkRef.current.src = bookmarko;
       
-          }
-
+    setbookmarkCheck(true);
     setfavorite_list([]);
     setlimit_boards([]);
     setchosen([]);
@@ -862,7 +862,13 @@ setlimit_boards(page_boards)
 
     setpage(1);
    
-
+  }
+  else {
+    setbookmarkCheck(false);
+    BookmarkRef.current.src = bookmarkx;
+    setchosen(Merge);
+    setlimit_boards(Merge.slice(0, limit));
+  }
   }
 
    //  즐겨찾기 해놓은 이름을 기반으로 객체를 넣어주는 함수
