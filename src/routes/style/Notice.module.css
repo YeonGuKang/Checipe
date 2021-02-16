@@ -59,6 +59,10 @@
     font-size : 20px;
 }
 
+.board_content{
+    margin-left : 50px;
+}
+
 .board_date{
     margin-right: 50px;
     text-align: right;
@@ -70,7 +74,6 @@
 /* Notice.js 부분 css */
 
 .titlendate {
-    /* text-align: center; */
     margin-top: 15px;
     margin-left: 50px;
     margin-right : 50px;

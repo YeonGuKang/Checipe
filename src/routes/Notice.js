@@ -217,8 +217,10 @@ setlimit_boards(page_boards)
                   {/* 제목 부분에 title을 불러옴 */}
                     <div>
                       <div className={noti.titlendate}>제목</div>
+                      <hr size='2' color='lightgray'></hr>                   
+
                         {limit_boards.map(board => 
-                        <div key={board.id}>
+                        <div className={noti.board_content} key={board.id}>
                          <li><Link to = {{pathname: "/View/" + board.id,
                                           state: {
                                             createdAt: board.createdAt,
@@ -234,6 +236,8 @@ setlimit_boards(page_boards)
                     {/* 마찬가지로 날짜 부분에 만든 날짜를 게시글 작성 날짜를 불러옴 */}
                     <div className={noti.board_date}>
                         <div className={noti.titlendate}>날짜</div>
+                        <hr size='2' color='lightgray'></hr>                   
+
                         {console.log("정보출력" , limit_boards)}
                         {limit_boards.map(board => 
                         <div key={board.id} >
