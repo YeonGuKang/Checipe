@@ -29,19 +29,6 @@
     --header-background: #ffffff;
     --main-color: #537f46;
 }
-.header{
-    /* 메뉴바CSS로 이전완료 */
-    position : relative;
-    top : 90px;
-    display: flex;
-    width : 100%;
-    height : 60px;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--header-background);
-    margin-left: auto;
-    margin-right: auto;
-}
 
 /* 삭제예정 */
 /* .testing{
@@ -49,28 +36,6 @@
     height: "1000px";
 } */
 
-.space {
-    /* 메뉴바CSS로 이전완료 */
-    /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
-    background-color : var(--background-color);
-    width : 92vw;
-    height : 30vh;
-    position : relative;
-    top : -20vh;
-    display : flex;
-}
-.section {
-    /* 메뉴바CSS로 이전완료 */
-    /* 그냥 뒤에 진한 초록색배경 */
-    z-index: 1;
-    background-color : var(--background-color);
-    width : 92vw;
-    height : 150%;
-    top : -30vh;
-    position : relative;
-    display: inline-flex;
-    
-}
 
 .sectionplace {
     /* 진한초록배경 앞에 위치해서 레시피들 정렬하는 클래스 */
@@ -102,22 +67,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
    
-}
-
-
-.whiteselect { 
-    /* 메뉴바CSS로 이전완료 */
-    /* 사용자들이 직접 선택할 수 있는 버튼이 있는 하얀 박스 */
-    z-index: 1;
-    background-color : white;
-    width : 80vw;
-    height : 45vh;
-    border-top-left-radius : 40px;
-    border-top-right-radius : 40px;
-    border-bottom-right-radius: 40px;
-    position : relative;
-    left : 2vw;
-    bottom : -28vh;
 }
 
 .Rtitle {
