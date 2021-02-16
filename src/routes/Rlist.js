@@ -3,6 +3,7 @@ import rec from "./style/Recipesp.module.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
 import noimage from './image/noimage.svg';
+import heart from './image/heart.svg';
 
 const handleImgError = (e) => {
   e.target.src = noimage;
@@ -40,10 +41,11 @@ function Rlist({ name, manual, img, part, way, detail, number, step, like}) {
                   </div>
                   <hr size='5' color='#537f46'></hr>  
                   <div className={rec.Rhash}>
-                 # { part } / { way }
+                  # { part } / { way }
                   </div>
-                  <h4>{ detail }</h4>
-                  <h6>{ number }</h6>
+                  <img src={heart} width='70px' name='heart'/>
+                  {/* <h4>{ detail }</h4> */}
+                  {/* <h6>{ number }</h6> */}
                   </div>
                   </Link>
                   </div>
