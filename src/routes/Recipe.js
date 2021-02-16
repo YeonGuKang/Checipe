@@ -353,6 +353,9 @@ const Recipe = () => {
         // 사용자가 비건 type을 선정하면 hashtag를 모두 선택해제한다.
         checkoutHash();
 
+      setbookmarkCheck(false);  // 비건 타입을 누르면 즐찾은 해제
+      BookmarkRef.current.src = bookmarkx // 즐찾은 해제
+
         // event안에 존재하는 target의 value를 name으로 넘긴다.
       const {
         target: {name},
@@ -515,6 +518,9 @@ const hashChosen = (event) => {
   
   // hashtag 버튼이 눌리면 우선 모든 hashtag의 버튼 눌림을 해제(???????????)
   checkoutHash();
+
+  setbookmarkCheck(false);  // 비건 타입을 누르면 즐찾은 해제
+  BookmarkRef.current.src = bookmarkx // 즐찾은 해제
 
   if (name == "Soup") {     // name이 soup이면 국과 찌개인 레시피를 보여줌
     if (!soupCheck){  // 버튼이 눌려있는지 확인
@@ -836,7 +842,16 @@ setlimit_boards(page_boards)
     // 
     btnlimit=init_btnlimit;
     check=0;
-  
+    
+    setstep(Merge); // 즐찾을 누르면 비건 단계가 풀림(merge로 설정)
+
+    vege_imageRef.current.src = vegex;
+    egg_imageRef.current.src = eggx;
+    milk_imageRef.current.src = milkx;
+    fish_imageRef.current.src = fishx;
+    chicken_imageRef.current.src = chickenx;
+    meat_imageRef.current.src =  meatx;
+
     if (!bookmarkCheck){
     typeoff();
     checkoutHash();
