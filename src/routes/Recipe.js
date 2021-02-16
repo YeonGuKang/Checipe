@@ -57,6 +57,8 @@ import desserto from './hashicons/deserto.svg';
 import etcx from './hashicons/etcx.svg';
 import etco from './hashicons/etco.svg';
 
+import bookmarkx from './image/bookmarkx.svg';
+import bookmarko from './image/bookmarko.svg';
 
 // 페이지 잘라서 보여줄 갯수
 const init_btnlimit=10;
@@ -144,6 +146,7 @@ const Recipe = () => {
       let dessert_imageRef = useRef(null);
       let etc_imageRef = useRef(null);
 
+      let BookmarkRef = useRef(null);
 
        // 페이지 개수를 알기위한 for문
       for(let i = 1; i <= Math.ceil(chosen.length / limit); i++) {
@@ -496,6 +499,7 @@ const Recipe = () => {
 
 }
 
+
 const hashChosen = (event) => {
   btnlimit=init_btnlimit;
   check=0;
@@ -806,9 +810,39 @@ setlimit_boards(page_boards)
   
   }
 
+  const bookChosen = async (event) => {
+    btnlimit=init_btnlimit;
+    check=0;
+  
+      const {
+        target: {name},
+      } = event;
+  
+  if(name == "Bookmark"){
+    typeoff();
+    checkoutHash();
+    BookmarkRef.current.src = bookmarko;
+  
+      }
+  }
+
   // 내가 현재 즐겨찾기 해놓은것을 알기 위한 함수
-  const Show_favorite = async() =>{
+  const Show_favorite = async(event) =>{
     // 
+    btnlimit=init_btnlimit;
+    check=0;
+  
+      const {
+        target: {name},
+      } = event;
+
+      if(name == "Bookmark"){
+        typeoff();
+        checkoutHash();
+        BookmarkRef.current.src = bookmarko;
+      
+          }
+
     setfavorite_list([]);
     setlimit_boards([]);
     setchosen([]);
@@ -854,7 +888,7 @@ setlimit_boards(page_boards)
                <div className={menu.LGbgr}> 
              <Header></Header>
               <div className={menu.WHbgr}>
-                <a onClick={Show_favorite}>내 즐겨찾기</a>
+                {/* <a onClick={Show_favorite}>내 즐겨찾기</a> */}
               <div className={rec.ingredientbtn}>
                  <img src={ingredient}
                                 width='150vw'
@@ -962,9 +996,17 @@ setlimit_boards(page_boards)
             <img onClick={hashChosen} src={etcx} ref={etc_imageRef}
                                   width='100vw'
                                   height='100vh'
-                                name="Etc"/>                                                                                                                                                             
+                                name="Etc"/> 
+            <div className={rec.bookmark}>
+              <img onClick={Show_favorite} src={bookmarkx} ref={BookmarkRef}
+                                width='140vw'
+                                height='140vh'
+                                name="Bookmark"/>    
+          </div>                                                                                                                                                                                                                        
             </div>
-          
+
+         
+
               </div>
               </div>
               <div>

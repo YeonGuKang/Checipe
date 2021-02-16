@@ -121,7 +121,7 @@
     /* 해당 메뉴에 있는 리스트 디자인 변경 클래스. */
     padding: 0;    
     font-family: 'goldenpier', serif;    
-    font-size : 1.5em;
+    font-size : 25px;
     font-weight: bold;
     position : relative;
     margin: 60px;    

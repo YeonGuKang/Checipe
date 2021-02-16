@@ -71,7 +71,7 @@
 
 .Rtitle {
     /* result에 있는 레시피들의 이름 크기 설정 */
-    font-size: 1.6rem;
+    font-size: 30px;
     font-weight: bold;
     margin-top: 1vh;
     margin-bottom: 1vh;
@@ -81,7 +81,7 @@
 
 .Rhash {
     /* 이름 밑에 있는 해시태그, 조리방법 글씨 크기 설정 */
-    font-size: 1.3rem;
+    font-size: 23px;
     font-weight: bold;
     margin-top: 1vh;
     margin-bottom: 1vh;
@@ -91,24 +91,6 @@
     filter: saturate(150%) drop-shadow(5px 5px 5px #CCCCCC);
     transition-duration: 0.5s;
 }
-.nav{
-    display: flex;
-    padding-left: 0;
-    cursor: pointer              
-}
-
-
-.nav li{   
-    padding: 0;    
-    font-family: 'goldenpier', serif;    
-    font-size : 1.5em;
-    margin-left: 18px;
-    font-weight: bold;
-    position : relative;
-    margin: 28px;    
-    right : 6.6vw;    
-    transition:all .3s ease
-}
 
 /* .nav li:hover{
     background-color: var(--main-color);
@@ -116,42 +98,6 @@
 
 } */
 
-.nav :hover, .login :hover { color:var(--main-color); transition:all .4s ease }
-
-.nav li ::after, .login ::after {
-    content: '';
-    width: 0%;
-    left: 50%;
-    height: 1px;
-    display: block;
-    position: absolute;
-    margin-top: 2px;
-    border-bottom: 3px solid var(--main-color);
-    transition:all .4s ease;
-  }
-
-.nav li:hover ::after, .login:hover ::after {
-    content: '';
-    width: 100%;
-    left: 0px;
-    height: 1px;
-    display: block;
-    position: absolute;
-    margin-top: 2px;
-    color: var(--text-color);
-    border-bottom: 3px solid var(--main-color);
-    transition:all .4s ease;
-}
-
-.login{
-    font-family: 'goldenpier', serif;
-    font-size : 1.3em;
-    color: black;
-    position : relative;
-    right : 10vw;    
-    font-weight: bold;
-    transition:all .3s ease
-}
 
 /* 삭제예정 */
 /* .menubtn{
@@ -187,7 +133,7 @@
 
 .hashtagbtn {
     /* 해시태그 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
-    width: 815px;
+    width: 1150px;
     position : relative;
     top : -2.5vh;
     left : 8vw;
@@ -210,6 +156,13 @@
     list-style: none;
     display : inline-block;
     cursor: pointer;
+}
+
+.bookmark {
+    display: flex;
+    position: relative;
+    cursor : pointer;
+    margin-left : 170px;
 }
 
 @media screen and (max-width: 1065px){
