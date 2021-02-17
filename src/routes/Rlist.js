@@ -44,6 +44,7 @@ function Rlist({ name, manual, img, part, way, detail, number, step, like}) {
                   # { part } / { way }
                   </div>
                   <img src={heart} width='70px' name='heart'/>
+                  <a className={rec.like} >{like}</a>
                   {/* <h4>{ detail }</h4> */}
                   {/* <h6>{ number }</h6> */}
                   </div>

@@ -152,6 +152,7 @@ const Recipe = () => {
 
       let BookmarkRef = useRef(null);
 
+
        // 페이지 개수를 알기위한 for문
       for(let i = 1; i <= Math.ceil(chosen.length / limit); i++) {
         page_arr.push(i);
@@ -720,7 +721,17 @@ const hashChosen = (event) => {
     setchosen(temp);
     setpage(1);
     setlimit_boards(temp.slice(0,limit))
+
  
+    setSearch_name("")
+ 
+  }
+// 검색에서 Enter를 누르면 검색을 진행
+  const isEnter = (e) => {
+    if(e.key == "Enter")
+    {
+      search_db()
+    }
   }
 
   const change_page_arr = async() => {
@@ -1069,7 +1080,9 @@ setlimit_boards(page_boards)
           </div>          
           <div >
                 
-                    <input 
+                    <input
+                    onKeyPress = {isEnter} 
+                    value={Search_name}
                     onChange={set_search_name}
                     type = 'text'
                     placeholder='검색'
