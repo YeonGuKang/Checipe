@@ -154,7 +154,7 @@ class RecipeView extends React.Component {
               {/* 사용자가 선택한 음식의 정보를 보여주는 부분 */}
               <div className={menu.WHbgr}>
                 <a onClick={favorite}>즐겨찾기</a>
-                <a onClick={like}>좋아요 {this.state.like}</a>
+                <a onClick={like}>좋아요</a>
                 <div className={recv.whitealign}>
                   <img src={ this.state.img }
                     onError={handleImgError}
