@@ -193,7 +193,7 @@ const Mainpage = () => {
                                 onError={handleImgError}
                                 alt={obj_name[0]}
                                 width='400px'
-                                height='400px'
+                                height='300px'
                                 // width='90%'
                                 // border='3'
                                 />
@@ -217,7 +217,7 @@ const Mainpage = () => {
                                 onError={handleImgError}
                                 alt={obj_name[1]}
                                 width='400px'
-                                height='400px'                                
+                                height='300px'                                
                                 // width='90%'                                
                                 />
                           </div>
@@ -240,7 +240,7 @@ const Mainpage = () => {
                                 onError={handleImgError}
                                 alt={obj_name[2]}
                                 width='400px'
-                                height='400px'
+                                height='300px'
                                 // width='90%'
                                 // border='3'
                                 />
@@ -263,7 +263,7 @@ const Mainpage = () => {
                                 onError={handleImgError}
                                 alt={obj_name[3]}
                                 width='400px'
-                                height='400px'                                
+                                height='300px'                                
                                 // width='90%'
                                 // border='3'
                                 />
