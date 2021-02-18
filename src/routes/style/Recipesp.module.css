@@ -65,12 +65,9 @@
    /*틀에 맞춰서 정보를 보여줌 넘치는건 hidden*/
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
-<<<<<<< HEAD
-   
-=======
+
     transition-duration: 0.5s;
->>>>>>> e0ca3c551ac1d679faa0f5487d6ae49346956d3a
+
 }
 
 .Rtitle {
@@ -91,16 +88,13 @@
     margin-bottom: 1vh;
 }
 /* 비건 단계 버튼에 그림자 효과 */
-<<<<<<< HEAD
-.vegetarianbtn :hover {            
-    filter: saturate(150%) drop-shadow(5px 5px 5px #CCCCCC);
-    transition-duration: 0.5s;
-=======
+
+
 .vegetarianbtn :hover, .hashtagbtn>img:hover, .bookmark>img:hover {            
     filter: saturate(150%) drop-shadow(5px 5px 5px #CCCCCC);
     transition-duration: 0.5s;
     cursor: pointer;
->>>>>>> e0ca3c551ac1d679faa0f5487d6ae49346956d3a
+
 }
 
 /* .nav li:hover{
@@ -119,8 +113,7 @@
     position: absolute;
     right: 20px;
 } */
-<<<<<<< HEAD
-=======
+
 .result, .ingredientbtn>img, .vegetarianbtn, .hashtagbtn, .bookmark{
     animation: fadein 1s;
     -moz-animation: fadein 1s;
@@ -160,7 +153,7 @@
         opacity: 1;
     }
 }
->>>>>>> e0ca3c551ac1d679faa0f5487d6ae49346956d3a
+
 
 .ingredientbtn {
     /* 재료 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
@@ -198,13 +191,11 @@
     align-items: center;
 }
 
-<<<<<<< HEAD
+
 .vegetarianbtn:hover {
     cursor: pointer;
 }
 
-=======
->>>>>>> e0ca3c551ac1d679faa0f5487d6ae49346956d3a
 .map {
     font-family: 'goldenpier', serif;
 }
