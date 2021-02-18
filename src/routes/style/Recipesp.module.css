@@ -87,22 +87,10 @@
     margin-bottom: 1vh;
 }
 /* 비건 단계 버튼에 그림자 효과 */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-.vegetarianbtn :hover {            
-    filter: saturate(150%) drop-shadow(5px 5px 5px #CCCCCC);
-    transition-duration: 0.5s;
-=======
->>>>>>> 19a265a93e71236ca2e2c598c1f0c01cf586cff0
 .vegetarianbtn :hover, .hashtagbtn>img:hover, .bookmark>img:hover {            
     filter: saturate(150%) drop-shadow(5px 5px 5px #CCCCCC);
     transition-duration: 0.5s;
     cursor: pointer;
-<<<<<<< HEAD
-=======
->>>>>>> e0ca3c551ac1d679faa0f5487d6ae49346956d3a
->>>>>>> 19a265a93e71236ca2e2c598c1f0c01cf586cff0
 }
 
 /* .nav li:hover{
@@ -121,11 +109,6 @@
     position: absolute;
     right: 20px;
 } */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 19a265a93e71236ca2e2c598c1f0c01cf586cff0
 .result, .ingredientbtn>img, .vegetarianbtn, .hashtagbtn, .bookmark{
     animation: fadein 1s;
     -moz-animation: fadein 1s;
@@ -165,10 +148,6 @@
         opacity: 1;
     }
 }
-<<<<<<< HEAD
-=======
->>>>>>> e0ca3c551ac1d679faa0f5487d6ae49346956d3a
->>>>>>> 19a265a93e71236ca2e2c598c1f0c01cf586cff0
 
 .ingredientbtn {
     /* 재료 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
@@ -178,12 +157,7 @@
     left: 8vw;
     display: flex;
     justify-content: space-between;
-<<<<<<< HEAD
-    align-items: center;    
-=======
-
     align-items: center;
->>>>>>> 19a265a93e71236ca2e2c598c1f0c01cf586cff0
     transition: all .4s;    
 }
 
@@ -210,16 +184,7 @@
     align-items: center;
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-.vegetarianbtn:hover {
-    cursor: pointer;
-}
 
-=======
->>>>>>> e0ca3c551ac1d679faa0f5487d6ae49346956d3a
->>>>>>> 19a265a93e71236ca2e2c598c1f0c01cf586cff0
 .map {
     font-family: 'goldenpier', serif;
 }
