@@ -43,10 +43,10 @@ function Rlist({ name, manual, img, part, way, detail, number, step, like}) {
                   <div className={rec.Rhash}>
                   # { part } / { way }
                   </div>
-                  <img src={heart} width='70px' name='heart'/>
+                  <div className={rec.likealign}>
+                  <img src={heart} width='30px' name='heart'/>
                   <a className={rec.like} >{like}</a>
-                  {/* <h4>{ detail }</h4> */}
-                  {/* <h6>{ number }</h6> */}
+                  </div>
                   </div>
                   </Link>
                   </div>

@@ -59,6 +59,7 @@ import etco from './hashicons/etco.svg';
 
 import bookmarkx from './image/bookmarkx.svg';
 import bookmarko from './image/bookmarko.svg';
+import heart from './image/heart.svg';
 
 // 페이지 잘라서 보여줄 갯수
 const init_btnlimit=10;
@@ -76,7 +77,6 @@ const Recipe = () => {
    
   // 파이어베이스에서 데이터를 가져오는 과정
   // 각각 채식 type에 맞게 데이터를 불러오기 위함
-  const [Merge, setMerge] = useState([]); // merge 추가
   const [Lacto, setLacto] = useState([]);
   const [LactoOvo, setLactoOvo] = useState([]);
   const [Ovo, setOvo] = useState([]);
@@ -97,9 +97,6 @@ const Recipe = () => {
   const [courseCheck, setcourseCheck] = useState(false);
   const [dessertCheck, setdessertCheck] = useState(false);
   const [etcCheck, setetcCheck] = useState(false);
-
-  // 즐찾 버튼 확인
-  const [bookmarkCheck, setbookmarkCheck] = useState(false);
 
   // 즐겨찾기해놓은 레시피의 이름을 담는다
   const [favorite_list, setfavorite_list] = useState([]);
@@ -152,7 +149,6 @@ const Recipe = () => {
 
       let BookmarkRef = useRef(null);
 
-
        // 페이지 개수를 알기위한 for문
       for(let i = 1; i <= Math.ceil(chosen.length / limit); i++) {
         page_arr.push(i);
@@ -184,7 +180,6 @@ const Recipe = () => {
       ...doc.data(),
     }));
     shuffle(boardArray);
-    setMerge(boardArray);
     setchosen(boardArray);
     setstep(boardArray);  // setp 설정
     // 첫화면에 merge에서 limit만큼 가져온걸 보여줌
@@ -354,9 +349,6 @@ const Recipe = () => {
         // 사용자가 비건 type을 선정하면 hashtag를 모두 선택해제한다.
         checkoutHash();
 
-      setbookmarkCheck(false);  // 비건 타입을 누르면 즐찾은 해제
-      BookmarkRef.current.src = bookmarkx // 즐찾은 해제
-
         // event안에 존재하는 target의 value를 name으로 넘긴다.
       const {
         target: {name},
@@ -519,9 +511,6 @@ const hashChosen = (event) => {
   
   // hashtag 버튼이 눌리면 우선 모든 hashtag의 버튼 눌림을 해제(???????????)
   checkoutHash();
-
-  setbookmarkCheck(false);  // 비건 타입을 누르면 즐찾은 해제
-  BookmarkRef.current.src = bookmarkx // 즐찾은 해제
 
   if (name == "Soup") {     // name이 soup이면 국과 찌개인 레시피를 보여줌
     if (!soupCheck){  // 버튼이 눌려있는지 확인
@@ -721,17 +710,7 @@ const hashChosen = (event) => {
     setchosen(temp);
     setpage(1);
     setlimit_boards(temp.slice(0,limit))
-
  
-    setSearch_name("")
- 
-  }
-// 검색에서 Enter를 누르면 검색을 진행
-  const isEnter = (e) => {
-    if(e.key == "Enter")
-    {
-      search_db()
-    }
   }
 
   const change_page_arr = async() => {
@@ -832,43 +811,23 @@ setlimit_boards(page_boards)
   
   }
 
-  const bookChosen = async (event) => {
+  // 내가 현재 즐겨찾기 해놓은것을 알기 위한 함수
+  const Show_favorite = async(event) =>{
+    // 
     btnlimit=init_btnlimit;
     check=0;
   
       const {
         target: {name},
       } = event;
-  
-  if(name == "Bookmark"){
-    typeoff();
-    checkoutHash();
-    BookmarkRef.current.src = bookmarko;
-  
-      }
-  }
 
-  // 내가 현재 즐겨찾기 해놓은것을 알기 위한 함수
-  const Show_favorite = async(event) =>{
-    // 
-    btnlimit=init_btnlimit;
-    check=0;
-    
-    setstep(Merge); // 즐찾을 누르면 비건 단계가 풀림(merge로 설정)
-
-    vege_imageRef.current.src = vegex;
-    egg_imageRef.current.src = eggx;
-    milk_imageRef.current.src = milkx;
-    fish_imageRef.current.src = fishx;
-    chicken_imageRef.current.src = chickenx;
-    meat_imageRef.current.src =  meatx;
-
-    if (!bookmarkCheck){
-    typeoff();
-    checkoutHash();
-    BookmarkRef.current.src = bookmarko;
+      if(name == "Bookmark"){
+        typeoff();
+        checkoutHash();
+        BookmarkRef.current.src = bookmarko;
       
-    setbookmarkCheck(true);
+          }
+
     setfavorite_list([]);
     setlimit_boards([]);
     setchosen([]);
@@ -888,13 +847,7 @@ setlimit_boards(page_boards)
 
     setpage(1);
    
-  }
-  else {
-    setbookmarkCheck(false);
-    BookmarkRef.current.src = bookmarkx;
-    setchosen(Merge);
-    setlimit_boards(Merge.slice(0, limit));
-  }
+
   }
 
    //  즐겨찾기 해놓은 이름을 기반으로 객체를 넣어주는 함수
@@ -1080,9 +1033,7 @@ setlimit_boards(page_boards)
           </div>          
           <div >
                 
-                    <input
-                    onKeyPress = {isEnter} 
-                    value={Search_name}
+                    <input 
                     onChange={set_search_name}
                     type = 'text'
                     placeholder='검색'

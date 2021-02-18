@@ -166,9 +166,14 @@
 }
 
 .like{
-    position: absolute;
-    bottom: 40px;
+    font-family: 'goldenpier', serif;
+    bottom: 6px;
+    font-size: 25px;
+    margin-left: 12px;
+    position: relative;
+    font-weight: bold;
 }
+
 
 @media screen and (max-width: 1065px){
     .logo_img{

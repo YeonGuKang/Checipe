@@ -9,10 +9,16 @@ import {ReactComponent as Msvg} from './image/menu.svg'
 import infoline from './image/infoline.svg';
 import noimage from './image/noimage.svg';
 
-
+import markx from './image/markx.svg';
+import marko from './image/marko.svg';
+import lovex from './image/lovex.svg';
+import loveo from './image/lovex.svg';
 
 import Header from "../components/Header"
 import { ajaxPrefilter } from "jquery";
+
+// let markRef = useRef(null);
+// let Ref = useRef(null);
 
 class RecipeView extends React.Component {
     state = {
@@ -175,6 +181,10 @@ class RecipeView extends React.Component {
                     <div className={recv.tagnhow}>
                     # {this.state.part} / {this.state.way}
                     </div>
+                    <div className={recv.marknlove}>
+                  <img onClick={favorite} src={markx} width='65px'/>
+                  <img onClick={like} src={lovex} width='65px'/>
+                  </div>
                   </div>
                 </div>
 
