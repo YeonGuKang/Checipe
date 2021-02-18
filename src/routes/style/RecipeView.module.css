@@ -72,6 +72,7 @@
     height : 5vh;
     position : relative;
     display : flex;
+<<<<<<< HEAD
 }
 
 .marknlove {
@@ -80,4 +81,6 @@
     display: flex;
     width: 150px;
     justify-content: space-around;
+=======
+>>>>>>> e0ca3c551ac1d679faa0f5487d6ae49346956d3a
 }
