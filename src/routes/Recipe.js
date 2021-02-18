@@ -86,6 +86,7 @@ const Recipe = () => {
   const [Flexi, setFlexi] = useState([]);
   const [Vegan, setVegan] = useState([]);
 
+  const [Merge, setMerge] = useState([]);
   const history = useHistory();
  
   const [Search_name, setSearch_name] = useState("");
