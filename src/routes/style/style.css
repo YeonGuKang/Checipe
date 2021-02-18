@@ -251,7 +251,13 @@ div > img.slideimg {
 
 /* 이미지 크기 설정 */
 .imgbtn{
+<<<<<<< HEAD
     object-fit: cover;   
+=======
+    object-fit: cover;    
+    border: 2px;
+    outline: black;
+>>>>>>> e0ca3c551ac1d679faa0f5487d6ae49346956d3a
 }
 
 /* 하단 슬라이드 글씨 작업 */
@@ -268,7 +274,9 @@ div > img.slideimg {
 /* 이미지 오버 되었을 때 크기 커지는 현상 방지 */
 div>section>div>div>div .slick-slide >div{
     width: 400px;
-    height: 400px;
+
+    height: 300px;
+
     overflow: hidden;
 }
 
