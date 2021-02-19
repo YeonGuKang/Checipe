@@ -153,14 +153,16 @@ class RecipeView extends React.Component {
     
       }
         return (
-            <div className={rec.wrap}> 
+            <div className={menu.standard}> 
             
-               <div className={menu.LGbgr}>     
+               <div className={menu.LGbgr}> 
+                <div className={recv.marknlove}>
+                  <img onClick={favorite} src={markx} width='50px'/>
+                  <img onClick={like} src={lovex} width='50px'/>
+                  </div>    
             <Header></Header>
               {/* 사용자가 선택한 음식의 정보를 보여주는 부분 */}
               <div className={menu.WHbgr}>
-                <a onClick={favorite}>즐겨찾기</a>
-                <a onClick={like}>좋아요</a>
                 <div className={recv.whitealign}>
                   <img src={ this.state.img }
                     onError={handleImgError}
@@ -181,10 +183,6 @@ class RecipeView extends React.Component {
                     <div className={recv.tagnhow}>
                     # {this.state.part} / {this.state.way}
                     </div>
-                    <div className={recv.marknlove}>
-                  <img onClick={favorite} src={markx} width='65px'/>
-                  <img onClick={like} src={lovex} width='65px'/>
-                  </div>
                   </div>
                 </div>
 
@@ -195,7 +193,7 @@ class RecipeView extends React.Component {
 
           <div className={menu.space}></div>
 
-          <div className={menu.DGbgr}>
+          <div className={recv.DGbgr}>
             <div className={recv.DGwhite}>
               
               {manuals.map((ma) => {
@@ -205,9 +203,7 @@ class RecipeView extends React.Component {
                   
                  })}
                  </div>
-          </div>
-          <div className={recv.underspace}></div>
-   
+          </div>   
             </div>
         );
     }

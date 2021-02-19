@@ -49,6 +49,12 @@
 }
 
 
+.standard {
+    /* background-color: yellow; */
+    display: block;
+    height: inherit;
+}
+
 .LGbgr{
     /* 라이트그린 백그라운드 */
     /* 우측상단에 위치한 큰 밝은 초록박스 */
@@ -176,6 +182,6 @@
     border-top-right-radius : 40px;
     border-bottom-right-radius: 40px;
     position : relative;
-    left : 2vw;
+    left : 20px;
     bottom : -30vh;
 }

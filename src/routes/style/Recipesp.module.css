@@ -72,7 +72,7 @@
 .Rtitle {
     /* result에 있는 레시피들의 이름 크기 설정 */
     font-size: 30px;
-    font-weight: bold;
+    font-weight: bolder;
     margin-top: 1vh;
     margin-bottom: 1vh;
 
@@ -81,7 +81,8 @@
 
 .Rhash {
     /* 이름 밑에 있는 해시태그, 조리방법 글씨 크기 설정 */
-    font-size: 23px;
+    margin-left: 5px;
+    font-size: 25px;
     font-weight: bold;
     margin-top: 1vh;
     margin-bottom: 1vh;
@@ -208,9 +209,20 @@
     font-family: 'goldenpier', serif;
     bottom: 6px;
     font-size: 25px;
+    margin-top: 6px;
     margin-left: 12px;
     position: relative;
     font-weight: bold;
+}
+
+.likealign {
+    margin-left: 5px;
+    width : 50px;
+    position: relative;
+    display : flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* align-items: center; */
 }
 
 
