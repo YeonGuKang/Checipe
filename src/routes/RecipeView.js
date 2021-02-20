@@ -191,7 +191,7 @@ class RecipeView extends React.Component {
               </div>    
           </div> 
 
-          <div className={menu.space}></div>
+          <div className={recv.space}></div>
 
           <div className={recv.DGbgr}>
             <div className={recv.DGwhite}>

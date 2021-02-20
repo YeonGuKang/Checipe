@@ -55,8 +55,8 @@
 .DGbgr {
     background-color :  #28421f;
     width : 92vw;
-    height : 100%;
-    position : relative;
+    height : inherit;
+    position : absolute;
     display: flex;
     
 }
@@ -65,17 +65,29 @@
     font-family: 'goldenpier', serif;   
 
     z-index: 1;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 10px;
     position: relative;
     display: flex;
     background-color: white;
     width : 72vw;
-    height: inherit;
+    height: 50%;
     /* top :40px; */
     left : 12vw;
     flex-direction: column;
 }
 
-
+.space {
+    /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
+    /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
+    background-color :  #28421f;
+    width : 92vw;
+    height : 25vh;
+    position : absolute;
+    top : 600px;
+    display : flex;
+}
 
 /* .underspace {
     z-index: 2;
