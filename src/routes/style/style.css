@@ -120,10 +120,12 @@
 .slideshow-container {
     display: inline;
   position: relative;
-    top : inherit;
+
     width : 67vw;
     height: 75vh;
 
+
+    bottom: 35vh;
 }
 
 /* Caption text */
@@ -159,7 +161,7 @@
 
 div > img.slideimg {
     /* 메인페이지 중앙에 위치한 슬라이드이미지 높이조정 */    
-    height: 75vh;    
+    height: 75vh;  
     
 }
 .active {
@@ -197,7 +199,7 @@ div > img.slideimg {
     flex-direction: column;
     justify-content: center;
     position: absolute; /*나중에 릴레이티브로 수정가능성있음 */
-    top : 55vh;
+    top : 50vh;
     left : 64vw;
 }
 
@@ -216,14 +218,13 @@ div > img.slideimg {
 }
 /*레시피 이동 버튼*/
 .btn{
-
-    width: 300px;
-    height: 110px;
+    width: 19vw;
+    height: 5vh;
     display: inline;
     /* z-index: 5; */
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
     margin-top: 13vh;
-    top : 75vh;
+    top : 72vh;
     left : 63.3vw;
 }
 

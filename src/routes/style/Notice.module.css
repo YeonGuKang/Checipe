@@ -20,12 +20,12 @@
     /* 미들 안에 있는 회색 네모 (하얀색 나중에 바꿀꺼임) */
     border-top-left-radius : 40px;
     position : relative;
-    top : 10px;
-    left : 300px;
+     bottom : 1vh; 
+    left : 20vh;
     z-index: 1;
     background-color: white;
-    width : 1200px;
-    height : 650px;
+    width : 70vw;
+    height : 72vh;
 }
 
 .board{

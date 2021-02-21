@@ -160,6 +160,7 @@ const Recipe = () => {
 
   
   useEffect(() => {
+    window.scrollTo(0, 0);
 
     authService.onAuthStateChanged((user) => {
 

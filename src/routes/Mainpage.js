@@ -40,6 +40,8 @@ const Mainpage = () => {
   }
 
   useEffect(() => {
+    // 스크롤 상단으로 초기화
+    window.scrollTo(0, 0);
     // 랜덤으로 불러오도록 난수를 생성
    let min = Math.ceil(5);
    let max = Math.floor(1000);
