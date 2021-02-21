@@ -40,9 +40,10 @@
 .sectionplace {
     /* 진한초록배경 앞에 위치해서 레시피들 정렬하는 클래스 */
     position : relative;
+    width : 92%;
     margin-top: 1vh;
     margin-bottom: 15vh;
-    left : 8.5vw;
+    left : 7vw;
     font-family: 'goldenpier', serif;
     display : flex;
     flex-direction: row;
@@ -51,6 +52,9 @@
     
       
     width: 90%;
+
+    justify-content: space-around;
+
 }
 
 

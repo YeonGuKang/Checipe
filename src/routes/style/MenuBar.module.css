@@ -63,7 +63,7 @@
     flex-direction: column;
     left : 7vw;    
     width : 92vw;
-    height: 85vh;
+    height: 830px;
     background-color:  #537f46;
     display : flex;
 }
@@ -96,20 +96,20 @@
     /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
     background-color :  #28421f;
     width : 92vw;
-    height : 30vh;
-    position : relative;
-    top : -20vh;
+    height : 100%;
+    top : 60vh;
+    position : absolute;
     display : flex;
 }
 
 .DGbgr {
     /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
     /* 그냥 뒤에 진한 초록색배경 */
-    z-index: 1;
+    z-index: 2;
     background-color :  #28421f;
     width : 92vw;
     height : 150%;
-    top : -30vh;
+    /* top : -30vh; */
     position : relative;
     display: inline-flex;
     
@@ -177,12 +177,17 @@
     z-index: 1;
     background-color : white;
     width : 1550px;
-    height : 45vh;
+    height : 440px;
     border-top-left-radius : 40px;
     border-top-right-radius : 40px;
     border-bottom-right-radius: 40px;
     position : relative;
     left : 20px;
+
     bottom : -30vh;
  
+
+    top : 30vh;
+    /* bottom : -30vh; */
+
 }

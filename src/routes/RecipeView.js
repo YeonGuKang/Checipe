@@ -162,12 +162,15 @@ class RecipeView extends React.Component {
                   </div>    
             <Header></Header>
               {/* 사용자가 선택한 음식의 정보를 보여주는 부분 */}
-              <div className={menu.WHbgr}>
+              <div className={recv.WHbgr}>
                 <div className={recv.whitealign}>
                   <img src={ this.state.img }
                     onError={handleImgError}
                     width='40%'
+
                     height= '90%'/>
+
+
                   <img src={infoline}
                     width='70px'
                     height='400px'
