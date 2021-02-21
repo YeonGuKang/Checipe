@@ -166,8 +166,8 @@ class RecipeView extends React.Component {
                 <div className={recv.whitealign}>
                   <img src={ this.state.img }
                     onError={handleImgError}
-                    width='400px'
-                    height='400px'/>
+                    width='40%'
+                    height= '90%'/>
                   <img src={infoline}
                     width='70px'
                     height='400px'
