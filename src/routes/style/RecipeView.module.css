@@ -52,6 +52,20 @@
     bottom: 50px;
 }
 
+.WHbgr { 
+    /* 하얀색 백그라운드 */
+    z-index: 1;
+    background-color : white;
+    width : 90%;
+    height : 53%;
+    border-top-left-radius : 40px;
+    border-top-right-radius : 40px;
+    border-bottom-right-radius: 40px;
+    position : relative;
+    left : 20px;
+    bottom : -30vh;
+}
+
 .DGbgr {
     background-color :  #28421f;
     width : 92vw;
