@@ -4,6 +4,9 @@ import checipe_logo from './image/chaecipielogo.png';
 import checipelogo from './image/checipelogo.svg';
 
 import noimage from './image/noimage.svg';
+import leafm1 from './leaves/leafM1.svg';
+import leafm2 from './leaves/leafM2.svg';
+import leafm3 from './leaves/leafM3.svg';
 
 import { authService , dbService } from '../firebase';
 
@@ -124,6 +127,8 @@ const Mainpage = () => {
     return(
             <div className="wrap">
                   <div className={menu.LGbgr}>
+                    <img className='leaf' id='m1' src={ leafm1 }/>
+                    <img className='leaf' id='m2' src={ leafm2 }/>
                     <Header></Header>
                    <div className="about_vegan">
                                  <li><Link to="/About" >About</Link> </li>
@@ -176,7 +181,7 @@ const Mainpage = () => {
                   </div>
 
                   <div className="lat">
-                       <section className="visual">
+                    <section className="visual">
                        <Slider {...settings_bttom}>
                        <Link to = {{pathname: "/RecipeView/" + obj_step[0] + '/' + obj_name[0],
                    state: {
@@ -272,9 +277,10 @@ const Mainpage = () => {
                           </div>
                           </Link>
                           </Slider>
-                      </section>
+                  </section>
                    
                   </div>
+                  <img className='leaf' id='m3' src= { leafm3 } />
            </div>
 
     );

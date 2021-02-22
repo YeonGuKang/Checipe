@@ -125,7 +125,7 @@
     height: 75vh;
 
 
-    bottom: 35vh;
+    bottom: 27vh;
 }
 
 /* Caption text */
@@ -292,4 +292,27 @@ div>section>div>div>div .slick-slide:hover .imgbtn{
     filter: brightness(60%);    
     transform:scale(1.1);
     transition: all .4s;    
+}
+/*leaf*/
+.leaf {
+    position: absolute;
+}
+#m1 {
+    width: 15vw;
+    height: 15vh;
+    left: -9.5vw;
+    top: 14vh;
+}
+#m2 {
+    width: 13vw;
+    height: 10vh;
+    right: -1vw;
+    top: 21vh;
+}
+
+#m3 {
+    width: 13vw;
+    height: 10vh;
+    right: 2vw;
+    bottom: -80vh;
 }
