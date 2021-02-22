@@ -63,7 +63,7 @@
     border-bottom-right-radius: 40px;
     position : relative;
     left : 20px;
-    bottom : -30vh;
+    top : 30vh;
 }
 
 .DGbgr {
@@ -97,9 +97,9 @@
     /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
     background-color :  #28421f;
     width : 92vw;
-    height : 25vh;
+    height : 20vh;
     position : absolute;
-    top : 600px;
+    top : 70vh;
     display : flex;
 }
 
@@ -119,7 +119,7 @@
     border-radius: 37.5px;
     position: absolute;
     left : 35px;
-    top : 270px;
+    top : 28vh;
     display: flex;
     height : 60px;
     width: 130px;
