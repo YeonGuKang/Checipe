@@ -27,6 +27,8 @@ const Register = () => {
   let today = new Date();
   
   useEffect(() => {
+    // 스크롤 상단으로 초기화
+    window.scrollTo(0, 0);
     authService.onAuthStateChanged((user) => {
       console.log("changed");
       if (user) {

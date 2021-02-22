@@ -45,10 +45,16 @@
     margin-bottom: 15vh;
     left : 7vw;
     font-family: 'goldenpier', serif;
-    display : inline-flex;
+    display : flex;
     flex-direction: row;
     flex-wrap: wrap;
+
+    
+      
+    width: 90%;
+
     justify-content: space-around;
+
 }
 
 

@@ -42,7 +42,7 @@ import chickenx from './ingicons/chickenx.svg';
 import chickeno from './ingicons/chickeno.svg';
 import meatx from './ingicons/meatx.svg';
 import meato from './ingicons/meato.svg';
-import { event } from "jquery";
+import { event, isEmptyObject } from "jquery";
 
 import hashtag from './hashicons/hashtag.svg';
 import hashline from './hashicons/hashline.svg';
@@ -67,6 +67,9 @@ const init_btnlimit=10;
 let btnlimit=init_btnlimit;
 // next버튼이 클릭됐는지 확인하는 변수
 let check=0;
+
+// 마지막 페이지인지 확인
+let last_page=false;
 
 const Recipe = () => {
 
@@ -160,7 +163,9 @@ const Recipe = () => {
 
   
   useEffect(() => {
-
+    last_page=false;
+    // 스크롤 상단으로 초기화
+    window.scrollTo(0, 0);
     authService.onAuthStateChanged((user) => {
 
       if (user) {
@@ -178,7 +183,7 @@ const Recipe = () => {
     
 
    // 첫 화면에 merge에서 가져온 값을 나타냄
-   dbService.collection("merge").limit(13).onSnapshot((snapshot) => {
+   dbService.collection("merge").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -191,7 +196,7 @@ const Recipe = () => {
     setlimit_boards(boardArray.slice(0,limit))
   });
 
-  dbService.collection("vegan").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("vegan").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -209,7 +214,7 @@ const Recipe = () => {
     setFlexi(boardArray)
   });
 
-  dbService.collection("lacto").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("lacto").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -224,7 +229,7 @@ const Recipe = () => {
     setFlexi((prev) => [...boardArray, ...prev])
   });
 
-  dbService.collection("ovo").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("ovo").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -238,7 +243,7 @@ const Recipe = () => {
     setFlexi((prev) => [...boardArray, ...prev])
   });
 
-  dbService.collection("lacto-ovo").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("lacto-ovo").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -252,7 +257,7 @@ const Recipe = () => {
     setFlexi((prev) => [...boardArray, ...prev])
   });
 
-  dbService.collection("pollo").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("pollo").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -265,7 +270,7 @@ const Recipe = () => {
 
   });
 
-  dbService.collection("pesco").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("pesco").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -278,7 +283,7 @@ const Recipe = () => {
 
   });
 
-  dbService.collection("pollo-pesco").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("pollo-pesco").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -290,7 +295,7 @@ const Recipe = () => {
 
   });
 
-  dbService.collection("flex").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("flex").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -350,6 +355,7 @@ const Recipe = () => {
       const getChosen = async (event) => {
         btnlimit=init_btnlimit;
         check=0;
+        last_page=false;
       
         // 사용자가 비건 type을 선정하면 hashtag를 모두 선택해제한다.
         checkoutHash();
@@ -512,6 +518,7 @@ const Recipe = () => {
 const hashChosen = (event) => {
   btnlimit=init_btnlimit;
   check=0;
+  last_page=false;
 
   const {
     target: {name},
@@ -641,6 +648,7 @@ const hashChosen = (event) => {
       target: { value },
     } = event;
 
+
     setSearch_name(value)
  
   };
@@ -652,10 +660,6 @@ const hashChosen = (event) => {
   // 검색한 name으로 검색을해서 limit_board에 넣어줌
   const search_db = () => {
 
-    btnlimit=init_btnlimit;
-    check=0;
-    // 이전에 넣어둔 데이터를 밀어줌
-    setlimit_boards([])
 
     // 현재 chosen 을 판단해서 해당 type에서 검색
     if( chosen == Vegan)
@@ -717,12 +721,25 @@ const hashChosen = (event) => {
      ))
     }
 
+    // 검색결과가 존재하는지 판단
+    if(isEmptyObject(temp))
+    {
+      alert('검색결과가 존재하지 않습니다.')
+    }
+    else
+    {
+      btnlimit=init_btnlimit;
+      check=0;
+      last_page=false;
+      // 이전에 넣어둔 데이터를 밀어줌
+      setlimit_boards([])
+
     // 넣은 값들을 chosen과 limit_boards에 set 페이지도 1로 다시 set
     setchosen(temp);
     setpage(1);
     setlimit_boards(temp.slice(0,limit))
-
- 
+    }
+  
     setSearch_name("")
  
   }
@@ -737,7 +754,7 @@ const hashChosen = (event) => {
   const change_page_arr = async() => {
 
      // limit 만큼 증가
-     if(btnlimit+init_btnlimit <= page_arr.length){
+     if(btnlimit+init_btnlimit < page_arr.length){
        btnlimit+=init_btnlimit;
        setpage((page+init_btnlimit))
          // Next가 실행됐는지 check
@@ -745,6 +762,7 @@ const hashChosen = (event) => {
      }
      else
      {
+      last_page=true;
        let i=1;
        let k=1;
        // 버튼이 init 보단 작지만 뒤에 몇개가 더 생성되는지 판단
@@ -761,6 +779,7 @@ const hashChosen = (event) => {
        }
 
        console.log("k",k)
+      
      }
 
       //  그 페이지에 맞게 보여줄 게시글을 계산한다
@@ -785,6 +804,7 @@ setlimit_boards(page_boards)
 
   const prev_page = async() =>{
 
+    last_page=false;
     // 맨 앞으로 왔을 경우에 prev실행 X
     if(check==0)
     {
@@ -853,6 +873,7 @@ setlimit_boards(page_boards)
     // 
     btnlimit=init_btnlimit;
     check=0;
+    last_page=false;
     
     setstep(Merge); // 즐찾을 누르면 비건 단계가 풀림(merge로 설정)
 
@@ -1074,7 +1095,7 @@ setlimit_boards(page_boards)
                 el+btnlimit-init_btnlimit < btnlimit + 2 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > 
                 {el+btnlimit-init_btnlimit-1} </button>         
             :  null ) }
-    <button className={rec.page_num} onClick={change_page_arr} >NEXT</button>
+{last_page ? null : <button className={rec.page_num} onClick={change_page_arr} >NEXT</button>}
 
               </div>
           </div>          

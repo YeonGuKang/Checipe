@@ -183,5 +183,14 @@
     border-bottom-right-radius: 40px;
     position : relative;
     left : 20px;
+
+    bottom : -30vh;
+ 
+
     top : 30vh;
+<<<<<<< HEAD
+=======
+    /* bottom : -30vh; */
+
+>>>>>>> 815dbda1dcbe0d3ac27391a82d86a479121662ab
 }

@@ -46,6 +46,8 @@ const Notice = () => {
   const Manager = ['swe0dmffFQcoqpEUJ7fHtXYimEJ3','WFS2QtP4kEN3IWscNXtD1Ciso1t2','8s8IU2fnLPe5q0nIUheiZkwpMOk2','7a2QhDJ4gjbysYsQoFP5QbAIYhz2']
   
   useEffect(() => {
+    // 스크롤 상단으로 초기화
+    window.scrollTo(0, 0);
 
     authService.onAuthStateChanged((user) => {
 

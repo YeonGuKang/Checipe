@@ -18,6 +18,8 @@ class View_test extends React.Component {
     }
 
     componentDidMount() {
+      // 스크롤 상단으로 초기화
+    window.scrollTo(0, 0);
         authService.onAuthStateChanged((user) => {
             console.log("changed");
             if (user) {
