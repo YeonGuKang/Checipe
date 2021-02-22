@@ -254,7 +254,30 @@
     justify-content: space-around;
 }
 
+/*leaf*/
+.leaf {
+    position: absolute;
+}
 
+#r1 {
+    width: 12vw;
+    height: 15vh;
+    left: -8vw;
+    top: -17vh;
+}
+
+#r2 {
+    width: 13vw;
+    height: 25vh;
+    left: -10vw;
+    top: -5vh;
+}
+
+#r3 {
+    width: 7vw;
+    right: -8vw;
+    top: 120vh;
+}
 @media screen and (max-width: 1065px){
     .logo_img{
         position: relative;                
