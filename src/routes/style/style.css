@@ -232,6 +232,7 @@ div > img.slideimg {
 .lat{
     /* height: 200px; */
     width: auto;    
+    margin-bottom: 6vh;
 }
 /*아래 슬라이드 설정*/
 .visual{
@@ -239,27 +240,24 @@ div > img.slideimg {
     /* height: 200px; */
     /* width: 97vw; */
     position: relative;
-    top: 2vh;
     margin-left: 0;
-    margin-bottom: 30px;
-    overflow: hidden;         
 }
 /* 슬라이드 이미지 크기 설정 */
 .link-image { 
     /* position: relative; */
-    margin: 10px;
+    margin: 3vw;
 }
 
 /* 이미지 크기 설정 */
 .imgbtn{
-    object-fit: cover;   
-    object-fit: cover;    
-    border: 2px;
-    outline: black;
+    object-fit: cover;          
+    width: 20vw;
+    height: 40vh;
 }
 
 /* 하단 슬라이드 글씨 작업 */
 .more{
+    font-family: 'Song Myung', serif;
     position: absolute;
     bottom: 150%;
     z-index: 2;
@@ -271,11 +269,10 @@ div > img.slideimg {
 
 /* 이미지 오버 되었을 때 크기 커지는 현상 방지 */
 div>section>div>div>div .slick-slide >div{
-    width: 400px;
-
-    height: 300px;
-
+    width: 20vw;
+    height: 40vh;
     overflow: hidden;
+    transition: all .4s;   
 }
 
 /* 마우스 클릭 시 검은 테두리 제거 */
