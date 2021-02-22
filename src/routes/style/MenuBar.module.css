@@ -108,10 +108,9 @@
     z-index: 2;
     background-color :  #28421f;
     width : 92vw;
-    height : 150%;
-    /* top : -30vh; */
+    height : 100%;
     position : relative;
-    display: inline-flex;
+    display: flex;
     
 }
 
@@ -188,9 +187,5 @@
  
 
     top : 30vh;
-<<<<<<< HEAD
-=======
-    /* bottom : -30vh; */
 
->>>>>>> 815dbda1dcbe0d3ac27391a82d86a479121662ab
 }

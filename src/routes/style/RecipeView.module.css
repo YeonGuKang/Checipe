@@ -99,11 +99,7 @@
     width : 92vw;
     height : 20vh;
     position : absolute;
-<<<<<<< HEAD
-    top : 70vh;
-=======
     top : 80vh;
->>>>>>> 815dbda1dcbe0d3ac27391a82d86a479121662ab
     display : flex;
 }
 

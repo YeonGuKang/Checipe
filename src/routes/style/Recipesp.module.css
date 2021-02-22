@@ -48,11 +48,6 @@
     display : flex;
     flex-direction: row;
     flex-wrap: wrap;
-
-    
-      
-    width: 90%;
-
     justify-content: space-around;
 
 }
@@ -231,6 +226,32 @@
     flex-direction: row;
     justify-content: space-around;
     /* align-items: center; */
+}
+
+
+.numnqna {
+    z-index: 1;
+    width : 92.8%;
+    height: 10vh;
+    background-color: yellowgreen;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'goldenpier', serif;
+    font-size: 25px;
+}
+
+.numbering {
+    position: relative;
+    display: flex;
+}
+
+.qna {
+    position :relative;
+    display: flex;
+    justify-content: space-around;
 }
 
 
