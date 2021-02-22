@@ -9,6 +9,10 @@ import Header from "../components/Header"
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
+import leafr1 from './leaves/leafR1.svg';
+import leafr2 from './leaves/leafR2.svg';
+import leafr3 from './leaves/leafR3.svg';
+
 import vegetarian from './icons/vegetarian.svg';
 import veganx from './icons/veganx.svg';
 import vegano from './icons/vegano.svg';
@@ -941,6 +945,7 @@ setlimit_boards(page_boards)
                <div className={menu.LGbgr}> 
              <Header></Header>
               <div className={menu.WHbgr}>
+                <img className={ rec.leaf } id={ rec.r1 } src = { leafr1 }/>
                 {/* <a onClick={Show_favorite}>내 즐겨찾기</a> */}
               <div className={rec.ingredientbtn}>
                  <img src={ingredient}
@@ -1068,6 +1073,8 @@ setlimit_boards(page_boards)
           <div className={menu.DGbgr}>
             {/* 사용자가 클릭한 type에 맞는 객체 정보를 쭉 나열해서 보여줌 */}
             <div className={rec.sectionplace}>
+              <img className={rec.leaf} id={rec.r2} src={leafr2}/>
+              <img className={rec.leaf} id={rec.r3} src={leafr3}/>
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
               {limit_boards.map((Show)=>(
                 < Rlist
