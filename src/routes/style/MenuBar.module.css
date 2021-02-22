@@ -118,7 +118,8 @@
     /* 아마 메뉴들 위치일거 같음. */
     display: flex;
     padding-left: 0;
-    cursor: pointer              
+    cursor: pointer;
+    /* width: 500px;               */
 }
 
 

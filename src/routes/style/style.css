@@ -29,67 +29,6 @@
 
 /*뒤에 배경크기와 색깔을 설정*/
 /* 해당 메뉴바는 통합이 진행됐기 때문에 곧 삭제 예정입니다. 0207삭제 예정. */
-/* .half_bg{
-    z-index: 1;
-    position : relative;
-    left : 7vw;
-    width : 92vw;
-    height: 85vh;
-    background-color: #537f46;
-    
-} */
-
-/*헤더의 위치와 색깔을 설정 (네비게션바)*/
-/* .header{
-    z-index: 3;
-    position: relative;
-    top : 90px;
-    display: flex;
-    justify-content: flex-start;
-    height: 60px;
-    background-color: white;
-} */
-
-/*로고를 헤더위에 올려줌*/
-/* .logo{
-    position: relative;
-    display : inline;
-    top : -7.7vh;
-    left : 10vw;   
-} */
-
-/* a:visited { color: black; text-decoration: none;} */
-
-/*네비게이션 바의 글씨들 위치를 정해줌*/
-/* .nav{
-    position : relative;
-    left : 15vw;
-    bottom : 3.5vh;
-    margin-top: 5vh;
-    margin-right: 300px;
-    display: flex;
-} */
-
-/*글씨들의 글꼴과 사이간격을 정해줌*/
-/* .nav > li{
-    font-family: 'goldenpier', serif;
-    font-size : 1.5em;
-    margin-left: 5vw;
-    font-weight: bold;
-} */
-
-/* .login{
-    font-family: 'goldenpier', serif;
-    font-size : 1.3em;
-    color: black;
-     margin-top: 2.5vh;
-    display: flex;
-    position : relative;
-    top : 0.1vh;
-    right : -17.5vw;
-    font-weight: bold;
-
-} */
 
 /*가운데 레이아웃 크기를 결정해줌*/
 .midle{
