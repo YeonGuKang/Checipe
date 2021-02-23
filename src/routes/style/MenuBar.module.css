@@ -7,46 +7,7 @@
     src:url('../fonts/MapoGoldenPier.ttf');    
 }
 
-@media screen and (max-width: 1065px){
-    .logo_img{
-        position: relative;                
-        display : inline;                   
-    }
-    .nav{
-    
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        padding: 8px 24px;
-    }
 
-    .header{
-        /* flex-direction: column; */
-        align-items: center;
-    }
-
-    .nav li {
-        padding-left: 0;
-        width: 100%;
-        text-align: center;    
-    }
-    .login{   
-        flex-direction: column;     
-        /* top: 50px; */
-        /* right: 20px; */
-        /* display: none; */
-    }
-    .menubtn{
-        display: block;
-    }
-    /* 로그인 네비바 부분이 활성화 되었을때(클릭 시) */
-    .login.active,
-    .nav.active{
-        display: flex;
-    }
-
-}
 
 
 .standard {
