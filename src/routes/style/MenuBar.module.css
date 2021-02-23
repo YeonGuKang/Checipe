@@ -177,8 +177,8 @@
     /* 하얀색 백그라운드 */
     z-index: 1;
     background-color : white;
-    width : 1550px;
-    height : 440px;
+    width : 90vw;
+    height : 46vh;
     border-top-left-radius : 40px;
     border-top-right-radius : 40px;
     border-bottom-right-radius: 40px;
