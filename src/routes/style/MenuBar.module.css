@@ -111,6 +111,7 @@
     height : 100%;
     position : relative;
     display: flex;
+    flex-direction: column;
     
 }
 
@@ -183,10 +184,8 @@
     border-bottom-right-radius: 40px;
     position : relative;
     left : 20px;
-
-    bottom : -30vh;
+    bottom : -24vh;
  
 
-    top : 30vh;
 
 }

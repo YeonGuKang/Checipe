@@ -225,7 +225,6 @@
     display : flex;
     flex-direction: row;
     justify-content: space-around;
-    /* align-items: center; */
 }
 
 
@@ -233,7 +232,8 @@
     z-index: 1;
     width : 92.8%;
     height: 10vh;
-    background-color: yellowgreen;
+    margin-left: 6.6vw;
+    top : -5vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -241,6 +241,20 @@
     align-items: center;
     font-family: 'goldenpier', serif;
     font-size: 25px;
+}
+
+.numnqna li {
+    color: white;
+    font-size: bold;
+}
+
+.numnqna button {
+    font-family: 'goldenpier', serif;
+    font-size: 23px;
+    background-color: #28421f;
+    color: white;
+
+
 }
 
 .numbering {
@@ -252,6 +266,7 @@
     position :relative;
     display: flex;
     justify-content: space-around;
+    cursor: pointer;
 }
 
 /*leaf*/

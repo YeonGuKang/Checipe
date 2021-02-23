@@ -141,12 +141,12 @@ div > img.slideimg {
     display: flex;
     position: relative;
     width: 32vw;
-    height: 50vh;
+    height: 60vh;
     flex-direction: column;
-    justify-content: space-around;
     align-content: space-around;
     top : 40vh;
     left: 60vw;
+    padding-left: 5vh;
 
     
 }
@@ -156,18 +156,11 @@ div > img.slideimg {
     height: 300px;
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    justify-content: space-around;
-    position: relative; /*나중에 릴레이티브로 수정가능성있음 */
-    margin-bottom: 10vh;
-    /* top : 50vh;
-    left : 64vw; */
-=======
     justify-content: center;
-    position: absolute; /*나중에 릴레이티브로 수정가능성있음 */
-    top : 35vh;
-    left : 64vw;
->>>>>>> d831470193d2b9084fb322666531b2b1fa4749c0
+    position: relative; /*나중에 릴레이티브로 수정가능성있음 */
+    margin-bottom: 5vh;
+    /* top : 35vh;
+    left : 64vw; */
 }
 
 .about_vegan  li{
@@ -185,17 +178,12 @@ div > img.slideimg {
 }
 /*레시피 이동 버튼*/
 .btn{
-<<<<<<< HEAD
-    width: 80%;
-    /* height: 5vh; */
-    /* display: inline; */
-=======
-    width: 19vw;
+    width: 20vw;
     height: 5vh;
     display: inline;
-    /* z-index: 5; */
->>>>>>> d831470193d2b9084fb322666531b2b1fa4749c0
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
+    margin-top: 5vh;
+    margin-left: 2.5vw;
     /* margin-top: 13vh; */
     /* top : 63vh;
     left : 63.3vw; */

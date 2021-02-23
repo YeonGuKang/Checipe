@@ -45,11 +45,15 @@ class View_test extends React.Component {
           <Header></Header>
            {/* 게시글을 보여주기 위한 middle부분 */}
            <div className = {viewb.middle}>
-            
+            <div className = {viewb.middlewh}>
+                 <div className={viewb.vtitle}>{this.state.title}</div>
+                 <hr size='5' color='#28421f'></hr> 
+                 <div className={viewb.vdate}>{this.state.createdAt}</div>
+                 <hr size='2' color='#28421f'></hr> 
+ 
+                 <div className={viewb.vcontent}>{this.state.content}</div>
+                 </div>
              <div>
-                 <h3>{this.state.createdAt}</h3>
-                 <h1>{this.state.title}</h1>
-                 <h2>{this.state.content}</h2>
          </div>
            </div> 
  

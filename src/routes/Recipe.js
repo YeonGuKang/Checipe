@@ -1092,10 +1092,7 @@ setlimit_boards(page_boards)
               ))}
             </div>
             
-            </div>
-
-            
-  {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
+             {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
     <div className={rec.numnqna}>
           <div className={rec.numbering}>
               <li className={rec.page_num} onClick={prev_page}> &#60; PREV </li>
@@ -1119,6 +1116,11 @@ setlimit_boards(page_boards)
                      <li onClick={search_db}> &nbsp; 검색</li>
                 </div>
               </div>
+              
+            </div>
+
+            
+ 
 
           </div>    
                 
