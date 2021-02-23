@@ -133,14 +133,15 @@
 
 .ingredientbtn {
     /* 재료 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
-    width : 50vw;
+    width : 55vw;
     position : relative;
-    top : 3vh;
-    left: 8vw;
+    /* top : 3vh;
+    left: 8vw; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all .4s;    
+    transition: all .4s;
+    flex-wrap: wrap;    
 }
 
 .ingredientbtn > img {
@@ -152,8 +153,8 @@
     /* 채식 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
     width : 63vw;
     position : relative;
-    top : 4vh;
-    left : 8vw;
+    /* top : 4vh;
+    left : 8vw; */
     display : flex;
     justify-content: space-between;
     align-items: center;
@@ -162,21 +163,22 @@
 .vegetarianbtn > img {
     margin-left: 2vw;
     height: 10vh;
+
 }
 
 .hashtagbtn {
     /* 해시태그 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
-    width: 62vw;
+    width: 1350px;
     position : relative;
-    top : 5vh;
-    left : 8vw;
+    /* top : 5vh;
+    left : 8vw; */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .hashtagbtn > img {
-    margin-left: 1vw;
+    margin-left: 2vw;
     height: 5.5vh;
 }
 
