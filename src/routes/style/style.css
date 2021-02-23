@@ -258,7 +258,7 @@ div > img.slideimg {
 /* 이미지 크기 설정 */
 .imgbtn{
     object-fit: cover;          
-    width: 20vw;
+    width: 30vw;
     height: 40vh;
 }
 
@@ -276,7 +276,7 @@ div > img.slideimg {
 
 /* 이미지 오버 되었을 때 크기 커지는 현상 방지 */
 div>section>div>div>div .slick-slide >div{
-    width: 20vw;
+    width: 30vw;
     height: 40vh;
     overflow: hidden;
     transition: all .4s;   
