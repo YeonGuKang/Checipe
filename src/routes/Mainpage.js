@@ -201,7 +201,8 @@ const Mainpage = () => {
                                 alt={obj_name[0]}
                                 // width='210vw'
                                 // height='200vh'
-                                // width='90%'                                
+                                // width='90%'          
+                                // border='3'                      
                                 />
                               </div>
                               </Link>
