@@ -37,7 +37,7 @@
 }
 
 .midle{
-    z-index: 2;
+    z-index: 5;
     position : relative;
     top : -20vh;
     height : 60vh;
@@ -138,15 +138,16 @@ div > img.slideimg {
 /*비건 설명 이동 버튼*/
 
 .about_btn {
+    z-index: 1;
     display: flex;
     position: relative;
     width: 32vw;
     height: 60vh;
     flex-direction: column;
     align-content: space-around;
-    top : 40vh;
-    left: 60vw;
-    padding-left: 5vh;
+    top : -15vh;
+    margin-left: 4vw;
+
 
     
 }
@@ -159,8 +160,7 @@ div > img.slideimg {
     justify-content: center;
     position: relative; /*나중에 릴레이티브로 수정가능성있음 */
     margin-bottom: 5vh;
-    /* top : 35vh;
-    left : 64vw; */
+
 }
 
 .about_vegan  li{
@@ -182,8 +182,7 @@ div > img.slideimg {
     height: 5vh;
     display: inline;
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
-    margin-top: 5vh;
-    margin-left: 2.5vw;
+    margin-top: 6vh;
     /* margin-top: 13vh; */
     /* top : 63vh;
     left : 63.3vw; */

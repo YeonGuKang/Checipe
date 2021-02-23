@@ -942,10 +942,11 @@ setlimit_boards(page_boards)
 
     return(           
             <div className={rec.wrap}> 
+                <img className={ rec.leaf } id={ rec.r1 } src = { leafr1 }/>
+
                <div className={menu.LGbgr}> 
              <Header></Header>
               <div className={menu.WHbgr}>
-                <img className={ rec.leaf } id={ rec.r1 } src = { leafr1 }/>
                 {/* <a onClick={Show_favorite}>내 즐겨찾기</a> */}
               <div className={rec.ingredientbtn}>
                  <img src={ingredient}

@@ -177,7 +177,7 @@
     /* 하얀색 백그라운드 */
     z-index: 1;
     background-color : white;
-    width : 90vw;
+    width : 82vw;
     height : 46vh;
     border-top-left-radius : 40px;
     border-top-right-radius : 40px;
@@ -185,7 +185,10 @@
     position : relative;
     left : 20px;
     bottom : -24vh;
- 
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  */
 
 
 }

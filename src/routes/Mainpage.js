@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
-import checipe_logo from './image/chaecipielogo.png';
 import checipelogo from './image/checipelogo.svg';
 
 import noimage from './image/noimage.svg';
@@ -10,7 +9,7 @@ import leafm3 from './leaves/leafM3.svg';
 
 import { authService , dbService } from '../firebase';
 
-import Frecipebtn from './image/Frecipe.png';
+import Frecipebtn from './image/Frecipe.svg';
 import Whyvegan from './image/pjwhy.png';
 import Noticeimg from './image/pjNotice.png';
 import Aboutveg from './image/pjchecipe.png';
@@ -130,23 +129,7 @@ const Mainpage = () => {
                     <img className='leaf' id='m1' src={ leafm1 }/>
                     <img className='leaf' id='m2' src={ leafm2 }/>
                     <Header></Header>
-                    <div className="about_btn">
-                        <div className="about_vegan">
-                                 <li><Link to="/About" >About</Link></li>
-                                  <li><Link to="/About" >VEGETARIAN</Link></li>
-                                  <li><Link to="/About" >채식에관하여</Link></li>
-                              </div>
-  
-                      <div className="btn">
-                        <Link to = "/Recipe">
-                              <img className="recipebtn"
-                                    src={ Frecipebtn }
-                                    width='100%'
-                                    alt= 'recipebtn'
-                              /> 
-                        </Link>
-                      </div>
-                    </div>    
+                   
 
               </div>  
              
@@ -178,7 +161,23 @@ const Mainpage = () => {
                                 />
                   </Slider>
                   </div>
-      
+                  <div className="about_btn">
+                        <div className="about_vegan">
+                                 <li><Link to="/About" >About</Link></li>
+                                  <li><Link to="/About" >VEGETARIAN</Link></li>
+                                  <li><Link to="/About" >채식에관하여</Link></li>
+                              </div>
+  
+                      <div className="btn">
+                        <Link to = "/Recipe">
+                              <img className="recipebtn"
+                                    src={ Frecipebtn }
+                                    width='125%'
+                                    alt= 'recipebtn'
+                              /> 
+                        </Link>
+                      </div>
+                    </div>    
                   </div>
 
                   <div className="lat">
