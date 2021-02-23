@@ -200,10 +200,10 @@ const Mainpage = () => {
                                 src={ obj_image[0] }
                                 onError={handleImgError}
                                 alt={obj_name[0]}
-                                width='400px'
-                                height='300px'
-                                // width='90%'
-                                // border='3'
+                                // width='210vw'
+                                // height='200vh'
+                                // width='90%'          
+                                // border='3'                      
                                 />
                               </div>
                               </Link>
@@ -224,8 +224,8 @@ const Mainpage = () => {
                                 src={ obj_image[1] }
                                 onError={handleImgError}
                                 alt={obj_name[1]}
-                                width='400px'
-                                height='300px'                                
+                                // width='210vw'
+                                // height='200vh'                               
                                 // width='90%'                                
                                 />
                           </div>
@@ -247,8 +247,8 @@ const Mainpage = () => {
                                 src={ obj_image[2] }
                                 onError={handleImgError}
                                 alt={obj_name[2]}
-                                width='400px'
-                                height='300px'
+                                // width='210vw'
+                                // height='200vh'
                                 // width='90%'
                                 // border='3'
                                 />
@@ -270,8 +270,8 @@ const Mainpage = () => {
                                 src={ obj_image[3] }
                                 onError={handleImgError}
                                 alt={obj_name[3]}
-                                width='400px'
-                                height='300px'                                
+                                // width='210vw'
+                                // height='200vh'                            
                                 // width='90%'
                                 // border='3'
                                 />
