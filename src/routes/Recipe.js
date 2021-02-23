@@ -949,116 +949,64 @@ setlimit_boards(page_boards)
                 {/* <a onClick={Show_favorite}>내 즐겨찾기</a> */}
               <div className={rec.ingredientbtn}>
                  <img src={ingredient}
-                                width='150vw'
-                                height='150vh'
                                 alt= 'ingredient'/>
                  <img src={vegeline}
-                                width='10vw'
-                                height='100vh'
                                 alt= 'justaline'/> 
                <img src={vegex} ref={vege_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Vege"/>                                
                <img src={eggx} ref={egg_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Egg"/>
                <img src={milkx} ref={milk_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Milk"/>  
                <img src={fishx} ref={fish_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Fish"/> 
                <img src={chickenx} ref={chicken_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Chicken"/> 
                <img src={meatx} ref={meat_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Meat"/>                                                                                  
               </div>
 
               <div className={rec.vegetarianbtn}>
               <img src={vegetarian}
-                                width='150vw'
-                                height='150vh'
                                 alt= 'vegetarian'/>
               <img src={vegeline}
-                                width='10vw'
-                                height='100vh'
                                 alt= 'justaline'/>          
                                         {/*클릭시 이미지의 변경을 위해 ref를 사용  */}
               <img onClick={getChosen} src={veganx} ref={vegan_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Vegan"/>
               <img onClick={getChosen} src={lactox} ref={lacto_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Lacto"/>
                <img onClick={getChosen} src={ovox} ref={ovo_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Ovo"/>
                <img onClick={getChosen} src={lactovox} ref={lactoovo_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="LactoOvo"/>
                <img onClick={getChosen} src={pollox} ref={pollo_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Pollo"/>
                <img onClick={getChosen} src={pescox} ref={pesco_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Pesco"/>   
                 <img onClick={getChosen} src={polpescox} ref={pollopesco_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="PolloPesco"/>   
                 <img onClick={getChosen} src={flexix} ref={flex_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Flexi"/>                                                                        
             </div>  
             <div className={rec.hashtagbtn}>
               {/* 해시테그 부분임 */}
             <img src={hashtag}
-                                width='150vw'
-                                height='150vh'
                                 alt= 'hashtag'/>
              <img src={hashline}
-                                width='10vw'
-                                height='50vh'
                                 alt= 'hashline'/>
             <img onClick={hashChosen} src={soupx} ref={soup_imageRef}
-                                  width='130vw'
-                                  height='130vh'
                                 name="Soup"/>   
             <img onClick={hashChosen} src={sidex} ref={side_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Side"/>      
             <img onClick={hashChosen} src={coursex} ref={course_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Course"/>        
             <img onClick={hashChosen} src={dessertx} ref={dessert_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Dessert"/> 
             <img onClick={hashChosen} src={etcx} ref={etc_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Etc"/> 
             <div className={rec.bookmark}>
               <img onClick={Show_favorite} src={bookmarkx} ref={BookmarkRef}
-                                width='140vw'
-                                height='140vh'
                                 name="Bookmark"/>    
           </div>                                                                                                                                                                                                                        
             </div>
