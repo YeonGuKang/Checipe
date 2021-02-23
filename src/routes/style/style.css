@@ -131,15 +131,31 @@ div > img.slideimg {
 }
 
 /*비건 설명 이동 버튼*/
-.about_vegan{
-    /*width: 400px;*/
-    /*height: 300px;*/
-    display: inline-flex;
+
+.about_btn {
+    display: flex;
+    position: relative;
+    width: 32vw;
+    height: 50vh;
     flex-direction: column;
-    justify-content: center;
-    position: absolute; /*나중에 릴레이티브로 수정가능성있음 */
-    top : 50vh;
-    left : 64vw;
+    justify-content: space-around;
+    align-content: space-around;
+    top : 40vh;
+    left: 60vw;
+
+    
+}
+
+.about_vegan{
+    width: 400px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative; /*나중에 릴레이티브로 수정가능성있음 */
+    margin-bottom: 10vh;
+    /* top : 50vh;
+    left : 64vw; */
 }
 
 .about_vegan  li{
@@ -148,7 +164,7 @@ div > img.slideimg {
     font-family: 'bombaram', serif;
     font-size: 50px;
     letter-spacing: 10px;
-    margin-bottom: 3vh;
+    /* margin-bottom: 3vh; */
     display: inline;
 }
 
@@ -157,14 +173,13 @@ div > img.slideimg {
 }
 /*레시피 이동 버튼*/
 .btn{
-    width: 15vw;
-    height: 5vh;
-    display: inline;
-    /* z-index: 5; */
+    width: 80%;
+    /* height: 5vh; */
+    /* display: inline; */
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
-    margin-top: 13vh;
-    top : 63vh;
-    left : 63.3vw;
+    /* margin-top: 13vh; */
+    /* top : 63vh;
+    left : 63.3vw; */
 }
 
 /*맨 아래 레이아웃 크기*/

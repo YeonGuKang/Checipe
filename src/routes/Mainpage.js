@@ -130,22 +130,23 @@ const Mainpage = () => {
                     <img className='leaf' id='m1' src={ leafm1 }/>
                     <img className='leaf' id='m2' src={ leafm2 }/>
                     <Header></Header>
-                   <div className="about_vegan">
-                                 <li><Link to="/About" >About</Link> </li>
+                    <div className="about_btn">
+                        <div className="about_vegan">
+                                 <li><Link to="/About" >About</Link></li>
                                   <li><Link to="/About" >VEGETARIAN</Link></li>
                                   <li><Link to="/About" >채식에관하여</Link></li>
                               </div>
-
-                              
+  
                       <div className="btn">
                         <Link to = "/Recipe">
                               <img className="recipebtn"
                                     src={ Frecipebtn }
-                                    width='140%'
+                                    width='100%'
                                     alt= 'recipebtn'
                               /> 
                         </Link>
-                      </div> 
+                      </div>
+                    </div>    
 
               </div>  
              
