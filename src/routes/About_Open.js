@@ -7,16 +7,8 @@ import {ReactComponent as Msvg} from './image/menu.svg'
 
 import Header from "../components/Header"
 
-class View_test extends React.Component {
-    state = {
-        init: false,
-        userObj: null,
-        isLoggedIn: false,
-        createdAt: this.props.location.state.createdAt,
-        title: this.props.location.state.title,
-        content: this.props.location.state.content
-    }
-
+class About_Open extends React.Component {
+  
     componentDidMount() {
       // 스크롤 상단으로 초기화
     window.scrollTo(0, 0);
@@ -46,12 +38,12 @@ class View_test extends React.Component {
            {/* 게시글을 보여주기 위한 middle부분 */}
            <div className = {viewb.middle}>
             <div className = {viewb.middlewh}>
-                 <div className={viewb.vtitle}>{this.state.title}</div>
+                 <div className={viewb.vtitle}></div>
                  <hr size='5' color='#28421f'></hr> 
-                 <div className={viewb.vdate}>{this.state.createdAt}</div>
+                 <div className={viewb.vdate}></div>
                  <hr size='2' color='#28421f'></hr> 
  
-                 <textarea readOnly className={viewb.vcontent}>{this.state.content}</textarea>
+                 <textarea readOnly className={viewb.vcontent}></textarea>
                  </div>
              <div>
          </div>
@@ -63,4 +55,4 @@ class View_test extends React.Component {
     }
 }
 
-export default View_test;
+export default About_Open;

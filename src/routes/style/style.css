@@ -65,11 +65,13 @@
     display: inline;
   position: relative;
 
+
+
     width : 67vw;
     height: 75vh;
 
 
-    bottom: 27vh;
+    bottom: 25vh;
 }
 
 /* Caption text */
@@ -145,7 +147,7 @@ div > img.slideimg {
     height: 60vh;
     flex-direction: column;
     align-content: space-around;
-    top : -15vh;
+    top : -20vh;
     margin-left: 4vw;
 }
 
@@ -179,7 +181,9 @@ div > img.slideimg {
     height: 5vh;
     display: inline;
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
-    margin-top: 6vh;
+
+    bottom: 2vh;
+   
     /* margin-top: 13vh; */
     /* top : 63vh;
     left : 63.3vw; */
@@ -270,7 +274,7 @@ div>section>div>div>div .slick-slide:hover .imgbtn{
     width: 13vw;
     height: 10vh;
     right: -1vw;
-    top: 21vh;
+    top: 25vh;
 }
 
 #m3 {

@@ -47,7 +47,7 @@ const Header = () => {
   return(
     // 로그인시 일반사용자 , 운영자를 구분
     <div>
-    {isLoggedIn ? IsManager ? <h>운영자입니다.</h> : <h>일반사용자입니다.</h> : null}
+    {/* {isLoggedIn ? IsManager ? <h>운영자입니다.</h> : <h>일반사용자입니다.</h> : null} */}
     <div className={menu.header}>
         <div className={menu.Rlogo}>
             {/* js에서는 img를 이런식으로 import해서 불러온다. */}
@@ -60,7 +60,7 @@ const Header = () => {
         </div>
             <div>
                 <ul className={menu.nav}>
-                    <li><Link to="/About">About</Link></li>
+                    <li><Link to="/About_Open">About</Link></li>
                     <li><Link to="/Recipe">Recipe</Link></li>
                      <li><Link to= {{
                        pathname: "/Notice",
@@ -68,7 +68,7 @@ const Header = () => {
                          manager: Manager
                        }
                      }} >Notice</Link></li>
-                     <li><Link to="/Open">Open</Link></li>
+                     <li><Link to="/About_Open">Open</Link></li>
                 </ul>
             </div>
        
