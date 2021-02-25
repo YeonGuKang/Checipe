@@ -1,2 +1,2 @@
-# Checipe Website - Recipes for Vegitarian
+# Checipe Website - Recipes for Vegitarian :herb:
 
