@@ -9,6 +9,7 @@ import leafm3 from './leaves/leafM3.svg';
 
 import { authService , dbService } from '../firebase';
 
+import AboutVege from './image/AboutVege.svg';
 import Frecipebtn from './image/Frecipe.svg';
 import Whyvegan from './image/pjwhy.png';
 import Noticeimg from './image/pjNotice.png';
@@ -162,12 +163,12 @@ const Mainpage = () => {
                   </Slider>
                   </div>
                   <div className="about_btn">
-                        <div className="about_vegan">
-                                 <li><Link to="/About" >About</Link></li>
-                                  <li><Link to="/About" >VEGETARIAN</Link></li>
-                                  <li><Link to="/About" >채식에관하여</Link></li>
-                              </div>
-  
+                      <Link to = "/About">
+                        <img className="AboutVege"
+                              src={AboutVege}
+                              width='90%'
+                              />
+                      </Link>
                       <div className="btn">
                         <Link to = "/Recipe">
                               <img className="recipebtn"

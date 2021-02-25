@@ -27,6 +27,7 @@
     height: 80vh;
     background-color:  #537f46;
     display : flex;
+    padding-bottom: 10px;
 }
 
 .Rlogo{
