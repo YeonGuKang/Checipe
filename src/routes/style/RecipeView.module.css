@@ -8,24 +8,27 @@
 
 .whitealign {
     /* 하얀색 배경에서 그림, 선, 정보를 정렬할때 사용된 클래스 */
-    width : 72vw;
-    height : 45vh;
+    background-color: yellow;
+    width : 75vw;
+    height : 40vh;
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    top : 1vh;
-    left : 0.5vw;
+    align-items: center;
 }
 
 .information {
     /* 레시피의 기본정보들을 배열할 때 쓰는 클래스 */
+    background-color: yellowgreen;
     font-family: 'goldenpier', serif;   
     margin: 10px; 
+    height: 40vh;
     position: relative;
     display: flex;
-    width: 1300px;
+    width: 80%;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 .title {
@@ -65,7 +68,9 @@
     position : relative;
     left : 1vw;
     top : 25vh;
-    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
 }
 
@@ -106,15 +111,6 @@
     display : flex;
 }
 
-/* .underspace {
-    z-index: 2;
-    top :-30vh;
-    background-color :  #28421f;
-    width : 92vw;
-    height : 5vh;
-    position : relative;
-    display : flex;
-} */
 
 .marknlove {
     background-color: white;
