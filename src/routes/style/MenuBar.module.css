@@ -135,21 +135,6 @@
     transition:all .3s ease
 }
 
-.WHbgr { 
-    /* 하얀색 백그라운드 */
-    z-index: 1;
-    background-color : white;
-    width : 82vw;
-    height : 43vh;
-    border-top-left-radius : 40px;
-    border-top-right-radius : 40px;
-    border-bottom-right-radius: 40px;
-    position : relative;
-    left : 20px;
-    bottom : -24vh;
-    display: flex;
-    flex-direction: column;
-}
 
 @media (max-width: 1280px){
 

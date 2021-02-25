@@ -150,7 +150,7 @@
 
 .btnsection {
     /* 새로 만든 클래스입니다. 버튼의 배열만을 위한 클래스.  */
-    /* background-color: yellow; */
+    background-color: yellow;
     width: 63vw;
     height: 30vh;
     display: flex;
@@ -321,7 +321,6 @@
     }
 
     .header{
-        /* flex-direction: column; */
         align-items: center;
     }
 
@@ -412,36 +411,40 @@
         /* 재료 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 660px;
         position : relative;
-        top : 3vh;
-        left: 102.4px;
         display: flex;
         justify-content: space-between;
-        margin-bottom: 4vh;
+    }
+
+    .ingredientbtn > img {
+        height: 75px;
     }
 
     .vegetarianbtn {
         /* 채식 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 833.3333333333335px;
         position : relative;
-        top : 4vh;
-        left : 102.4px;
         display : flex;
         justify-content: space-between;
-        margin-bottom: 5vh;
+    }
+
+    .vegetarianbtn > img {
+        height: 75px;
     }
 
     .hashtagbtn {
         /* 해시태그 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 832px;
         position : relative;
-        top : 4vh;
-        left : 102.4px;
         display: flex;
         justify-content: space-between;
     }
 
+    .hashtagbtn > img {
+        height: 35px;
+    }
+
     #book {
-        height: 50px;
+        height: 35px;
         margin-left: 100px;
     }
 }
@@ -486,8 +489,6 @@
         /* 재료 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 51.5625vw;
         position : relative;
-        top : 24px;
-        left: 8vw;
         display: flex;
         justify-content: space-between;
         margin-bottom: 40px;
@@ -497,8 +498,6 @@
         /* 채식 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 65.10416666666667vw;
         position : relative;
-        top : 24px;
-        left : 8vw;
         display : flex;
         justify-content: space-between;
         margin-bottom: 32px;
@@ -508,8 +507,6 @@
         /* 해시태그 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 65vw;
         position : relative;
-        top : 32px;
-        left : 8vw;
         display: flex;
         justify-content: space-between;
     }
@@ -595,30 +592,22 @@
         /* 재료 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 660px;
         position : relative;
-        top : 24px;
-        left: 102.4px;
         display: flex;
         justify-content: space-between;
-        margin-bottom: 40px;
     }
 
     .vegetarianbtn {
         /* 채식 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
-        width : 833.3333333333335px;
+        width : 833px;
         position : relative;
-        top : 24px;
-        left : 102.4px;
         display : flex;
         justify-content: space-between;
-        margin-bottom: 32px;
     }
 
     .hashtagbtn {
         /* 해시태그 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 832px;
         position : relative;
-        top : 32px;
-        left : 102.4px;
         display: flex;
         justify-content: space-between;
     }
