@@ -151,13 +151,13 @@
     flex-direction: column;
 }
 
-@media (max-width: 1750px){
+@media (max-width: 1280px){
 
     .WHbgr { 
         /* 하얀색 백그라운드 */
         z-index: 1;
         background-color : white;
-        width : 1435px;
+        width : 1049.6px;
         height : 43vh;
         border-top-left-radius : 40px;
         border-top-right-radius : 40px;
@@ -174,7 +174,7 @@
         /* 그냥 뒤에 진한 초록색배경 */
         z-index: 2;
         background-color :  #28421f;
-        width : 1610px;
+        width : 1177.6px;
         height : 100%;
         position : relative;
         display: flex;
@@ -188,8 +188,8 @@
         z-index: 1;
         position : relative;
         flex-direction: column;
-        left : 122.5px;    
-        width : 1610px;
+        left : 89.6px;     
+        width : 1177.6px;
         height: 80vh;
         background-color:  #537f46;
         display : flex;
@@ -199,7 +199,7 @@
         /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
         /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
         background-color :  #28421f;
-        width : 1610px;
+        width : 1177.6px;
         height : 100%;
         top : 60vh;
         position : absolute;
@@ -251,12 +251,12 @@
     
 }
 
-@media (max-width: 1750px) and (max-height: 800px){
+@media (max-width: 1280px) and (max-height: 800px){
     .WHbgr { 
         /* 하얀색 백그라운드 */
         z-index: 1;
         background-color : white;
-        width : 1435px;
+        width : 1049.6px;
         height : 344px;
         border-top-left-radius : 40px;
         border-top-right-radius : 40px;
@@ -274,8 +274,8 @@
         z-index: 1;
         position : relative;
         flex-direction: column;
-        left : 122.5px;    
-        width : 1610px;
+        left : 89.6px;    
+        width : 1177.6px;
         height: 640px;
         background-color:  #537f46;
         display : flex;
@@ -285,7 +285,7 @@
         /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
         /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
         background-color :  #28421f;
-        width : 1610px;
+        width : 1177.6px;
         height : 100%;
         top : 480px;
         position : absolute;

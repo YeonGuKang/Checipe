@@ -1007,8 +1007,10 @@ setlimit_boards(page_boards)
                                 name="Dessert"/> 
             <img onClick={hashChosen} src={etcx} ref={etc_imageRef}
                                 name="Etc"/> 
-            <img onClick={Show_favorite} src={bookmarkx} ref={BookmarkRef}
-                                name="Bookmark"/>                                                                                                                                                                                                                          
+            <img onClick={Show_favorite} 
+                                id = {rec.book}
+                                src={bookmarkx} ref={BookmarkRef}
+                                name="Bookmark"/>                                                                                                                                                                                                                       
             </div>
               </div>
               </div>
