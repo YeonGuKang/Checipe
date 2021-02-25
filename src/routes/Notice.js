@@ -8,6 +8,10 @@ import menu from "./style/MenuBar.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
+import leafn1 from './leaves/leafR1.svg'
+import leafn2 from './leaves/leafM2.svg'
+import leafn3 from './leaves/leafR2.svg'
+
 import Header from "../components/Header"
 
 const init_btnlimit=10;
@@ -203,7 +207,10 @@ setlimit_boards(page_boards)
 
 
     return(           
-        <div className={rec.wrap}> 
+        <div className={rec.wrap}>
+          <img className={noti.leaf} id={noti.n1} src={leafn1}/>
+          <img className={noti.leaf} id={noti.n2} src={leafn2}/>
+          <img className={noti.leaf} id={noti.n3} src={leafn3}/>
            <div className={menu.LGbgr}>     
             <Header></Header>
             {/* 글 등록은 매니저만 보임 */}
