@@ -139,17 +139,17 @@
     z-index: 1;
     background-color : white;
     width : 82vw;
-    height : 46vh;
+    height : 400px;
     border-top-left-radius : 40px;
     border-top-right-radius : 40px;
     border-bottom-right-radius: 40px;
     position : relative;
     left : 20px;
     bottom : -24vh;
-    /* display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
-  */
+ 
 
 
 }

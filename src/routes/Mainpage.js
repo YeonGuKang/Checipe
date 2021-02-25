@@ -145,7 +145,7 @@ const Mainpage = () => {
                                 className='slideimg'
                                 src={ Whyvegan }
                                 width='1300px'
-                                height='100vh'
+                                height='100%'
                                 />
                                  <img
                                className='slideimg'
