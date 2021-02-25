@@ -163,7 +163,7 @@ const Mainpage = () => {
                   </Slider>
                   </div>
                   <div className="about_btn">
-                      <Link to = "/About">
+                      <Link to = "/About_Open">
                         <img className="AboutVege"
                               src={AboutVege}
                               width='90%'
