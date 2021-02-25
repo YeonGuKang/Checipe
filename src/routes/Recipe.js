@@ -943,6 +943,8 @@ setlimit_boards(page_boards)
     return(           
             <div className={rec.wrap}> 
                 <img className={ rec.leaf } id={ rec.r1 } src = { leafr1 }/>
+                <img className={rec.leaf} id={rec.r2} src={leafr2}/>
+                <img className={rec.leaf} id={rec.r3} src={leafr3}/>
                <div className={menu.LGbgr}> 
              <Header></Header>
               <div className={menu.WHbgr}>
@@ -971,7 +973,7 @@ setlimit_boards(page_boards)
                                 alt= 'vegetarian'/>
               <img src={vegeline}
                                 alt= 'justaline'/>          
-                                        {/*클릭시 이미지의 변경을 위해 ref를 사용  */}
+              {/*클릭시 이미지의 변경을 위해 ref를 사용  */}
               <img onClick={getChosen} src={veganx} ref={vegan_imageRef}
                                 name="Vegan"/>
               <img onClick={getChosen} src={lactox} ref={lacto_imageRef}
@@ -1005,14 +1007,9 @@ setlimit_boards(page_boards)
                                 name="Dessert"/> 
             <img onClick={hashChosen} src={etcx} ref={etc_imageRef}
                                 name="Etc"/> 
-            <div className={rec.bookmark}>
-              <img onClick={Show_favorite} src={bookmarkx} ref={BookmarkRef}
-                                name="Bookmark"/>    
-          </div>                                                                                                                                                                                                                        
+            <img onClick={Show_favorite} src={bookmarkx} ref={BookmarkRef}
+                                name="Bookmark"/>                                                                                                                                                                                                                          
             </div>
-
-         
-
               </div>
               </div>
               <div>
@@ -1021,8 +1018,6 @@ setlimit_boards(page_boards)
           <div className={menu.DGbgr}>
             {/* 사용자가 클릭한 type에 맞는 객체 정보를 쭉 나열해서 보여줌 */}
             <div className={rec.sectionplace}>
-              <img className={rec.leaf} id={rec.r2} src={leafr2}/>
-              <img className={rec.leaf} id={rec.r3} src={leafr3}/>
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
               {limit_boards.map((Show)=>(
                 < Rlist
