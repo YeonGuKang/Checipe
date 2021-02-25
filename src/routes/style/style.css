@@ -147,19 +147,46 @@ div > img.slideimg {
     height: 60vh;
     flex-direction: column;
     align-content: space-around;
-    top : -10vh;
-    margin-left: 3vw;
+    top : -15vh;
+    margin-left: 4vw;
 }
 
+.about_vegan{
+    width: 400px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; /*나중에 릴레이티브로 수정가능성있음 */
+    margin-bottom: 5vh;
+
+}
+
+.about_vegan  li{
+    font-weight: bold;
+     text-shadow: 3px 3px 2px gray;
+    font-family: 'bombaram', serif;
+    font-size: 50px;
+    letter-spacing: 10px;
+    /* margin-bottom: 3vh; */
+    display: inline;
+}
+
+.about_vegan li a {
+    color : white;
+}
 /*레시피 이동 버튼*/
 .btn{
     width: 20vw;
     height: 5vh;
     display: inline;
-    position: relative; 
-    margin-top: 15vh;
-    margin-left: 1vw;
+    position: relative; /*나중에 다시 relative로 수정 진행할거임*/
 
+    bottom: -15vh;
+   
+    /* margin-top: 13vh; */
+    /* top : 63vh;
+    left : 63.3vw; */
 }
 
 /*맨 아래 레이아웃 크기*/
