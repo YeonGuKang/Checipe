@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Checipe Website - Recipes for Vegitarian
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 sdsadsadASD
