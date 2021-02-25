@@ -942,129 +942,74 @@ setlimit_boards(page_boards)
 
     return(           
             <div className={rec.wrap}> 
+                <img className={ rec.leaf } id={ rec.r1 } src = { leafr1 }/>
+                <img className={rec.leaf} id={rec.r2} src={leafr2}/>
+                <img className={rec.leaf} id={rec.r3} src={leafr3}/>
                <div className={menu.LGbgr}> 
              <Header></Header>
               <div className={menu.WHbgr}>
-                <img className={ rec.leaf } id={ rec.r1 } src = { leafr1 }/>
                 {/* <a onClick={Show_favorite}>내 즐겨찾기</a> */}
               <div className={rec.ingredientbtn}>
                  <img src={ingredient}
-                                width='150vw'
-                                height='150vh'
                                 alt= 'ingredient'/>
                  <img src={vegeline}
-                                width='10vw'
-                                height='100vh'
                                 alt= 'justaline'/> 
                <img src={vegex} ref={vege_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Vege"/>                                
                <img src={eggx} ref={egg_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Egg"/>
                <img src={milkx} ref={milk_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Milk"/>  
                <img src={fishx} ref={fish_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Fish"/> 
                <img src={chickenx} ref={chicken_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Chicken"/> 
                <img src={meatx} ref={meat_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Meat"/>                                                                                  
               </div>
 
               <div className={rec.vegetarianbtn}>
               <img src={vegetarian}
-                                width='150vw'
-                                height='150vh'
                                 alt= 'vegetarian'/>
               <img src={vegeline}
-                                width='10vw'
-                                height='100vh'
                                 alt= 'justaline'/>          
-                                        {/*클릭시 이미지의 변경을 위해 ref를 사용  */}
+              {/*클릭시 이미지의 변경을 위해 ref를 사용  */}
               <img onClick={getChosen} src={veganx} ref={vegan_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Vegan"/>
               <img onClick={getChosen} src={lactox} ref={lacto_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Lacto"/>
                <img onClick={getChosen} src={ovox} ref={ovo_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Ovo"/>
                <img onClick={getChosen} src={lactovox} ref={lactoovo_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="LactoOvo"/>
                <img onClick={getChosen} src={pollox} ref={pollo_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Pollo"/>
                <img onClick={getChosen} src={pescox} ref={pesco_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Pesco"/>   
                 <img onClick={getChosen} src={polpescox} ref={pollopesco_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="PolloPesco"/>   
                 <img onClick={getChosen} src={flexix} ref={flex_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Flexi"/>                                                                        
             </div>  
             <div className={rec.hashtagbtn}>
               {/* 해시테그 부분임 */}
             <img src={hashtag}
-                                width='150vw'
-                                height='150vh'
                                 alt= 'hashtag'/>
              <img src={hashline}
-                                width='10vw'
-                                height='50vh'
                                 alt= 'hashline'/>
             <img onClick={hashChosen} src={soupx} ref={soup_imageRef}
-                                  width='130vw'
-                                  height='130vh'
                                 name="Soup"/>   
             <img onClick={hashChosen} src={sidex} ref={side_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Side"/>      
             <img onClick={hashChosen} src={coursex} ref={course_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Course"/>        
             <img onClick={hashChosen} src={dessertx} ref={dessert_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Dessert"/> 
             <img onClick={hashChosen} src={etcx} ref={etc_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Etc"/> 
-            <div className={rec.bookmark}>
-              <img onClick={Show_favorite} src={bookmarkx} ref={BookmarkRef}
-                                width='140vw'
-                                height='140vh'
-                                name="Bookmark"/>    
-          </div>                                                                                                                                                                                                                        
+            <img onClick={Show_favorite} src={bookmarkx} ref={BookmarkRef}
+                                name="Bookmark"/>                                                                                                                                                                                                                          
             </div>
-
-         
-
               </div>
               </div>
               <div>
@@ -1073,8 +1018,6 @@ setlimit_boards(page_boards)
           <div className={menu.DGbgr}>
             {/* 사용자가 클릭한 type에 맞는 객체 정보를 쭉 나열해서 보여줌 */}
             <div className={rec.sectionplace}>
-              <img className={rec.leaf} id={rec.r2} src={leafr2}/>
-              <img className={rec.leaf} id={rec.r3} src={leafr3}/>
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
               {limit_boards.map((Show)=>(
                 < Rlist
@@ -1092,10 +1035,7 @@ setlimit_boards(page_boards)
               ))}
             </div>
             
-            </div>
-
-            
-  {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
+             {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
     <div className={rec.numnqna}>
           <div className={rec.numbering}>
               <li className={rec.page_num} onClick={prev_page}> &#60; PREV </li>
@@ -1119,6 +1059,11 @@ setlimit_boards(page_boards)
                      <li onClick={search_db}> &nbsp; 검색</li>
                 </div>
               </div>
+              
+            </div>
+
+            
+ 
 
           </div>    
                 

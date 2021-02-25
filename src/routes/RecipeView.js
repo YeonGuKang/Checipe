@@ -179,7 +179,6 @@ class RecipeView extends React.Component {
       }
         return (
             <div className={menu.standard}> 
-            
                <div className={menu.LGbgr}> 
                 <div className={recv.marknlove}>
                   {/* 사용자의 좋아요, 즐겨찾기 상태에 따라 다른 이미지를 보여줌 */}
@@ -219,7 +218,6 @@ class RecipeView extends React.Component {
                 
               </div>    
           </div> 
-
           <div className={recv.space}></div>
 
           <div className={recv.DGbgr}>

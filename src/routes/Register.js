@@ -47,13 +47,17 @@ const Register = () => {
   // 버튼 클릭이 있을때 게시글을 추가해줌
   const onclick = async (event) => {
     event.preventDefault();
-    await dbService.collection("게시글").add({
-        title:title,
-        content:content,
-        // 현재 날짜를 이런식으로 추가해준다
-        createdAt:today.toLocaleDateString('en-US'),
-        creatorId: userObj.uid,
-    });
+
+    const data={
+      title:title,
+      content:content,
+      // 현재 날짜를 이런식으로 추가해준다
+      createdAt:today.toLocaleDateString('en-US') +' ' + today.toLocaleTimeString('en-US'),
+      creatorId: userObj.uid,
+  }
+
+    await dbService.collection("게시글").doc(title).set(data);
+
     settitle("");
     setcontent("");
     // 게시글을 추가하였으니 true로 변환
@@ -69,9 +73,13 @@ const Register = () => {
   };
 
   const onChange_content = (event) => {
-    const {
+
+    let {
       target: { value },
     } = event;
+
+    
+
     setcontent(value)
   };
 
