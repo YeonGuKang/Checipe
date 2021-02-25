@@ -947,8 +947,9 @@ setlimit_boards(page_boards)
                 <img className={rec.leaf} id={rec.r3} src={leafr3}/>
                <div className={menu.LGbgr}> 
              <Header></Header>
-              <div className={menu.WHbgr}>
-                {/* <a onClick={Show_favorite}>내 즐겨찾기</a> */}
+              <div className={rec.WHbgr}>
+                <div className={rec.btnsection}>
+                  
               <div className={rec.ingredientbtn}>
                  <img src={ingredient}
                                 alt= 'ingredient'/>
@@ -990,7 +991,8 @@ setlimit_boards(page_boards)
                                 name="PolloPesco"/>   
                 <img onClick={getChosen} src={flexix} ref={flex_imageRef}
                                 name="Flexi"/>                                                                        
-            </div>  
+                 </div>  
+
             <div className={rec.hashtagbtn}>
               {/* 해시테그 부분임 */}
             <img src={hashtag}
@@ -1012,8 +1014,11 @@ setlimit_boards(page_boards)
                                 src={bookmarkx} ref={BookmarkRef}
                                 name="Bookmark"/>                                                                                                                                                                                                                       
             </div>
+
               </div>
               </div>
+              </div>
+
               <div>
               <div className={menu.space}></div>
           {/* 버튼을 클릭했을때 name의 값을 getChosen으로 넘겨줌 */}
