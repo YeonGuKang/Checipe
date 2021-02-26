@@ -179,19 +179,19 @@ class RecipeView extends React.Component {
       }
         return (
             <div className={menu.standard}> 
-               <div className={menu.LGbgr}> 
-                <div className={recv.marknlove}>
-                  {/* 사용자의 좋아요, 즐겨찾기 상태에 따라 다른 이미지를 보여줌 */}
-                  {this.favorite_check ? <img onClick={favorite} src={marko} width='50px'/> : <img onClick={favorite} src={markx} width='50px'/> }
-                  {this.like_check ?  <img onClick={like} src={loveo} width='50px'/> :  <img onClick={like} src={lovex} width='50px'/>}
-                  </div>    
+               <div className={menu.LGbgr}>   
             <Header></Header>
+            <div className={recv.marknlove}>
+                  {/* 사용자의 좋아요, 즐겨찾기 상태에 따라 다른 이미지를 보여줌 */}
+                  {this.favorite_check ? <img onClick={favorite} src={marko} width='40%'/> : <img onClick={favorite} src={markx} width='40%'/> }
+                  {this.like_check ?  <img onClick={like} src={loveo} width='30%'/> :  <img onClick={like} src={lovex} width='40%'/>}
+                  </div>  
               {/* 사용자가 선택한 음식의 정보를 보여주는 부분 */}
               <div className={recv.WHbgr}>
                 <div className={recv.whitealign}>
                   <img src={ this.state.img }
                     onError={handleImgError}
-                    height= '95%'/>
+                    height= '90%'/>
                   <img src={infoline}
                     width='7%'
                     height='90%'

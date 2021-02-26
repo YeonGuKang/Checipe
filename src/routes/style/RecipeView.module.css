@@ -8,9 +8,9 @@
 
 .whitealign {
     /* 하얀색 배경에서 그림, 선, 정보를 정렬할때 사용된 클래스 */
-    background-color: yellow;
-    width : 75vw;
-    height : 40vh;
+    /* background-color: yellow; */
+    width : 95%;
+    height : 95%;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -20,7 +20,7 @@
 
 .information {
     /* 레시피의 기본정보들을 배열할 때 쓰는 클래스 */
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
     font-family: 'goldenpier', serif;   
     margin: 10px; 
     height: 40vh;
@@ -67,11 +67,10 @@
     border-bottom-right-radius: 40px;
     position : relative;
     left : 1vw;
-    top : 25vh;
+    bottom: -22vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
-
 }
 
 .DGbgr {
@@ -114,14 +113,15 @@
 
 .marknlove {
     background-color: white;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     border-radius: 37.5px;
-    position: absolute;
-    left : 35px;
-    top : 23vh;
+    position: relative;
+    left : 2vw;
+    top : 20vh;
     display: flex;
-    height : 60px;
-    width: 130px;
+    height : 6.5vh;
+    width: 7vw;
     align-items: center;
     justify-content: space-around;
+    cursor: pointer;
 }

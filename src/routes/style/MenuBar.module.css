@@ -58,7 +58,7 @@
     /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
     background-color :  #28421f;
     width : 92vw;
-    height : 100%;
+    height : 100vh;
     top : 60vh;
     position : absolute;
     display : flex;
