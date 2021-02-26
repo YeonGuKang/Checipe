@@ -20,12 +20,12 @@
     /* 미들 안에 있는 회색 네모 (하얀색 나중에 바꿀꺼임) */
     border-top-left-radius : 40px;
     position : relative;
-    top : 10px;
-    left : 300px;
+     bottom : 1vh; 
+    left : 20vh;
     z-index: 1;
     background-color: white;
-    width : 1200px;
-    height : 650px;
+    width : 70vw;
+    height : 80%;
 }
 
 .board{
@@ -122,6 +122,32 @@
     font-family: 'goldenpier', serif;
     cursor : pointer;
     text-align: right;
+}
+
+.leaf {
+    z-index: 3;
+    position: absolute;
+}
+
+#n1 {
+    width: 20vw;
+    height: 15vh;
+    top: 20vh;
+    left: -4vw;
+}
+
+#n2 {
+    top: 24vh;
+    width: 10vw;
+    height: 10vh;
+    left: 88vw;
+}
+
+#n3 {
+    top: 60vh;
+    width: 16vw;
+    height: 30vh;
+    left: -4vw;
 }
 
 

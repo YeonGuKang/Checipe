@@ -12,3 +12,52 @@
     height : 70vh;
     
 }
+
+.middlewh{
+    /* 미들 안에 있는 회색 네모 (하얀색 나중에 바꿀꺼임) */
+    border-top-left-radius : 40px;
+    border-bottom-right-radius:40px ;
+    position : relative;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    left : 12vh;
+    z-index: 1;
+    background-color: white;
+    width : 70vw;
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.vtitle {
+    font-family: 'goldenpier', serif;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.vdate {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'goldenpier', serif;
+    font-size: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+
+}
+
+.vcontent {
+    font-family: 'goldenpier', serif;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    width : 69vw;
+    height : 40vh;
+
+    border: none;
+    resize: none;
+}

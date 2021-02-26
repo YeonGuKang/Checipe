@@ -9,6 +9,10 @@ import Header from "../components/Header"
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
+import leafr1 from './leaves/leafR1.svg';
+import leafr2 from './leaves/leafR2.svg';
+import leafr3 from './leaves/leafR3.svg';
+
 import vegetarian from './icons/vegetarian.svg';
 import veganx from './icons/veganx.svg';
 import vegano from './icons/vegano.svg';
@@ -42,7 +46,7 @@ import chickenx from './ingicons/chickenx.svg';
 import chickeno from './ingicons/chickeno.svg';
 import meatx from './ingicons/meatx.svg';
 import meato from './ingicons/meato.svg';
-import { event } from "jquery";
+import { event, isEmptyObject } from "jquery";
 
 import hashtag from './hashicons/hashtag.svg';
 import hashline from './hashicons/hashline.svg';
@@ -59,6 +63,7 @@ import etco from './hashicons/etco.svg';
 
 import bookmarkx from './image/bookmarkx.svg';
 import bookmarko from './image/bookmarko.svg';
+import heart from './image/heart.svg';
 
 // 페이지 잘라서 보여줄 갯수
 const init_btnlimit=10;
@@ -66,6 +71,9 @@ const init_btnlimit=10;
 let btnlimit=init_btnlimit;
 // next버튼이 클릭됐는지 확인하는 변수
 let check=0;
+
+// 마지막 페이지인지 확인
+let last_page=false;
 
 const Recipe = () => {
 
@@ -76,7 +84,6 @@ const Recipe = () => {
    
   // 파이어베이스에서 데이터를 가져오는 과정
   // 각각 채식 type에 맞게 데이터를 불러오기 위함
-  const [Merge, setMerge] = useState([]); // merge 추가
   const [Lacto, setLacto] = useState([]);
   const [LactoOvo, setLactoOvo] = useState([]);
   const [Ovo, setOvo] = useState([]);
@@ -86,6 +93,7 @@ const Recipe = () => {
   const [Flexi, setFlexi] = useState([]);
   const [Vegan, setVegan] = useState([]);
 
+  const [Merge, setMerge] = useState([]);
   const history = useHistory();
  
   const [Search_name, setSearch_name] = useState("");
@@ -152,7 +160,6 @@ const Recipe = () => {
 
       let BookmarkRef = useRef(null);
 
-
        // 페이지 개수를 알기위한 for문
       for(let i = 1; i <= Math.ceil(chosen.length / limit); i++) {
         page_arr.push(i);
@@ -160,7 +167,9 @@ const Recipe = () => {
 
   
   useEffect(() => {
-
+    last_page=false;
+    // 스크롤 상단으로 초기화
+    window.scrollTo(0, 0);
     authService.onAuthStateChanged((user) => {
 
       if (user) {
@@ -178,7 +187,7 @@ const Recipe = () => {
     
 
    // 첫 화면에 merge에서 가져온 값을 나타냄
-   dbService.collection("merge").limit(13).onSnapshot((snapshot) => {
+   dbService.collection("merge").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -191,7 +200,7 @@ const Recipe = () => {
     setlimit_boards(boardArray.slice(0,limit))
   });
 
-  dbService.collection("vegan").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("vegan").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -209,7 +218,7 @@ const Recipe = () => {
     setFlexi(boardArray)
   });
 
-  dbService.collection("lacto").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("lacto").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -224,7 +233,7 @@ const Recipe = () => {
     setFlexi((prev) => [...boardArray, ...prev])
   });
 
-  dbService.collection("ovo").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("ovo").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -238,7 +247,7 @@ const Recipe = () => {
     setFlexi((prev) => [...boardArray, ...prev])
   });
 
-  dbService.collection("lacto-ovo").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("lacto-ovo").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -252,7 +261,7 @@ const Recipe = () => {
     setFlexi((prev) => [...boardArray, ...prev])
   });
 
-  dbService.collection("pollo").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("pollo").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -265,7 +274,7 @@ const Recipe = () => {
 
   });
 
-  dbService.collection("pesco").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("pesco").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -278,7 +287,7 @@ const Recipe = () => {
 
   });
 
-  dbService.collection("pollo-pesco").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("pollo-pesco").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -290,7 +299,7 @@ const Recipe = () => {
 
   });
 
-  dbService.collection("flex").limit(5).onSnapshot((snapshot) => {
+  dbService.collection("flex").limit(20).onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -350,6 +359,7 @@ const Recipe = () => {
       const getChosen = async (event) => {
         btnlimit=init_btnlimit;
         check=0;
+        last_page=false;
       
         // 사용자가 비건 type을 선정하면 hashtag를 모두 선택해제한다.
         checkoutHash();
@@ -512,6 +522,7 @@ const Recipe = () => {
 const hashChosen = (event) => {
   btnlimit=init_btnlimit;
   check=0;
+  last_page=false;
 
   const {
     target: {name},
@@ -641,6 +652,7 @@ const hashChosen = (event) => {
       target: { value },
     } = event;
 
+
     setSearch_name(value)
  
   };
@@ -652,10 +664,6 @@ const hashChosen = (event) => {
   // 검색한 name으로 검색을해서 limit_board에 넣어줌
   const search_db = () => {
 
-    btnlimit=init_btnlimit;
-    check=0;
-    // 이전에 넣어둔 데이터를 밀어줌
-    setlimit_boards([])
 
     // 현재 chosen 을 판단해서 해당 type에서 검색
     if( chosen == Vegan)
@@ -717,12 +725,25 @@ const hashChosen = (event) => {
      ))
     }
 
+    // 검색결과가 존재하는지 판단
+    if(isEmptyObject(temp))
+    {
+      alert('검색결과가 존재하지 않습니다.')
+    }
+    else
+    {
+      btnlimit=init_btnlimit;
+      check=0;
+      last_page=false;
+      // 이전에 넣어둔 데이터를 밀어줌
+      setlimit_boards([])
+
     // 넣은 값들을 chosen과 limit_boards에 set 페이지도 1로 다시 set
     setchosen(temp);
     setpage(1);
     setlimit_boards(temp.slice(0,limit))
-
- 
+    }
+  
     setSearch_name("")
  
   }
@@ -737,7 +758,7 @@ const hashChosen = (event) => {
   const change_page_arr = async() => {
 
      // limit 만큼 증가
-     if(btnlimit+init_btnlimit <= page_arr.length){
+     if(btnlimit+init_btnlimit < page_arr.length){
        btnlimit+=init_btnlimit;
        setpage((page+init_btnlimit))
          // Next가 실행됐는지 check
@@ -745,6 +766,7 @@ const hashChosen = (event) => {
      }
      else
      {
+      last_page=true;
        let i=1;
        let k=1;
        // 버튼이 init 보단 작지만 뒤에 몇개가 더 생성되는지 판단
@@ -761,6 +783,7 @@ const hashChosen = (event) => {
        }
 
        console.log("k",k)
+      
      }
 
       //  그 페이지에 맞게 보여줄 게시글을 계산한다
@@ -785,6 +808,7 @@ setlimit_boards(page_boards)
 
   const prev_page = async() =>{
 
+    last_page=false;
     // 맨 앞으로 왔을 경우에 prev실행 X
     if(check==0)
     {
@@ -853,6 +877,7 @@ setlimit_boards(page_boards)
     // 
     btnlimit=init_btnlimit;
     check=0;
+    last_page=false;
     
     setstep(Merge); // 즐찾을 누르면 비건 단계가 풀림(merge로 설정)
 
@@ -917,130 +942,83 @@ setlimit_boards(page_boards)
 
     return(           
             <div className={rec.wrap}> 
+                <img className={ rec.leaf } id={ rec.r1 } src = { leafr1 }/>
+                <img className={rec.leaf} id={rec.r2} src={leafr2}/>
+                <img className={rec.leaf} id={rec.r3} src={leafr3}/>
                <div className={menu.LGbgr}> 
              <Header></Header>
-              <div className={menu.WHbgr}>
-                {/* <a onClick={Show_favorite}>내 즐겨찾기</a> */}
+              <div className={rec.WHbgr}>
+                <div className={rec.btnsection}>
+                  
               <div className={rec.ingredientbtn}>
                  <img src={ingredient}
-                                width='150vw'
-                                height='150vh'
                                 alt= 'ingredient'/>
                  <img src={vegeline}
-                                width='10vw'
-                                height='100vh'
                                 alt= 'justaline'/> 
                <img src={vegex} ref={vege_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Vege"/>                                
                <img src={eggx} ref={egg_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Egg"/>
                <img src={milkx} ref={milk_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Milk"/>  
                <img src={fishx} ref={fish_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Fish"/> 
                <img src={chickenx} ref={chicken_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Chicken"/> 
                <img src={meatx} ref={meat_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Meat"/>                                                                                  
               </div>
 
               <div className={rec.vegetarianbtn}>
               <img src={vegetarian}
-                                width='150vw'
-                                height='150vh'
                                 alt= 'vegetarian'/>
               <img src={vegeline}
-                                width='10vw'
-                                height='100vh'
                                 alt= 'justaline'/>          
-                                        {/*클릭시 이미지의 변경을 위해 ref를 사용  */}
+              {/*클릭시 이미지의 변경을 위해 ref를 사용  */}
               <img onClick={getChosen} src={veganx} ref={vegan_imageRef}
-                                width='100vw'
-                                height='100vh'
                                 name="Vegan"/>
               <img onClick={getChosen} src={lactox} ref={lacto_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Lacto"/>
                <img onClick={getChosen} src={ovox} ref={ovo_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Ovo"/>
                <img onClick={getChosen} src={lactovox} ref={lactoovo_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="LactoOvo"/>
                <img onClick={getChosen} src={pollox} ref={pollo_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Pollo"/>
                <img onClick={getChosen} src={pescox} ref={pesco_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Pesco"/>   
                 <img onClick={getChosen} src={polpescox} ref={pollopesco_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="PolloPesco"/>   
                 <img onClick={getChosen} src={flexix} ref={flex_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Flexi"/>                                                                        
-            </div>  
+                 </div>  
+
             <div className={rec.hashtagbtn}>
               {/* 해시테그 부분임 */}
             <img src={hashtag}
-                                width='150vw'
-                                height='150vh'
                                 alt= 'hashtag'/>
              <img src={hashline}
-                                width='10vw'
-                                height='50vh'
                                 alt= 'hashline'/>
             <img onClick={hashChosen} src={soupx} ref={soup_imageRef}
-                                  width='130vw'
-                                  height='130vh'
                                 name="Soup"/>   
             <img onClick={hashChosen} src={sidex} ref={side_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Side"/>      
             <img onClick={hashChosen} src={coursex} ref={course_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Course"/>        
             <img onClick={hashChosen} src={dessertx} ref={dessert_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Dessert"/> 
             <img onClick={hashChosen} src={etcx} ref={etc_imageRef}
-                                  width='100vw'
-                                  height='100vh'
                                 name="Etc"/> 
-            <div className={rec.bookmark}>
-              <img onClick={Show_favorite} src={bookmarkx} ref={BookmarkRef}
-                                width='140vw'
-                                height='140vh'
-                                name="Bookmark"/>    
-          </div>                                                                                                                                                                                                                        
+            <img onClick={Show_favorite} 
+                                id = {rec.book}
+                                src={bookmarkx} ref={BookmarkRef}
+                                name="Bookmark"/>                                                                                                                                                                                                                       
             </div>
 
-         
+              </div>
+              </div>
+              </div>
 
-              </div>
-              </div>
               <div>
               <div className={menu.space}></div>
           {/* 버튼을 클릭했을때 name의 값을 getChosen으로 넘겨줌 */}
@@ -1063,10 +1041,11 @@ setlimit_boards(page_boards)
                 />
               ))}
             </div>
-            </div>
-  {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
-  <div>
-              <button className={rec.page_num} onClick={prev_page}>PREV</button>
+            
+             {/* 페이지 개수에 맞게 페이지 번호를 만들어주고 클릭시에 그 페이지에 맞는 게시글을 보여줌 */}
+    <div className={rec.numnqna}>
+          <div className={rec.numbering}>
+              <li className={rec.page_num} onClick={prev_page}> &#60; PREV </li>
                 {check==0 ?  page_arr.map( (el,key) =>  
                     el < btnlimit + 1 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el} > {el} </button>         
                 : null ) 
@@ -1074,21 +1053,27 @@ setlimit_boards(page_boards)
                 el+btnlimit-init_btnlimit < btnlimit + 2 ?  <button key={key} className={rec.page_num} onClick={getpage} name={el+btnlimit-init_btnlimit-1} > 
                 {el+btnlimit-init_btnlimit-1} </button>         
             :  null ) }
-    <button className={rec.page_num} onClick={change_page_arr} >NEXT</button>
-
-              </div>
-          </div>          
-          <div >
-                
+                {last_page ? null : <li className={rec.page_num} onClick={change_page_arr}> NEXT &#62; </li>}
+          </div>         
+                <div className={rec.qna}>
                     <input
                     onKeyPress = {isEnter} 
                     value={Search_name}
                     onChange={set_search_name}
                     type = 'text'
-                    placeholder='검색'
+                    placeholder='음식 검색'
                      />
-                     <button onClick={search_db}>검색</button>
+                     <li onClick={search_db}> &nbsp; 검색</li>
                 </div>
+              </div>
+              
+            </div>
+
+            
+ 
+
+          </div>    
+                
             </div>
             
           

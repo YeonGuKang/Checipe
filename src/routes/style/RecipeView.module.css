@@ -8,23 +8,27 @@
 
 .whitealign {
     /* 하얀색 배경에서 그림, 선, 정보를 정렬할때 사용된 클래스 */
-    width : 72vw;
-    height : 45vh;
+    background-color: yellow;
+    width : 75vw;
+    height : 40vh;
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin: 20px;
+    align-items: center;
 }
 
 .information {
     /* 레시피의 기본정보들을 배열할 때 쓰는 클래스 */
+    background-color: yellowgreen;
     font-family: 'goldenpier', serif;   
     margin: 10px; 
+    height: 40vh;
     position: relative;
     display: flex;
-    width: 1300px;
+    width: 80%;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 .title {
@@ -49,27 +53,75 @@
     font-size: 1.6em;
     margin-top: 10px;
     margin-bottom: 30px;
+    bottom: 50px;
+}
+
+.WHbgr { 
+    /* 하얀색 백그라운드 */
+    z-index: 1;
+    background-color : white;
+    width : 90%;
+    height : 53%;
+    border-top-left-radius : 40px;
+    border-top-right-radius : 40px;
+    border-bottom-right-radius: 40px;
+    position : relative;
+    left : 1vw;
+    top : 25vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.DGbgr {
+    background-color :  #28421f;
+    width : 92vw;
+    height : inherit;
+    position : absolute;
+    display: flex;
+    
 }
 
 .DGwhite {
     font-family: 'goldenpier', serif;   
 
     z-index: 1;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 10px;
     position: relative;
     display: flex;
     background-color: white;
     width : 72vw;
-    height: inherit;
-    left : 9vw;
+    height: 50%;
+    /* top :40px; */
+    left : 12vw;
     flex-direction: column;
 }
 
-.underspace {
-    z-index: 2;
-    top :-30vh;
-    background-color :  #28421f;
+.space {
+    /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
+    /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
+    background-color : #28421f;
     width : 92vw;
-    height : 5vh;
-    position : relative;
+    height : 50vh;
+    position : absolute;
+    top : 60vh;
     display : flex;
+}
+
+
+.marknlove {
+    background-color: white;
+    margin-top: 30px;
+    border-radius: 37.5px;
+    position: absolute;
+    left : 35px;
+    top : 23vh;
+    display: flex;
+    height : 60px;
+    width: 130px;
+    align-items: center;
+    justify-content: space-around;
 }

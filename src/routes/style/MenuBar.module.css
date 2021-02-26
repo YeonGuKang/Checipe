@@ -7,47 +7,14 @@
     src:url('../fonts/MapoGoldenPier.ttf');    
 }
 
-@media screen and (max-width: 1065px){
-    .logo_img{
-        position: relative;                
-        display : inline;                   
-    }
-    .nav{
-    
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        padding: 8px 24px;
-    }
 
-    .header{
-        /* flex-direction: column; */
-        align-items: center;
-    }
 
-    .nav li {
-        padding-left: 0;
-        width: 100%;
-        text-align: center;    
-    }
-    .login{   
-        flex-direction: column;     
-        /* top: 50px; */
-        /* right: 20px; */
-        /* display: none; */
-    }
-    .menubtn{
-        display: block;
-    }
-    /* 로그인 네비바 부분이 활성화 되었을때(클릭 시) */
-    .login.active,
-    .nav.active{
-        display: flex;
-    }
 
+.standard {
+    /* background-color: yellow; */
+    display: block;
+    height: inherit;
 }
-
 
 .LGbgr{
     /* 라이트그린 백그라운드 */
@@ -57,9 +24,10 @@
     flex-direction: column;
     left : 7vw;    
     width : 92vw;
-    height: 85vh;
+    height: 80vh;
     background-color:  #537f46;
     display : flex;
+    padding-bottom: 10px;
 }
 
 .Rlogo{
@@ -90,22 +58,22 @@
     /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
     background-color :  #28421f;
     width : 92vw;
-    height : 30vh;
-    position : relative;
-    top : -20vh;
+    height : 100%;
+    top : 60vh;
+    position : absolute;
     display : flex;
 }
 
 .DGbgr {
     /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
     /* 그냥 뒤에 진한 초록색배경 */
-    z-index: 1;
+    z-index: 2;
     background-color :  #28421f;
     width : 92vw;
-    height : 150%;
-    top : -30vh;
+    height : 100%;
     position : relative;
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     
 }
 
@@ -113,7 +81,8 @@
     /* 아마 메뉴들 위치일거 같음. */
     display: flex;
     padding-left: 0;
-    cursor: pointer              
+    cursor: pointer;
+    /* width: 500px;               */
 }
 
 
@@ -158,7 +127,7 @@
 
 .login{
     font-family: 'goldenpier', serif;
-    font-size : 1.3em;
+    font-size : 20px;
     color: black;
     position : relative;
     right : 10vw;    
@@ -166,16 +135,112 @@
     transition:all .3s ease
 }
 
-.WHbgr { 
-    /* 하얀색 백그라운드 */
-    z-index: 1;
-    background-color : white;
-    width : 1550px;
-    height : 45vh;
-    border-top-left-radius : 40px;
-    border-top-right-radius : 40px;
-    border-bottom-right-radius: 40px;
-    position : relative;
-    left : 2vw;
-    bottom : -30vh;
+
+@media (max-width: 1280px){
+    .DGbgr {
+        /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
+        /* 그냥 뒤에 진한 초록색배경 */
+        z-index: 2;
+        background-color :  #28421f;
+        width : 1177.6px;
+        height : 100%;
+        position : relative;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .LGbgr{
+        /* 라이트그린 백그라운드 */
+        /* 우측상단에 위치한 큰 밝은 초록박스 */
+        z-index: 1;
+        position : relative;
+        flex-direction: column;
+        left : 89.6px;     
+        width : 1177.6px;
+        height: 80vh;
+        background-color:  #537f46;
+        display : flex;
+    }
+
+    .space {
+        /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
+        /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
+        background-color :  #28421f;
+        width : 1177.6px;
+        height : 100%;
+        top : 60vh;
+        position : absolute;
+        display : flex;
+    }
+    
+}
+
+@media screen and (max-height: 900px){
+
+    .LGbgr{
+        /* 라이트그린 백그라운드 */
+        /* 우측상단에 위치한 큰 밝은 초록박스 */
+        z-index: 1;
+        position : relative;
+        flex-direction: column;
+        left : 7vw;    
+        width : 92vw;
+        height: 720px;
+        background-color:  #537f46;
+        display : flex;
+        padding-bottom: 10px;
+    }
+
+    .space {
+        /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
+        /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
+        background-color :  #28421f;
+        width : 92vw;
+        height : 100%;
+        top : 540px;
+        position : absolute;
+        display : flex;
+    }
+    
+}
+
+@media (max-width: 1280px) and (max-height: 900px){
+
+    .DGbgr {
+        /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
+        /* 그냥 뒤에 진한 초록색배경 */
+        z-index: 2;
+        background-color :  #28421f;
+        width : 1177.6px;
+        height : 100%;
+        position : relative;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .LGbgr{
+        /* 라이트그린 백그라운드 */
+        /* 우측상단에 위치한 큰 밝은 초록박스 */
+        z-index: 1;
+        position : relative;
+        flex-direction: column;
+        left : 89.6px;    
+        width : 1177.6px;
+        height: 720px;;
+        background-color:  #537f46;
+        display : flex;
+    }
+
+    .space {
+        /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
+        /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
+        background-color :  #28421f;
+        width : 1177.6px;
+        height : 100%;
+        top : 540px;
+        position : absolute;
+        display : flex;
+    }
 }

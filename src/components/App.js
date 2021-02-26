@@ -9,6 +9,7 @@ import Notice from '../routes/Notice';
 import Register from '../routes/Register';
 import RecipeView from '../routes/RecipeView';
 import View_board from '../routes/View_board';
+import About_Open from '../routes/About_Open';
 
 function App() {
  
@@ -45,6 +46,7 @@ function App() {
      <Route path="/Register" component = {Register} />
      <Route path="/View" component = {View_board} />
      <Route path="/RecipeView" component = {RecipeView} />
+     <Route path="/About_Open" component = {About_Open} />
   </BrowserRouter>
 
   );

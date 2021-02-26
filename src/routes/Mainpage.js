@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
-import checipe_logo from './image/chaecipielogo.png';
 import checipelogo from './image/checipelogo.svg';
 
 import noimage from './image/noimage.svg';
+import leafm1 from './leaves/leafM1.svg';
+import leafm2 from './leaves/leafM2.svg';
+import leafm3 from './leaves/leafM3.svg';
 
 import { authService , dbService } from '../firebase';
 
-import Frecipebtn from './image/Frecipe.png';
+import AboutVege from './image/AboutVege.svg';
+import Frecipebtn from './image/Frecipe.svg';
 import Whyvegan from './image/pjwhy.png';
 import Noticeimg from './image/pjNotice.png';
 import Aboutveg from './image/pjchecipe.png';
@@ -40,6 +43,8 @@ const Mainpage = () => {
   }
 
   useEffect(() => {
+    // 스크롤 상단으로 초기화
+    window.scrollTo(0, 0);
     // 랜덤으로 불러오도록 난수를 생성
    let min = Math.ceil(5);
    let max = Math.floor(1000);
@@ -122,23 +127,10 @@ const Mainpage = () => {
     return(
             <div className="wrap">
                   <div className={menu.LGbgr}>
+                    <img className='leaf' id='m1' src={ leafm1 }/>
+                    <img className='leaf' id='m2' src={ leafm2 }/>
                     <Header></Header>
-                   <div className="about_vegan">
-                                 <li><Link to="/About" >About</Link> </li>
-                                  <li><Link to="/About" >VEGETARIAN</Link></li>
-                                  <li><Link to="/About" >채식에관하여</Link></li>
-                              </div>
-
-                              
-                      <div className="btn">
-                        <Link to = "/Recipe">
-                              <img className="recipebtn"
-                                    src={ Frecipebtn }
-                                    width='140%'
-                                    alt= 'recipebtn'
-                              /> 
-                        </Link>
-                      </div> 
+                   
 
               </div>  
              
@@ -154,7 +146,7 @@ const Mainpage = () => {
                                 className='slideimg'
                                 src={ Whyvegan }
                                 width='1300px'
-                                height='100vh'
+                                height='100%'
                                 />
                                  <img
                                className='slideimg'
@@ -170,11 +162,27 @@ const Mainpage = () => {
                                 />
                   </Slider>
                   </div>
-      
+                  <div className="about_btn">
+                      <Link to = "/About_Open">
+                        <img className="AboutVege"
+                              src={AboutVege}
+                              width='90%'
+                              />
+                      </Link>
+                      <div className="btn">
+                        <Link to = "/Recipe">
+                              <img className="recipebtn"
+                                    src={ Frecipebtn }
+                                    width='125%'
+                                    alt= 'recipebtn'
+                              /> 
+                        </Link>
+                      </div>
+                    </div>    
                   </div>
 
                   <div className="lat">
-                       <section className="visual">
+                    <section className="visual">
                        <Slider {...settings_bttom}>
                        <Link to = {{pathname: "/RecipeView/" + obj_step[0] + '/' + obj_name[0],
                    state: {
@@ -192,10 +200,10 @@ const Mainpage = () => {
                                 src={ obj_image[0] }
                                 onError={handleImgError}
                                 alt={obj_name[0]}
-                                width='400px'
-                                height='300px'
-                                // width='90%'
-                                // border='3'
+                                // width='210vw'
+                                // height='200vh'
+                                // width='90%'          
+                                // border='3'                      
                                 />
                               </div>
                               </Link>
@@ -216,8 +224,8 @@ const Mainpage = () => {
                                 src={ obj_image[1] }
                                 onError={handleImgError}
                                 alt={obj_name[1]}
-                                width='400px'
-                                height='300px'                                
+                                // width='210vw'
+                                // height='200vh'                               
                                 // width='90%'                                
                                 />
                           </div>
@@ -239,8 +247,8 @@ const Mainpage = () => {
                                 src={ obj_image[2] }
                                 onError={handleImgError}
                                 alt={obj_name[2]}
-                                width='400px'
-                                height='300px'
+                                // width='210vw'
+                                // height='200vh'
                                 // width='90%'
                                 // border='3'
                                 />
@@ -262,17 +270,18 @@ const Mainpage = () => {
                                 src={ obj_image[3] }
                                 onError={handleImgError}
                                 alt={obj_name[3]}
-                                width='400px'
-                                height='300px'                                
+                                // width='210vw'
+                                // height='200vh'                            
                                 // width='90%'
                                 // border='3'
                                 />
                           </div>
                           </Link>
                           </Slider>
-                      </section>
+                  </section>
                    
                   </div>
+                  <img className='leaf' id='m3' src= { leafm3 } />
            </div>
 
     );
