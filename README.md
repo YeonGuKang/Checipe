@@ -5,7 +5,7 @@
   <img width="100%" height="500" src=https://user-images.githubusercontent.com/37290818/109410729-52940680-79e0-11eb-8298-04aad0587266.png>
   
   
-  - As a result, food and recipes are becoming more diverse..
+  - As a result, food and recipes are becoming more diverse.
   - There are many different kinds of vegetarian, and I wanted to organize these kinds with food.
 
 ## Features of a Web Page :mag_right:
