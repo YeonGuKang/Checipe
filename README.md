@@ -6,7 +6,7 @@
   - There are many different kinds of vegetarian, and I wanted to organize these kinds with food.
 
 ## Features of a Web Page :mag_right:
-<img width:"30" height:"30" src=https://user-images.githubusercontent.com/37290818/109410286-bcaaac80-79dc-11eb-8fe7-46cbed7792bc.PNG>
+<img width="30" height="30" src=https://user-images.githubusercontent.com/37290818/109410286-bcaaac80-79dc-11eb-8fe7-46cbed7792bc.PNG>
 
 
 
