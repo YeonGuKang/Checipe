@@ -86,9 +86,9 @@ class About_Open extends React.Component {
   </div>
 
   <div className={viewb.vdate}>
-2. 채식 관련 산업
+2. 채식 관련 산업<br></br>
   
-우리의 목표
+우리의 목표<br></br>
 
 이렇게 채식주의자들이 증가하는 것에 비해서 채식주의자들을 위한 서비스는 비교적 적다.
 또한 채식주의에 대해 잘 알지 못하는 사람도 많고, 부정적인 인식을 가지는 사람도 적지 않다.
