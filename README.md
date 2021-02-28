@@ -7,6 +7,8 @@
 
 ## Features of a Web Page :mag_right:
 <img width="100%" height="500" src=https://user-images.githubusercontent.com/37290818/109410286-bcaaac80-79dc-11eb-8fe7-46cbed7792bc.PNG>
+<img width="100%" height="500" src=https://user-images.githubusercontent.com/37290818/109410521-b1588080-79de-11eb-9024-dd11acd7d5c8.png>
+
 
 
 
