@@ -42,13 +42,12 @@ class About_Open extends React.Component {
                  <hr size='5' color='#28421f'></hr> 
                  <div className={viewb.vdate}>채식 소개 <br></br>
 
-                 <p>1. 채식주의자의 정의
-  동물성 음식을 먹는 것을 최대한 피하고, 식물성 음식을 먹는 것을 뜻한다.</p>
-  </div>
-  <div className={viewb.vdate}>
-2. 채식주의자의 유형
-  자신의 신념에 따라 채식의 정도가 다양하고 크게 8가지로 나뉘어진다.
-  <p>- 비건(Vegan) : 완전한 채식, 모든 종류의 동물성 음식을 먹지 않음
+                 &nbsp;&nbsp;&nbsp;&nbsp;1. 채식주의자의 정의<br></br>
+                 &nbsp;&nbsp;&nbsp;&nbsp;동물성 음식을 먹는 것을 최대한 피하고, 식물성 음식을 먹는 것을 뜻한다. <br></br><br></br>
+ 
+                &nbsp;&nbsp;&nbsp;&nbsp;2. 채식주의자의 유형<br></br>
+                &nbsp;&nbsp;&nbsp;&nbsp;자신의 신념에 따라 채식의 정도가 다양하고 크게 8가지로 나뉘어진다.<br></br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 비건(Vegan) : 완전한 채식, 모든 종류의 동물성 음식을 먹지 않음<br></br>
     - 락토 베지테리언 (Lacto vegetarian) : 유제품은 먹는 경우
     - 오보 베지테리언 (Ovo vegetarian) : 난류(동물의 알)는 먹는 경우
     - 락토 오보 베지테리언 (Lacto-ovo vegetarian) : 유제품과 난류(동물의 알)까지 먹는 경우          
@@ -56,11 +55,10 @@ class About_Open extends React.Component {
     - 페스코 베지테리언(Pesco vegetarian) : 육류와 조류를 제외하고 먹는 경우
     - 폴로 페스코 베지테리언(Pollo-Pesco vegetarian) : 육류만을 제외하고 먹는 경우
     - 플렉시테리언 (Flexitarian) : 준 채식주의자, 상황에 따라 육식도 한다
-    </p>
+    
 
-  </div>
       
-  <div className={viewb.vdate}>
+  
 채식 현황
 
 1. 한국에서의 채식
@@ -69,9 +67,8 @@ class About_Open extends React.Component {
   비건에 대한 관심도 증가하고 있다. 지난 5년간의 구글 검색량을 보면 꾸준히 관심도가 증가하는 것을 볼 수 있다.
   (구글 트렌드 그래프)
 
-  </div>
 
-  <div className={viewb.vdate}>
+
 2. 채식 관련 산업
   
 우리의 목표
