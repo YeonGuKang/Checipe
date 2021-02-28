@@ -80,6 +80,7 @@ https://yeongukang.github.io/Checipe/
   - https://nomadcoders.co/nwitter : It was developed by referring to Nomad coder's Twitter clone coding.
   - https://www.foodsafetykorea.go.kr/apiMain.do : It is a site that brought open recipe information.
   - https://console.firebase.google.com/u/0/ : Google Firebase (We used for database)
+  - https://react-slick.neostack.com/ : The slider on the main page used Slick.
 
 
 
