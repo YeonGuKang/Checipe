@@ -2,6 +2,7 @@
 
 ## Reason for Project :eyes:
   - More and more people are eating vegetables because of environment, religion, and health.
+  <img width="100%" height="500" src=https://user-images.githubusercontent.com/37290818/109410729-52940680-79e0-11eb-8298-04aad0587266.png>
   - As a result, food and recipes are becoming more diverse..
   - There are many different kinds of vegetarian, and I wanted to organize these kinds with food.
 
@@ -74,6 +75,7 @@
 ## Reference
   - https://nomadcoders.co/nwitter : It was developed by referring to Nomad coder's Twitter clone coding.
   - https://www.foodsafetykorea.go.kr/apiMain.do : It is a site that brought open recipe information.
+  - https://console.firebase.google.com/u/0/ : Google Firebase (We used for database)
 
 
 
