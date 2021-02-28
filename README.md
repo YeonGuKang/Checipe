@@ -6,6 +6,7 @@
   - There are many different kinds of vegetarian, and I wanted to organize these kinds with food.
 
 ## Features of a Web Page :mag_right:
+https://user-images.githubusercontent.com/37290818/109410286-bcaaac80-79dc-11eb-8fe7-46cbed7792bc.PNG
   - Depending on the variety of vegetarian types, users can check the recipes that they can eat on their own.
   - Users can bookmark their recipes and click Like.
   - Even if you are not a vegetarian, you can check various recipes by dividing them into types of food.
