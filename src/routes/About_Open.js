@@ -41,7 +41,6 @@ class About_Open extends React.Component {
                  <div className={viewb.vtitle}>채식에 관하여</div>
                  <hr size='5' color='#28421f'></hr> 
                  <div className={viewb.vdate}>채식 소개 <br></br>
-
                  &nbsp;&nbsp;&nbsp;&nbsp;1. 채식주의자의 정의<br></br>
                  &nbsp;&nbsp;&nbsp;&nbsp;동물성 음식을 먹는 것을 최대한 피하고, 식물성 음식을 먹는 것을 뜻한다. <br></br><br></br>
  
@@ -59,6 +58,7 @@ class About_Open extends React.Component {
 
       
   
+
 채식 현황
 
 1. 한국에서의 채식
