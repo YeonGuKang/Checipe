@@ -13,6 +13,7 @@
   - Depending on the variety of vegetarian types, users can check the recipes that they can eat on their own.
   - Users can bookmark their recipes and click Like.
   - Even if you are not a vegetarian, you can check various recipes by dividing them into types of food.
+  - Our recipes are over 1.2
 
 ## Used :trollface:
   - Python
@@ -29,6 +30,7 @@
     
 ## Reference
   - https://nomadcoders.co/nwitter : It was developed by referring to Nomad coder's Twitter clone coding.
+  - https://www.foodsafetykorea.go.kr/apiMain.do : It is a site that brought open recipe information.
 
 
 
