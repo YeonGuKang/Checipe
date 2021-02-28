@@ -151,30 +151,7 @@ div > img.slideimg {
     margin-left: 4vw;
 }
 
-.about_vegan{
-    width: 400px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative; /*나중에 릴레이티브로 수정가능성있음 */
-    margin-bottom: 5vh;
 
-}
-
-.about_vegan  li{
-    font-weight: bold;
-     text-shadow: 3px 3px 2px gray;
-    font-family: 'bombaram', serif;
-    font-size: 50px;
-    letter-spacing: 10px;
-    /* margin-bottom: 3vh; */
-    display: inline;
-}
-
-.about_vegan li a {
-    color : white;
-}
 /*레시피 이동 버튼*/
 .btn{
     width: 20vw;

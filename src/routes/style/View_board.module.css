@@ -1,5 +1,9 @@
 /* 헤더 아래에 middle이 필요해서 추가해줌 */
 
+* p{
+ text-indent: 5%;
+}
+
 
 .middle{
     background-color : #28421f;
@@ -9,7 +13,7 @@
     display: flex;
     justify-content: center;
     width : 92vw;
-    height : 70vh;
+  
     
 }
 
@@ -27,6 +31,8 @@
     padding-top: 25px;
     padding-left: 15px;
     padding-right: 15px;
+
+    
 }
 
 .vtitle {
@@ -45,6 +51,7 @@
     font-size: 20px;
     margin-left: 15px;
     margin-right: 15px;
+    
 
 }
 
@@ -55,8 +62,8 @@
     margin-left: 10px;
     margin-right: 10px;
 
-    width : 69vw;
-    height : 40vh;
+    width: inherit;
+    height: 200vh;
 
     border: none;
     resize: none;
