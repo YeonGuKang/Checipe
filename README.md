@@ -13,7 +13,7 @@
   - Depending on the variety of vegetarian types, users can check the recipes that they can eat on their own.
   - Users can bookmark their recipes and click Like.
   - Even if you are not a vegetarian, you can check various recipes by dividing them into types of food.
-  - Our recipes are over 1.2
+  - Our recipes are over 1.2K
 
 ## Used :trollface:
   - Python
