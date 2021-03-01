@@ -126,12 +126,11 @@ const Mainpage = () => {
 
     return(
             <div className="wrap">
+              <img className='leaf' id='m1' src={ leafm1 }/>
+              <img className='leaf' id='m2' src={ leafm2 }/>
+              <img className='leaf' id='m3' src= { leafm3 } />
                   <div className={menu.LGbgr}>
-                    <img className='leaf' id='m1' src={ leafm1 }/>
-                    <img className='leaf' id='m2' src={ leafm2 }/>
                     <Header></Header>
-                   
-
               </div>  
              
                   <div className="midle">
@@ -281,7 +280,6 @@ const Mainpage = () => {
                   </section>
                    
                   </div>
-                  <img className='leaf' id='m3' src= { leafm3 } />
            </div>
 
     );
