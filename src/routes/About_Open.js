@@ -5,6 +5,7 @@ import viewb from "./style/View_board.module.css";
 import { authService , dbService } from '../firebase';
 import {ReactComponent as Msvg} from './image/menu.svg'
 
+import VegeTable from './image/VegeTable.svg';
 import Header from "../components/Header"
 
 class About_Open extends React.Component {
@@ -48,7 +49,10 @@ class About_Open extends React.Component {
   <div className={viewb.vdate}>
 2. 채식주의자의 유형
   자신의 신념에 따라 채식의 정도가 다양하고 크게 8가지로 나뉘어진다.
-  <p>- 비건(Vegan) : 완전한 채식, 모든 종류의 동물성 음식을 먹지 않음</p>
+
+  <img src={VegeTable}/>
+
+    <p>- 비건(Vegan) : 완전한 채식, 모든 종류의 동물성 음식을 먹지 않음</p>
     <p>- 락토 베지테리언 (Lacto vegetarian) : 유제품은 먹는 경우</p>
     <p>- 오보 베지테리언 (Ovo vegetarian) : 난류(동물의 알)는 먹는 경우</p>
     <p>- 락토 오보 베지테리언 (Lacto-ovo vegetarian) : 유제품과 난류(동물의 알)까지 먹는 경우</p>
