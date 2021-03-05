@@ -50,8 +50,8 @@ render() {
           </div>
           <div className={viewb.block}>            
             <div className={viewb.subtitle}>2. 채식주의자의 유형</div>
-              <div className={viewb.contents}>자신의 신념에 따라 채식의 정도가 다양하고<br/>크게 8가지로 나뉘어진다.
-                <img src={VegeTable}/>
+              <div className={viewb.contents}>자신의 신념에 따라 채식의 정도가 다양하고<br/>크게 8가지로 나뉘어진다.<br/>
+                <br/><img src={VegeTable}/>
                 <div className={viewb.smalltitle}>
                   <div>- 비건(Vegan) : 완전한 채식, 모든 종류의 동물성 음식을 먹지 않음</div>
                   <div>- 락토 베지테리언 (Lacto vegetarian) : 유제품은 먹는 경우</div>

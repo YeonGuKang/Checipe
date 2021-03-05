@@ -35,7 +35,35 @@
 
     
 }
+.block{
+    animation: fadein 0.8s;
+    -moz-animation: fadein 0.8s;    
+    -webkit-animation: fadein 0.8s;    
+}
+.contents, .subtitle {
+    animation: fadein 1.5s;
+    -moz-animation: fadein 1.5s;
+    /* Firefox */
+    -webkit-animation: fadein 1.5s;
+    /* Safari and Chrome */
+}
 
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@-moz-keyframes fadein {
+/* Firefox */
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@-webkit-keyframes fadein {
+/* Safari and Chrome */
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
 .vtitle {
     font-family: 'goldenpier', serif;
     font-size: 40px;
@@ -73,7 +101,7 @@
 
 .contents{
     font-size: 17pt;
-    padding-top: 3vh;
+    padding-top: 1vh;
 }
 
 .smalltitle{
