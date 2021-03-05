@@ -42,18 +42,44 @@
     font-weight: bolder;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 20px;    
 }
 
-.vdate {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-family: 'goldenpier', serif;
-    font-size: 20px;
-    margin-left: 15px;
-    margin-right: 15px;
-    
+.block {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-family: 'goldenpier', serif;    
+    font-size: 25pt;
+    text-align: center;    
+    line-height: 35px;
+    /* margin-left: 15px; */
+    /* margin-right: 15px; */
+}
+.block >div{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
 
+.subtitle{
+    font-size: 20pt;
+    text-align: center;
+    border-radius: 15px;
+    padding: 18px 20px;
+    margin: 0 4vw;
+    color: aliceblue;
+    background: #537f46;
+    transition: all .5s;    
+}
+
+.contents{
+    font-size: 17pt;
+    padding-top: 3vh;
+}
+
+.smalltitle{
+    text-align: left;
+    margin: 2vw;
+    padding-top: 3vh;
 }
 
 .vcontent {
