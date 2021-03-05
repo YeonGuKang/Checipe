@@ -91,7 +91,7 @@ render() {
             <hr size='3' color='#537f46'></hr>
             <div>채식 현황</div>
               <div className={viewb.subtitle}>한국에서의 채식</div>
-                <div className={viewb.contents}>채식 관련 단체 '한채연'에 따르면 국내 채식주의자의 수는 2008년 15만명 수준에서 2018년 150만명으로 추정하고 있다.<br/>
+                <div className={viewb.contents_highlight}>채식 관련 단체 '한채연'에 따르면 국내 채식주의자의 수는 2008년 15만명 수준에서 2018년 150만명으로 추정하고 있다.<br/>
                 10년 동안 10배 가량 증가한 것이다.<br/>
                 비건에 대한 관심도 증가하고 있다. 지난 5년간의 구글 검색량을 보면 꾸준히 관심도가 증가하는 것을 볼 수 있다.<br/>
                 (구글 트렌드 그래프)</div>            
@@ -103,7 +103,7 @@ render() {
           <div className={viewb.block}>
             <hr size='3' color='#537f46'></hr>
             <div>프로젝트 목표</div>
-              <div className={viewb.contentsfin}>이렇게 채식주의자들이 증가하는 것에 비해서 채식주의자들을 위한 서비스는 비교적 적다.<br/>
+              <div className={viewb.contents_highlight}>이렇게 채식주의자들이 증가하는 것에 비해서 채식주의자들을 위한 서비스는 비교적 적다.<br/>
               또한 채식주의에 대해 잘 알지 못하는 사람도 많고, 부정적인 인식을 가지는 사람도 적지 않다.<br/>
               그래서 채식주의자들을 위한 레시피 서비스를 제공하고,<br/>
               채식을 하지 않는 사람들도 흥미 있는 요리를 하며 채식을 경험함으로써 채식주의에 대해 다시 생각해 보는 계기가 될 것이다.<br/></div>          
