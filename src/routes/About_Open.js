@@ -94,7 +94,7 @@ render() {
                 <div className={viewb.contents_highlight}>채식 관련 단체 '한채연'에 따르면 국내 채식주의자의 수는 2008년 15만명 수준에서 2018년 150만명으로 추정하고 있다.<br/>
                 10년 동안 10배 가량 증가한 것이다.<br/>
                 비건에 대한 관심도 증가하고 있다. 지난 5년간의 구글 검색량을 보면 꾸준히 관심도가 증가하는 것을 볼 수 있다.<br/>
-                (구글 트렌드 그래프)</div>            
+                (구글 트렌드 그래프)</div>                
           </div>
           <div className={viewb.block}>
             <div className={viewb.subtitle}>채식 관련 산업</div>
