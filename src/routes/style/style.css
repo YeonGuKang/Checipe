@@ -32,6 +32,10 @@
 
 /*가운데 레이아웃 크기를 결정해줌*/
 
+.wrap {
+    height: 160vh;
+}
+
 .midle{
     z-index: 5;
     position : relative;
@@ -254,7 +258,7 @@ div>section>div>div>div .slick-slide:hover .imgbtn{
     width: 13vw;
     height: 10vh;
     right: 2vw;
-    bottom: -70vh;
+    top: 157vh;
 }
 
 
@@ -271,12 +275,11 @@ div>section>div>div>div .slick-slide:hover .imgbtn{
         right: -1vw;
         top: 180px;
     }
-    
     #m3 {
         width: 13vw;
         height: 90px;
         right: 2vw;
-        bottom: -630px;
+        top: 1413px;
     }
 
     .about_btn {
@@ -358,6 +361,31 @@ div>section>div>div>div .slick-slide >div{
         /* 메인페이지 중앙에 위치한 슬라이드이미지 높이조정 */    
         height: 675px;  
         
+    }
+}
+
+@media (max-width: 1700px) {
+    .midle{
+        z-index: 5;
+        position : relative;
+        top : -20vh;
+        height : 60vh;
+        display: flex; /*해당 디스플레이 플렉스 수정 */
+        width: 100vw;
+        flex-direction: column;
+    
+    }
+
+    .about_btn {
+        z-index: 1;
+        display: flex;
+        position: relative;
+        width: 32vw;
+        height: 60vh;
+        flex-direction: row;
+        align-content: space-around;
+        top : -20vh;
+        margin-left: 4vw;
     }
 }
 
