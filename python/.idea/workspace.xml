@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c418751-36ac-41e1-aab2-2600888534d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/merge_fin_fin.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/merge_fin_fin.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/firebase.py" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.py" afterDir="false" />

@@ -33,7 +33,7 @@ db = firestore.client()
 #     db_merge = db.collection('merge').document(merge.iloc[i]['name'])
 #     db_merge.update({
 #         "like" : 0
-    })
+#    })
     #     db_merge.set({
     #         'part': merge.iloc[i]['part'],
     #         'way': merge.iloc[i]['way'],
@@ -49,7 +49,7 @@ db = firestore.client()
 #     vegan = db.collection('vegan').document(merge1.iloc[i]['name'])
 #     vegan.update({
 #         "like" : 0
-    })
+#    })
     # vegan.set({
     #     'id': i,
     #     'part': merge1.iloc[i]['part'],
@@ -65,7 +65,7 @@ db = firestore.client()
 #     vegan = db.collection('lacto').document(merge2.iloc[i]['name'])
 #     vegan.update({
 #         "like" : 0
-    })
+#    })
     # vegan.set({
     #     'id': i,
     #     'part': merge2.iloc[i]['part'],
