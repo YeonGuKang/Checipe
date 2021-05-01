@@ -24,56 +24,55 @@ const Loginform = () => {
       }
       setInit(true);
     });
-    
+
   }, []);
 
-      const onSocialClick = async (event) =>{
-        const {
-          target: {name},
-        } = event;
-        let provider;
-        if(name === "Google"){
-          provider = new firebaseInstance.auth.GoogleAuthProvider();
+  const onSocialClick = async (event) => {
+    const {
+      target: { name },
+    } = event;
+    let provider;
+    if (name === "Google") {
+      provider = new firebaseInstance.auth.GoogleAuthProvider();
 
-        }else if(name === "Github")
-        {
-          provider = new firebaseInstance.auth.GithubAuthProvider();
-        }
-        const data = await authService.signInWithPopup(provider);
-        console.log(data);
-      };
+    } else if (name === "Github") {
+      provider = new firebaseInstance.auth.GithubAuthProvider();
+    }
+    const data = await authService.signInWithPopup(provider);
+    console.log(data);
+  };
 
-    return(
-      <div className="backwrap">
+  return (
+    <div className="backwrap">
       <div className="mainform">
-      <div className="Line"></div>
-      <div className="Llogo">
-                              {/* js에서는 img를 이런식으로 import해서 불러온다. */}
-                              <a href="/Checipe">
-                              <img
-                                src={checipelogo}
-                                width='220vw'
-                                height='220vh'
-                                alt= 'login logo'/>
-                                </a>
-                          </div>
+        <div className="Line"></div>
+        <div className="Llogo">
+          {/* js에서는 img를 이런식으로 import해서 불러온다. */}
+          <a href="/Checipe">
+            <img
+              src={checipelogo}
+              width='220vw'
+              height='220vh'
+              alt='login logo' />
+          </a>
+        </div>
         <div className="authBtns">
-            <button className="authBtn" onClick={onSocialClick} name="Google">
-              <img className="google_log" src={google} /><br/>
+          <button className="authBtn" onClick={onSocialClick} name="Google">
+            <img className="google_log" src={google} /><br />
               구글 계정으로 계속하기
             </button>
-            <button className="authBtn" onClick={onSocialClick} name="Github">
-              <img className="github_log" src={github} /><br/>
+          <button className="authBtn" onClick={onSocialClick} name="Github">
+            <img className="github_log" src={github} /><br />
               깃허브 계정으로 계속하기
             </button>
         </div>
-   </div>
-   <div>{isLoggedIn ? <Redirect from="/Loginform" to = {history.goBack()} />: null}</div>
-   </div>
+      </div>
+      <div>{isLoggedIn ? <Redirect from="/Loginform" to={history.goBack()} /> : null}</div>
+    </div>
 
-  
-    )
-  }
+
+  )
+}
 
 
 export default Loginform;
