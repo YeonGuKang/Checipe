@@ -156,7 +156,7 @@ div > img.slideimg {
     height: 5vh;
     display: inline;
     position: relative; /*나중에 다시 relative로 수정 진행할거임*/
-
+    right: 1vw;
     bottom: -15vh;
    
     /* margin-top: 13vh; */
