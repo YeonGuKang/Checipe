@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Checipe/static/css/main.26abd150.chunk.css",
-    "main.js": "/Checipe/static/js/main.db33c584.chunk.js",
-    "main.js.map": "/Checipe/static/js/main.db33c584.chunk.js.map",
+    "main.css": "/Checipe/static/css/main.1419ef25.chunk.css",
+    "main.js": "/Checipe/static/js/main.fd8fe38d.chunk.js",
+    "main.js.map": "/Checipe/static/js/main.fd8fe38d.chunk.js.map",
     "runtime-main.js": "/Checipe/static/js/runtime-main.34120e2b.js",
     "runtime-main.js.map": "/Checipe/static/js/runtime-main.34120e2b.js.map",
     "static/css/2.653800cc.chunk.css": "/Checipe/static/css/2.653800cc.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.6db71ad8.chunk.js.map": "/Checipe/static/js/2.6db71ad8.chunk.js.map",
     "index.html": "/Checipe/index.html",
     "static/css/2.653800cc.chunk.css.map": "/Checipe/static/css/2.653800cc.chunk.css.map",
-    "static/css/main.26abd150.chunk.css.map": "/Checipe/static/css/main.26abd150.chunk.css.map",
+    "static/css/main.1419ef25.chunk.css.map": "/Checipe/static/css/main.1419ef25.chunk.css.map",
     "static/js/2.6db71ad8.chunk.js.LICENSE.txt": "/Checipe/static/js/2.6db71ad8.chunk.js.LICENSE.txt",
     "static/media/AboutVege.22f8667a.svg": "/Checipe/static/media/AboutVege.22f8667a.svg",
     "static/media/Frecipe.7f65008c.svg": "/Checipe/static/media/Frecipe.7f65008c.svg",
@@ -88,7 +88,7 @@
     "static/js/runtime-main.34120e2b.js",
     "static/css/2.653800cc.chunk.css",
     "static/js/2.6db71ad8.chunk.js",
-    "static/css/main.26abd150.chunk.css",
-    "static/js/main.db33c584.chunk.js"
+    "static/css/main.1419ef25.chunk.css",
+    "static/js/main.fd8fe38d.chunk.js"
   ]
 }
