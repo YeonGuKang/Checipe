@@ -6,6 +6,7 @@ import { authService, dbService } from '../firebase';
 import { ReactComponent as Msvg } from './image/menu.svg'
 
 import VegeTable from './image/VegeTable.svg';
+import Trand from './image/googletrand.png';
 import Header from "../components/Header"
 
 class About_Open extends React.Component {
@@ -93,13 +94,13 @@ class About_Open extends React.Component {
                 <div className={viewb.subtitle}>한국에서의 채식</div>
                 <div className={viewb.contents_highlight}>채식 관련 단체 '한채연'에 따르면 국내 채식주의자의 수는 2008년 15만명 수준에서 2018년 150만명으로 추정하고 있다.<br />
                 10년 동안 10배 가량 증가한 것이다.<br />
-                비건에 대한 관심도 증가하고 있다. 지난 5년간의 구글 검색량을 보면 꾸준히 관심도가 증가하는 것을 볼 수 있다.<br />
-                (구글 트렌드 그래프)</div>
+                비건에 대한 관심도 증가하고 있다. 지난 5년간의 구글 검색량을 보면 꾸준히 관심도가 증가하는 것을 볼 수 있다.<br /></div>
+                <img src={Trand} className={viewb.img}/>
               </div>
-              <div className={viewb.block}>
+              {/* <div className={viewb.block}>
                 <div className={viewb.subtitle}>채식 관련 산업</div>
                 <div className={viewb.contents}></div>
-              </div>
+              </div> */}
               <div className={viewb.block}>
                 <hr size='3' color='#537f46'></hr>
                 <div>프로젝트 목표</div>

@@ -129,7 +129,7 @@ const Recipe = () => {
   let page_boards = [];
 
   // limit은 보여줄 개수
-  let limit = 12;
+  let limit = 50;
   let start = 0;
   let end = limit;
   // 총 페이지가 몇개 나오는지 담는 배열

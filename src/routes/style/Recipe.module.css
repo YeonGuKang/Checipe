@@ -1,4 +1,4 @@
-/* ë’¤ì— ë°°ê²½í¬ê¸°ì™€ ìƒ‰ê¹”ì„ ì„¤ì •*/
+/* ?ªì? ?÷ûÜÆ??İ¹?¢æ ????? ?ªì?*/
 @font-face{
     font-family: goldenpier;
     src:url('../fonts/MapoGoldenPier.ttf');
@@ -36,7 +36,7 @@
     align-items: center;
     background-color: var(--header-background);
 }
-/* ì„¹ì…˜ë””í´íŠ¸ëŠ” í˜„ì¬ ë²„íŠ¼ í´ë¦­ ì•ˆí–ˆì„ ë•Œ ë³´ì—¬ì§€ëŠ” ì§„í•œ ì´ˆë¡ìƒ‰ ë¶€ë¶„ì„. */
+/* ????????? â÷ı³? ??? ?ğÂ¥Í ????? ïÅ? ?ñ©?ıä¢æï³? ıä?? ?æÀ??? ?¢æ?ı³ç». */
 /* .sectiondefault {
     background-color : var(--background-color);
     width : 92vw;
@@ -52,7 +52,7 @@
     height: "1000px";
 }
 
-.space { /* ê²¹ì¹˜ëŠ” ì—¬ë°±ì„ ë”°ë¡œ ì§„í–‰í•œ ë¶€ë¶„. ë‚œ ì´ê±° ë³´ê³  ì´í•´ í–ˆì„ê±¸*/
+.space { /* ???ï³? ????? ?Úâ? ıä??Ìñ? ?¢æ??. ?? ??İä ??? ??? ?????*/
     background-color : var(--background-color);
     width : 92vw;
     height : 30vh;
@@ -62,7 +62,7 @@
 }
 
 .section { 
-    /* ì„ íƒ ë ˆì‹œí”¼ê°€ ë‚˜ì˜¤ë©´ ë°°ì¹˜ë˜ëŠ” ì˜ì—­ */
+    /* ??? ???ğ¢?? ????? ?????? ??? */
     z-index: 1;
     background-color : var(--background-color);
     width : 92vw;
@@ -75,7 +75,7 @@
 }
 
 .sectionplace {
-    /* ì„¹ì…˜ì•ˆì— ìœ„ì¹˜í•˜ë©´ì„œ ë ˆì‹œí”¼ì˜ ë°°ì—´ì„ ì •í•´ì£¼ëŠ” í´ë˜ìŠ¤ */
+    /* ?????? ?ı³?Ìñ?¦¤?? ???ğ¢?? ????? ?????? ?ğÂ??? */
     position : relative;
     width : 92vw;
     margin-top: 1vh;
@@ -92,7 +92,7 @@
 
 
 .result {
-    /* ë ˆì‹œí”¼ë¥¼ ê°œë³„ë¡œ ê°ì‹¸ì£¼ëŠ” í•˜ì–€ìƒ‰ ì‚¬ê°í˜• */
+    /* ???ğ¢?«¼ íõ???? íõ????? Ìñ???? ìæ??â÷? */
     padding  : 0.5vw;
     margin : 1vw;
     z-index: 2;
@@ -103,7 +103,7 @@
     border-bottom-right-radius: 40px; 
     border-bottom-left-radius: 40px; 
 
-   /*í‹€ì— ë§ì¶°ì„œ ì •ë³´ë¥¼ ë³´ì—¬ì¤Œ ë„˜ì¹˜ëŠ”ê±´ hidden*/
+   /*?¢æ?? ????? ??õ¤?? ?ñ©??? ???ï³?? hidden*/
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -112,7 +112,7 @@
 
 
 .whiteselect { 
-    /* ì‚¬ìš©ìê°€ ì‚¬ìš©í•  ë²„íŠ¼ì´ ìœ„ì¹˜í•¨ (í•˜ì–€ìƒ‰) */
+    /* ìæ????? ìæ??Ìñ? ????? ?ı³?Ìñ? (Ìñ????) */
     z-index: 1;
     background-color : white;
     width : 80vw;
@@ -126,7 +126,7 @@
 }
 
 .Rtitle {
-    /* ë ˆì‹œí”¼ ì´ë¦„ */
+    /* ???ğ¢? ?ğÂ? */
     font-size: 1.6rem;
     font-weight: bold;
     margin-top: 1vh;
@@ -242,7 +242,7 @@
     .menubtn{
         display: block;
     }
-    /* ë¡œê·¸ì¸ ë„¤ë¹„ë°” ë¶€ë¶„ì´ í™œì„±í™” ë˜ì—ˆì„ë•Œ(í´ë¦­ ì‹œ) */
+    /* ?üÑÛó?? ?ªë??? ?¢æ?ı³? ?ô¯??? ?????öø(?ğÂ¥Í ??) */
     .login.active,
     .nav.active{
         display: flex;

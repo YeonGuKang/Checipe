@@ -117,6 +117,9 @@
     box-shadow: 0 0 10px 15px #537f4627;
     transition: all .5s;
 }
+.img{
+    width: 70vw;
+}
 .smalltitle{
     text-align: left;
     margin: 2vw;
