@@ -1,5 +1,5 @@
 # Checipe Website - Recipes for Vegitarian :herb:
-https://yeongukang.github.io/Checipe/
+https://jongmin4422.github.io/Checipe/
 >> Now, yet only for KOREAN
 
 ## Reason for Project :eyes:
